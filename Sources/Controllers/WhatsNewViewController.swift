@@ -6,8 +6,8 @@
 //  Copyright © 2018 WhatsNewKit. All rights reserved.
 //
 
-import UIKit
 import SafariServices
+import UIKit
 
 /// The WhatsNewViewController
 public class WhatsNewViewController: UIViewController {

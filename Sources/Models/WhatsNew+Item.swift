@@ -30,12 +30,14 @@ public extension WhatsNew {
         public var configuration: Configuration
         
         /// The CodingKeys
+        // swiftlint:disable nesting
         enum CodingKeys: CodingKey {
             case title
             case text
             case image
             case configuration
         }
+        // swiftlint:enable nestings
         
         // MARK: Initializer
         

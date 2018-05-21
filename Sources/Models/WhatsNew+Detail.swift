@@ -27,10 +27,12 @@ public extension WhatsNew {
         public var configuration: Configuration = .init()
 
         /// The CodingKeys
+        // swiftlint:disable nesting
         enum CodingKeys: CodingKey {
             case url
             case button
         }
+        // swiftlint:enable nesting
         
         // MARK: Initializer
         
