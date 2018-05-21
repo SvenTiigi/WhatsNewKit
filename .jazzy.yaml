@@ -1,0 +1,9 @@
+# WhatsNewKit document generator jazzy settings
+
+copyright: Copyright 2018 Sven Tiigi
+author: Sven Tiigi
+github_url: https://github.com/SvenTiigi/WhatsNewKit
+xcodebuild_arguments: [-target, WhatsNewKit-iOS]
+clean: true
+output: ./Documentation
+min_acl: private
