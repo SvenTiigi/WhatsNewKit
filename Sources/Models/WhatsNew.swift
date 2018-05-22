@@ -135,7 +135,7 @@ public extension WhatsNew {
         // Set button background color
         self.button.configuration.backgroundColor = theme.tintColor
         // Set button text color
-        self.button.configuration.textColor = theme.textColor
+        self.button.configuration.textColor = theme.backgroundColor
         // Return self
         return self
     }
