@@ -23,8 +23,20 @@ public class WhatsNewViewController: UIViewController {
     public static let defaultCompletion: Completion = {
         $0.dismiss(animated: true)
     }
-
-    // MARK: Properties
+    
+    // MARK: Public Properties
+    
+    /// The preferred status bar style
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        // Initialize white
+        var white: CGFloat = 0
+        // Retrieve white for background color
+        self.view.backgroundColor?.getWhite(&white, alpha: nil)
+        // If white is greater 0.5 return default otherwise light content
+        return white > 0.5 ? .default : .lightContent
+    }
+    
+    // MARK: Private Properties
     
     /// The WhatsNew
     private let whatsNew: WhatsNew
