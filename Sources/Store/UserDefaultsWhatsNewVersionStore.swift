@@ -34,6 +34,20 @@ public struct UserDefaultsWhatsNewVersionStore: Equatable {
         self.prefixIdentifier = prefixIdentifier
     }
     
+    /// Clear all stored Versions
+    public func clearVersions() {
+        // Retrieve dictionary representation
+        let values = self.userDefaults.dictionaryRepresentation()
+        // Remove all UserDefaults stored Versions
+        values.filter {
+            // Filter where key starts with prefix identifier
+            $0.key.starts(with: self.prefixIdentifier)
+        }.map {
+            // Map to Key
+            $0.key
+        }.forEach(UserDefaults.standard.removeObject)
+    }
+    
 }
 
 // MARK: - WhatsNewVersionStore
@@ -56,20 +70,6 @@ extension UserDefaultsWhatsNewVersionStore: WhatsNewVersionStore {
     /// - Returns: Bool if Version has been presented
     public func has(version: WhatsNew.Version) -> Bool {
         return self.userDefaults.object(forKey: prefixIdentifier + version.description) != nil
-    }
-    
-    /// Clear all stored Versions
-    public func clearVersions() {
-        // Retrieve dictionary representation
-        let values = self.userDefaults.dictionaryRepresentation()
-        // Remove all UserDefaults stored Versions
-        values.filter {
-            // Filter where key starts with prefix identifier
-            $0.key.starts(with: self.prefixIdentifier)
-        }.map {
-            // Map to Key
-            $0.key
-        }.forEach(UserDefaults.standard.removeObject)
     }
     
 }
