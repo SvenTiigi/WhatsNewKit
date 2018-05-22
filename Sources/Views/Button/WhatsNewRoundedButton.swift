@@ -16,6 +16,7 @@ class WhatsNewRoundedButton: UIButton {
     /// The highlighted background color
     private var highlightedBackgroundColor: UIColor = .white
     
+    /// The onPress closure
     private var onPress: (() -> Void)?
     
     // MARK: Initializer

@@ -20,6 +20,7 @@ class WhatsNewTitleView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = self.title.text
+        label.backgroundColor = .clear
         label.numberOfLines = 0
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
@@ -34,11 +35,15 @@ class WhatsNewTitleView: UIView {
     ///
     /// - Parameters:
     ///   - title: The WhatsNew Title
-    init(title: WhatsNew.Title) {
+    ///   - backgroundColor: The background color
+    init(title: WhatsNew.Title,
+         backgroundColor: UIColor) {
         // Set title
         self.title = title
         // Super init zero frame
         super.init(frame: .zero)
+        // Set background color
+        self.backgroundColor = backgroundColor
         // Add title label
         self.addSubview(self.titleLabel)
     }

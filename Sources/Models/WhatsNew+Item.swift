@@ -111,6 +111,9 @@ public extension WhatsNew.Item {
         /// The text color
         public var textColor: UIColor
         
+        /// The background color
+        public var backgroundColor: UIColor
+        
         /// Default initializer
         ///
         /// - Parameters:
@@ -118,14 +121,17 @@ public extension WhatsNew.Item {
         ///   - titleColor: The title color: Default value `.black`
         ///   - textFont: The text font. Default value `size: 17`
         ///   - textColor: The text color. Default value `.black`
+        ///   - backgroundColor: The background color. Default value `.white`
         public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
                     titleColor: UIColor = .black,
                     textFont: UIFont = .systemFont(ofSize: 17),
-                    textColor: UIColor = .black) {
+                    textColor: UIColor = .black,
+                    backgroundColor: UIColor = .white) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.textFont = textFont
             self.textColor = textColor
+            self.backgroundColor = backgroundColor
         }
         
     }

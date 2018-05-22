@@ -11,32 +11,50 @@ import UIKit
 
 /// The WhatsNewViewController
 public class WhatsNewViewController: UIViewController {
+    
+    // MARK: Typealias
+    
+    /// The completion typealias
+    public typealias Completion = (WhatsNewViewController) -> Void
+    
+    // MARK: Static Properties
+    
+    /// The default completion which dismisses the WhatsNewViewController
+    public static let defaultCompletion: Completion = {
+        $0.dismiss(animated: true)
+    }
 
     // MARK: Properties
     
     /// The WhatsNew
     private let whatsNew: WhatsNew
     
+    /// The VersionStore
+    private var versionStore: WhatsNewVersionStore?
+    
     /// On Complete
-    private let onComplete: (WhatsNewViewController) -> Void
+    private let onComplete: Completion
 
     /// The TitleView
     private lazy var titleView: UIView = WhatsNewTitleView(
-        title: self.whatsNew.title
+        title: self.whatsNew.title,
+        backgroundColor: self.whatsNew.configuration.backgroundColor
     )
     
     /// The ItemsView
     private lazy var itemsView: UIView = WhatsNewItemsView(
-        items: self.whatsNew.items
+        items: self.whatsNew.items,
+        backgroundColor: self.whatsNew.configuration.backgroundColor
     )
     
     /// The ButtonView
     private lazy var buttonView: UIView = WhatsNewButtonView(
         detailButton: self.whatsNew.detail?.button,
         button: self.whatsNew.button,
-        onPress: { [weak self] action in
-            // Handle action
-            self?.handle(action: action)
+        backgroundColor: self.whatsNew.configuration.backgroundColor,
+        onPress: { [weak self] buttonType in
+            // Handle button type
+            self?.handleOnPress(buttonType: buttonType)
         }
     )
     
@@ -49,7 +67,7 @@ public class WhatsNewViewController: UIViewController {
     ///   - configuration: The configuration
     ///   - onComplete: The on complete closure. Default value `dismiss animated`
     public init(whatsNew: WhatsNew,
-                onComplete: @escaping (WhatsNewViewController) -> Void = { $0.dismiss(animated: true) }) {
+                onComplete: @escaping Completion = WhatsNewViewController.defaultCompletion) {
         // Set WhatsNew
         self.whatsNew = whatsNew
         // Set onComplete
@@ -57,11 +75,33 @@ public class WhatsNewViewController: UIViewController {
         // Super init
         super.init(nibName: nil, bundle: nil)
         // Set white background color
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = self.whatsNew.configuration.backgroundColor
         // Add Subviews
         self.view.addSubview(self.titleView)
         self.view.addSubview(self.itemsView)
         self.view.addSubview(self.buttonView)
+    }
+    
+    /// Convenience optional initializer with WhatsNewVersionStore.
+    /// Initializer checks via WhatsNewVersionStore if Version has already been presented.
+    /// If a Version has been found the initializer will return nil.
+    ///
+    /// - Parameters:
+    ///   - whatsNew: The WhatsNew
+    ///   - versionStore: The WhatsNewVersionStore
+    ///   - onComplete: The on complete closure. Default value `dismiss animated`
+    public convenience init?(whatsNew: WhatsNew,
+                             versionStore: WhatsNewVersionStore,
+                             onComplete: @escaping Completion = WhatsNewViewController.defaultCompletion) {
+        // Check if VersionStore has version
+        if versionStore.has(version: whatsNew.version) {
+            // Return nil
+            return nil
+        }
+        // Self init with WhatsNew and onComplete closure
+        self.init(whatsNew: whatsNew, onComplete: onComplete)
+        // Set VersionStore
+        self.versionStore = versionStore
     }
     
     /// Initializer with Coder always returns nil
@@ -99,15 +139,15 @@ public class WhatsNewViewController: UIViewController {
     
     // MARK: Action Handler
     
-    /// Handle Action
+    /// Handle onPress with button type
     ///
-    /// - Parameter action: The Action
-    private func handle(action: WhatsNewButtonView.Action) {
-        // Switch on action
-        switch action {
+    /// - Parameter buttonType: The Button type
+    private func handleOnPress(buttonType: WhatsNewButtonView.ButtonType) {
+        // Switch on button type
+        switch buttonType {
         case .completion:
             // Store Version
-            WhatsNewViewController.store.set(version: self.whatsNew.version)
+            self.versionStore?.set(version: self.whatsNew.version)
             // Invoke on complete
             self.onComplete(self)
         case .detail:
@@ -123,38 +163,6 @@ public class WhatsNewViewController: UIViewController {
             // Present ViewController
             self.present(safariViewController, animated: true)
         }
-    }
-    
-}
-
-// MARK: - Static Information
-
-public extension WhatsNewViewController {
-    
-    /// The Store
-    private static let store = WhatsNewStore()
-    
-    // MARK: Static Function
-    
-    /// Should present WhatsNew
-    ///
-    /// - Parameter whatsNew: The WhatsNew object
-    /// - Returns: Bool if WhatsNew has already been presented
-    static func shouldPresent(whatsNew: WhatsNew) -> Bool {
-        return self.store.has(version: whatsNew.version)
-    }
-    
-    /// Should present WhatsNew for Version
-    ///
-    /// - Parameter version: The Version
-    /// - Returns: Bool if WhatsNew for Version has already been presented
-    static func shouldPresent(version: String) -> Bool {
-        return self.store.has(version: version)
-    }
-    
-    /// Clear all presented WhatsNews
-    static func clearAllPresentedWhatsNew() {
-        self.store.clear()
     }
     
 }

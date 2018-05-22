@@ -13,9 +13,11 @@ class WhatsNewButtonView: UIView {
     
     // MARK: Properties
     
-    /// The Action
-    public enum Action {
+    /// The ButtonType
+    public enum ButtonType {
+        /// Detail button
         case detail
+        /// Completion button
         case completion
     }
     
@@ -26,7 +28,7 @@ class WhatsNewButtonView: UIView {
     private let button: WhatsNew.Button
     
     /// The onPress closure
-    private let onPress: (Action) -> Void
+    private let onPress: (ButtonType) -> Void
     
     /// The completion Button
     private lazy var completionButton = WhatsNewRoundedButton(
@@ -68,10 +70,12 @@ class WhatsNewButtonView: UIView {
     /// - Parameters:
     ///   - detailButton: The detail button
     ///   - button: The button
+    ///   - backgroundColor: The background color
     ///   - onPress: The on press closure
     init(detailButton: WhatsNew.Detail.Button?,
          button: WhatsNew.Button,
-         onPress: @escaping (Action) -> Void) {
+         backgroundColor: UIColor,
+         onPress: @escaping (ButtonType) -> Void) {
         // Set detail action
         self.detailButton = detailButton
         // Set button
@@ -80,6 +84,8 @@ class WhatsNewButtonView: UIView {
         self.onPress = onPress
         // Super init with zero frame
         super.init(frame: .zero)
+        // Set background color
+        self.backgroundColor = backgroundColor
         // Add Button subview
         self.addSubview(self.completionButton)
         self.addSubview(self.detailUIButton)

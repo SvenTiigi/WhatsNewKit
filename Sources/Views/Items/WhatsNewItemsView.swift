@@ -22,6 +22,8 @@ class WhatsNewItemsView: UIView {
     private lazy var tableView: UITableView = {
         // Initialize TableView
         let tableView = UITableView()
+        // Set clear background color
+        tableView.backgroundColor = .clear
         // Only bounce vertical if space is needed
         tableView.alwaysBounceVertical = false
         // set data source
@@ -41,12 +43,15 @@ class WhatsNewItemsView: UIView {
     ///
     /// - Parameters:
     ///   - items: The WhatsNew Items
-    ///   - configuration: The configuration
-    init(items: [WhatsNew.Item]) {
+    ///   - backgroundColor: The background color
+    init(items: [WhatsNew.Item],
+         backgroundColor: UIColor) {
         // Set items
         self.items = items
         // Super init zero frame
         super.init(frame: .zero)
+        // Set background color
+        self.backgroundColor = backgroundColor
         // Add TableView
         self.addSubview(self.tableView)
     }
@@ -95,7 +100,8 @@ extension WhatsNewItemsView: UITableViewDataSource {
         }
         // Return WhatsNewItemTableViewCell
         return WhatsNewItemTableViewCell(
-            item: self.items[indexPath.row]
+            item: self.items[indexPath.row],
+            backgroundColor: self.backgroundColor
         )
     }
     

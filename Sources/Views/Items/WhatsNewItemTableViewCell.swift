@@ -15,12 +15,16 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     ///
     /// - Parameters:
     ///   - item: The WhatsNew Item
-    init(item: WhatsNew.Item) {
+    ///   - backgroundColor: The background color
+    init(item: WhatsNew.Item,
+         backgroundColor: UIColor?) {
         // Super init default style
         super.init(
             style: .default,
             reuseIdentifier: String(describing: WhatsNewItemTableViewCell.self)
         )
+        // Set background color
+        self.contentView.backgroundColor = backgroundColor
         // Set image
         self.imageView?.image = item.image
         // Check if title is empty

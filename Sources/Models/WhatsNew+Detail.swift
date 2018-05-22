@@ -21,7 +21,7 @@ public extension WhatsNew {
         public let url: String
         
         /// The Button
-        public let button: Button
+        public var button: Button
         
         /// The Configuration
         public var configuration: Configuration = .init()
