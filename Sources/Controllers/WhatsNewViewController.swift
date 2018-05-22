@@ -151,10 +151,11 @@ public class WhatsNewViewController: UIViewController {
             // Invoke on complete
             self.onComplete(self)
         case .detail:
-            // Unwrap url
-            guard let urlString = self.whatsNew.detail?.url, let url = URL(string: urlString) else {
-                // URL unavailable
-                return
+            // Check if url is available
+            guard let urlString = self.whatsNew.detail?.url,
+                let url = URL(string: urlString) else {
+                    // URL unavailable
+                    return
             }
             // Initialize SafariViewController
             let safariViewController = SFSafariViewController(url: url)
