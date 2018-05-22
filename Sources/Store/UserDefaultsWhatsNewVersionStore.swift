@@ -29,10 +29,12 @@ public struct UserDefaultsWhatsNewVersionStore: Equatable {
     ///   - userDefaults: The UserDefaults. Default value `.standard`
     ///   - prefixIdentifier: The prefix identifier. Default value `de.tiigi.whatsnewkit.`
     public init(userDefaults: UserDefaults = .standard,
-                prefixIdentifier: String = "de.tiigi.whatsnewkit.") {
+                prefixIdentifier: String = "de.tiigi.whatsnewkit") {
         self.userDefaults = userDefaults
         self.prefixIdentifier = prefixIdentifier
     }
+    
+    // MARK: Public API
     
     /// Clear all stored Versions
     public func clearVersions() {
@@ -48,6 +50,16 @@ public struct UserDefaultsWhatsNewVersionStore: Equatable {
         }.forEach(UserDefaults.standard.removeObject)
     }
     
+    // MARK: Private API
+    
+    /// Retrieve Key for Version
+    ///
+    /// - Parameter version: The Version
+    /// - Returns: String key concatenated with prefix identifier
+    private func key(forVersion version: WhatsNew.Version) -> String {
+        return "\(self.prefixIdentifier).\(version)"
+    }
+    
 }
 
 // MARK: - WhatsNewVersionStore
@@ -59,7 +71,7 @@ extension UserDefaultsWhatsNewVersionStore: WhatsNewVersionStore {
     /// - Parameter version: The Version
     public func set(version: WhatsNew.Version) {
         // Set Version
-        self.userDefaults.set(version, forKey: prefixIdentifier + version.description)
+        self.userDefaults.set(version, forKey: self.key(forVersion: version))
         // Synchronize UserDefaults
         self.userDefaults.synchronize()
     }
@@ -69,7 +81,7 @@ extension UserDefaultsWhatsNewVersionStore: WhatsNewVersionStore {
     /// - Parameter version: The Version
     /// - Returns: Bool if Version has been presented
     public func has(version: WhatsNew.Version) -> Bool {
-        return self.userDefaults.object(forKey: prefixIdentifier + version.description) != nil
+        return self.userDefaults.object(forKey: self.key(forVersion: version)) as? WhatsNew.Version == version
     }
     
 }
