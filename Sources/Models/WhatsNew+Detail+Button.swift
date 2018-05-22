@@ -98,7 +98,7 @@ public extension WhatsNew.Detail.Button {
         ///   - textFont: The text font
         ///   - textColor: The text color
         public init(textFont: UIFont = .systemFont(ofSize: 17),
-                    textColor: UIColor = .orange) {
+                    textColor: UIColor = WhatsNew.Theme.default.tintColor) {
             self.textFont = textFont
             self.textColor = textColor
         }

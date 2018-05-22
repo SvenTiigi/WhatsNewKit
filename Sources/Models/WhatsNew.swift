@@ -66,8 +66,8 @@ public struct WhatsNew: Codable, Equatable {
         self.button = button
         self.configuration = configuration
         // Set theme if available
-        theme.flatMap {
-            self.set(theme: $0)
+        if let theme = theme {
+            self.set(theme: theme)
         }
     }
     
@@ -108,20 +108,36 @@ public extension WhatsNew {
     /// Set Theme
     ///
     /// - Parameter theme: The Theme
-    mutating func set(theme: Theme) {
+    /// - Returns: The WhatsNew object
+    @discardableResult
+    mutating func set(theme: Theme) -> WhatsNew {
+        // Set background color
         self.configuration.backgroundColor = theme.backgroundColor
+        // Set title text color
         self.title.configuration.textColor = theme.textColor
+        // Map Items
         self.items = self.items.map {
+            // Initialize mutable item
             var item = $0
+            // Set item background color
             item.configuration.backgroundColor = theme.backgroundColor
-            item.configuration.textColor = theme.textColor
+            // Set item title color
             item.configuration.titleColor = theme.textColor
+            // Set item text color
+            item.configuration.textColor = theme.textColor
+            // Return item
             return item
         }
+        // Set detail tint color
         self.detail?.configuration.tintColor = theme.tintColor
+        // Set detail button text color
         self.detail?.button.configuration.textColor = theme.tintColor
+        // Set button background color
         self.button.configuration.backgroundColor = theme.tintColor
+        // Set button text color
         self.button.configuration.textColor = theme.textColor
+        // Return self
+        return self
     }
     
 }

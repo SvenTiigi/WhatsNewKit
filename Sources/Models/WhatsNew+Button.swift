@@ -86,10 +86,10 @@ public extension WhatsNew.Button {
     struct Configuration: Equatable {
         
         /// The background color
-        public var backgroundColor: UIColor = .orange
+        public var backgroundColor: UIColor
         
         /// The text color
-        public var textColor: UIColor = .white
+        public var textColor: UIColor
         
         /// The text font
         public var textFont: UIFont
@@ -104,7 +104,7 @@ public extension WhatsNew.Button {
         ///   - textColor: The title color. Default value `.white`
         ///   - textFont: The font. Default value `size: 17, weight: .semibold`
         ///   - cornerRadius: The corner radius. Default value `8.0`
-        public init(backgroundColor: UIColor = .orange,
+        public init(backgroundColor: UIColor = WhatsNew.Theme.default.tintColor,
                     textColor: UIColor = .white,
                     textFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
                     cornerRadius: CGFloat = 8.0) {

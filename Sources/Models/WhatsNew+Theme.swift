@@ -58,6 +58,18 @@ extension WhatsNew.Theme: Equatable {
 
 public extension WhatsNew.Theme {
     
+    static let `default`: WhatsNew.Theme = .init(
+        backgroundColor: .white,
+        textColor: .black,
+        tintColor: UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+    )
+    
+    static let darkBlue: WhatsNew.Theme = .init(
+        backgroundColor: UIColor(red: 20/255, green: 29/255, blue: 38/255, alpha: 1),
+        textColor: .white,
+        tintColor: UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+    )
+    
     static let whiteOrange: WhatsNew.Theme = .init(
         backgroundColor: .white,
         textColor: .black,
@@ -65,7 +77,7 @@ public extension WhatsNew.Theme {
     )
     
     static let darkOrange: WhatsNew.Theme = .init(
-        backgroundColor: .black,
+        backgroundColor: UIColor(red: 20/255, green: 29/255, blue: 38/255, alpha: 1),
         textColor: .white,
         tintColor: .orange
     )

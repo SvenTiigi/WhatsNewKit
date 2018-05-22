@@ -24,11 +24,10 @@ class ViewController: UIViewController {
 
         let detail = WhatsNew.Detail(url: "https://github.com", button: "All news")
         
-        let whatsNew = WhatsNew(version: "0.0.1", title: "New in WhatsNewKit", items: item1, item2, item3, detail: detail, button: "Let's go")
-        //let controller = WhatsNewViewController(whatsNew: whatsNew)
-        //self.present(controller, animated: true, completion: nil)
-        let alertController = UIAlertController(whatsNew: whatsNew)
-        self.present(alertController, animated: true, completion: nil)
+        var whatsNew = WhatsNew(version: "0.0.1", title: "New in WhatsNewKit", items: item1, item2, item3, detail: detail, button: "Let's go")
+        whatsNew.set(theme: .darkOrange)
+        let controller = WhatsNewViewController(whatsNew: whatsNew)
+        self.present(controller, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

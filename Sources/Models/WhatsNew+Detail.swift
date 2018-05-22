@@ -89,7 +89,7 @@ public extension WhatsNew.Detail {
         /// Default initializer
         ///
         /// - Parameter tintColor: The tint color
-        public init(tintColor: UIColor = .orange) {
+        public init(tintColor: UIColor = WhatsNew.Theme.default.tintColor) {
             self.tintColor = tintColor
         }
         
