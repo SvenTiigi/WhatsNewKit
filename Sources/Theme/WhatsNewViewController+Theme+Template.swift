@@ -8,21 +8,9 @@
 
 import UIKit
 
+// MARK: - Default Theme Template
+
 public extension WhatsNewViewController.Theme {
-    
-    private static let defaultBlue = UIColor(
-        red: 0,
-        green: 122/255,
-        blue: 1,
-        alpha: 1
-    )
-    
-    private static let defaultDark = UIColor(
-        red: 20/255,
-        green: 29/255,
-        blue: 38/255,
-        alpha: 1
-    )
     
     /// Default Theme (white background and blue tint color)
     static var `default`: WhatsNewViewController.Theme {
@@ -46,10 +34,10 @@ public extension WhatsNewViewController.Theme {
             ),
             detailButtonTheme: .init(
                 titleFont: .systemFont(ofSize: 17),
-                titleColor: self.defaultBlue
+                titleColor: .defaultBlue
             ),
             completionButtonTheme: .init(
-                backgroundColor: self.defaultBlue,
+                backgroundColor: .defaultBlue,
                 titleFont: .systemFont(
                     ofSize: 17,
                     weight: .semibold
@@ -60,10 +48,16 @@ public extension WhatsNewViewController.Theme {
         )
     }
     
+}
+
+// MARK: - Theme Templates
+
+public extension WhatsNewViewController.Theme {
+    
     /// Dark Default Theme (dark background and blue tint color)
     static var darkDefault: WhatsNewViewController.Theme {
         var darkDefault = self.default
-        darkDefault.backgroundColor = self.defaultDark
+        darkDefault.backgroundColor = .defaultDark
         darkDefault.titleViewTheme.titleColor = .white
         darkDefault.itemsViewTheme.titleColor = .white
         darkDefault.itemsViewTheme.textColor = .white
@@ -85,7 +79,7 @@ public extension WhatsNewViewController.Theme {
     /// Dark Orange Theme (dark background and orange tint color)
     static var darkOrange: WhatsNewViewController.Theme {
         var whiteOrange = self.default
-        whiteOrange.backgroundColor = self.defaultDark
+        whiteOrange.backgroundColor = .defaultDark
         whiteOrange.titleViewTheme.titleColor = .white
         whiteOrange.itemsViewTheme.titleColor = .white
         whiteOrange.itemsViewTheme.textColor = .white

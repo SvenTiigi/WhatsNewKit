@@ -17,4 +17,20 @@ extension UIColor {
         return white > 0.5
     }
     
+    /// The default blue color
+    static let defaultBlue = UIColor(
+        red: 0,
+        green: 122/255,
+        blue: 1,
+        alpha: 1
+    )
+    
+    /// The default dark color
+    static let defaultDark = UIColor(
+        red: 20/255,
+        green: 29/255,
+        blue: 38/255,
+        alpha: 1
+    )
+    
 }
