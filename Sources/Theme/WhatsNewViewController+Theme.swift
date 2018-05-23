@@ -138,8 +138,11 @@ public extension WhatsNewViewController.Theme.ItemsViewTheme {
         case none
         /// Slide up
         case slideUp
+        /// Slide down
         case slideDown
+        /// Slide left
         case slideLeft
+        /// Slide right
         case slideRight
         /// Custom Animation
         case custom(animation: Animation)
@@ -168,6 +171,12 @@ extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: Equatable {
         case (.none, .none):
             return true
         case (.slideUp, .slideUp):
+            return true
+        case (.slideDown, .slideDown):
+            return true
+        case (.slideLeft, .slideLeft):
+            return true
+        case (.slideRight, .slideRight):
             return true
         case (.custom, .custom):
             return true
