@@ -1,5 +1,5 @@
 <p align="center">
-   <img width="350" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKitLogo.png" alt="WhatsNewKit Header Logo">
+   <img width="500" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKitLogo.png" alt="WhatsNewKit Header Logo">
 </p>
 
 <p align="center">
