@@ -18,11 +18,50 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let item1 = WhatsNew.Item(title: "Neues User-Interface", text: "Ein ganz neues User-Interface erwartet dich sei gespannt", image: #imageLiteral(resourceName: "pencil"))
-        let item2 = WhatsNew.Item(title: "Neuer Network-Service", text: "Bessere Netzwerkkommunikation damit Daten noch schneller", image: #imageLiteral(resourceName: "box"))
-        let item3 = WhatsNew.Item(title: "Social Media Integration", text: "Jetzt sind alle Social Media Dienste verfügbar probier es aus", image: #imageLiteral(resourceName: "sun"))
-        let whatsNew = WhatsNew(version: "0.0.1", title: "New in WhatsNewKit", items: item1, item2, item3, detailButtonTitle: "All news", completionButtonTitle: "Let's go")
-        let controller = WhatsNewViewController(whatsNew: whatsNew)
+        
+        let easySetupItem = WhatsNew.Item(
+            title: "Easy Setup",
+            text: "The simple and typesafe WhatsNew struct enables you to structurize your awesome new app features",
+            image: #imageLiteral(resourceName: "setup")
+        )
+        
+        let themesItem = WhatsNew.Item(
+            title: "Themes",
+            text: "You can apply different themes to perfectly match with your existing app design",
+            image: #imageLiteral(resourceName: "themes")
+        )
+        
+        let installationItem = WhatsNew.Item(
+            title: "Installation",
+            text: "You can install WhatsNewKit via CocoaPods and Carthage",
+            image: #imageLiteral(resourceName: "installation")
+        )
+        
+        let documentationItem = WhatsNew.Item(
+            title: "Open Source",
+            text: "Contributions are\nvery welcome 🙌 👨‍💻",
+            image: #imageLiteral(resourceName: "contributing")
+        )
+        
+        let whatsNew = WhatsNew(
+            version: "1.0.0",
+            title: "WhatsNewKit",
+            items: easySetupItem, themesItem, installationItem, documentationItem,
+            detailButtonTitle: "Read more",
+            completionButtonTitle: "Let's go 🙌"
+        )
+        
+        var demoTheme = WhatsNewViewController.Theme.darkPurple
+        demoTheme.titleViewTheme.titleColor = demoTheme.completionButtonTheme.backgroundColor
+        demoTheme.titleViewTheme.titleFont = .systemFont(ofSize: 30, weight: .semibold)
+        demoTheme.itemsViewTheme.animator = .default
+        
+        let controller = WhatsNewViewController(
+            whatsNew: whatsNew,
+            theme: demoTheme,
+            onDetail: .website(url: "https://github.com/SvenTiigi/WhatsNewKit")
+        )
+        
         self.present(controller, animated: true, completion: nil)
     }
     

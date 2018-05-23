@@ -18,6 +18,8 @@ class WhatsNewItemsView: ThemableView {
     /// The WhatsNew Items
     private let items: [WhatsNew.Item]
     
+    private var cellDisplayCount = 0
+    
     /// The TableView
     private lazy var tableView: UITableView = {
         // Initialize TableView
@@ -28,6 +30,7 @@ class WhatsNewItemsView: ThemableView {
         tableView.alwaysBounceVertical = false
         // set data source
         tableView.dataSource = self
+        tableView.delegate = self
         // Clear table footer view
         tableView.tableFooterView = UIView()
         // No seperators
@@ -70,9 +73,9 @@ class WhatsNewItemsView: ThemableView {
         let relativePadding: CGFloat = 0.05
         // Set TableView frame
         self.tableView.frame = CGRect(
-            x: 0,
+            x: self.frame.size.width * relativePadding,
             y: 0,
-            width: self.frame.size.width - self.frame.size.width * relativePadding,
+            width: self.frame.size.width - self.frame.size.width * relativePadding * 2,
             height: self.frame.size.height
         )
     }
@@ -120,6 +123,26 @@ extension WhatsNewItemsView: UITableViewDataSource {
             item: self.items[indexPath.row],
             theme: self.theme
         )
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+
+extension WhatsNewItemsView: UITableViewDelegate {
+    
+    /// TableView will display cell
+    ///
+    /// - Parameters:
+    ///   - tableView: The TableView
+    ///   - cell: The Cell
+    ///   - indexPath: The indexPath
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? WhatsNewItemTableViewCell, self.cellDisplayCount < self.items.count  else {
+            return
+        }
+        self.cellDisplayCount += 1
+        self.theme.itemsViewTheme.animator.rawValue?(cell, indexPath.row)
     }
     
 }

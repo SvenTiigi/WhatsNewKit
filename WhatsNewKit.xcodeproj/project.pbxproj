@@ -11,7 +11,7 @@
 		3D562CBB20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CBA20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift */; };
 		3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5120B546A100AF4DAF /* ThemableView.swift */; };
 		3D56AD5620B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */; };
-		3D56AD5920B554CE00AF4DAF /* UIColor+Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5820B554CE00AF4DAF /* UIColor+Light.swift */; };
+		3D56AD5920B554CE00AF4DAF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5820B554CE00AF4DAF /* UIColorExtension.swift */; };
 		3D56AD5B20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */; };
 		3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66920AF87E600A10333 /* WhatsNew.swift */; };
 		3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */; };
@@ -69,7 +69,7 @@
 		3D562CBA20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D56AD5120B546A100AF4DAF /* ThemableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemableView.swift; sourceTree = "<group>"; };
 		3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Theme+Template.swift"; sourceTree = "<group>"; };
-		3D56AD5820B554CE00AF4DAF /* UIColor+Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Light.swift"; sourceTree = "<group>"; };
+		3D56AD5820B554CE00AF4DAF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+WhatsNew.swift"; sourceTree = "<group>"; };
 		3D92C66920AF87E600A10333 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Item.swift"; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		3D56AD5720B554C400AF4DAF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3D56AD5820B554CE00AF4DAF /* UIColor+Light.swift */,
+				3D56AD5820B554CE00AF4DAF /* UIColorExtension.swift */,
 				3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */,
 			);
 			path = Extensions;
@@ -474,7 +474,7 @@
 				3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */,
 				3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */,
 				3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */,
-				3D56AD5920B554CE00AF4DAF /* UIColor+Light.swift in Sources */,
+				3D56AD5920B554CE00AF4DAF /* UIColorExtension.swift in Sources */,
 				3DA667A620B0C8AF00DB18FF /* WhatsNewTitleView.swift in Sources */,
 				3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */,
 				3D562CBB20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift in Sources */,

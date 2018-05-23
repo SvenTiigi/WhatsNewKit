@@ -101,6 +101,9 @@ public extension WhatsNewViewController.Theme {
         /// The text color
         public var textColor: UIColor
         
+        /// The animator
+        public var animator: Animator
+        
         /// Default initializer
         ///
         /// - Parameters:
@@ -108,18 +111,109 @@ public extension WhatsNewViewController.Theme {
         ///   - titleColor: The title color
         ///   - textFont: The text font
         ///   - textColor: The text color
+        ///   - animator: The Animator
         public init(titleFont: UIFont,
                     titleColor: UIColor,
                     textFont: UIFont,
-                    textColor: UIColor) {
+                    textColor: UIColor,
+                    animator: Animator) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.textFont = textFont
             self.textColor = textColor
+            self.animator = animator
         }
         
     }
     
+}
+
+// MARK: - ItemsViewTheme Animator
+
+public extension WhatsNewViewController.Theme.ItemsViewTheme {
+    
+    /// The Animator
+    enum Animator {
+        /// None
+        case none
+        /// Default
+        case `default`
+        /// Custom Animation
+        case custom(animation: Animation)
+    }
+    
+}
+
+// MARK: - ItemsViewTheme Animation Typealias
+
+public extension WhatsNewViewController.Theme.ItemsViewTheme {
+    
+    /// The Animation typealias closure with UIView and Item count
+    typealias Animation = (UIView, Int) -> Void
+    
+}
+
+// MARK: - ItemsViewTheme Animator Equatable
+
+extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: Equatable {
+    
+    public static func == (lhs: WhatsNewViewController.Theme.ItemsViewTheme.Animator,
+                           rhs: WhatsNewViewController.Theme.ItemsViewTheme.Animator) -> Bool {
+        switch (lhs, rhs) {
+        case (.none, .none):
+            return true
+        case (.default, .default):
+            return true
+        case (.custom, .custom):
+            return true
+        default:
+            return false
+        }
+    }
+    
+}
+
+// MARK: - ItemsViewTheme Animator RawRepresentable
+
+extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: RawRepresentable {
+
+    /// Associated type RawValue as optional Animation
+    public typealias RawValue = WhatsNewViewController.Theme.ItemsViewTheme.Animation?
+
+    /// RawRepresentable initializer. Which always returns nil
+    ///
+    /// - Parameters:
+    ///   - rawValue: The rawValue
+    public init?(rawValue: RawValue) {
+        return nil
+    }
+
+    /// The optional Animation rawValue
+    public var rawValue: RawValue {
+        switch self {
+        case .none:
+            return nil
+        case .default:
+            return { view, index in
+                view.alpha = 0.0
+                view.transform = CGAffineTransform(
+                    translationX: 0,
+                    y: view.frame.size.height / 2
+                )
+                UIView.animate(
+                    withDuration: 0.5,
+                    delay: 0.10 * (Double(index) + 1.0),
+                    options: .curveEaseInOut,
+                    animations: {
+                        view.transform = .identity
+                        view.alpha = 1.0
+                })
+            }
+        case .custom(animation: let animation):
+            return animation
+        }
+    }
+
 }
 
 // MARK: - DetailButtonTheme

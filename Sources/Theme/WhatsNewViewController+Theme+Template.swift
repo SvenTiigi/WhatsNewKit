@@ -30,7 +30,8 @@ public extension WhatsNewViewController.Theme {
                 ),
                 titleColor: .black,
                 textFont: .systemFont(ofSize: 17),
-                textColor: .black
+                textColor: .black,
+                animator: .none
             ),
             detailButtonTheme: .init(
                 titleFont: .systemFont(ofSize: 17),
@@ -67,10 +68,6 @@ public extension WhatsNewViewController.Theme {
     /// White Orange Theme (white background and orange tint color)
     static var whiteOrange: WhatsNewViewController.Theme {
         var whiteOrange = self.default
-        whiteOrange.backgroundColor = .white
-        whiteOrange.titleViewTheme.titleColor = .black
-        whiteOrange.itemsViewTheme.titleColor = .black
-        whiteOrange.itemsViewTheme.textColor = .black
         whiteOrange.detailButtonTheme.titleColor = .orange
         whiteOrange.completionButtonTheme.backgroundColor = .orange
         return whiteOrange
@@ -86,6 +83,26 @@ public extension WhatsNewViewController.Theme {
         whiteOrange.detailButtonTheme.titleColor = .orange
         whiteOrange.completionButtonTheme.backgroundColor = .orange
         return whiteOrange
+    }
+    
+    /// White Purple Theme (white background and purple tint color)
+    static var whitePurple: WhatsNewViewController.Theme {
+        var whitePurple = self.default
+        whitePurple.detailButtonTheme.titleColor = .defaultPurple
+        whitePurple.completionButtonTheme.backgroundColor = .defaultPurple
+        return whitePurple
+    }
+    
+    /// Dark Purple Theme (dark background and purple tint color)
+    static var darkPurple: WhatsNewViewController.Theme {
+        var darkPurple = self.default
+        darkPurple.backgroundColor = .defaultDark
+        darkPurple.titleViewTheme.titleColor = .white
+        darkPurple.itemsViewTheme.titleColor = .white
+        darkPurple.itemsViewTheme.textColor = .white
+        darkPurple.detailButtonTheme.titleColor = .defaultPurple
+        darkPurple.completionButtonTheme.backgroundColor = .defaultPurple
+        return darkPurple
     }
     
 }
