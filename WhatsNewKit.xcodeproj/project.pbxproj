@@ -130,6 +130,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		3D56AD5C20B559D400AF4DAF /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */,
+				3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		3D92C66C20AF87EA00A10333 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,8 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				3D92C67020AF883300A10333 /* WhatsNewViewController.swift */,
-				3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */,
-				3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				3D92C67A20AF88E000A10333 /* Controllers */,
+				3D56AD5C20B559D400AF4DAF /* Theme */,
 				3DFB6FFE20B34F7E00673FD6 /* Store */,
 				3D92C67920AF88DC00A10333 /* Views */,
 				3D92C66C20AF87EA00A10333 /* Models */,
