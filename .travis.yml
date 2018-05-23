@@ -1,0 +1,20 @@
+branches:
+  only:
+    - master
+    - develop
+    - /^hotfix.*$/
+    - /^feature.*$/
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
+osx_image: xcode9
+language: swift
+
+script: 
+  - fastlane test
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
