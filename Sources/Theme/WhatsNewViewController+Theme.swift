@@ -136,8 +136,11 @@ public extension WhatsNewViewController.Theme.ItemsViewTheme {
     enum Animator {
         /// None
         case none
-        /// Default
-        case `default`
+        /// Slide up
+        case slideUp
+        case slideDown
+        case slideLeft
+        case slideRight
         /// Custom Animation
         case custom(animation: Animation)
     }
@@ -157,12 +160,14 @@ public extension WhatsNewViewController.Theme.ItemsViewTheme {
 
 extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: Equatable {
     
+    /// Returns a Boolean value indicating whether two values are equal.
     public static func == (lhs: WhatsNewViewController.Theme.ItemsViewTheme.Animator,
                            rhs: WhatsNewViewController.Theme.ItemsViewTheme.Animator) -> Bool {
+        // Switch on lhs and rhs
         switch (lhs, rhs) {
         case (.none, .none):
             return true
-        case (.default, .default):
+        case (.slideUp, .slideUp):
             return true
         case (.custom, .custom):
             return true
@@ -193,24 +198,60 @@ extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: RawRepresentable
         switch self {
         case .none:
             return nil
-        case .default:
+        case .custom(animation: let animation):
+            return animation
+        default:
+            // Return predefined animation
             return { view, index in
+                // Declare Transform
+                let transform: CGAffineTransform
+                // Switch on self to initialize Transform
+                switch self {
+                case .slideUp:
+                    transform = CGAffineTransform(
+                        translationX: 0,
+                        y: view.frame.size.height / 2
+                    )
+                case .slideDown:
+                    transform = CGAffineTransform(
+                        translationX: 0,
+                        y: view.frame.size.height / -2
+                    )
+                case .slideLeft:
+                    transform = CGAffineTransform(
+                        translationX: view.frame.size.width,
+                        y: 0
+                    )
+                case .slideRight:
+                    transform = CGAffineTransform(
+                        translationX: -view.frame.size.width,
+                        y: 0
+                    )
+                default:
+                    transform = CGAffineTransform(
+                        translationX: 0,
+                        y: 0
+                    )
+                }
+                // Apply Transform
+                view.transform = transform
+                // Set zero alpha
                 view.alpha = 0.0
-                view.transform = CGAffineTransform(
-                    translationX: 0,
-                    y: view.frame.size.height / 2
-                )
+                // Perform animation
                 UIView.animate(
+                    // Standard duration
                     withDuration: 0.5,
-                    delay: 0.10 * (Double(index) + 1.0),
+                    // Incremented delay via Item count
+                    delay: 0.15 * (Double(index) + 1.0),
+                    // Ease in and out
                     options: .curveEaseInOut,
                     animations: {
+                        // Set identitiy transform
                         view.transform = .identity
+                        // Set default alpha
                         view.alpha = 1.0
                 })
             }
-        case .custom(animation: let animation):
-            return animation
         }
     }
 

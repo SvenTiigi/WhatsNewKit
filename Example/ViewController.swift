@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         var demoTheme = WhatsNewViewController.Theme.whitePurple
         demoTheme.titleViewTheme.titleColor = demoTheme.completionButtonTheme.backgroundColor
         demoTheme.titleViewTheme.titleFont = .systemFont(ofSize: 30, weight: .semibold)
-        demoTheme.itemsViewTheme.animator = .default
+        demoTheme.itemsViewTheme.animator = .slideUp
         
         let controller = WhatsNewViewController(
             whatsNew: whatsNew,
