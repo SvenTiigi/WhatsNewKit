@@ -31,6 +31,13 @@ public struct WhatsNew: Codable, Equatable {
     // MARK: Initializer
     
     /// Default initializer
+    ///
+    /// - Parameters:
+    ///   - version: The Version
+    ///   - title: The Title
+    ///   - items: The Items
+    ///   - detailButtonTitle: The optional detail button title
+    ///   - completionButtonTitle: The completion button title
     public init(version: Version,
                 title: String,
                 items: Item...,
