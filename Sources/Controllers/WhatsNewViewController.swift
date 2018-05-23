@@ -53,6 +53,8 @@ public class WhatsNewViewController: UIViewController {
     
     /// The CompletionAction
     private let completionAction: CompletionAction
+    
+    // MARK: ThemableViews
 
     /// The TitleView
     private lazy var titleView: ThemableView = WhatsNewTitleView(
@@ -115,10 +117,11 @@ public class WhatsNewViewController: UIViewController {
     /// If a Version has been found the initializer will return nil.
     ///
     /// - Parameters:
-    ///   - whatsNew: The WhatsNew
+    ///   - whatsNew: The WhatsNew object
     ///   - theme: The Theme. Default value `.default`
     ///   - versionStore: The WhatsNewVersionStore
-    ///   - onComplete: The on complete closure. Default value `dismiss animated`
+    ///   - onDetail: The optional on detail action. Default value `nil`
+    ///   - onCompletion: The on compeltion action. Default value `.dismiss`
     public convenience init?(whatsNew: WhatsNew,
                              theme: Theme = .default,
                              versionStore: WhatsNewVersionStore,
