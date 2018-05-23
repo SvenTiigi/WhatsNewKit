@@ -51,7 +51,7 @@ class ViewController: UIViewController {
             completionButtonTitle: "Let's go 🙌"
         )
         
-        var demoTheme = WhatsNewViewController.Theme.darkPurple
+        var demoTheme = WhatsNewViewController.Theme.whitePurple
         demoTheme.titleViewTheme.titleColor = demoTheme.completionButtonTheme.backgroundColor
         demoTheme.titleViewTheme.titleFont = .systemFont(ofSize: 30, weight: .semibold)
         demoTheme.itemsViewTheme.animator = .default
