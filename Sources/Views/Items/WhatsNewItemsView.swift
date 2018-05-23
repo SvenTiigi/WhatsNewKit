@@ -28,8 +28,9 @@ class WhatsNewItemsView: ThemableView {
         tableView.backgroundColor = .clear
         // Only bounce vertical if space is needed
         tableView.alwaysBounceVertical = false
-        // set data source
+        // Set data source
         tableView.dataSource = self
+        // Set delegate
         tableView.delegate = self
         // Clear table footer view
         tableView.tableFooterView = UIView()
@@ -138,10 +139,15 @@ extension WhatsNewItemsView: UITableViewDelegate {
     ///   - cell: The Cell
     ///   - indexPath: The indexPath
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? WhatsNewItemTableViewCell, self.cellDisplayCount < self.items.count  else {
-            return
+        // Unwrap cell as WhatsNewItemTableViewCell and verify cellDisplayCount is less then the items count
+        guard let cell = cell as? WhatsNewItemTableViewCell,
+            self.cellDisplayCount < self.items.count else {
+                // Return out of function
+                return
         }
+        // Increase CellDisplayCount
         self.cellDisplayCount += 1
+        // Animate Cell
         self.theme.itemsViewTheme.animator.rawValue?(cell, indexPath.row)
     }
     
