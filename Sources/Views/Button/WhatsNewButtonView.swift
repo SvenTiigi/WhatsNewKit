@@ -9,7 +9,7 @@
 import UIKit
 
 /// The WhatsNewButtonView
-class WhatsNewButtonView: UIView {
+class WhatsNewButtonView: ThemableView {
     
     // MARK: Properties
     
@@ -21,74 +21,76 @@ class WhatsNewButtonView: UIView {
         case completion
     }
     
-    /// The detail action
-    private let detailButton: WhatsNew.Detail.Button?
+    /// The completion button title
+    private let completionButtonTitle: String
     
-    /// The completion action
-    private let button: WhatsNew.Button
+    /// The optional detail button title
+    private var detailButtonTitle: String?
     
     /// The onPress closure
     private let onPress: (ButtonType) -> Void
     
     /// The completion Button
     private lazy var completionButton = WhatsNewRoundedButton(
-        button: self.button,
+        title: self.completionButtonTitle,
+        theme: self.theme,
         onPress: { [weak self] in
             self?.onPress(.completion)
         }
     )
     
     /// The detail button
-    private lazy var detailUIButton: UIButton = {
+    private lazy var detailButton: UIButton = {
         // Initialize Button
         let button = UIButton()
         // Set title
         button.setTitle(
-            self.detailButton?.text,
+            self.detailButtonTitle,
             for: .normal
         )
-        // Set title color
-        button.setTitleColor(
-            self.detailButton?.configuration.textColor,
-            for: .normal
-        )
-        // Set font
-        button.titleLabel?.font = self.detailButton?.configuration.textFont
         // Add target
         button.addTarget(
             self,
             action: #selector(self.detailButtonDidTouchUpInside),
             for: .touchUpInside
         )
+        // Set title color
+        button.setTitleColor(
+            theme.detailButtonTheme.titleColor,
+            for: .normal
+        )
+        // Set font
+        button.titleLabel?.font = theme.detailButtonTheme.titleFont
         return button
     }()
     
     // MARK: Initializer
-    
+
     /// Default initializer
     ///
     /// - Parameters:
-    ///   - detailButton: The detail button
-    ///   - button: The button
-    ///   - backgroundColor: The background color
-    ///   - onPress: The on press closure
-    init(detailButton: WhatsNew.Detail.Button?,
-         button: WhatsNew.Button,
-         backgroundColor: UIColor,
+    ///   - completionButtonTitle: The completion button title
+    ///   - detailButtonTitle: The detail button title
+    ///   - theme: The Theme
+    ///   - onPress: The onPress closure with ButtonType
+    init(completionButtonTitle: String,
+         detailButtonTitle: String?,
+         theme: WhatsNewViewController.Theme,
          onPress: @escaping (ButtonType) -> Void) {
-        // Set detail action
-        self.detailButton = detailButton
-        // Set button
-        self.button = button
+        // Set completion button title
+        self.completionButtonTitle = completionButtonTitle
+        // Set detail button title
+        self.detailButtonTitle = detailButtonTitle
         // Set onPress
         self.onPress = onPress
-        // Super init with zero frame
-        super.init(frame: .zero)
+        // Super init theme
+        super.init(theme: theme)
         // Set background color
-        self.backgroundColor = backgroundColor
-        // Add Button subview
+        self.backgroundColor = self.theme.backgroundColor
+        // Add completion Button subview
         self.addSubview(self.completionButton)
-        self.addSubview(self.detailUIButton)
+        // Add detail Button subview
+        self.addSubview(self.detailButton)
     }
     
     /// Initializer with Coder always returns nil
@@ -105,10 +107,10 @@ class WhatsNewButtonView: UIView {
         let padding: CGFloat = 20
         // Initialize button height constant
         let buttonHeight: CGFloat = UIDevice.current.orientation == .portrait ? 60 : 50
-        // Check if orientation is portrait
-        if UIDevice.current.orientation == .portrait && self.detailButton != nil {
+        // Check if orientation is portrait and detail button title is available
+        if UIDevice.current.orientation == .portrait && self.detailButtonTitle != nil {
             // Set DetailButton frame
-            self.detailUIButton.frame = CGRect(
+            self.detailButton.frame = CGRect(
                 x: 0,
                 y: 20,
                 width: self.frame.size.width,
@@ -117,13 +119,13 @@ class WhatsNewButtonView: UIView {
             // Set CompletionButton frame
             self.completionButton.frame = CGRect(
                 x: padding,
-                y: self.detailUIButton.frame.size.height + 30,
+                y: self.detailButton.frame.size.height + 30,
                 width: self.frame.size.width - padding * 2,
                 height: buttonHeight
             )
         } else {
             // Clear DetailButton frame
-            self.detailUIButton.frame = .zero
+            self.detailButton.frame = .zero
             // Set CompletionButton frame
             self.completionButton.frame = CGRect(
                 x: padding,

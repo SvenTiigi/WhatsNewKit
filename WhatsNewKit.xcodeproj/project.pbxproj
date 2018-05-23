@@ -9,26 +9,25 @@
 /* Begin PBXBuildFile section */
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
 		3D562CBB20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CBA20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift */; };
+		3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5120B546A100AF4DAF /* ThemableView.swift */; };
+		3D56AD5620B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */; };
+		3D56AD5920B554CE00AF4DAF /* UIColor+Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5820B554CE00AF4DAF /* UIColor+Light.swift */; };
+		3D56AD5B20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */; };
 		3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66920AF87E600A10333 /* WhatsNew.swift */; };
 		3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */; };
 		3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67020AF883300A10333 /* WhatsNewViewController.swift */; };
 		3D92C67420AF88AC00A10333 /* WhatsNewItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67320AF88AC00A10333 /* WhatsNewItemTableViewCell.swift */; };
 		3D92C67720AF88B400A10333 /* WhatsNewRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67620AF88B400A10333 /* WhatsNewRoundedButton.swift */; };
-		3DA182A620B33AD700D2C155 /* WhatsNew+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA182A520B33AD700D2C155 /* WhatsNew+Title.swift */; };
-		3DA182AC20B33E6100D2C155 /* WhatsNew+Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA182AB20B33E6100D2C155 /* WhatsNew+Button.swift */; };
-		3DA182B220B3457500D2C155 /* WhatsNew+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA182B120B3457500D2C155 /* WhatsNew+Detail.swift */; };
 		3DA6679C20B0BB3B00DB18FF /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
 		3DA6679D20B0BB3B00DB18FF /* WhatsNewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DA667A620B0C8AF00DB18FF /* WhatsNewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667A520B0C8AF00DB18FF /* WhatsNewTitleView.swift */; };
 		3DA667A920B0C8B600DB18FF /* WhatsNewItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667A820B0C8B600DB18FF /* WhatsNewItemsView.swift */; };
 		3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */; };
+		3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */; };
 		3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AA20AED02400292C94 /* AppDelegate.swift */; };
 		3DC8A6AD20AED02400292C94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AC20AED02400292C94 /* ViewController.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
 		3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */; };
-		3DFAA12920B409780042CFCC /* WhatsNew+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFAA12820B409780042CFCC /* WhatsNew+Theme.swift */; };
-		3DFAA12C20B414EE0042CFCC /* UIAlertController+WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFAA12B20B414EE0042CFCC /* UIAlertController+WhatsNew.swift */; };
-		3DFB6FFC20B34B5300673FD6 /* WhatsNew+Detail+Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6FFB20B34B5300673FD6 /* WhatsNew+Detail+Button.swift */; };
 		3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */; };
 		52D6D9871BEFF229002C0205 /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
 		8933C7901EB5B82D000D00A4 /* WhatsNewKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* WhatsNewKitTests.swift */; };
@@ -68,26 +67,25 @@
 /* Begin PBXFileReference section */
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
 		3D562CBA20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWhatsNewVersionStore.swift; sourceTree = "<group>"; };
+		3D56AD5120B546A100AF4DAF /* ThemableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemableView.swift; sourceTree = "<group>"; };
+		3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Theme+Template.swift"; sourceTree = "<group>"; };
+		3D56AD5820B554CE00AF4DAF /* UIColor+Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Light.swift"; sourceTree = "<group>"; };
+		3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+WhatsNew.swift"; sourceTree = "<group>"; };
 		3D92C66920AF87E600A10333 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Item.swift"; sourceTree = "<group>"; };
 		3D92C67020AF883300A10333 /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
 		3D92C67320AF88AC00A10333 /* WhatsNewItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewItemTableViewCell.swift; sourceTree = "<group>"; };
 		3D92C67620AF88B400A10333 /* WhatsNewRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewRoundedButton.swift; sourceTree = "<group>"; };
-		3DA182A520B33AD700D2C155 /* WhatsNew+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Title.swift"; sourceTree = "<group>"; };
-		3DA182AB20B33E6100D2C155 /* WhatsNew+Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Button.swift"; sourceTree = "<group>"; };
-		3DA182B120B3457500D2C155 /* WhatsNew+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Detail.swift"; sourceTree = "<group>"; };
 		3DA667A520B0C8AF00DB18FF /* WhatsNewTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewTitleView.swift; sourceTree = "<group>"; };
 		3DA667A820B0C8B600DB18FF /* WhatsNewItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewItemsView.swift; sourceTree = "<group>"; };
 		3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewButtonView.swift; sourceTree = "<group>"; };
+		3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Theme.swift"; sourceTree = "<group>"; };
 		3DC8A6A820AED02400292C94 /* WhatsNewKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsNewKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC8A6AA20AED02400292C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DC8A6AC20AED02400292C94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3DC8A6B120AED02600292C94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC8A6B420AED02600292C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC8A6B620AED02600292C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DFAA12820B409780042CFCC /* WhatsNew+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Theme.swift"; sourceTree = "<group>"; };
-		3DFAA12B20B414EE0042CFCC /* UIAlertController+WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+WhatsNew.swift"; sourceTree = "<group>"; };
-		3DFB6FFB20B34B5300673FD6 /* WhatsNew+Detail+Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Detail+Button.swift"; sourceTree = "<group>"; };
 		3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsNewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* WhatsNewKit-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WhatsNewKit-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,17 +121,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D56AD5720B554C400AF4DAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D56AD5820B554CE00AF4DAF /* UIColor+Light.swift */,
+				3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3D92C66C20AF87EA00A10333 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				3D92C66920AF87E600A10333 /* WhatsNew.swift */,
-				3DFAA12820B409780042CFCC /* WhatsNew+Theme.swift */,
 				3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */,
-				3DA182A520B33AD700D2C155 /* WhatsNew+Title.swift */,
 				3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */,
-				3DA182B120B3457500D2C155 /* WhatsNew+Detail.swift */,
-				3DFB6FFB20B34B5300673FD6 /* WhatsNew+Detail+Button.swift */,
-				3DA182AB20B33E6100D2C155 /* WhatsNew+Button.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,6 +143,7 @@
 		3D92C67920AF88DC00A10333 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3D56AD5120B546A100AF4DAF /* ThemableView.swift */,
 				3DA1829C20B336BF00D2C155 /* Title */,
 				3DA1829D20B336C600D2C155 /* Items */,
 				3DA1829E20B336CB00D2C155 /* Button */,
@@ -152,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				3D92C67020AF883300A10333 /* WhatsNewViewController.swift */,
+				3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */,
+				3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -201,14 +206,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3DFAA12A20B414E10042CFCC /* AlertController */ = {
-			isa = PBXGroup;
-			children = (
-				3DFAA12B20B414EE0042CFCC /* UIAlertController+WhatsNew.swift */,
-			);
-			path = AlertController;
-			sourceTree = "<group>";
-		};
 		3DFB6FFE20B34F7E00673FD6 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,11 +249,11 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3DFAA12A20B414E10042CFCC /* AlertController */,
 				3D92C67A20AF88E000A10333 /* Controllers */,
 				3DFB6FFE20B34F7E00673FD6 /* Store */,
 				3D92C67920AF88DC00A10333 /* Views */,
 				3D92C66C20AF87EA00A10333 /* Models */,
+				3D56AD5720B554C400AF4DAF /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -460,21 +457,20 @@
 			files = (
 				3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */,
 				3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */,
-				3DFAA12920B409780042CFCC /* WhatsNew+Theme.swift in Sources */,
-				3DFAA12C20B414EE0042CFCC /* UIAlertController+WhatsNew.swift in Sources */,
+				3D56AD5B20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift in Sources */,
 				3D92C67420AF88AC00A10333 /* WhatsNewItemTableViewCell.swift in Sources */,
 				3D92C67720AF88B400A10333 /* WhatsNewRoundedButton.swift in Sources */,
-				3DA182AC20B33E6100D2C155 /* WhatsNew+Button.swift in Sources */,
 				3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */,
 				3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonView.swift in Sources */,
 				3DA667A920B0C8B600DB18FF /* WhatsNewItemsView.swift in Sources */,
 				3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */,
+				3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */,
 				3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */,
-				3DA182A620B33AD700D2C155 /* WhatsNew+Title.swift in Sources */,
+				3D56AD5920B554CE00AF4DAF /* UIColor+Light.swift in Sources */,
 				3DA667A620B0C8AF00DB18FF /* WhatsNewTitleView.swift in Sources */,
-				3DA182B220B3457500D2C155 /* WhatsNew+Detail.swift in Sources */,
-				3DFB6FFC20B34B5300673FD6 /* WhatsNew+Detail+Button.swift in Sources */,
+				3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */,
 				3D562CBB20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift in Sources */,
+				3D56AD5620B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,28 +12,29 @@ import UIKit
 /// The WhatsNewViewController
 public class WhatsNewViewController: UIViewController {
     
-    // MARK: Typealias
+    // MARK: Action Enums
     
-    /// The completion typealias
-    public typealias Completion = (WhatsNewViewController) -> Void
+    /// The DetailAction
+    public enum DetailAction {
+        // Present Website on URL
+        case website(url: String)
+        // Perform custom detail action
+        case custom(action: (WhatsNewViewController) -> Void)
+    }
     
-    // MARK: Static Properties
-    
-    /// The default completion which dismisses the WhatsNewViewController
-    public static let defaultCompletion: Completion = {
-        $0.dismiss(animated: true)
+    /// The CompletionAction
+    public enum CompletionAction {
+        /// Dismiss
+        case dismiss
+        /// Perform custom completion action
+        case custom(action: (WhatsNewViewController) -> Void)
     }
     
     // MARK: Public Properties
     
     /// The preferred status bar style
     public override var preferredStatusBarStyle: UIStatusBarStyle {
-        // Initialize white
-        var white: CGFloat = 0
-        // Retrieve white for background color
-        self.view.backgroundColor?.getWhite(&white, alpha: nil)
-        // If white is greater 0.5 return default otherwise light content
-        return white > 0.5 ? .default : .lightContent
+        return self.view.backgroundColor?.isLight == true ? .default : .lightContent
     }
     
     // MARK: Private Properties
@@ -44,26 +45,32 @@ public class WhatsNewViewController: UIViewController {
     /// The VersionStore
     private var versionStore: WhatsNewVersionStore?
     
-    /// On Complete
-    private let onComplete: Completion
+    /// The Theme
+    private let theme: Theme
+    
+    /// The DetailAction
+    private var detailAction: DetailAction?
+    
+    /// The CompletionAction
+    private let completionAction: CompletionAction
 
     /// The TitleView
-    private lazy var titleView: UIView = WhatsNewTitleView(
+    private lazy var titleView: ThemableView = WhatsNewTitleView(
         title: self.whatsNew.title,
-        backgroundColor: self.whatsNew.configuration.backgroundColor
+        theme: self.theme
     )
     
     /// The ItemsView
-    private lazy var itemsView: UIView = WhatsNewItemsView(
+    private lazy var itemsView: ThemableView = WhatsNewItemsView(
         items: self.whatsNew.items,
-        backgroundColor: self.whatsNew.configuration.backgroundColor
+        theme: self.theme
     )
     
     /// The ButtonView
-    private lazy var buttonView: UIView = WhatsNewButtonView(
-        detailButton: self.whatsNew.detail?.button,
-        button: self.whatsNew.button,
-        backgroundColor: self.whatsNew.configuration.backgroundColor,
+    private lazy var buttonView: ThemableView = WhatsNewButtonView(
+        completionButtonTitle: self.whatsNew.completionButtonTitle,
+        detailButtonTitle: self.whatsNew.detailButtonTitle,
+        theme: self.theme,
         onPress: { [weak self] buttonType in
             // Handle button type
             self?.handleOnPress(buttonType: buttonType)
@@ -75,22 +82,31 @@ public class WhatsNewViewController: UIViewController {
     /// Default initializer
     ///
     /// - Parameters:
-    ///   - whatsNew: The WhatsNew
-    ///   - configuration: The configuration
-    ///   - onComplete: The on complete closure. Default value `dismiss animated`
+    ///   - whatsNew: The WhatsNew object
+    ///   - theme: The Theme. Default value `.default`
+    ///   - onDetail: The optional on detail action. Default value `nil`
+    ///   - onCompletion: The on compeltion action. Default value `.dismiss`
     public init(whatsNew: WhatsNew,
-                onComplete: @escaping Completion = WhatsNewViewController.defaultCompletion) {
+                theme: Theme = .default,
+                onDetail: DetailAction? = nil,
+                onCompletion: CompletionAction = .dismiss) {
         // Set WhatsNew
         self.whatsNew = whatsNew
-        // Set onComplete
-        self.onComplete = onComplete
+        // Set theme
+        self.theme = theme
+        // Set detail action
+        self.detailAction = onDetail
+        // Set completion action
+        self.completionAction = onCompletion
         // Super init
         super.init(nibName: nil, bundle: nil)
-        // Set white background color
-        self.view.backgroundColor = self.whatsNew.configuration.backgroundColor
-        // Add Subviews
+        // Set background color
+        self.view.backgroundColor = self.theme.backgroundColor
+        // Add TitleView
         self.view.addSubview(self.titleView)
+        // Add ItemsView
         self.view.addSubview(self.itemsView)
+        // Add ButtonView
         self.view.addSubview(self.buttonView)
     }
     
@@ -100,18 +116,26 @@ public class WhatsNewViewController: UIViewController {
     ///
     /// - Parameters:
     ///   - whatsNew: The WhatsNew
+    ///   - theme: The Theme. Default value `.default`
     ///   - versionStore: The WhatsNewVersionStore
     ///   - onComplete: The on complete closure. Default value `dismiss animated`
     public convenience init?(whatsNew: WhatsNew,
+                             theme: Theme = .default,
                              versionStore: WhatsNewVersionStore,
-                             onComplete: @escaping Completion = WhatsNewViewController.defaultCompletion) {
+                             onDetail: DetailAction? = nil,
+                             onCompletion: CompletionAction = .dismiss) {
         // Check if VersionStore has version
         if versionStore.has(version: whatsNew.version) {
             // Return nil
             return nil
         }
-        // Self init with WhatsNew and onComplete closure
-        self.init(whatsNew: whatsNew, onComplete: onComplete)
+        // Self init with WhatsNew, Theme and onComplete closure
+        self.init(
+            whatsNew: whatsNew,
+            theme: theme,
+            onDetail: onDetail,
+            onCompletion: onCompletion
+        )
         // Set VersionStore
         self.versionStore = versionStore
     }
@@ -158,23 +182,35 @@ public class WhatsNewViewController: UIViewController {
         // Switch on button type
         switch buttonType {
         case .completion:
-            // Store Version
+            // Store Version if VersionStore is available
             self.versionStore?.set(version: self.whatsNew.version)
-            // Invoke on complete
-            self.onComplete(self)
-        case .detail:
-            // Check if url is available
-            guard let urlString = self.whatsNew.detail?.url,
-                let url = URL(string: urlString) else {
-                    // URL unavailable
-                    return
+            // Switch on CompletionAction
+            switch self.completionAction {
+            case .dismiss:
+                self.dismiss(animated: true)
+            case .custom(action: let action):
+                action(self)
             }
-            // Initialize SafariViewController
-            let safariViewController = SFSafariViewController(url: url)
-            // Set tint color
-            safariViewController.preferredControlTintColor = self.whatsNew.detail?.configuration.tintColor
-            // Present ViewController
-            self.present(safariViewController, animated: true)
+        case .detail:
+            // Switch on DetailAction
+            switch self.detailAction {
+            case .some(.website(let urlString)):
+                // Check if url is available
+                guard let url = URL(string: urlString) else {
+                        // URL unavailable
+                        return
+                }
+                // Initialize SafariViewController
+                let safariViewController = SFSafariViewController(url: url)
+                // Set tint color
+                safariViewController.preferredControlTintColor = self.theme.completionButtonTheme.backgroundColor
+                // Present ViewController
+                self.present(safariViewController, animated: true)
+            case .some(.custom(action: let action)):
+                action(self)
+            case .none:
+                break
+            }
         }
     }
     

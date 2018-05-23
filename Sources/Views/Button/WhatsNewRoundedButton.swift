@@ -24,30 +24,32 @@ class WhatsNewRoundedButton: UIButton {
     /// Convenience initializer
     ///
     /// - Parameters:
-    ///   - completionAction: The completion action
+    ///   - title: The title
+    ///   - theme: The Theme
     ///   - onPress: The on press closure
-    convenience init(button: WhatsNew.Button,
+    convenience init(title: String,
+                     theme: WhatsNewViewController.Theme,
                      onPress: @escaping () -> Void) {
         // Init with Custom Type
         self.init(type: .custom)
-        // Set highlighted background color
-        self.highlightedBackgroundColor = button.configuration.backgroundColor
         // Set onPress closure
         self.onPress = onPress
+        // Set highlighted background color
+        self.highlightedBackgroundColor = theme.completionButtonTheme.backgroundColor
+        // Set corner radius to rounded button
+        self.layer.cornerRadius = theme.completionButtonTheme.cornerRadius
+        // Set mask to bound
+        self.layer.masksToBounds = true
+        // Set font
+        self.titleLabel?.font = theme.completionButtonTheme.titleFont
+        // Set normal title color
+        self.setTitleColor(theme.completionButtonTheme.titleColor, for: .normal)
         // Set title
-        self.setTitle(button.text, for: .normal)
+        self.setTitle(title, for: .normal)
         // Set number of lines
         self.titleLabel?.numberOfLines = 0
         // Set line break mode
         self.titleLabel?.lineBreakMode = .byWordWrapping
-        // Set corner radius to rounded button
-        self.layer.cornerRadius = button.configuration.cornerRadius
-        // Set mask to bound
-        self.layer.masksToBounds = true
-        // Set font
-        self.titleLabel?.font = button.configuration.textFont
-        // Set normal title color
-        self.setTitleColor(button.configuration.textColor, for: .normal)
         // Add target
         self.addTarget(
             self,
@@ -58,6 +60,7 @@ class WhatsNewRoundedButton: UIButton {
     
     // MARK: ViewLifecycle
     
+    /// Layout Subviews
     override func layoutSubviews() {
         super.layoutSubviews()
         // Check if current background image is nil

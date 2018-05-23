@@ -26,16 +26,12 @@ public extension WhatsNew {
         /// The Image
         public let image: UIImage?
         
-        /// The Configuration
-        public var configuration: Configuration
-        
         /// The CodingKeys
         // swiftlint:disable nesting
         enum CodingKeys: CodingKey {
             case title
             case text
             case image
-            case configuration
         }
         // swiftlint:enable nestings
         
@@ -47,15 +43,12 @@ public extension WhatsNew {
         ///   - title: The Title
         ///   - text: The Text
         ///   - image: The Image
-        ///   - configuration: The Configuration. Default value `.init()`
         public init(title: String,
                     text: String,
-                    image: UIImage?,
-                    configuration: Configuration = .init()) {
+                    image: UIImage?) {
             self.title = title
             self.text = text
             self.image = image
-            self.configuration = configuration
         }
         
         /// Initializer with Decoder
@@ -69,7 +62,6 @@ public extension WhatsNew {
             let base64 = try container.decode(String.self, forKey: .image)
             let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
             self.image = data.flatMap { UIImage(data: $0) }
-            self.configuration = .init()
         }
         
         // MARK: Encode
@@ -86,52 +78,6 @@ public extension WhatsNew {
                 let base64 = data.base64EncodedString(options: .lineLength64Characters)
                 try container.encode(base64, forKey: .image)
             }
-        }
-        
-    }
-    
-}
-
-// MARK: - Configuration
-
-public extension WhatsNew.Item {
-    
-    /// The Item configuration
-    struct Configuration: Equatable {
-        
-        /// The title font
-        public var titleFont: UIFont
-        
-        /// The title color
-        public var titleColor: UIColor
-        
-        /// The text font
-        public var textFont: UIFont
-        
-        /// The text color
-        public var textColor: UIColor
-        
-        /// The background color
-        public var backgroundColor: UIColor
-        
-        /// Default initializer
-        ///
-        /// - Parameters:
-        ///   - titleFont: The title font. Default value `size: 17, weight: .semibold`
-        ///   - titleColor: The title color: Default value `.black`
-        ///   - textFont: The text font. Default value `size: 17`
-        ///   - textColor: The text color. Default value `.black`
-        ///   - backgroundColor: The background color. Default value `.white`
-        public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
-                    titleColor: UIColor = .black,
-                    textFont: UIFont = .systemFont(ofSize: 17),
-                    textColor: UIColor = .black,
-                    backgroundColor: UIColor = .white) {
-            self.titleFont = titleFont
-            self.titleColor = titleColor
-            self.textFont = textFont
-            self.textColor = textColor
-            self.backgroundColor = backgroundColor
         }
         
     }

@@ -11,7 +11,7 @@ import UIKit
 // MARK: - WhatsNewItemsView
 
 /// The WhatsNewItemsView
-class WhatsNewItemsView: UIView {
+class WhatsNewItemsView: ThemableView {
     
     // MARK: Properties
     
@@ -34,6 +34,7 @@ class WhatsNewItemsView: UIView {
         tableView.separatorStyle = .none
         // No selection
         tableView.allowsSelection = false
+        // Return TableView
         return tableView
     }()
     
@@ -43,15 +44,15 @@ class WhatsNewItemsView: UIView {
     ///
     /// - Parameters:
     ///   - items: The WhatsNew Items
-    ///   - backgroundColor: The background color
+    ///   - theme: The Theme
     init(items: [WhatsNew.Item],
-         backgroundColor: UIColor) {
+         theme: WhatsNewViewController.Theme) {
         // Set items
         self.items = items
-        // Super init zero frame
-        super.init(frame: .zero)
+        // Super init theme
+        super.init(theme: theme)
         // Set background color
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = self.theme.backgroundColor
         // Add TableView
         self.addSubview(self.tableView)
     }
@@ -101,7 +102,7 @@ extension WhatsNewItemsView: UITableViewDataSource {
         // Return WhatsNewItemTableViewCell
         return WhatsNewItemTableViewCell(
             item: self.items[indexPath.row],
-            backgroundColor: self.backgroundColor
+            theme: self.theme
         )
     }
     

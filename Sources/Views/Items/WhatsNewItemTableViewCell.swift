@@ -15,16 +15,16 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     ///
     /// - Parameters:
     ///   - item: The WhatsNew Item
-    ///   - backgroundColor: The background color
+    ///   - theme: The Theme
     init(item: WhatsNew.Item,
-         backgroundColor: UIColor?) {
+         theme: WhatsNewViewController.Theme) {
         // Super init default style
         super.init(
             style: .default,
             reuseIdentifier: String(describing: WhatsNewItemTableViewCell.self)
         )
         // Set background color
-        self.contentView.backgroundColor = backgroundColor
+        self.contentView.backgroundColor = theme.backgroundColor
         // Set image
         self.imageView?.image = item.image
         // Check if title is empty
@@ -36,21 +36,21 @@ class WhatsNewItemTableViewCell: UITableViewCell {
             let attributedString = NSMutableAttributedString(string: "\(item.title)\n\(item.text)")
             // Add title font
             attributedString.addAttributes(
-                [NSAttributedStringKey.font: item.configuration.titleFont],
+                [NSAttributedStringKey.font: theme.itemsViewTheme.titleFont],
                 range: NSRange(location: 0, length: item.title.count)
             )
             // Add title color
             attributedString.addAttributes(
-                [NSAttributedStringKey.foregroundColor: item.configuration.titleColor],
+                [NSAttributedStringKey.foregroundColor: theme.itemsViewTheme.titleColor],
                 range: NSRange(location: 0, length: item.title.count)
             )
             // Set attributed text
             self.textLabel?.attributedText = attributedString
         }
         // Set font
-        self.textLabel?.font = item.configuration.textFont
+        self.textLabel?.font = theme.itemsViewTheme.textFont
         // Set textcolor
-        self.textLabel?.textColor = item.configuration.textColor
+        self.textLabel?.textColor = theme.itemsViewTheme.textColor
         // Set number of lines to zero
         self.textLabel?.numberOfLines = 0
         // Set linebreak mode to word wrapping

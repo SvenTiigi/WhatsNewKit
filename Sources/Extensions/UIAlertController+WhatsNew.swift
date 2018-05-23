@@ -2,7 +2,7 @@
 //  UIAlertController+WhatsNew.swift
 //  WhatsNewKit-iOS
 //
-//  Created by Sven Tiigi on 22.05.18.
+//  Created by Sven Tiigi on 23.05.18.
 //  Copyright © 2018 WhatsNewKit. All rights reserved.
 //
 
@@ -36,9 +36,9 @@ public extension UIAlertController {
         // Initialize Message
         let message = whatsNew.items.map(itemToText).joined(separator: "\n")
         // Self init with title and message as alert type
-        self.init(title: whatsNew.title.text, message: message, preferredStyle: .alert)
+        self.init(title: whatsNew.title, message: message, preferredStyle: .alert)
         // Add Completion Action
-        self.addAction(.init(title: whatsNew.button.text, style: .cancel, handler: { _ in
+        self.addAction(.init(title: whatsNew.completionButtonTitle, style: .cancel, handler: { _ in
             // Invoke onComplete
             onComplete?()
         }))

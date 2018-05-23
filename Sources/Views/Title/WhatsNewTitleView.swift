@@ -9,23 +9,23 @@
 import UIKit
 
 /// The WhatsNewTitleView
-class WhatsNewTitleView: UIView {
+class WhatsNewTitleView: ThemableView {
     
     // MARK: Properties
     
     /// The WhatsNew Title
-    private let title: WhatsNew.Title
+    private let title: String
 
     /// The title label
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = self.title.text
+        label.text = self.title
         label.backgroundColor = .clear
         label.numberOfLines = 0
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.font = self.title.configuration.textFont
-        label.textColor = self.title.configuration.textColor
+        label.font = self.theme.titleViewTheme.titleFont
+        label.textColor = self.theme.titleViewTheme.titleColor
         return label
     }()
     
@@ -34,16 +34,16 @@ class WhatsNewTitleView: UIView {
     /// Default initializer
     ///
     /// - Parameters:
-    ///   - title: The WhatsNew Title
-    ///   - backgroundColor: The background color
-    init(title: WhatsNew.Title,
-         backgroundColor: UIColor) {
+    ///   - title: The Title
+    ///   - theme: The Theme
+    init(title: String,
+         theme: WhatsNewViewController.Theme) {
         // Set title
         self.title = title
-        // Super init zero frame
-        super.init(frame: .zero)
+        // Super init theme
+        super.init(theme: theme)
         // Set background color
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = self.theme.backgroundColor
         // Add title label
         self.addSubview(self.titleLabel)
     }
