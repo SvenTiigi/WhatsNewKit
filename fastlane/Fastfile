@@ -1,0 +1,32 @@
+fastlane_version "2.57.2"
+
+default_platform :ios
+
+platform :ios do
+
+  desc "Release a new version of WhatsNewKit"
+  lane :release do |options|
+    ensure_git_status_clean
+    ensure_git_branch(branch: 'master')
+    test
+    pod_lib_lint(verbose: true)
+    version = version_bump_podspec(path: "WhatsNewKit.podspec", version_number: options[:version])
+    git_commit(
+      path: ["WhatsNewKit.podspec"],
+      message: "[Fastlane Release 🚀] Bump to #{version}"
+    )
+    add_git_tag(tag: version)
+    push_git_tags()
+    push_to_git_remote()
+    pod_push()
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(
+      project: "WhatsNewKit.xcodeproj",
+      scheme: "WhatsNewKit-iOS"
+    )
+  end
+  
+end
