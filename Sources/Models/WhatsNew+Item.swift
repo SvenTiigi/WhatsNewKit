@@ -26,11 +26,14 @@ public extension WhatsNew {
         /// The Image
         public let image: UIImage?
         
-        /// The CodingKeys
         // swiftlint:disable nesting
+        /// The CodingKeys
         enum CodingKeys: CodingKey {
+            /// title
             case title
+            /// text
             case text
+            /// image
             case image
         }
         // swiftlint:enable nestings

@@ -83,16 +83,32 @@ class WhatsNewItemsView: ThemableView {
 
 extension WhatsNewItemsView: UITableViewDataSource {
     
+    /// Retrieve number of sections
+    ///
+    /// - Parameter tableView: The TableView
+    /// - Returns: Amount of section
     public func numberOfSections(in tableView: UITableView) -> Int {
-        // Simply one section
+        // Just one section
         return 1
     }
     
+    /// Retrieve number of rows in section
+    ///
+    /// - Parameters:
+    ///   - tableView: The TableView
+    ///   - section: The section
+    /// - Returns: The amount of rows in section
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return items count
         return self.items.count
     }
     
+    /// Retrieve cell for row at IndexPath
+    ///
+    /// - Parameters:
+    ///   - tableView: The TableView
+    ///   - indexPath: The IndexPath
+    /// - Returns: The configured Cell
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Verify row is contained in indicies
         guard self.items.indices.contains(indexPath.row) else {

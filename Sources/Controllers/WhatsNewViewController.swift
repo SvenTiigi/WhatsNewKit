@@ -16,9 +16,9 @@ public class WhatsNewViewController: UIViewController {
     
     /// The DetailAction
     public enum DetailAction {
-        // Present Website on URL
+        /// Present Website on URL
         case website(url: String)
-        // Perform custom detail action
+        /// Perform custom detail action
         case custom(action: (WhatsNewViewController) -> Void)
     }
     
