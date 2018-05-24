@@ -51,6 +51,7 @@ public extension Sequence where Element == WhatsNew {
     /// - Parameter version: The Version
     /// - Returns: The first matching WhatsNew element
     func get(byVersion version: WhatsNew.Version) -> WhatsNew? {
+        // First where Version is matching
         return self.first(where: {
             $0.version == version
         })
@@ -61,8 +62,12 @@ public extension Sequence where Element == WhatsNew {
     /// - Parameter bundle: The Bundle
     /// - Returns: The first matching WhatsNew element
     func get(byBundle bundle: Bundle) -> WhatsNew? {
+        // Initialize current Version based on bundle
         let currentVersion = WhatsNew.Version.current(inBundle: bundle)
-        return self.get(byVersion: currentVersion)
+        // Return WhatsView by version
+        return self.get(
+            byVersion: currentVersion
+        )
     }
     
 }

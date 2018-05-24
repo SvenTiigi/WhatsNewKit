@@ -11,6 +11,16 @@ import UIKit
 /// The WhatsNewItemTableViewCell
 class WhatsNewItemTableViewCell: UITableViewCell {
     
+    // MARK: Properties
+    
+    /// The Item
+    private let item: WhatsNew.Item
+    
+    /// The Theme
+    private let theme: WhatsNewViewController.Theme
+    
+    // MARK: Initializer
+    
     /// Default initializer
     ///
     /// - Parameters:
@@ -18,47 +28,52 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     ///   - theme: The Theme
     init(item: WhatsNew.Item,
          theme: WhatsNewViewController.Theme) {
+        // Set item
+        self.item = item
+        // Set theme
+        self.theme = theme
         // Super init default style
         super.init(
             style: .default,
             reuseIdentifier: String(describing: WhatsNewItemTableViewCell.self)
         )
         // Set background color
-        self.contentView.backgroundColor = theme.backgroundColor
+        self.contentView.backgroundColor = self.theme.backgroundColor
+        // Perform ImageView Configuration
+        self.configureImageView()
+        // Perform TextLabel Configuration
+        self.configureTextLabel()
+    }
+    
+    /// Initializer with Coder always returns nil
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
+    
+    // MARK: Private API
+    
+    /// Configure ImageView
+    private func configureImageView() {
         // Check if autoTintImage is activated
-        if theme.itemsViewTheme.autoTintImage {
+        if self.theme.itemsViewTheme.autoTintImage {
             // Set template tinted image
-            let templateImage = item.image?.withRenderingMode(.alwaysTemplate)
+            let templateImage = self.item.image?.withRenderingMode(.alwaysTemplate)
             self.imageView?.image = templateImage
-            self.imageView?.tintColor = theme.tintColor
+            self.imageView?.tintColor = self.theme.tintColor
         } else {
             // Set original image
-            self.imageView?.image = item.image
+            self.imageView?.image = self.item.image
         }
-        // Check if title is empty
-        if item.title.isEmpty {
-            // Set text
-            self.textLabel?.text = item.text
-        } else {
-            // Initialize attributed string
-            let attributedString = NSMutableAttributedString(string: "\(item.title)\n\(item.text)")
-            // Add title font
-            attributedString.addAttributes(
-                [NSAttributedStringKey.font: theme.itemsViewTheme.titleFont],
-                range: NSRange(location: 0, length: item.title.count)
-            )
-            // Add title color
-            attributedString.addAttributes(
-                [NSAttributedStringKey.foregroundColor: theme.itemsViewTheme.titleColor],
-                range: NSRange(location: 0, length: item.title.count)
-            )
-            // Set attributed text
-            self.textLabel?.attributedText = attributedString
-        }
+    }
+    
+    /// Configure TextLabel
+    private func configureTextLabel() {
+        // Set attributed text
+        self.textLabel?.attributedText = self.getAttributedTextString()
         // Set font
-        self.textLabel?.font = theme.itemsViewTheme.textFont
+        self.textLabel?.font = self.theme.itemsViewTheme.textFont
         // Set textcolor
-        self.textLabel?.textColor = theme.itemsViewTheme.textColor
+        self.textLabel?.textColor = self.theme.itemsViewTheme.textColor
         // Set number of lines to zero
         self.textLabel?.numberOfLines = 0
         // Set linebreak mode to word wrapping
@@ -67,9 +82,30 @@ class WhatsNewItemTableViewCell: UITableViewCell {
         self.backgroundColor = .white
     }
     
-    /// Initializer with Coder always returns nil
-    required init?(coder aDecoder: NSCoder) {
-        return nil
+    /// Retrieve AttributedString Text String
+    ///
+    /// - Returns: The Attributed String
+    private func getAttributedTextString() -> NSAttributedString {
+        // Check if title is empty
+        if self.item.title.isEmpty {
+            // Just return the item text has no title is available
+            return NSAttributedString(string: self.item.text)
+        } else {
+            // Initialize attributed string
+            let attributedString = NSMutableAttributedString(string: "\(self.item.title)\n\(self.item.text)")
+            // Add title font
+            attributedString.addAttributes(
+                [NSAttributedStringKey.font: self.theme.itemsViewTheme.titleFont],
+                range: NSRange(location: 0, length: self.item.title.count)
+            )
+            // Add title color
+            attributedString.addAttributes(
+                [NSAttributedStringKey.foregroundColor: self.theme.itemsViewTheme.titleColor],
+                range: NSRange(location: 0, length: self.item.title.count)
+            )
+            // Return attributed title and text string
+            return attributedString
+        }
     }
 
 }

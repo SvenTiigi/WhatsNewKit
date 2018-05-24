@@ -46,6 +46,7 @@ public extension WhatsNew {
 
 extension WhatsNew.Version: CustomStringConvertible {
     
+    /// A textual representation of this instance.
     public var description: String {
         return "\(self.major).\(self.minor).\(self.patch)"
     }
@@ -56,8 +57,14 @@ extension WhatsNew.Version: CustomStringConvertible {
 
 extension WhatsNew.Version: ExpressibleByStringLiteral {
     
+    /// A type that represents a string literal.
+    ///
+    /// Valid types for `StringLiteralType` are `String` and `StaticString`.
     public typealias StringLiteralType = String
     
+    /// Creates an instance initialized to the given string value.
+    ///
+    /// - Parameter value: The value of the new instance.
     public init(stringLiteral value: String) {
         let values = value.components(separatedBy: ".").compactMap(Int.init)
         self.major = values.indices.contains(0) ? values[0] : 0

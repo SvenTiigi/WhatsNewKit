@@ -57,12 +57,18 @@ public extension WhatsNew {
         /// - Parameter decoder: The Decoder
         /// - Throws: If decoding fails
         public init(from decoder: Decoder) throws {
+            // Initialize container keyed by CodingKeys
             let container = try decoder.container(keyedBy: CodingKeys.self)
+            // Decode Title
             self.title = try container.decode(String.self, forKey: .title)
+            // Decode Text
             self.text = try container.decode(String.self, forKey: .text)
+            // Check if Base64 Image String is available
             if let base64 = try container.decodeIfPresent(String.self, forKey: .image) {
+                // Decode Base64 to Image
                 self.image = Data(base64Encoded: base64, options: .ignoreUnknownCharacters).flatMap(UIImage.init)
             } else {
+                // No image base64 representation available
                 self.image = nil
             }
         }
@@ -74,9 +80,13 @@ public extension WhatsNew {
         /// - Parameter encoder: The Encoder
         /// - Throws: If encoding fails
         public func encode(to encoder: Encoder) throws {
+            // Initialize Container keyed by CodingKeys
             var container = encoder.container(keyedBy: CodingKeys.self)
+            // Encode Title
             try container.encode(self.title, forKey: .title)
+            // Encode Text
             try container.encode(self.text, forKey: .text)
+            // Try to Encode Image as Base64 string
             if let image = self.image, let data = UIImagePNGRepresentation(image) {
                 let base64 = data.base64EncodedString(options: .lineLength64Characters)
                 try container.encode(base64, forKey: .image)

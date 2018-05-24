@@ -36,26 +36,10 @@ class WhatsNewRoundedButton: UIButton {
         self.onPress = onPress
         // Set highlighted background color
         self.highlightedBackgroundColor = theme.completionButtonTheme.backgroundColor
-        // Set corner radius to rounded button
-        self.layer.cornerRadius = theme.completionButtonTheme.cornerRadius
-        // Set mask to bound
-        self.layer.masksToBounds = true
-        // Set font
-        self.titleLabel?.font = theme.completionButtonTheme.titleFont
-        // Set normal title color
-        self.setTitleColor(theme.completionButtonTheme.titleColor, for: .normal)
         // Set title
         self.setTitle(title, for: .normal)
-        // Set number of lines
-        self.titleLabel?.numberOfLines = 0
-        // Set line break mode
-        self.titleLabel?.lineBreakMode = .byWordWrapping
-        // Add target
-        self.addTarget(
-            self,
-            action: #selector(self.didTouchUpInside),
-            for: .touchUpInside
-        )
+        // Perform configuration
+        self.configure(withTheme: theme)
     }
     
     // MARK: ViewLifecycle
@@ -76,7 +60,29 @@ class WhatsNewRoundedButton: UIButton {
         }
     }
     
-    // MARK: Helper functions
+    // MARK: Private API
+    
+    /// Perform configuration
+    private func configure(withTheme theme: WhatsNewViewController.Theme) {
+        // Set corner radius to rounded button
+        self.layer.cornerRadius = theme.completionButtonTheme.cornerRadius
+        // Set mask to bound
+        self.layer.masksToBounds = true
+        // Set font
+        self.titleLabel?.font = theme.completionButtonTheme.titleFont
+        // Set normal title color
+        self.setTitleColor(theme.completionButtonTheme.titleColor, for: .normal)
+        // Set number of lines
+        self.titleLabel?.numberOfLines = 0
+        // Set line break mode
+        self.titleLabel?.lineBreakMode = .byWordWrapping
+        // Add target
+        self.addTarget(
+            self,
+            action: #selector(self.didTouchUpInside),
+            for: .touchUpInside
+        )
+    }
     
     /// Return a UIImage with a given UIColor and CGSize
     ///
@@ -85,12 +91,19 @@ class WhatsNewRoundedButton: UIButton {
     ///   - size: The size of the returned UIImage
     /// - Returns: Optional UIImage
     private func getImageWithColor(_ color: UIColor, size: CGSize) -> UIImage? {
+        // Initialize rect
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        // Begin Graphics Context
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        // Set fill color
         color.setFill()
+        // Fill rect with color
         UIRectFill(rect)
+        // Retrieve Image from Graphics Context
         let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        // End Graphics Context
         UIGraphicsEndImageContext()
+        // Return image
         return image
     }
     

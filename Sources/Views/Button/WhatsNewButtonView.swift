@@ -35,6 +35,7 @@ class WhatsNewButtonView: ThemableView {
         title: self.completionButtonTitle,
         theme: self.theme,
         onPress: { [weak self] in
+            // Invoke on press with completion button type
             self?.onPress(.completion)
         }
     )
@@ -140,6 +141,7 @@ class WhatsNewButtonView: ThemableView {
     
     /// DetailButton did touch up inside
     @objc private func detailButtonDidTouchUpInside() {
+        // Invoke onPress with detail button type
         self.onPress(.detail)
     }
     
