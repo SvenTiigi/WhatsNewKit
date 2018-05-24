@@ -37,8 +37,8 @@ extension WhatsNewViewController {
         // Open Source Item
         let openSourceItem = WhatsNew.Item(
             title: "Open Source",
-            text: "Contributions are\nvery welcome 🙌 👨‍💻",
-            image: #imageLiteral(resourceName: "contributing")
+            text: "Contributions are\nvery welcome 👨‍💻",
+            image: #imageLiteral(resourceName: "openSource")
         )
         
         // MARK: 2.Step Setup WhatsNew
@@ -59,11 +59,7 @@ extension WhatsNewViewController {
         // MARK: 3.Step (optional) Setup custom Theme
         
         // The DemoTheme based on WhitePurple Template
-        var demoTheme = WhatsNewViewController.Theme.whitePurple
-        // Update title color
-        demoTheme.titleViewTheme.titleColor = demoTheme.completionButtonTheme.backgroundColor
-        // Update title font
-        demoTheme.titleViewTheme.titleFont = .systemFont(ofSize: 30, weight: .semibold)
+        var demoTheme = WhatsNewViewController.Theme.default
         // Update animation
         demoTheme.itemsViewTheme.animation = .slideUp
         

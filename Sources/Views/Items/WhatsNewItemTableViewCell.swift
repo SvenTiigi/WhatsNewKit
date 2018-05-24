@@ -25,8 +25,16 @@ class WhatsNewItemTableViewCell: UITableViewCell {
         )
         // Set background color
         self.contentView.backgroundColor = theme.backgroundColor
-        // Set image
-        self.imageView?.image = item.image
+        // Check if autoTintImage is activated
+        if theme.itemsViewTheme.autoTintImage {
+            // Set template tinted image
+            let templateImage = item.image?.withRenderingMode(.alwaysTemplate)
+            self.imageView?.image = templateImage
+            self.imageView?.tintColor = theme.tintColor
+        } else {
+            // Set original image
+            self.imageView?.image = item.image
+        }
         // Check if title is empty
         if item.title.isEmpty {
             // Set text

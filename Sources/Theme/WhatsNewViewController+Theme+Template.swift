@@ -18,7 +18,7 @@ public extension WhatsNewViewController.Theme {
             backgroundColor: .white,
             titleViewTheme: .init(
                 titleFont: .systemFont(
-                    ofSize: 25,
+                    ofSize: 30,
                     weight: .semibold
                 ),
                 titleColor: .black)
@@ -49,12 +49,6 @@ public extension WhatsNewViewController.Theme {
         )
     }
     
-}
-
-// MARK: - Theme Templates
-
-public extension WhatsNewViewController.Theme {
-    
     /// Dark Default Theme (dark background and blue tint color)
     static var darkDefault: WhatsNewViewController.Theme {
         var darkDefault = self.default
@@ -65,44 +59,70 @@ public extension WhatsNewViewController.Theme {
         return darkDefault
     }
     
+}
+
+// MARK: - Theme Templates
+
+public extension WhatsNewViewController.Theme {
+    
     /// White Orange Theme (white background and orange tint color)
     static var whiteOrange: WhatsNewViewController.Theme {
-        var whiteOrange = self.default
-        whiteOrange.detailButtonTheme.titleColor = .orange
-        whiteOrange.completionButtonTheme.backgroundColor = .orange
-        return whiteOrange
+        return self.generateTemplate(self.default, .orange)
     }
     
     /// Dark Orange Theme (dark background and orange tint color)
     static var darkOrange: WhatsNewViewController.Theme {
-        var whiteOrange = self.default
-        whiteOrange.backgroundColor = .defaultDark
-        whiteOrange.titleViewTheme.titleColor = .white
-        whiteOrange.itemsViewTheme.titleColor = .white
-        whiteOrange.itemsViewTheme.textColor = .white
-        whiteOrange.detailButtonTheme.titleColor = .orange
-        whiteOrange.completionButtonTheme.backgroundColor = .orange
-        return whiteOrange
+        return self.generateTemplate(self.darkDefault, .orange)
     }
     
     /// White Purple Theme (white background and purple tint color)
     static var whitePurple: WhatsNewViewController.Theme {
-        var whitePurple = self.default
-        whitePurple.detailButtonTheme.titleColor = .defaultPurple
-        whitePurple.completionButtonTheme.backgroundColor = .defaultPurple
-        return whitePurple
+        return self.generateTemplate(self.default, .defaultPurple)
     }
     
     /// Dark Purple Theme (dark background and purple tint color)
     static var darkPurple: WhatsNewViewController.Theme {
-        var darkPurple = self.default
-        darkPurple.backgroundColor = .defaultDark
-        darkPurple.titleViewTheme.titleColor = .white
-        darkPurple.itemsViewTheme.titleColor = .white
-        darkPurple.itemsViewTheme.textColor = .white
-        darkPurple.detailButtonTheme.titleColor = .defaultPurple
-        darkPurple.completionButtonTheme.backgroundColor = .defaultPurple
-        return darkPurple
+        return self.generateTemplate(self.darkDefault, .defaultPurple)
+    }
+    
+    /// White Red Theme (white background and red tint color)
+    static var whiteRed: WhatsNewViewController.Theme {
+        return self.generateTemplate(self.default, .defaultRed)
+    }
+    
+    /// Dard Red Theme (dark background and red tint color)
+    static var darkRed: WhatsNewViewController.Theme {
+        return self.generateTemplate(self.darkDefault, .defaultRed)
+    }
+    
+    /// White Green Theme (white background and green tint color)
+    static var whiteGreen: WhatsNewViewController.Theme {
+        return self.generateTemplate(self.default, .defaultGreen)
+    }
+    
+    /// Dard Green Theme (dark background and green tint color)
+    static var darkGreen: WhatsNewViewController.Theme {
+        return self.generateTemplate(self.darkDefault, .defaultGreen)
+    }
+
+}
+
+// MARK: - Private Template Helper
+
+private extension WhatsNewViewController.Theme {
+    
+    /// Generate Theme Template based on given Theme and tint color
+    ///
+    /// - Parameters:
+    ///   - basedOn: The base Theme
+    ///   - tintColor: The tint color
+    /// - Returns: Theme Template
+    static func generateTemplate(_ basedOn: WhatsNewViewController.Theme,
+                                 _ tintColor: UIColor) -> WhatsNewViewController.Theme {
+        var theme = basedOn
+        theme.detailButtonTheme.titleColor = tintColor
+        theme.completionButtonTheme.backgroundColor = tintColor
+        return theme
     }
     
 }
@@ -132,6 +152,22 @@ private extension UIColor {
         red: 183/255,
         green: 35/255,
         blue: 1,
+        alpha: 1
+    )
+    
+    /// The default red color
+    static let defaultRed = UIColor(
+        red: 1,
+        green: 45/255,
+        blue: 85/255,
+        alpha: 1
+    )
+    
+    /// The default green color
+    static let defaultGreen = UIColor(
+        red: 76/255,
+        green: 217/255,
+        blue: 100/255,
         alpha: 1
     )
     

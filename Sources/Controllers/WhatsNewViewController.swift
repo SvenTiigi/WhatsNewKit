@@ -170,7 +170,7 @@ public class WhatsNewViewController: UIViewController {
                 // Initialize SafariViewController
                 let safariViewController = SFSafariViewController(url: url)
                 // Set tint color
-                safariViewController.preferredControlTintColor = self.configuration.theme.completionButtonTheme.backgroundColor
+                safariViewController.preferredControlTintColor = self.configuration.theme.tintColor
                 // Present ViewController
                 self.present(safariViewController, animated: true)
             case .some(.custom(action: let action)):

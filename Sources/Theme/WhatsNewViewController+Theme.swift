@@ -30,6 +30,11 @@ public extension WhatsNewViewController {
         /// The completion button theme
         public var completionButtonTheme: CompletionButtonTheme
         
+        /// The tint color based on completionButtonTheme backgroundcolor
+        public var tintColor: UIColor {
+            return self.completionButtonTheme.backgroundColor
+        }
+        
         /// Default initializer
         ///
         /// - Parameters:
@@ -101,6 +106,9 @@ public extension WhatsNewViewController.Theme {
         /// The text color
         public var textColor: UIColor
         
+        /// Boolean if Image should be auto tinted
+        public var autoTintImage: Bool
+        
         /// The Animation
         public var animation: Animation
         
@@ -111,16 +119,19 @@ public extension WhatsNewViewController.Theme {
         ///   - titleColor: The title color
         ///   - textFont: The text font
         ///   - textColor: The text color
+        ///   - autoTintImage: The autoTintImage boolean. Default value `true`
         ///   - animation: The Animation
         public init(titleFont: UIFont,
                     titleColor: UIColor,
                     textFont: UIFont,
                     textColor: UIColor,
+                    autoTintImage: Bool = true,
                     animation: Animation) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.textFont = textFont
             self.textColor = textColor
+            self.autoTintImage = autoTintImage
             self.animation = animation
         }
         
