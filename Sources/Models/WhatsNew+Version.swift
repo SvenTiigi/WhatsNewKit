@@ -71,10 +71,13 @@ extension WhatsNew.Version: ExpressibleByStringLiteral {
 
 public extension WhatsNew.Version {
     
-    /// The current Version via CFBundleShortVersionString
-    static var current: WhatsNew.Version {
+    /// Retrieve WhatsNew.Version based on current Version String in Bundle
+    ///
+    /// - Parameter bundle: The Bundle
+    /// - Returns: WhatsNew.Version
+    static func current(inBundle bundle: Bundle) -> WhatsNew.Version {
         // Retrieve Bundle short Version String
-        let shortVersionString = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let shortVersionString = bundle.infoDictionary?["CFBundleShortVersionString"] as? String
         // Return initialized Version via String Literal
         return .init(stringLiteral:
             shortVersionString ?? ""

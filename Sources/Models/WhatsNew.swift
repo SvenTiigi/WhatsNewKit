@@ -30,7 +30,7 @@ public struct WhatsNew: Codable, Equatable {
     ///   - version: The Version. Default value `current`
     ///   - title: The Title
     ///   - items: The Items
-    public init(version: Version = .current,
+    public init(version: Version = .current(inBundle: .main),
                 title: String,
                 items: [Item]) {
         self.version = version
