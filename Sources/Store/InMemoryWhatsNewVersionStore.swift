@@ -52,6 +52,7 @@ extension InMemoryWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     /// - Parameter version: The Version
     /// - Returns: Bool if Version has been presented
     public func has(version: WhatsNew.Version) -> Bool {
+        // Return if versions is contained in versions
         return self.versions.contains(version)
     }
     
