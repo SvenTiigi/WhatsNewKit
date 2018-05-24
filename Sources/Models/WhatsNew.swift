@@ -39,3 +39,28 @@ public struct WhatsNew: Codable, Equatable {
     }
     
 }
+
+// MARK: - Sequence WhatsNew Extension
+
+public extension Sequence where Element == WhatsNew {
+    
+    /// Retrieve WhatsNew element based on given Version
+    ///
+    /// - Parameter version: The Version
+    /// - Returns: The first matching WhatsNew element
+    func get(byVersion version: WhatsNew.Version) -> WhatsNew? {
+        return self.first(where: {
+            $0.version == version
+        })
+    }
+    
+    /// Retrieve WhatsNew element based on current Version of Bundle
+    ///
+    /// - Parameter bundle: The Bundle
+    /// - Returns: The first matching WhatsNew element
+    func get(byBundle bundle: Bundle) -> WhatsNew? {
+        let currentVersion = WhatsNew.Version.current(inBundle: bundle)
+        return self.get(byVersion: currentVersion)
+    }
+    
+}
