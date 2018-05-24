@@ -62,9 +62,9 @@ public struct UserDefaultsWhatsNewVersionStore: Equatable {
     
 }
 
-// MARK: - WhatsNewVersionStore
+// MARK: - WriteableWhatsNewVersionStore
 
-extension UserDefaultsWhatsNewVersionStore: WhatsNewVersionStore {
+extension UserDefaultsWhatsNewVersionStore: WriteableWhatsNewVersionStore {
     
     /// Set Version
     ///
@@ -75,6 +75,12 @@ extension UserDefaultsWhatsNewVersionStore: WhatsNewVersionStore {
         // Synchronize UserDefaults
         self.userDefaults.synchronize()
     }
+    
+}
+
+// MARK: - ReadableWhatsNewVersionStore
+
+extension UserDefaultsWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
     /// Has Version
     ///
