@@ -188,15 +188,23 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		3DBFB67720B6ED9300FF0899 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DC8A6B120AED02600292C94 /* Assets.xcassets */,
+				3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */,
+				3DC8A6B620AED02600292C94 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		3DC8A6A920AED02400292C94 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				3DC8A6AA20AED02400292C94 /* AppDelegate.swift */,
 				3DC8A6AC20AED02400292C94 /* ViewController.swift */,
 				3D7E00C520B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift */,
-				3DC8A6B120AED02600292C94 /* Assets.xcassets */,
-				3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */,
-				3DC8A6B620AED02600292C94 /* Info.plist */,
+				3DBFB67720B6ED9300FF0899 /* Supporting Files */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -530,8 +538,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9PL44RX378;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.tiigi.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -558,8 +566,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9PL44RX378;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.tiigi.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
