@@ -8,8 +8,6 @@
 
 import UIKit
 
-// MARK: - Item
-
 public extension WhatsNew {
     
     /// The Item

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - WhatsNew
+
 /// WhatsNew
 public struct WhatsNew: Codable, Equatable {
     

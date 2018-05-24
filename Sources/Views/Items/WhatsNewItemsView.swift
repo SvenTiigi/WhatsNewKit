@@ -18,6 +18,7 @@ class WhatsNewItemsView: ThemableView {
     /// The WhatsNew Items
     private let items: [WhatsNew.Item]
     
+    /// The cell display count
     private var cellDisplayCount = 0
     
     /// The TableView
@@ -71,6 +72,7 @@ class WhatsNewItemsView: ThemableView {
     /// Layout Subviews
     override func layoutSubviews() {
         super.layoutSubviews()
+        // Initialize relative padding
         let relativePadding: CGFloat = 0.05
         // Set TableView frame
         self.tableView.frame = CGRect(
@@ -145,7 +147,7 @@ extension WhatsNewItemsView: UITableViewDelegate {
                 // Return out of function
                 return
         }
-        // Increase CellDisplayCount
+        // Increment CellDisplayCount
         self.cellDisplayCount += 1
         // Animate Cell
         self.theme.itemsViewTheme.animation.rawValue?(cell, indexPath.row)
