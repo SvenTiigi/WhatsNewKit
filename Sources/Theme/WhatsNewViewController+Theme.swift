@@ -100,11 +100,11 @@ public extension WhatsNewViewController.Theme {
         /// The title color
         public var titleColor: UIColor
         
-        /// The text font
-        public var textFont: UIFont
+        /// The subtitle font
+        public var subtitleFont: UIFont
         
-        /// The text color
-        public var textColor: UIColor
+        /// The subtitle color
+        public var subtitleColor: UIColor
         
         /// Boolean if Image should be auto tinted
         public var autoTintImage: Bool
@@ -117,20 +117,20 @@ public extension WhatsNewViewController.Theme {
         /// - Parameters:
         ///   - titleFont: The title font
         ///   - titleColor: The title color
-        ///   - textFont: The text font
-        ///   - textColor: The text color
+        ///   - subtitleFont: The subtitle font
+        ///   - subtitleColor: The subtitle color
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
         ///   - animation: The Animation
         public init(titleFont: UIFont,
                     titleColor: UIColor,
-                    textFont: UIFont,
-                    textColor: UIColor,
+                    subtitleFont: UIFont,
+                    subtitleColor: UIColor,
                     autoTintImage: Bool = true,
                     animation: Animation) {
             self.titleFont = titleFont
             self.titleColor = titleColor
-            self.textFont = textFont
-            self.textColor = textColor
+            self.subtitleFont = subtitleFont
+            self.subtitleColor = subtitleColor
             self.autoTintImage = autoTintImage
             self.animation = animation
         }

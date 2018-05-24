@@ -19,25 +19,25 @@ extension WhatsNewViewController {
         // Easy Setup Item
         let easySetupItem = WhatsNew.Item(
             title: "Easy Setup",
-            text: "The simple and typesafe WhatsNew struct enables you to structurize your awesome new app features",
+            subtitle: "The simple and typesafe WhatsNew struct enables you to structurize your awesome new app features",
             image: #imageLiteral(resourceName: "setup")
         )
         // Themes Item
         let themesItem = WhatsNew.Item(
             title: "Themes",
-            text: "You can apply different themes to perfectly match with your existing app design",
+            subtitle: "You can apply different themes to perfectly match with your existing app design",
             image: #imageLiteral(resourceName: "themes")
         )
         // Installation Item
         let installationItem = WhatsNew.Item(
             title: "Installation",
-            text: "You can install WhatsNewKit via CocoaPods and Carthage",
+            subtitle: "You can install WhatsNewKit via CocoaPods and Carthage",
             image: #imageLiteral(resourceName: "installation")
         )
         // Open Source Item
         let openSourceItem = WhatsNew.Item(
             title: "Open Source",
-            text: "Contributions are\nvery welcome 👨‍💻",
+            subtitle: "Contributions are\nvery welcome 👨‍💻",
             image: #imageLiteral(resourceName: "openSource")
         )
         

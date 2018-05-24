@@ -18,8 +18,8 @@ public extension WhatsNew {
         /// The Title
         public let title: String
         
-        /// The Text
-        public let text: String
+        /// The Subtitle
+        public let subtitle: String
         
         /// The Image
         public let image: UIImage?
@@ -27,11 +27,11 @@ public extension WhatsNew {
         // swiftlint:disable nesting
         /// The CodingKeys
         private enum CodingKeys: CodingKey {
-            /// title
+            /// Title
             case title
-            /// text
-            case text
-            /// image
+            /// Subtitle
+            case subtitle
+            /// Image
             case image
         }
         // swiftlint:enable nestings
@@ -42,13 +42,13 @@ public extension WhatsNew {
         ///
         /// - Parameters:
         ///   - title: The Title
-        ///   - text: The Text
+        ///   - subtitle: The Subtitle
         ///   - image: The Image
         public init(title: String,
-                    text: String,
+                    subtitle: String,
                     image: UIImage?) {
             self.title = title
-            self.text = text
+            self.subtitle = subtitle
             self.image = image
         }
         
@@ -61,8 +61,8 @@ public extension WhatsNew {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             // Decode Title
             self.title = try container.decode(String.self, forKey: .title)
-            // Decode Text
-            self.text = try container.decode(String.self, forKey: .text)
+            // Decode Subtitle
+            self.subtitle = try container.decode(String.self, forKey: .subtitle)
             // Check if Base64 Image String is available
             if let base64 = try container.decodeIfPresent(String.self, forKey: .image) {
                 // Decode Base64 to Image
@@ -84,8 +84,8 @@ public extension WhatsNew {
             var container = encoder.container(keyedBy: CodingKeys.self)
             // Encode Title
             try container.encode(self.title, forKey: .title)
-            // Encode Text
-            try container.encode(self.text, forKey: .text)
+            // Encode Subtitle
+            try container.encode(self.subtitle, forKey: .subtitle)
             // Try to Encode Image as Base64 string
             if let image = self.image, let data = UIImagePNGRepresentation(image) {
                 let base64 = data.base64EncodedString(options: .lineLength64Characters)

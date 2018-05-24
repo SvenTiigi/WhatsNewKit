@@ -29,8 +29,8 @@ public extension WhatsNewViewController.Theme {
                     weight: .semibold
                 ),
                 titleColor: .black,
-                textFont: .systemFont(ofSize: 17),
-                textColor: .black,
+                subtitleFont: .systemFont(ofSize: 17),
+                subtitleColor: .black,
                 animation: .none
             ),
             detailButtonTheme: .init(
@@ -55,7 +55,7 @@ public extension WhatsNewViewController.Theme {
         darkDefault.backgroundColor = .defaultDark
         darkDefault.titleViewTheme.titleColor = .white
         darkDefault.itemsViewTheme.titleColor = .white
-        darkDefault.itemsViewTheme.textColor = .white
+        darkDefault.itemsViewTheme.subtitleColor = .white
         return darkDefault
     }
     

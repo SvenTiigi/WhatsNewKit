@@ -71,9 +71,9 @@ class WhatsNewItemTableViewCell: UITableViewCell {
         // Set attributed text
         self.textLabel?.attributedText = self.getAttributedTextString()
         // Set font
-        self.textLabel?.font = self.theme.itemsViewTheme.textFont
+        self.textLabel?.font = self.theme.itemsViewTheme.subtitleFont
         // Set textcolor
-        self.textLabel?.textColor = self.theme.itemsViewTheme.textColor
+        self.textLabel?.textColor = self.theme.itemsViewTheme.subtitleColor
         // Set number of lines to zero
         self.textLabel?.numberOfLines = 0
         // Set linebreak mode to word wrapping
@@ -88,11 +88,11 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     private func getAttributedTextString() -> NSAttributedString {
         // Check if title is empty
         if self.item.title.isEmpty {
-            // Just return the item text has no title is available
-            return NSAttributedString(string: self.item.text)
+            // Just return the item subtitle has no title is available
+            return NSAttributedString(string: self.item.subtitle)
         } else {
             // Initialize attributed string
-            let attributedString = NSMutableAttributedString(string: "\(self.item.title)\n\(self.item.text)")
+            let attributedString = NSMutableAttributedString(string: "\(self.item.title)\n\(self.item.subtitle)")
             // Add title font
             attributedString.addAttributes(
                 [NSAttributedStringKey.font: self.theme.itemsViewTheme.titleFont],
