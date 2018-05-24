@@ -62,9 +62,11 @@ public extension WhatsNew {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             self.title = try container.decode(String.self, forKey: .title)
             self.text = try container.decode(String.self, forKey: .text)
-            let base64 = try container.decode(String.self, forKey: .image)
-            let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
-            self.image = data.flatMap { UIImage(data: $0) }
+            if let base64 = try container.decodeIfPresent(String.self, forKey: .image) {
+                self.image = Data(base64Encoded: base64, options: .ignoreUnknownCharacters).flatMap(UIImage.init)
+            } else {
+                self.image = nil
+            }
         }
         
         // MARK: Encode
