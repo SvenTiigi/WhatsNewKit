@@ -106,20 +106,20 @@ class WhatsNewButtonView: ThemableView {
         // Initialize padding constant
         let padding: CGFloat = 20
         // Initialize button height constant
-        let buttonHeight: CGFloat = UIDevice.current.orientation == .portrait ? 60 : 50
+        let buttonHeight: CGFloat = 60.0
         // Check if orientation is portrait and detail button title is available
-        if UIDevice.current.orientation == .portrait && self.detailButtonTitle != nil {
+        if UIScreen.main.bounds.height > UIScreen.main.bounds.width && self.detailButtonTitle != nil {
             // Set DetailButton frame
             self.detailButton.frame = CGRect(
                 x: 0,
-                y: 20,
+                y: padding / 2,
                 width: self.frame.size.width,
                 height: self.frame.size.height / 5
             )
             // Set CompletionButton frame
             self.completionButton.frame = CGRect(
                 x: padding,
-                y: self.detailButton.frame.size.height + 30,
+                y: self.detailButton.frame.size.height + padding,
                 width: self.frame.size.width - padding * 2,
                 height: buttonHeight
             )
@@ -129,7 +129,7 @@ class WhatsNewButtonView: ThemableView {
             // Set CompletionButton frame
             self.completionButton.frame = CGRect(
                 x: padding,
-                y: (self.frame.size.height / 2) - (buttonHeight / 2),
+                y: self.frame.size.height / 2 - buttonHeight / 2,
                 width: self.frame.size.width - padding * 2,
                 height: buttonHeight
             )
