@@ -35,6 +35,8 @@
 
 <br/>
 
+<img style="float: right" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Screenshot.png" alt="Example Application Screenshot" align="right" width="307">
+
 `WhatsNewKit` enables you to showcase your awesome new app features like Apple did with Keynote, Pages, Numbers, etc. WhatsNewKit can be easily configured to your needs while maintaining full configuration possibilities.
 
 ## Example
