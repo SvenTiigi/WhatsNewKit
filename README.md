@@ -18,6 +18,7 @@
    <a href="http://cocoapods.org/pods/WhatsNewKit">
       <img src="https://img.shields.io/cocoapods/p/WhatsNewKit.svg?style=flat" alt="Platform">
    </a>
+   <br/>
    <a href="https://codebeat.co/projects/github-com-sventiigi-whatsnewkit-master">
       <img src="https://codebeat.co/badges/058f975e-3f81-4466-b8d1-a8dd08830db7" alt="Codebeat">
    </a>
