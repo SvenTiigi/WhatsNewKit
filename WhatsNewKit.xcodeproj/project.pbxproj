@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D15160320B6F1CE00DD8626 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FB20B6F1CE00DD8626 /* .swift-version */; };
+		3D15160420B6F1CE00DD8626 /* .jazzy.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FC20B6F1CE00DD8626 /* .jazzy.yaml */; };
+		3D15160520B6F1CE00DD8626 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FD20B6F1CE00DD8626 /* LICENSE */; };
+		3D15160620B6F1CE00DD8626 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FE20B6F1CE00DD8626 /* README.md */; };
+		3D15160720B6F1CE00DD8626 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FF20B6F1CE00DD8626 /* .gitignore */; };
+		3D15160820B6F1CE00DD8626 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D15160020B6F1CE00DD8626 /* .swiftlint.yml */; };
+		3D15160920B6F1CE00DD8626 /* WhatsNewKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3D15160120B6F1CE00DD8626 /* WhatsNewKit.podspec */; };
+		3D15160A20B6F1CE00DD8626 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D15160220B6F1CE00DD8626 /* .travis.yml */; };
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
 		3D562CBB20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CBA20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift */; };
 		3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5120B546A100AF4DAF /* ThemableView.swift */; };
@@ -66,6 +74,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D1515FB20B6F1CE00DD8626 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = SOURCE_ROOT; };
+		3D1515FC20B6F1CE00DD8626 /* .jazzy.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
+		3D1515FD20B6F1CE00DD8626 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		3D1515FE20B6F1CE00DD8626 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		3D1515FF20B6F1CE00DD8626 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		3D15160020B6F1CE00DD8626 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		3D15160120B6F1CE00DD8626 /* WhatsNewKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WhatsNewKit.podspec; sourceTree = SOURCE_ROOT; };
+		3D15160220B6F1CE00DD8626 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
 		3D562CBA20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D56AD5120B546A100AF4DAF /* ThemableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemableView.swift; sourceTree = "<group>"; };
@@ -123,6 +139,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1515FA20B6F1AC00DD8626 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				3D1515FF20B6F1CE00DD8626 /* .gitignore */,
+				3D1515FC20B6F1CE00DD8626 /* .jazzy.yaml */,
+				3D1515FB20B6F1CE00DD8626 /* .swift-version */,
+				3D15160020B6F1CE00DD8626 /* .swiftlint.yml */,
+				3D15160220B6F1CE00DD8626 /* .travis.yml */,
+				3D1515FD20B6F1CE00DD8626 /* LICENSE */,
+				3D1515FE20B6F1CE00DD8626 /* README.md */,
+				3D15160120B6F1CE00DD8626 /* WhatsNewKit.podspec */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		3D56AD5C20B559D400AF4DAF /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +222,7 @@
 		3DBFB67720B6ED9300FF0899 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3D1515FA20B6F1AC00DD8626 /* Misc */,
 				3DC8A6B120AED02600292C94 /* Assets.xcassets */,
 				3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */,
 				3DC8A6B620AED02600292C94 /* Info.plist */,
@@ -414,8 +446,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D15160A20B6F1CE00DD8626 /* .travis.yml in Resources */,
+				3D15160820B6F1CE00DD8626 /* .swiftlint.yml in Resources */,
+				3D15160620B6F1CE00DD8626 /* README.md in Resources */,
+				3D15160920B6F1CE00DD8626 /* WhatsNewKit.podspec in Resources */,
+				3D15160720B6F1CE00DD8626 /* .gitignore in Resources */,
 				3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */,
+				3D15160320B6F1CE00DD8626 /* .swift-version in Resources */,
+				3D15160420B6F1CE00DD8626 /* .jazzy.yaml in Resources */,
 				3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */,
+				3D15160520B6F1CE00DD8626 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
