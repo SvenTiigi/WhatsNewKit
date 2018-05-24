@@ -28,7 +28,7 @@ public extension WhatsNew {
         
         // swiftlint:disable nesting
         /// The CodingKeys
-        enum CodingKeys: CodingKey {
+        private enum CodingKeys: CodingKey {
             /// title
             case title
             /// text
