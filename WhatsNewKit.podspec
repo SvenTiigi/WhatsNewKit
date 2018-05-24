@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name                      = "WhatsNewKit"
     s.version                   = "1.0.0"
-    s.summary                   = "Show your new features after an app update"
+    s.summary                   = "Showcase your awesome new app features"
     s.homepage                  = "https://github.com/SvenTiigi/WhatsNewKit"
     s.social_media_url          = 'http://twitter.com/SvenTiigi'
     s.license                   = 'MIT'
