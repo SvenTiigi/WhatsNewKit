@@ -75,7 +75,7 @@ public extension WhatsNew.Version {
     ///
     /// - Parameter bundle: The Bundle
     /// - Returns: WhatsNew.Version
-    static func current(inBundle bundle: Bundle) -> WhatsNew.Version {
+    static func current(inBundle bundle: Bundle = .main) -> WhatsNew.Version {
         // Retrieve Bundle short Version String
         let shortVersionString = bundle.infoDictionary?["CFBundleShortVersionString"] as? String
         // Return initialized Version via String Literal
