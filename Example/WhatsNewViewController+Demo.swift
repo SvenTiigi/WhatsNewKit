@@ -12,7 +12,7 @@ import WhatsNewKit
 extension WhatsNewViewController {
     
     /// The WhatsNewViewController for demo purpose
-    static var demo: WhatsNewViewController {
+    static func demo(withTheme theme: WhatsNewViewController.Theme) -> WhatsNewViewController {
         
         // MARK: 1.Step Setup WhatsNew Items
         
@@ -56,19 +56,12 @@ extension WhatsNewViewController {
             ]
         )
         
-        // MARK: 3.Step (optional) Setup custom Theme
-        
-        // The DemoTheme based on WhitePurple Template
-        var demoTheme = WhatsNewViewController.Theme.default
-        // Update animation
-        demoTheme.itemsViewTheme.animation = .slideUp
-        
-        // MARK: 4.Step Setup WhatsNewViewController Configuration
+        // MARK: 3.Step Setup WhatsNewViewController Configuration
         
         /// The Configuration
         let configuration = WhatsNewViewController.Configuration(
             // Custom Demo Theme
-            theme: demoTheme,
+            theme: theme,
             // DetailButton
             detailButton: .init(
                 // Detail Button Title
@@ -79,13 +72,13 @@ extension WhatsNewViewController {
             // CompletionButton
             completionButton: .init(
                 // Completion Button Title
-                title: "Let's go 🙌",
+                title: "Let's go",
                 // Completion Button Action
                 action: .dismiss
             )
         )
         
-        // MARK: 5.Step Setup WhatsNewViewController
+        // MARK: 4.Step Setup WhatsNewViewController
         
         /// The WhatsNewViewController
         let controller = WhatsNewViewController(
