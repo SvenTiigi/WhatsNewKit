@@ -11,8 +11,9 @@
 		3D562CBB20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CBA20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift */; };
 		3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5120B546A100AF4DAF /* ThemableView.swift */; };
 		3D56AD5620B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */; };
-		3D56AD5920B554CE00AF4DAF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5820B554CE00AF4DAF /* UIColorExtension.swift */; };
-		3D56AD5B20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */; };
+		3D56AD5920B554CE00AF4DAF /* UIColor+isLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5820B554CE00AF4DAF /* UIColor+isLight.swift */; };
+		3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */; };
+		3D7E00C620B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E00C520B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift */; };
 		3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66920AF87E600A10333 /* WhatsNew.swift */; };
 		3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */; };
 		3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67020AF883300A10333 /* WhatsNewViewController.swift */; };
@@ -69,8 +70,9 @@
 		3D562CBA20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D56AD5120B546A100AF4DAF /* ThemableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemableView.swift; sourceTree = "<group>"; };
 		3D56AD5520B5527F00AF4DAF /* WhatsNewViewController+Theme+Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Theme+Template.swift"; sourceTree = "<group>"; };
-		3D56AD5820B554CE00AF4DAF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+WhatsNew.swift"; sourceTree = "<group>"; };
+		3D56AD5820B554CE00AF4DAF /* UIColor+isLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+isLight.swift"; sourceTree = "<group>"; };
+		3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Configuration.swift"; sourceTree = "<group>"; };
+		3D7E00C520B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Demo.swift"; sourceTree = "<group>"; };
 		3D92C66920AF87E600A10333 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Item.swift"; sourceTree = "<group>"; };
 		3D92C67020AF883300A10333 /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
@@ -124,8 +126,7 @@
 		3D56AD5720B554C400AF4DAF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3D56AD5820B554CE00AF4DAF /* UIColorExtension.swift */,
-				3D56AD5A20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift */,
+				3D56AD5820B554CE00AF4DAF /* UIColor+isLight.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				3D92C67020AF883300A10333 /* WhatsNewViewController.swift */,
+				3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +201,7 @@
 			children = (
 				3DC8A6AA20AED02400292C94 /* AppDelegate.swift */,
 				3DC8A6AC20AED02400292C94 /* ViewController.swift */,
+				3D7E00C520B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift */,
 				3DC8A6B120AED02600292C94 /* Assets.xcassets */,
 				3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */,
 				3DC8A6B620AED02600292C94 /* Info.plist */,
@@ -455,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DC8A6AD20AED02400292C94 /* ViewController.swift in Sources */,
+				3D7E00C620B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift in Sources */,
 				3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,9 +467,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */,
 				3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */,
 				3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */,
-				3D56AD5B20B5550F00AF4DAF /* UIAlertController+WhatsNew.swift in Sources */,
 				3D92C67420AF88AC00A10333 /* WhatsNewItemTableViewCell.swift in Sources */,
 				3D92C67720AF88B400A10333 /* WhatsNewRoundedButton.swift in Sources */,
 				3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */,
@@ -474,7 +478,7 @@
 				3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */,
 				3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */,
 				3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */,
-				3D56AD5920B554CE00AF4DAF /* UIColorExtension.swift in Sources */,
+				3D56AD5920B554CE00AF4DAF /* UIColor+isLight.swift in Sources */,
 				3DA667A620B0C8AF00DB18FF /* WhatsNewTitleView.swift in Sources */,
 				3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */,
 				3D562CBB20B3FF2E00603182 /* UserDefaultsWhatsNewVersionStore.swift in Sources */,

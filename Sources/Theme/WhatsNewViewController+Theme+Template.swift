@@ -31,7 +31,7 @@ public extension WhatsNewViewController.Theme {
                 titleColor: .black,
                 textFont: .systemFont(ofSize: 17),
                 textColor: .black,
-                animator: .none
+                animation: .none
             ),
             detailButtonTheme: .init(
                 titleFont: .systemFont(ofSize: 17),
@@ -104,5 +104,35 @@ public extension WhatsNewViewController.Theme {
         darkPurple.completionButtonTheme.backgroundColor = .defaultPurple
         return darkPurple
     }
+    
+}
+
+// MARK: Template Colors
+
+private extension UIColor {
+    
+    /// The default blue color
+    static let defaultBlue = UIColor(
+        red: 0,
+        green: 122/255,
+        blue: 1,
+        alpha: 1
+    )
+    
+    /// The default dark color
+    static let defaultDark = UIColor(
+        red: 20/255,
+        green: 29/255,
+        blue: 38/255,
+        alpha: 1
+    )
+    
+    /// The default purple color
+    static let defaultPurple = UIColor(
+        red: 183/255,
+        green: 35/255,
+        blue: 1,
+        alpha: 1
+    )
     
 }

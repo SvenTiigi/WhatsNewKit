@@ -66,3 +66,19 @@ extension WhatsNew.Version: ExpressibleByStringLiteral {
     }
     
 }
+
+// MARK: - Current
+
+public extension WhatsNew.Version {
+    
+    /// The current Version via CFBundleShortVersionString
+    static var current: WhatsNew.Version {
+        // Retrieve Bundle short Version String
+        let shortVersionString = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        // Return initialized Version via String Literal
+        return .init(stringLiteral:
+            shortVersionString ?? ""
+        )
+    }
+    
+}

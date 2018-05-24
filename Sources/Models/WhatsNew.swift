@@ -22,32 +22,20 @@ public struct WhatsNew: Codable, Equatable {
     /// The items
     public let items: [Item]
     
-    /// The detail button title
-    public let detailButtonTitle: String?
-    
-    /// The completion button title
-    public let completionButtonTitle: String
-    
     // MARK: Initializer
     
     /// Default initializer
     ///
     /// - Parameters:
-    ///   - version: The Version
+    ///   - version: The Version. Default value `current`
     ///   - title: The Title
     ///   - items: The Items
-    ///   - detailButtonTitle: The optional detail button title
-    ///   - completionButtonTitle: The completion button title
-    public init(version: Version,
+    public init(version: Version = .current,
                 title: String,
-                items: Item...,
-                detailButtonTitle: String? = nil,
-                completionButtonTitle: String) {
+                items: [Item]) {
         self.version = version
         self.title = title
         self.items = items
-        self.detailButtonTitle = detailButtonTitle
-        self.completionButtonTitle = completionButtonTitle
     }
     
 }

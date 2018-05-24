@@ -101,8 +101,8 @@ public extension WhatsNewViewController.Theme {
         /// The text color
         public var textColor: UIColor
         
-        /// The animator
-        public var animator: Animator
+        /// The Animation
+        public var animation: Animation
         
         /// Default initializer
         ///
@@ -111,29 +111,29 @@ public extension WhatsNewViewController.Theme {
         ///   - titleColor: The title color
         ///   - textFont: The text font
         ///   - textColor: The text color
-        ///   - animator: The Animator
+        ///   - animation: The Animation
         public init(titleFont: UIFont,
                     titleColor: UIColor,
                     textFont: UIFont,
                     textColor: UIColor,
-                    animator: Animator) {
+                    animation: Animation) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.textFont = textFont
             self.textColor = textColor
-            self.animator = animator
+            self.animation = animation
         }
         
     }
     
 }
 
-// MARK: - ItemsViewTheme Animator
+// MARK: - ItemsViewTheme Animation
 
 public extension WhatsNewViewController.Theme.ItemsViewTheme {
     
-    /// The Animator
-    enum Animator {
+    /// The Animation
+    enum Animation {
         /// None
         case none
         /// Slide up
@@ -145,27 +145,27 @@ public extension WhatsNewViewController.Theme.ItemsViewTheme {
         /// Slide right
         case slideRight
         /// Custom Animation
-        case custom(animation: Animation)
+        case custom(animator: Animator)
     }
     
 }
 
-// MARK: - ItemsViewTheme Animation Typealias
+// MARK: - ItemsViewTheme Animator Typealias
 
 public extension WhatsNewViewController.Theme.ItemsViewTheme {
     
-    /// The Animation typealias closure with UIView and Item count
-    typealias Animation = (UIView, Int) -> Void
+    /// The Animator typealias closure with UIView and Item count
+    typealias Animator = (UIView, Int) -> Void
     
 }
 
 // MARK: - ItemsViewTheme Animator Equatable
 
-extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: Equatable {
+extension WhatsNewViewController.Theme.ItemsViewTheme.Animation: Equatable {
     
     /// Returns a Boolean value indicating whether two values are equal.
-    public static func == (lhs: WhatsNewViewController.Theme.ItemsViewTheme.Animator,
-                           rhs: WhatsNewViewController.Theme.ItemsViewTheme.Animator) -> Bool {
+    public static func == (lhs: WhatsNewViewController.Theme.ItemsViewTheme.Animation,
+                           rhs: WhatsNewViewController.Theme.ItemsViewTheme.Animation) -> Bool {
         // Switch on lhs and rhs
         switch (lhs, rhs) {
         case (.none, .none):
@@ -189,10 +189,10 @@ extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: Equatable {
 
 // MARK: - ItemsViewTheme Animator RawRepresentable
 
-extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: RawRepresentable {
+extension WhatsNewViewController.Theme.ItemsViewTheme.Animation: RawRepresentable {
 
-    /// Associated type RawValue as optional Animation
-    public typealias RawValue = WhatsNewViewController.Theme.ItemsViewTheme.Animation?
+    /// Associated type RawValue as optional Animator
+    public typealias RawValue = WhatsNewViewController.Theme.ItemsViewTheme.Animator?
 
     /// RawRepresentable initializer. Which always returns nil
     ///
@@ -202,13 +202,13 @@ extension WhatsNewViewController.Theme.ItemsViewTheme.Animator: RawRepresentable
         return nil
     }
 
-    /// The optional Animation rawValue
+    /// The optional Animator rawValue
     public var rawValue: RawValue {
         switch self {
         case .none:
             return nil
-        case .custom(animation: let animation):
-            return animation
+        case .custom(animator: let animator):
+            return animator
         default:
             // Return predefined animation
             return { view, index in
