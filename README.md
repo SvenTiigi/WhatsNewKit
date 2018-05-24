@@ -6,8 +6,8 @@
    <a href="https://developer.apple.com/swift/">
       <img src="https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat" alt="Swift 4.0">
    </a>
-   <a href="https://travis-ci.org/SvenTiigi/WhatsNewKit">
-      <img src="https://travis-ci.org/SvenTiigi/WhatsNewKit.svg?branch=master" alt="Build Status">
+   <a href="https://travis-ci.com/SvenTiigi/WhatsNewKit">
+      <img src="https://travis-ci.com/SvenTiigi/WhatsNewKit.svg?branch=master" alt="Build Status">
    </a>
    <a href="http://cocoapods.org/pods/WhatsNewKit">
       <img src="https://img.shields.io/cocoapods/v/WhatsNewKit.svg?style=flat" alt="Version">
