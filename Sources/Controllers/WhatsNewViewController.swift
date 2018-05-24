@@ -16,7 +16,9 @@ public class WhatsNewViewController: UIViewController {
     
     /// The preferred status bar style
     public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return self.view.backgroundColor?.isLight == true ? .default : .lightContent
+        var white: CGFloat = 0
+        self.view.backgroundColor?.getWhite(&white, alpha: nil)
+        return white > 0.5 ? .default : .lightContent
     }
     
     // MARK: Private Properties
