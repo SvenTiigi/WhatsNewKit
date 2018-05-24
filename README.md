@@ -1,5 +1,5 @@
 <p align="center">
-   <img width="500" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKitLogo.png" alt="WhatsNewKit Header Logo">
+   <img width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKitLogo.png" alt="WhatsNewKit Header Logo">
 </p>
 
 <p align="center">
@@ -18,12 +18,12 @@
    <a href="http://cocoapods.org/pods/WhatsNewKit">
       <img src="https://img.shields.io/cocoapods/p/WhatsNewKit.svg?style=flat" alt="Platform">
    </a>
-   <a href="https://codebeat.co/projects/github-com-sventiigi-WhatsNewKit-master">
-      <img src="https://codebeat.co/badges/c170aedf-d49e-4538-be5c-6c2819c8d7f4" alt="Codebeat">
+   <a href="https://codebeat.co/projects/github-com-sventiigi-whatsnewkit-master">
+      <img src="https://codebeat.co/badges/058f975e-3f81-4466-b8d1-a8dd08830db7" alt="Codebeat">
    </a>
    <a href="https://codecov.io/gh/SvenTiigi/WhatsNewKit">
-		<img src="https://img.shields.io/codecov/c/github/SvenTiigi/WhatsNewKit.svg" alt="Coverage">
-	</a>
+      <img src="https://codecov.io/gh/SvenTiigi/WhatsNewKit/branch/master/graph/badge.svg" alt="Coverage" />
+   </a>	
    <a href="https://sventiigi.github.io/WhatsNewKit">
       <img src="https://github.com/SvenTiigi/WhatsNewKit/blob/gh-pages/badge.svg" alt="Documentation">
    </a>
