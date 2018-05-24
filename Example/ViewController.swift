@@ -11,12 +11,26 @@ import WhatsNewKit
 
 class ViewController: UIViewController {
 
+    private lazy var button: UIButton = {
+        let button = UIButton()
+        button.setTitle("Present", for: .normal)
+        button.setTitleColor(WhatsNewViewController.Theme.default.tintColor, for: .normal)
+        button.addTarget(self, action: #selector(self.presentWhatsNewViewController), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "WhatsNewKit"
+        self.view.addSubview(self.button)
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.button.frame = self.view.frame
+    }
+    
+    @objc private func presentWhatsNewViewController() {
         let controller = WhatsNewViewController.demo
         self.present(controller, animated: true)
     }

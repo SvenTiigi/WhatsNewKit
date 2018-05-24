@@ -7,16 +7,40 @@
 //
 
 import UIKit
+import WhatsNewKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+    /// The UINavigationController with ViewController as root viewcontroller
+    private lazy var navigationController: UINavigationController = {
+        let navigationController = UINavigationController(rootViewController: ViewController())
+        navigationController.navigationBar.prefersLargeTitles = true
+        let tintColor = WhatsNewViewController.Theme.default.tintColor
+        navigationController.navigationBar.largeTitleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: tintColor
+        ]
+        navigationController.view.backgroundColor = .white
+        navigationController.navigationBar.tintColor = tintColor
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor]
+        return navigationController
+    }()
+    
+    /// Main Entry Point
+    ///
+    /// - Parameters:
+    ///   - application: The Application
+    ///   - launchOptions: The LaunchOptions
+    /// - Returns: Boolean
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Initialize Window
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = ViewController()
+        // Set root viewcontroller
+        self.window?.rootViewController = self.navigationController
+        // Make key and visible
         self.window?.makeKeyAndVisible()
         return true
     }
