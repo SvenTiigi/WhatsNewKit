@@ -73,7 +73,44 @@ On your application targets’ “Build Phases” settings tab, click the “+�
 If you prefer not to use any of the aforementioned dependency managers, you can integrate WhatsNewKit into your project manually. Simply drag the `Sources` Folder into your Xcode project.
 
 ## Usage
-...
+`WhatsNewKit` is designed from the ground up to be fully customized to your needs. In order to getting started the following examples shows the simplest way of presenting your new app features with `WhatsNewKit`.
+> 👨‍💻 Please see the Advanced section for further configuration options and details about `WhatsNewKit`.
+
+### Setup WhatsNew
+In order to present your awesome new app features, you have to declare what is new and what are those amazing features. You start off with a `WhatsNew.Item` which represents a new feature in your app. You initialize a `WhatsNew.Item` by passing a title, subtitle and an optional `UIImage`.
+
+```swift
+let installationItem = WhatsNew.Item(
+    title: "Installation",
+    subtitle: "You can install WhatsNewKit via CocoaPods or Carthage",
+    image: .init(named: "installation")
+)
+```
+
+After you initialized various `WhatsNew.Item`s you are good to go to setup `WhatsNew`. The following example shows the easiest way of initializing a `WhatsNew` struct.
+
+```swift
+let whatsNew = WhatsNew(
+    title: "WhatsNewKit",
+    items: [
+        easySetupItem,
+        themesItem,
+        installationItem,
+        openSourceItem
+    ]
+)
+```
+
+### Present WhatsNewViewController 
+
+Initialize a `WhatsNewViewController` with your existing `WhatsNew` struct and you are good to go to present your new app features with `WhatsNewKit`.
+
+```swift
+let whatsNewViewController = WhatsNewViewController(whatsNew: whatsNew)
+self.present(whatsNewViewController, animated: true)
+```
+
+And you are done 🏁
 
 ## Advanced
 ...
