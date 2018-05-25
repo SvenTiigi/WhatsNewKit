@@ -78,7 +78,7 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 In order to get a brief look how to use `WhatsNewKit`, the following usage description shows the easiest way of presenting your new app features.
 
-### Setup WhatsNew
+### WhatsNew
 To present your awesome new app features, you first have to declare what is new and what are those amazing features inside your app. You start off with a `WhatsNew.Item` which represents a new feature in your app. You initialize a `WhatsNew.Item` by passing a `title`, `subtitle` and an optional `UIImage`.
 
 ```swift
@@ -105,7 +105,7 @@ let whatsNew = WhatsNew(
 )
 ```
 
-### Present WhatsNewViewController 
+### WhatsNewViewController 
 
 The presentation of your new app features are handled via the `WhatsNewViewController`. Simply pass your `WhatsNew` struct to the initializer and present or push the `WhatsNewViewController`
 
