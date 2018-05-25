@@ -39,6 +39,8 @@ class WhatsNewItemsView: ThemableView {
         tableView.separatorStyle = .none
         // No selection
         tableView.allowsSelection = false
+        // Set indicator style based on theme backgroundcolor
+        tableView.indicatorStyle = self.theme.backgroundColor.isLight ? .black : .white
         // Return TableView
         return tableView
     }()
@@ -141,6 +143,7 @@ extension WhatsNewItemsView: UITableViewDelegate {
     ///   - cell: The Cell
     ///   - indexPath: The indexPath
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = self.theme.backgroundColor
         // Unwrap cell as WhatsNewItemTableViewCell and verify cellDisplayCount is less then the items count
         guard let cell = cell as? WhatsNewItemTableViewCell,
             self.cellDisplayCount < self.items.count else {

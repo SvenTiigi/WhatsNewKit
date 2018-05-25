@@ -147,6 +147,8 @@ public extension WhatsNewViewController.Theme.ItemsViewTheme {
     enum Animation {
         /// None
         case none
+        /// Fade
+        case fade
         /// Slide up
         case slideUp
         /// Slide down
@@ -180,6 +182,8 @@ extension WhatsNewViewController.Theme.ItemsViewTheme.Animation: Equatable {
         // Switch on lhs and rhs
         switch (lhs, rhs) {
         case (.none, .none):
+            return true
+        case (.fade, .fade):
             return true
         case (.slideUp, .slideUp):
             return true
@@ -220,7 +224,7 @@ extension WhatsNewViewController.Theme.ItemsViewTheme.Animation: RawRepresentabl
             return nil
         case .custom(animator: let animator):
             return animator
-        default:
+        case .fade, .slideUp, .slideDown, .slideLeft, .slideRight:
             // Return predefined animation
             return { view, index in
                 // Declare Transform
@@ -248,10 +252,7 @@ extension WhatsNewViewController.Theme.ItemsViewTheme.Animation: RawRepresentabl
                         y: 0
                     )
                 default:
-                    transform = CGAffineTransform(
-                        translationX: 0,
-                        y: 0
-                    )
+                    transform = .identity
                 }
                 // Apply Transform
                 view.transform = transform

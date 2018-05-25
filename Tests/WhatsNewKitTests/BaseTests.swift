@@ -39,15 +39,20 @@ class BaseTests: XCTestCase {
     ///   - name: The expectation name
     ///   - timeout: The optional custom timeout
     ///   - execution: The test execution
-    func performTest(name: String = #function,
+    ///   - completionHandler: The optional XCWaitCompletionHandler
+    func performTest(name: String = "\(#function): Line \(#line)",
                      timeout: TimeInterval? = nil,
-                     execution: (XCTestExpectation) -> Void) {
+                     execution: (XCTestExpectation) -> Void,
+                     completionHandler: XCWaitCompletionHandler? = nil) {
         // Create expectation with function name
         let expectation = self.expectation(description: name)
         // Perform test execution with expectation
         execution(expectation)
         // Wait for expectation been fulfilled with custom or default timeout
-        self.waitForExpectations(timeout: timeout.flatMap { $0 } ?? self.expectationTimeout, handler: nil)
+        self.waitForExpectations(
+            timeout: timeout.flatMap { $0 } ?? self.expectationTimeout,
+            handler: completionHandler
+        )
     }
     
     /// Generate a random String
