@@ -35,7 +35,9 @@
 
 <br/>
 
-`WhatsNewKit` enables you to showcase your awesome new app features like Apple did with Keynote, Pages and Numbers. It is designed from the ground up to be fully customized to your needs 🙌
+<p align="center">
+WhatsNewKit enables you to showcase your awesome new app features. <br/> It is designed from the ground up to be fully customized to your needs 🙌
+</p>
 
 ## Example
 
