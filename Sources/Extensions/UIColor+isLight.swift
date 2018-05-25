@@ -6,4 +6,15 @@
 //  Copyright © 2018 WhatsNewKit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIColor {
+    
+    /// Retrieve Boolean if UIColor is light
+    var isLight: Bool {
+        var white: CGFloat = 0
+        self.getWhite(&white, alpha: nil)
+        return white > 0.5
+    }
+    
+}
