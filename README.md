@@ -35,7 +35,7 @@
 
 <br/>
 
-`WhatsNewKit` enables you to showcase your awesome new app features like Apple did with Keynote, Pages, Numbers, etc. WhatsNewKit can be easily configured to your needs while maintaining full configuration possibilities.
+`WhatsNewKit` enables you to showcase your awesome new app features like Apple did with Keynote, Pages and Numbers. It is designed from the ground up to be fully customized to your needs 🙌
 
 ## Example
 
@@ -224,6 +224,17 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
     whatsNew: whatsNew, 
     versionStore: myVersionStore
 )
+
+// Unwrap WhatsNewViewController to check if the WhatsNew.Version
+// has already been presented to the user
+guard let controller = whatsNewViewController else {
+    // User has been informed about this feature
+    return
+}
+
+// User hasn't seen those new features. Go head and present it
+self.present(controller, animated: true)
+
 ```
 
 The `WhatsNewViewController` will check if the Version has already been presented and if so it will return `nil` otherwise it will initialize itself and set the `WhatsNewVersionStore` which in results will perform a `set` on the `WhatsNewVersionStore` when the user pressed the `CompletionButton` in order to store that the your new app features have been presented to the user.
@@ -231,9 +242,24 @@ The `WhatsNewViewController` will check if the Version has already been presente
 #### Implementation
 If you already handled saving user settings in your app to something like `Realm`, `CoreData` or `UserDefaults` you can conform the `WhatsNewVersionStore` and pass it as an initializer parameter to the `WhatsNewViewController`.
 
+```swift
+// Extend your existing App-Logic
+extension MyUserSettingsDatabase: WhatsNewVersionStore {
+    // Implement me 👨‍💻
+}
+```
+
 ##### Predefined Implementations
 
-If not you can make use of the predefined `WhatsNewVersionStore` implementations which `WhatsNewKit` offers. The first is the `UserDefaultsWhatsNewVersionStore` which implemented the `WhatsNewVersionStore` and saves the corresponding presentd `Version` to the `UserDefaults`. The second predefinied implementation is the `InMemoryWhatsNewVersionStore` which is handy during development or testing phase as it only saves those information in memory.
+If not you can make use of the predefined `WhatsNewVersionStore` implementations which `WhatsNewKit` offers.
+
+`UserDefaultsWhatsNewVersionStore`
+
+Saves and retrieves the `WhatsNew.Version` to the `UserDefaults`.
+
+`InMemoryWhatsNewVersionStore`
+
+Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👌
 
 #### WhatsNew.Version
 During the initialization of the `WhatsNew` struct the `WhatsNewKit` will automatically retrieve the current App-Version via the `CFBundleShortVersionString` and construct a `WhatsNew.Version` struct which is used by the `WhatsNewVersionStore` protocol in order to persist the presented app versions. If you want to manually set the version you can do it like the following example.
