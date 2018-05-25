@@ -22,7 +22,7 @@ public class WhatsNewViewController: UIViewController {
     // MARK: Private Properties
     
     /// The WhatsNew
-    private let whatsNew: WhatsNew
+    public let whatsNew: WhatsNew
     
     /// The Configuration
     private var configuration: Configuration
