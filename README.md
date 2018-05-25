@@ -41,7 +41,7 @@ WhatsNewKit enables you to showcase your awesome new app features. <br/> It is d
 
 ## Example
 
-<img style="float: right" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example Application Screenshot" align="right" width="357">
+<img style="float: right" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example Application Screenshot" align="right" width="350">
 
 The example Application is an excellent way to see `WhatsNewKit` in action. You get a brief look of the available configuration options and how they affect the look and feel of the `WhatsNewViewController`. Simply open the `WhatsNewKit.xcodeproj` and run the `WhatsNewKit-Example` scheme.
 
