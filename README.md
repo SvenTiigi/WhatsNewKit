@@ -41,7 +41,7 @@
 
 <br/>
 <p align="center">
-   <img width="350" class="foregroundImage" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example">
+   <img width="600" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example">
 </p>
 
 ## Example
