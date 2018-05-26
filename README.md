@@ -36,7 +36,7 @@
 <br/>
 
 <p align="center">
-WhatsNewKit enables you to easily showcase your awesome new app features. <br/> WhatsNewKit is designed from the ground up to be fully customized to your needs.
+WhatsNewKit enables you to easily showcase your awesome new app features. <br/> It's designed from the ground up to be fully customized to your needs.
 </p>
 <br/>
 
