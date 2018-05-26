@@ -122,14 +122,14 @@ self.present(whatsNewViewController, animated: true)
 ```
 
 ## Advanced
-As mentioned before `WhatsNewKit` can be fully customized to your needs. The Advanced section will explain all configuration possibilities and features of `WhatsNewKit` in detail.
-
-### WhatsNewViewController.Configuration
-The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Controllers/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` to your needs. Therefore the `UI` can be seperated into four main components `TitleView`, `ItemsView`, `DetailButton`, `CompletionButton`.
+As mentioned before `WhatsNewKit` can be fully customized to your needs. The Advanced section will explain all configuration possibilities and features of `WhatsNewKit` in detail. First off it's important to understand the components of the `WhatsNewViewController` in order to customize the behaviour and `UI`-Design.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/UILayout.jpg" width="500">
 </p>
+
+### WhatsNewViewController.Configuration
+The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Controllers/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` to your needs.
 
 The `WhatsNewViewController.Configuration` consist of three main properties.
 
