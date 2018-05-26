@@ -181,6 +181,7 @@ let whiteRed = WhatsNewViewController.Configuration.Theme.whiteRed
 ```
 
 ##### Animation
+<img style="float: right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations">
 By setting the `animation` property on the `WhatsNewViewController.Configuration.Theme.ItemsViewTheme` you can apply an animation while displaying the `ItemsView`.
 
 ```swift
@@ -197,9 +198,12 @@ Or you can make use of the predefined animations like `fade`, `slideUp`, `slideD
 theme.itemsViewTheme.animation = .slideUp
 ```
 
+
 > ☝️ In default the Animation is set to `.none`
 
 #### DetailButton
+ <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="Animations">
+ <br/>
 By setting an `DetailButton` struct on the `WhatsNewViewController.Configuration` struct you can customize the `title` and the corresponding `action` of the displayed detail button on the `WhatsNewViewController`. As the `DetailButton` struct is declared as optional the `WhatsNewViewController` will only display the button if a `DetailButton` configuration is available
 
 | Action | Description   |
@@ -224,6 +228,8 @@ let detailButton = WhatsNewViewController.Configuration.DetailButton(
 ```
 
 #### CompletionButton
+ <img width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/completionButton.jpg" alt="Animations">
+ <br/>
 The `CompletionButton` struct configures the displayed title and the action when the user pressed the completion button on the `WhatsNewViewController`.
 
 | Action | Description   |
