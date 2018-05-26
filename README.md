@@ -40,6 +40,7 @@
 </p>
 
 <br/>
+
 <p align="center">
    <img width="600" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example">
 </p>
@@ -181,6 +182,8 @@ let whiteRed = WhatsNewViewController.Configuration.Theme.whiteRed
 ```
 
 ##### Animation
+<img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
+
 By setting the `animation` property on the `WhatsNewViewController.Configuration.Theme.ItemsViewTheme` you can apply an animation while displaying the `ItemsView`.
 
 ```swift
@@ -197,9 +200,12 @@ Or you can make use of the predefined animations like `fade`, `slideUp`, `slideD
 theme.itemsViewTheme.animation = .slideUp
 ```
 
+
 > ☝️ In default the Animation is set to `.none`
 
 #### DetailButton
+ <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="DetailButton">
+ 
 By setting an `DetailButton` struct on the `WhatsNewViewController.Configuration` struct you can customize the `title` and the corresponding `action` of the displayed detail button on the `WhatsNewViewController`. As the `DetailButton` struct is declared as optional the `WhatsNewViewController` will only display the button if a `DetailButton` configuration is available
 
 | Action | Description   |
@@ -224,6 +230,8 @@ let detailButton = WhatsNewViewController.Configuration.DetailButton(
 ```
 
 #### CompletionButton
+ <img width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/completionButton.jpg" alt="CompletionButton">
+ 
 The `CompletionButton` struct configures the displayed title and the action when the user pressed the completion button on the `WhatsNewViewController`.
 
 | Action | Description   |
@@ -248,6 +256,10 @@ let completionButton = WhatsNewViewController.Configuration.CompletionButton(
 ```
 
 ### WhatsNewVersionStore
+<p align="center">
+   <img width="750" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewVersionStore.jpg" alt="WhatsNewVersionStore">
+</p>
+
 If we speak about presenting awesome new app features we have to take care that this kind of `UI` action only happens once if the user installed the app or opened it after an update. The `WhatsNewKind` offers a neat solution for this kind of problem via the [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/WhatsNewVersionStore.swift) protocol.
 
 ```swift
@@ -380,6 +392,9 @@ let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
 
 ## Contributing
 Contributions are very welcome 🙌 🤓
+
+## Credits
+The `WhatsNew.Item` images ([icons8-github](https://icons8.com/icon/62856/github), [icons8-puzzle](https://icons8.com/icon/61018/puzzle), [icons8-approval](https://icons8.com/icon/59733/approval), [icons8-picture](https://icons8.com/icon/68826/picture)) which are seen on the screenshots and inside the example application are taken from [icons8.com](https://icons8.com/) and licensed under [Creative Commons Attribution-NoDerivs 3.0 Unported](https://creativecommons.org/licenses/by-nd/3.0/).
 
 ## License
 

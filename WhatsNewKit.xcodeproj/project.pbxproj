@@ -42,6 +42,9 @@
 		3DC8A6AD20AED02400292C94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AC20AED02400292C94 /* ViewController.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
 		3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */; };
+		3DCFD33120B98BD8005BE43E /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33020B98BD8005BE43E /* Fastfile */; };
+		3DCFD33320B98C9E005BE43E /* .codebeatignore in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33220B98C9D005BE43E /* .codebeatignore */; };
+		3DCFD33520B98FB1005BE43E /* .codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33420B98FB1005BE43E /* .codecov.yml */; };
 		3DDDB59720B832AB001D59C5 /* UIColor+isLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB59620B832AB001D59C5 /* UIColor+isLight.swift */; };
 		3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */; };
 		52D6D9871BEFF229002C0205 /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
@@ -114,6 +117,9 @@
 		3DC8A6B120AED02600292C94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC8A6B420AED02600292C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC8A6B620AED02600292C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DCFD33020B98BD8005BE43E /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
+		3DCFD33220B98C9D005BE43E /* .codebeatignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .codebeatignore; sourceTree = SOURCE_ROOT; };
+		3DCFD33420B98FB1005BE43E /* .codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
 		3DDDB59620B832AB001D59C5 /* UIColor+isLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+isLight.swift"; sourceTree = "<group>"; };
 		3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsNewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +158,9 @@
 		3D1515FA20B6F1AC00DD8626 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				3DCFD33420B98FB1005BE43E /* .codecov.yml */,
+				3DCFD33220B98C9D005BE43E /* .codebeatignore */,
+				3DCFD33020B98BD8005BE43E /* Fastfile */,
 				3D1515FF20B6F1CE00DD8626 /* .gitignore */,
 				3D1515FC20B6F1CE00DD8626 /* .jazzy.yaml */,
 				3D1515FB20B6F1CE00DD8626 /* .swift-version */,
@@ -194,13 +203,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		3D92C67A20AF88E000A10333 /* Controllers */ = {
+		3D92C67A20AF88E000A10333 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				3D92C67020AF883300A10333 /* WhatsNewViewController.swift */,
 				3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */,
 			);
-			path = Controllers;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		3DA1829C20B336BF00D2C155 /* Title */ = {
@@ -312,7 +320,8 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3D92C67A20AF88E000A10333 /* Controllers */,
+				3D92C67020AF883300A10333 /* WhatsNewViewController.swift */,
+				3D92C67A20AF88E000A10333 /* Configuration */,
 				3D56AD5C20B559D400AF4DAF /* Theme */,
 				3DFB6FFE20B34F7E00673FD6 /* Store */,
 				3D92C67920AF88DC00A10333 /* Views */,
@@ -475,6 +484,9 @@
 				3D15160920B6F1CE00DD8626 /* WhatsNewKit.podspec in Resources */,
 				3D15160720B6F1CE00DD8626 /* .gitignore in Resources */,
 				3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */,
+				3DCFD33520B98FB1005BE43E /* .codecov.yml in Resources */,
+				3DCFD33120B98BD8005BE43E /* Fastfile in Resources */,
+				3DCFD33320B98C9E005BE43E /* .codebeatignore in Resources */,
 				3D15160320B6F1CE00DD8626 /* .swift-version in Resources */,
 				3D15160420B6F1CE00DD8626 /* .jazzy.yaml in Resources */,
 				3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */,
