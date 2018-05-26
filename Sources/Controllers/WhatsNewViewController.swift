@@ -16,15 +16,13 @@ public class WhatsNewViewController: UIViewController {
     
     /// The preferred status bar style
     public override var preferredStatusBarStyle: UIStatusBarStyle {
-        var white: CGFloat = 0
-        self.view.backgroundColor?.getWhite(&white, alpha: nil)
-        return white > 0.5 ? .default : .lightContent
+        return self.view.backgroundColor?.isLight == true ? .default : .lightContent
     }
     
     // MARK: Private Properties
     
     /// The WhatsNew
-    private let whatsNew: WhatsNew
+    public let whatsNew: WhatsNew
     
     /// The Configuration
     private var configuration: Configuration
@@ -65,7 +63,7 @@ public class WhatsNewViewController: UIViewController {
     ///   - whatsNew: The WhatsNew
     ///   - configuration: The Configuration
     public init(whatsNew: WhatsNew,
-                configuration: Configuration) {
+                configuration: Configuration = .init()) {
         // Set WhatsNew
         self.whatsNew = whatsNew
         // Set Configuration
@@ -91,7 +89,7 @@ public class WhatsNewViewController: UIViewController {
     ///   - configuration: The Configuration
     ///   - versionStore: The WhatsNewVersionStore
     public convenience init?(whatsNew: WhatsNew,
-                             configuration: Configuration,
+                             configuration: Configuration = .init(),
                              versionStore: WhatsNewVersionStore) {
         // Check if VersionStore has version
         if versionStore.has(version: whatsNew.version) {

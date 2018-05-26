@@ -18,6 +18,7 @@
    <a href="http://cocoapods.org/pods/WhatsNewKit">
       <img src="https://img.shields.io/cocoapods/p/WhatsNewKit.svg?style=flat" alt="Platform">
    </a>
+   <br/>
    <a href="https://codebeat.co/projects/github-com-sventiigi-whatsnewkit-master">
       <img src="https://codebeat.co/badges/058f975e-3f81-4466-b8d1-a8dd08830db7" alt="Codebeat">
    </a>
@@ -34,4 +35,373 @@
 
 <br/>
 
-`Work In Progress 👨‍💻`
+<p align="center">
+   WhatsNewKit enables you to easily showcase your awesome new app features. <br/> It's designed from the ground up to be fully customized to your needs.
+</p>
+
+<br/>
+<p align="center">
+   <img width="600" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example">
+</p>
+
+## Example
+
+The example Application is an excellent way to see `WhatsNewKit` in action. You get a brief look of the available configuration options and how they affect the look and feel of the `WhatsNewViewController`. Simply open the `WhatsNewKit.xcodeproj` and run the `WhatsNewKit-Example` scheme.
+
+## Installation
+
+### CocoaPods
+
+WhatsNewKit is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```bash
+pod 'WhatsNewKit', '~> 1.0.0'
+```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+To integrate WhatsNewKit into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "SvenTiigi/WhatsNewKit" ~> 1.0.0
+```
+
+Run `carthage update --platform iOS` to build the framework and drag the built `WhatsNewKit.framework` into your Xcode project. 
+
+On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase” and add the Framework path as mentioned in [Carthage Getting started Step 4, 5 and 6](https://github.com/Carthage/Carthage/blob/master/README.md)
+
+### Manually
+
+If you prefer not to use any of the aforementioned dependency managers, you can integrate WhatsNewKit into your project manually. Simply drag the `Sources` Folder into your Xcode project.
+
+## Usage
+The following first usage description shows the easiest way of presenting your new app features with `WhatsNewKit`.
+> 👨‍💻 Please see the [Advanced](https://github.com/SvenTiigi/WhatsNewKit#advanced) section for further configuration options and features.
+
+### WhatsNew
+To present your awesome new app features, you first have to declare what is new and what are those amazing features inside your app. You start off with a [WhatsNew.Item](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew%2BItem.swift) which represents a new feature in your app. You initialize a `WhatsNew.Item` by passing a `title`, `subtitle` and an optional `UIImage`.
+
+```swift
+// Initialize a WhatsNew.Item which represents an App-Feature
+let installationItem = WhatsNew.Item(
+    title: "Installation",
+    subtitle: "You can install WhatsNewKit via CocoaPods or Carthage",
+    image: .init(named: "installation")
+)
+```
+
+After you initialized various `WhatsNew.Item`s you are good to go to setup the [WhatsNew](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew.swift) struct by passing a `title` and your `WhatsNew.Item` array.
+
+```swift
+// Initialize WhatsNew with Title and Items
+let whatsNew = WhatsNew(
+    title: "WhatsNewKit",
+    items: [
+        easySetupItem,
+        themesItem,
+        installationItem,
+        openSourceItem
+    ]
+)
+```
+
+### WhatsNewViewController 
+
+The presentation of your new app features are handled via the [WhatsNewViewController](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Controllers/WhatsNewViewController.swift). Simply pass your `WhatsNew` struct to the initializer and present or push the `WhatsNewViewController`
+
+```swift
+// Initialize WhatsNewViewController with WhatsNew
+let whatsNewViewController = WhatsNewViewController(
+    whatsNew: whatsNew
+)
+// Present it
+self.present(whatsNewViewController, animated: true)
+```
+
+## Advanced
+As mentioned before `WhatsNewKit` can be fully customized to your needs. The Advanced section will explain all configuration possibilities and features of `WhatsNewKit` in detail. First off it's important to understand the components of the `WhatsNewViewController` in order to customize the behaviour and `UI`-Design.
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/UILayout.jpg" width="500">
+</p>
+
+### WhatsNewViewController.Configuration
+The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Controllers/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` to your needs.
+
+The `WhatsNewViewController.Configuration` consist of three main properties.
+
+| Property      | Description   |
+| ------------- | ------------- |
+| theme      | All `UI` related settings can be customized here |
+| detailButton      | Optional detail button to configure the title and the action that should be performed after pressing |
+| completionButton | The completion button to configure the title and the corresponding action that should take place after pressing |
+
+The configuration itself can be passed to the initializer of the `WhatsNewViewController`.
+
+```swift
+// Initialize default Configuration
+let configuration = WhatsNewViewController.Configuration()
+
+// Initialize WhatsNewViewController with custom configuration
+let whatsNewViewController = WhatsNewViewController(
+    whatsNew: whatsNew, 
+    configuration: configuration
+)
+```
+
+The upcoming subsection will explain the properties `Theme`, `DetailButton` and `CompletionButton` in detail.
+
+#### Theme
+The [WhatsNewViewController.Configuration.Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme.swift) struct allows you to perfectly match the design to your existing App. You can customize all kinds of `UI` related settings.
+
+```swift
+// Initialize and configure the Theme to your needs
+var theme: WhatsNewViewController.Configuration.Theme
+```
+
+##### Templates
+
+Beside the full configuration possibilities you can make use of the predefined `Theme` [Templates](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme%2BTemplate.swift) which are available as static properties. All templates are available in white and dark mode 😎.
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
+</p>
+
+```swift
+// Dark Red template Theme
+let darkRed = WhatsNewViewController.Configuration.Theme.darkRed
+
+// White Red template Theme
+let whiteRed = WhatsNewViewController.Configuration.Theme.whiteRed
+
+// TODO: Check out the example application for all available Tempaltes
+```
+
+##### Animation
+By setting the `animation` property on the `WhatsNewViewController.Configuration.Theme.ItemsViewTheme` you can apply an animation while displaying the `ItemsView`.
+
+```swift
+// Set custom animation for displaying WhatsNew.Item's
+theme.itemsViewTheme.animation = .custom(animator: { (view, count) in
+    // view: The View to perform animation on
+    // count: The current WhatsNew.Item count (starting at zero)
+})
+```
+Or you can make use of the predefined animations like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`.
+
+```swift
+// Set predefined slideUp theme
+theme.itemsViewTheme.animation = .slideUp
+```
+
+> ☝️ In default the Animation is set to `.none`
+
+#### DetailButton
+By setting an `DetailButton` struct on the `WhatsNewViewController.Configuration` struct you can customize the `title` and the corresponding `action` of the displayed detail button on the `WhatsNewViewController`. As the `DetailButton` struct is declared as optional the `WhatsNewViewController` will only display the button if a `DetailButton` configuration is available
+
+| Action | Description   |
+| ------------- | ------------- |
+| website | When the user pressed the detail button a `SFSafariViewController` with the given `URL` will be presented |
+| custom | After the detail button has been pressed by the user, your custom action will be invoked |
+
+```swift
+// Initialize DetailButton with title and open website at url
+let detailButton = WhatsNewViewController.Configuration.DetailButton(
+    title: "Read more", 
+    action: .website(url: "https://github.com/SvenTiigi/WhatsNewKit")
+)
+
+// Initialize DetailButton with title and custom action
+let detailButton = WhatsNewViewController.Configuration.DetailButton(
+    title: "Read more", 
+    action: .custom(action: { (whatsNewViewController) in {
+        // Perform custom action on detail button pressed
+    })
+)
+```
+
+#### CompletionButton
+The `CompletionButton` struct configures the displayed title and the action when the user pressed the completion button on the `WhatsNewViewController`.
+
+| Action | Description   |
+| ------------- | ------------- |
+| dismiss | When the user pressed the completion button, the `WhatsNewViewController` will be dismissed. This is the default value |
+| custom | After the completion button has been pressed by the user, your custom action will be invoked |
+
+```swift
+// Initialize CompletionButton with title and dismiss action
+let completionButton = WhatsNewViewController.Configuration.CompletionButton(
+    title: "Continue", 
+    action: .dismiss
+)
+
+// Initialize CompletionButton with title and custom action
+let completionButton = WhatsNewViewController.Configuration.CompletionButton(
+    title: "Continue", 
+    action: .custom(action: { (whatsNewViewController) in {
+        // Perform custom action on completion button pressed
+    })
+)
+```
+
+### WhatsNewVersionStore
+If we speak about presenting awesome new app features we have to take care that this kind of `UI` action only happens once if the user installed the app or opened it after an update. The `WhatsNewKind` offers a neat solution for this kind of problem via the [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/WhatsNewVersionStore.swift) protocol.
+
+```swift
+public typealias WhatsNewVersionStore = WriteableWhatsNewVersionStore & ReadableWhatsNewVersionStore
+
+public protocol WriteableWhatsNewVersionStore {
+    func set(version: WhatsNew.Version)
+}
+
+public protocol ReadableWhatsNewVersionStore {
+    func has(version: WhatsNew.Version) -> Bool
+}
+```
+
+The `WhatsNewViewController` will use the APIs of the `WhatsNewVersionStore` in the following way.
+
+| API      	   | Description   |
+| ------------- | ------------- |
+| has(version:) | Checks if the `Whatsnew.Version` is available and will return `nil` during initialization. |
+| set(version:) | The `WhatsNew.Version` will be set after the `CompletionButton` has been pressed. |
+
+The `WhatsNewVersionStore` can be passed as an parameter to the initializer. If you do so the initializer will become `optional`.
+
+```swift
+// Initialize WhatsNewViewController with WhatsNewVersionStore
+let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
+    whatsNew: whatsNew, 
+    versionStore: myVersionStore
+)
+
+// Check if WhatsNewViewController is available to present it.
+// If it's nil the user has already seen your new features for the corresponding Version.
+// ...
+```
+
+> ☝️ Please keep in mind the `WhatsNewViewController` initializer will only become `optional` and checks if the Version has been already presented if you pass a `WhatsNewVersionStore` object.
+
+#### Implementation
+If you already handled saving user settings in your app to something like `Realm`, `CoreData` or `UserDefaults` you can conform the `WhatsNewVersionStore` and pass it as an initializer parameter to the `WhatsNewViewController`.
+
+```swift
+// Extend your existing App-Logic
+extension MyUserSettingsDatabase: WhatsNewVersionStore {
+    // Implement me 👨‍💻
+}
+```
+
+##### Predefined Implementations
+
+If not you can make use of the predefined `WhatsNewVersionStore` implementations which `WhatsNewKit` offers.
+
+[UserDefaultsWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/UserDefaultsWhatsNewVersionStore.swift)
+
+```swift
+// Initialize WhatsNewViewController with UserDefaultsWhatsNewVersionStore
+let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
+    whatsNew: whatsNew, 
+    versionStore: UserDefaultsWhatsNewVersionStore()
+)
+```
+
+> Saves and retrieves the `WhatsNew.Version` to the `UserDefaults`.
+
+[InMemoryWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/InMemoryWhatsNewVersionStore.swift)
+
+```swift
+// Initialize WhatsNewViewController with InMemoryWhatsNewVersionStore
+let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
+    whatsNew: whatsNew, 
+    versionStore: InMemoryWhatsNewVersionStore()
+)
+```
+
+> Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👌
+
+#### WhatsNew.Version
+During the initialization of the `WhatsNew` struct the `WhatsNewKit` will automatically retrieve the current App-Version via the `CFBundleShortVersionString` and construct a `WhatsNew.Version` for you which is used by the `WhatsNewVersionStore` protocol in order to persist the presented app versions. If you want to manually set the version you can do it like the following example.
+
+```swift
+// Initialize Version 1.0.0
+let version = WhatsNew.Version(
+    major: 1,
+    minor: 0,
+    patch: 0
+)
+
+// Or use a String literal
+let version = WhatsNew.Version(stringLiteral: "1.0.0")
+```
+After you initialize a `WhatsNew.Version` you can pass it to the initializer of a `WhatsNew` struct.
+
+```swift
+// Initialize WhatsNew with Title and Items
+let whatsNew = WhatsNew(
+    version: version,
+    title: "WhatsNewKit",
+    items: []
+)
+```
+
+### Codable WhatsNew
+The `WhatsNew` struct is conform the `Codable` protocol which allows you to initialize a `WhatsNew` struct via `JSON`.
+
+```JSON
+{
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+    },
+    "title": "WhatsNewKit",
+    "items": [
+        {
+            "title": "Open Source",
+            "subtitle": "Contributions are very welcome 👨‍💻",
+            "image": "data:image/png;base64,R0lG42......."
+        }
+    ]
+}
+```
+The optional `image` property of the `WhatsNew.Item` will be decoded and encoded in `Base64`.
+
+```swift
+// Encode to JSON
+let encoded = try? JSONEncoder().encode(whatsNew)
+
+// Decode from JSON data
+let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
+```
+
+## Contributing
+Contributions are very welcome 🙌 🤓
+
+## License
+
+```
+WhatsNewKit
+Copyright (c) 2018 Sven Tiigi <sven.tiigi@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+```

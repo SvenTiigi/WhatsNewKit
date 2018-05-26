@@ -32,7 +32,7 @@ public extension WhatsNewViewController {
         ///   - completionButton: The CompletionButton
         public init(theme: Theme = .default,
                     detailButton: DetailButton? = nil,
-                    completionButton: CompletionButton) {
+                    completionButton: CompletionButton = .init()) {
             self.theme = theme
             self.detailButton = detailButton
             self.completionButton = completionButton
@@ -118,9 +118,9 @@ public extension WhatsNewViewController.Configuration {
         /// Default initializer
         ///
         /// - Parameters:
-        ///   - title: The Title as String
+        ///   - title: The Title as String. Default value `Continue`
         ///   - action: The Action. Default value `dismiss`
-        public init(title: String,
+        public init(title: String = "Continue",
                     action: Action = .dismiss) {
             self.title = title
             self.action = action

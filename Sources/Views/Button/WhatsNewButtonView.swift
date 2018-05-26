@@ -128,11 +128,13 @@ class WhatsNewButtonView: ThemableView {
             // Clear DetailButton frame
             self.detailButton.frame = .zero
             // Set CompletionButton frame
+            let landScapeButtonHeight: CGFloat = 50
+            let landScapePadding: CGFloat = 40
             self.completionButton.frame = CGRect(
-                x: padding,
-                y: self.frame.size.height / 2 - buttonHeight / 2,
-                width: self.frame.size.width - padding * 2,
-                height: buttonHeight
+                x: landScapePadding,
+                y: self.frame.size.height / 2 - landScapeButtonHeight / 2 - padding / 4,
+                width: self.frame.size.width - landScapePadding * 2,
+                height: landScapeButtonHeight
             )
         }
     }

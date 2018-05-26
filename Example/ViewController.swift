@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     private lazy var animationSegmentedControl: TitledSegmentedControl = .init(
         title: "Animation 🎬",
         tintColor: self.tintColor,
-        items: ["None", "SlideUp", "SlideDown", "SlideLeft", "SlideRight"]
+        items: ["None", "Fade", "SlideUp", "SlideDown", "SlideLeft", "SlideRight"]
     )
     
     override func viewDidLoad() {
@@ -142,6 +142,8 @@ extension ViewController {
         switch self.animationSegmentedControl.selectedItem {
         case "None":
             theme.itemsViewTheme.animation = .none
+        case "Fade":
+            theme.itemsViewTheme.animation = .fade
         case "SlideUp":
             theme.itemsViewTheme.animation = .slideUp
         case "SlideDown":
