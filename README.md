@@ -36,12 +36,13 @@
 <br/>
 
 <p align="center">
-WhatsNewKit enables you to easily showcase your awesome new app features. <br/> It's designed from the ground up to be fully customized to your needs.
+   WhatsNewKit enables you to easily showcase your awesome new app features. <br/> It's designed from the ground up to be fully customized to your needs.
 </p>
+
 <br/>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example Application Screenshot" width="350">
+   <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example" width="350">
 </p>
 
 ## Example
