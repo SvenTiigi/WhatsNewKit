@@ -254,6 +254,10 @@ let completionButton = WhatsNewViewController.Configuration.CompletionButton(
 ```
 
 ### WhatsNewVersionStore
+<p align="center">
+   <img width="750" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewVersionStore.jpg" alt="WhatsNewVersionStore">
+</p>
+
 If we speak about presenting awesome new app features we have to take care that this kind of `UI` action only happens once if the user installed the app or opened it after an update. The `WhatsNewKind` offers a neat solution for this kind of problem via the [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/WhatsNewVersionStore.swift) protocol.
 
 ```swift
