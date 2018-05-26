@@ -42,9 +42,24 @@
 <br/>
 
 <p align="center">
-   <img width="80%" style="position: absolute; z-index: -1; margin: auto; left: 0; right: 0;" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Background.jpg" alt="Example">
-   <img style="z-index: 2" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example" width="350">
+   <img class="backgroundImage" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Background.jpg" alt="Background">
+   <img class="foregroundImage" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example">
 </p>
+
+<style>
+.backgroundImage {
+	position: absolute;
+	z-index: -1;
+	margin: auto;
+	left: 0;
+	right: 0;
+	width: 80%;
+}
+.foregroundImage {
+	z-index: 2;
+	width: 350px;
+}
+</style>
 
 ## Example
 
