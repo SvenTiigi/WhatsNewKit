@@ -12,18 +12,9 @@ import XCTest
 class WhatsNewTests: BaseTests {
     
     func testEquatable() {
-        let whatsNew = WhatsNew(
-            version: .init(major: self.generateRandomInt(), minor: self.generateRandomInt(), patch: self.generateRandomInt()),
-            title: self.generateRandomString(),
-            items: [WhatsNew.Item(title: self.generateRandomString(), subtitle: self.generateRandomString(), image: nil)]
-        )
-        let whatsNew2 = WhatsNew(
-            version: .init(major: self.generateRandomInt(), minor: self.generateRandomInt(), patch: self.generateRandomInt()),
-            title: self.generateRandomString(),
-            items: [WhatsNew.Item(title: self.generateRandomString(), subtitle: self.generateRandomString(), image: nil)]
-        )
-        XCTAssertEqual(whatsNew, whatsNew)
-        XCTAssertNotEqual(whatsNew, whatsNew2)
+        let whatsNew2 = self.generateRandomWhatsNew()
+        XCTAssertEqual(self.randomWhatsNew, self.randomWhatsNew)
+        XCTAssertNotEqual(self.randomWhatsNew, whatsNew2)
     }
     
 }
