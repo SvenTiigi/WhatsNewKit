@@ -9,6 +9,7 @@ platform :ios do
     ensure_git_status_clean
     ensure_git_branch(branch: 'master')
     test
+    pod_lib_lint(verbose: true)
     version = version_bump_podspec(path: "WhatsNewKit.podspec", version_number: options[:version])
     git_commit(
       path: ["WhatsNewKit.podspec"],
