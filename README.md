@@ -163,6 +163,8 @@ The [WhatsNewViewController.Configuration.Theme](https://github.com/SvenTiigi/Wh
 var theme: WhatsNewViewController.Configuration.Theme
 ```
 
+##### Templates
+
 Beside the full configuration possibilities you can make use of the predefined `Theme` [Templates](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme%2BTemplate.swift) which are available as static properties. All templates are available in white and dark mode 😎.
 
 <p align="center">
