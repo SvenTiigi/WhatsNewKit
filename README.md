@@ -44,8 +44,6 @@ WhatsNewKit enables you to easily showcase your awesome new app features. <br/> 
 <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example Application Screenshot" width="350">
 </p>
 
-<br/>
-
 ## Example
 
 The example Application is an excellent way to see `WhatsNewKit` in action. You get a brief look of the available configuration options and how they affect the look and feel of the `WhatsNewViewController`. Simply open the `WhatsNewKit.xcodeproj` and run the `WhatsNewKit-Example` scheme.
