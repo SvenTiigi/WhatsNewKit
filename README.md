@@ -36,12 +36,17 @@
 <br/>
 
 <p align="center">
-WhatsNewKit enables you to showcase your awesome new app features. <br/> It is designed from the ground up to be fully customized to your needs.
+WhatsNewKit enables you to easily showcase your awesome new app features. <br/> WhatsNewKit is designed from the ground up to be fully customized to your needs.
+</p>
+<br/>
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example Application Screenshot" width="350">
 </p>
 
-## Example
+<br/>
 
-<img style="float: right" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example Application Screenshot" align="right" width="350">
+## Example
 
 The example Application is an excellent way to see `WhatsNewKit` in action. You get a brief look of the available configuration options and how they affect the look and feel of the `WhatsNewViewController`. Simply open the `WhatsNewKit.xcodeproj` and run the `WhatsNewKit-Example` scheme.
 
