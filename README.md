@@ -111,7 +111,7 @@ let whatsNew = WhatsNew(
 
 ### WhatsNewViewController 
 
-The presentation of your new app features are handled via the [WhatsNewViewController](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Controllers/WhatsNewViewController.swift). Simply pass your `WhatsNew` struct to the initializer and present or push the `WhatsNewViewController`
+The presentation of your new app features are handled via the [WhatsNewViewController](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/WhatsNewViewController.swift). Simply pass your `WhatsNew` struct to the initializer and present or push the `WhatsNewViewController`
 
 ```swift
 // Initialize WhatsNewViewController with WhatsNew
@@ -130,7 +130,7 @@ As mentioned before `WhatsNewKit` can be fully customized to your needs. The Adv
 </p>
 
 ### WhatsNewViewController.Configuration
-The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Controllers/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` to your needs.
+The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` to your needs.
 
 The `WhatsNewViewController.Configuration` consist of three main properties.
 
@@ -168,7 +168,7 @@ The [WhatsNewViewController.Theme](https://github.com/SvenTiigi/WhatsNewKit/blob
 
 ##### Templates
 
-Beside the full configuration possibilities you can make use of the predefined `Theme` [Templates](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme%2BTemplate.swift) which are available as static properties. All templates are available in white and dark mode 😎.
+Beside the full configuration possibilities you can make use of the predefined `Theme` [Templates](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme.swift) which are available as static properties. All templates are available in white and dark mode 😎.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
@@ -209,7 +209,7 @@ theme.itemsViewTheme.animation = .slideUp
 #### DetailButton
  <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="DetailButton">
  
-By setting an `DetailButton` struct on the `WhatsNewViewController.Configuration` struct you can customize the `title` and the corresponding `action` of the displayed detail button on the `WhatsNewViewController`. As the `DetailButton` struct is declared as optional the `WhatsNewViewController` will only display the button if a `DetailButton` configuration is available
+By setting an [DetailButton](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BDetailButton.swift) struct on the `WhatsNewViewController.Configuration` struct you can customize the `title` and the corresponding `action` of the displayed detail button on the `WhatsNewViewController`. As the `DetailButton` struct is declared as optional the `WhatsNewViewController` will only display the button if a `DetailButton` configuration is available
 
 | Action | Description   |
 | ------------- | ------------- |
@@ -235,7 +235,7 @@ let detailButton = WhatsNewViewController.DetailButton(
 #### CompletionButton
  <img width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/completionButton.jpg" alt="CompletionButton">
  
-The `CompletionButton` struct configures the displayed title and the action when the user pressed the completion button on the `WhatsNewViewController`.
+The [CompletionButton](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BCompletionButton.swift) struct configures the displayed title and the action when the user pressed the completion button on the `WhatsNewViewController`.
 
 | Action | Description   |
 | ------------- | ------------- |
@@ -314,7 +314,7 @@ extension MyUserSettingsDatabase: WhatsNewVersionStore {
 
 If not you can make use of the predefined `WhatsNewVersionStore` implementations which `WhatsNewKit` offers.
 
-[KeyValueWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/UserDefaultsWhatsNewVersionStore.swift)
+[KeyValueWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/KeyValueWhatsNewVersionStore.swift)
 
 ```swift
 // Local KeyValueStore
@@ -349,7 +349,7 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
 > Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
 
 #### WhatsNew.Version
-During the initialization of the `WhatsNew` struct the `WhatsNewKit` will automatically retrieve the current App-Version via the `CFBundleShortVersionString` and construct a `WhatsNew.Version` for you which is used by the `WhatsNewVersionStore` protocol in order to persist the presented app versions. If you want to manually set the version you can do it like the following example.
+During the initialization of the `WhatsNew` struct the `WhatsNewKit` will automatically retrieve the current App-Version via the `CFBundleShortVersionString` and construct a [WhatsNew.Version](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew%2BVersion.swift) for you which is used by the `WhatsNewVersionStore` protocol in order to persist the presented app versions. If you want to manually set the version you can do it like the following example.
 
 ```swift
 // Initialize Version 1.0.0
