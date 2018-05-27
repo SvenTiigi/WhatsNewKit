@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D15160320B6F1CE00DD8626 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FB20B6F1CE00DD8626 /* .swift-version */; };
-		3D15160420B6F1CE00DD8626 /* .jazzy.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FC20B6F1CE00DD8626 /* .jazzy.yaml */; };
-		3D15160520B6F1CE00DD8626 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FD20B6F1CE00DD8626 /* LICENSE */; };
-		3D15160620B6F1CE00DD8626 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FE20B6F1CE00DD8626 /* README.md */; };
-		3D15160720B6F1CE00DD8626 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3D1515FF20B6F1CE00DD8626 /* .gitignore */; };
-		3D15160820B6F1CE00DD8626 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D15160020B6F1CE00DD8626 /* .swiftlint.yml */; };
-		3D15160920B6F1CE00DD8626 /* WhatsNewKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3D15160120B6F1CE00DD8626 /* WhatsNewKit.podspec */; };
-		3D15160A20B6F1CE00DD8626 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D15160220B6F1CE00DD8626 /* .travis.yml */; };
 		3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */; };
 		3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */; };
 		3D2412D120BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */; };
@@ -48,9 +40,6 @@
 		3DC8A6AD20AED02400292C94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AC20AED02400292C94 /* ViewController.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
 		3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */; };
-		3DCFD33120B98BD8005BE43E /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33020B98BD8005BE43E /* Fastfile */; };
-		3DCFD33320B98C9E005BE43E /* .codebeatignore in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33220B98C9D005BE43E /* .codebeatignore */; };
-		3DCFD33520B98FB1005BE43E /* .codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33420B98FB1005BE43E /* .codecov.yml */; };
 		3DDDB59720B832AB001D59C5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */; };
 		3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */; };
 		52D6D9871BEFF229002C0205 /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
@@ -88,14 +77,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3D1515FB20B6F1CE00DD8626 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = SOURCE_ROOT; };
-		3D1515FC20B6F1CE00DD8626 /* .jazzy.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
-		3D1515FD20B6F1CE00DD8626 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
-		3D1515FE20B6F1CE00DD8626 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		3D1515FF20B6F1CE00DD8626 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
-		3D15160020B6F1CE00DD8626 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		3D15160120B6F1CE00DD8626 /* WhatsNewKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WhatsNewKit.podspec; sourceTree = SOURCE_ROOT; };
-		3D15160220B6F1CE00DD8626 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButton.swift"; sourceTree = "<group>"; };
 		3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButton.swift"; sourceTree = "<group>"; };
@@ -129,9 +110,6 @@
 		3DC8A6B120AED02600292C94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC8A6B420AED02600292C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC8A6B620AED02600292C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DCFD33020B98BD8005BE43E /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
-		3DCFD33220B98C9D005BE43E /* .codebeatignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .codebeatignore; sourceTree = SOURCE_ROOT; };
-		3DCFD33420B98FB1005BE43E /* .codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
 		3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsNewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,24 +145,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D1515FA20B6F1AC00DD8626 /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				3DCFD33420B98FB1005BE43E /* .codecov.yml */,
-				3DCFD33220B98C9D005BE43E /* .codebeatignore */,
-				3DCFD33020B98BD8005BE43E /* Fastfile */,
-				3D1515FF20B6F1CE00DD8626 /* .gitignore */,
-				3D1515FC20B6F1CE00DD8626 /* .jazzy.yaml */,
-				3D1515FB20B6F1CE00DD8626 /* .swift-version */,
-				3D15160020B6F1CE00DD8626 /* .swiftlint.yml */,
-				3D15160220B6F1CE00DD8626 /* .travis.yml */,
-				3D1515FD20B6F1CE00DD8626 /* LICENSE */,
-				3D1515FE20B6F1CE00DD8626 /* README.md */,
-				3D15160120B6F1CE00DD8626 /* WhatsNewKit.podspec */,
-			);
-			name = Misc;
-			sourceTree = "<group>";
-		};
 		3D56AD5C20B559D400AF4DAF /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				3D4A3E4820B72C3D00CA59E2 /* PresentButton.swift */,
-				3D1515FA20B6F1AC00DD8626 /* Misc */,
 				3DC8A6B120AED02600292C94 /* Assets.xcassets */,
 				3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */,
 				3DC8A6B620AED02600292C94 /* Info.plist */,
@@ -496,19 +455,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D15160A20B6F1CE00DD8626 /* .travis.yml in Resources */,
-				3D15160820B6F1CE00DD8626 /* .swiftlint.yml in Resources */,
-				3D15160620B6F1CE00DD8626 /* README.md in Resources */,
-				3D15160920B6F1CE00DD8626 /* WhatsNewKit.podspec in Resources */,
-				3D15160720B6F1CE00DD8626 /* .gitignore in Resources */,
 				3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */,
-				3DCFD33520B98FB1005BE43E /* .codecov.yml in Resources */,
-				3DCFD33120B98BD8005BE43E /* Fastfile in Resources */,
-				3DCFD33320B98C9E005BE43E /* .codebeatignore in Resources */,
-				3D15160320B6F1CE00DD8626 /* .swift-version in Resources */,
-				3D15160420B6F1CE00DD8626 /* .jazzy.yaml in Resources */,
 				3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */,
-				3D15160520B6F1CE00DD8626 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
