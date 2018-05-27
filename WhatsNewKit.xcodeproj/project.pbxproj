@@ -16,6 +16,12 @@
 		3D15160920B6F1CE00DD8626 /* WhatsNewKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3D15160120B6F1CE00DD8626 /* WhatsNewKit.podspec */; };
 		3D15160A20B6F1CE00DD8626 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D15160220B6F1CE00DD8626 /* .travis.yml */; };
 		3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */; };
+		3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */; };
+		3D2412D120BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */; };
+		3D2412D320BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D220BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift */; };
+		3D2412D520BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D420BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift */; };
+		3D2412D720BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D620BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift */; };
+		3D2412D920BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D820BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift */; };
 		3D2F868420B9C45500B852F4 /* WhatsNewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F868320B9C45500B852F4 /* WhatsNewViewControllerTests.swift */; };
 		3D4A3E4220B717EC00CA59E2 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A3E4120B717EC00CA59E2 /* BaseTests.swift */; };
 		3D4A3E4320B7180700CA59E2 /* WhatsNewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A3E3F20B717C000CA59E2 /* WhatsNewTests.swift */; };
@@ -45,7 +51,7 @@
 		3DCFD33120B98BD8005BE43E /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33020B98BD8005BE43E /* Fastfile */; };
 		3DCFD33320B98C9E005BE43E /* .codebeatignore in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33220B98C9D005BE43E /* .codebeatignore */; };
 		3DCFD33520B98FB1005BE43E /* .codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFD33420B98FB1005BE43E /* .codecov.yml */; };
-		3DDDB59720B832AB001D59C5 /* UIColor+isLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB59620B832AB001D59C5 /* UIColor+isLight.swift */; };
+		3DDDB59720B832AB001D59C5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */; };
 		3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */; };
 		52D6D9871BEFF229002C0205 /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +97,12 @@
 		3D15160120B6F1CE00DD8626 /* WhatsNewKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WhatsNewKit.podspec; sourceTree = SOURCE_ROOT; };
 		3D15160220B6F1CE00DD8626 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStore.swift; sourceTree = "<group>"; };
+		3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButton.swift"; sourceTree = "<group>"; };
+		3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButton.swift"; sourceTree = "<group>"; };
+		3D2412D220BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+TitleViewTheme.swift"; sourceTree = "<group>"; };
+		3D2412D420BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+ItemsViewTheme.swift"; sourceTree = "<group>"; };
+		3D2412D620BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButtonTheme.swift"; sourceTree = "<group>"; };
+		3D2412D820BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButtonTheme.swift"; sourceTree = "<group>"; };
 		3D2F868320B9C45500B852F4 /* WhatsNewViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewControllerTests.swift; sourceTree = "<group>"; };
 		3D4A3E3F20B717C000CA59E2 /* WhatsNewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewTests.swift; sourceTree = "<group>"; };
 		3D4A3E4120B717EC00CA59E2 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
@@ -120,7 +132,7 @@
 		3DCFD33020B98BD8005BE43E /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
 		3DCFD33220B98C9D005BE43E /* .codebeatignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .codebeatignore; sourceTree = SOURCE_ROOT; };
 		3DCFD33420B98FB1005BE43E /* .codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
-		3DDDB59620B832AB001D59C5 /* UIColor+isLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+isLight.swift"; sourceTree = "<group>"; };
+		3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsNewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* WhatsNewKit-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WhatsNewKit-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +189,10 @@
 			isa = PBXGroup;
 			children = (
 				3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */,
+				3D2412D220BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift */,
+				3D2412D420BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift */,
+				3D2412D620BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift */,
+				3D2412D820BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -206,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */,
+				3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */,
+				3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -270,7 +288,7 @@
 		3DDDB59520B83296001D59C5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3DDDB59620B832AB001D59C5 /* UIColor+isLight.swift */,
+				3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -545,13 +563,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */,
-				3DDDB59720B832AB001D59C5 /* UIColor+isLight.swift in Sources */,
+				3DDDB59720B832AB001D59C5 /* UIColorExtension.swift in Sources */,
 				3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */,
 				3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */,
 				3D92C67420AF88AC00A10333 /* WhatsNewItemTableViewCell.swift in Sources */,
 				3D92C67720AF88B400A10333 /* WhatsNewRoundedButton.swift in Sources */,
 				3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */,
+				3D2412D320BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift in Sources */,
 				3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */,
+				3D2412D920BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift in Sources */,
+				3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */,
 				3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonView.swift in Sources */,
 				3DA667A920B0C8B600DB18FF /* WhatsNewItemsView.swift in Sources */,
 				3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */,
@@ -559,7 +580,10 @@
 				3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */,
 				3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */,
 				3DA667A620B0C8AF00DB18FF /* WhatsNewTitleView.swift in Sources */,
+				3D2412D520BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift in Sources */,
+				3D2412D720BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift in Sources */,
 				3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */,
+				3D2412D120BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
