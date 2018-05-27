@@ -143,7 +143,7 @@ public class WhatsNewViewController: UIViewController {
     /// Handle onPress with button type
     ///
     /// - Parameter buttonType: The Button type
-    private func handleOnPress(buttonType: WhatsNewButtonView.ButtonType) {
+    func handleOnPress(buttonType: WhatsNewButtonView.ButtonType) {
         // Switch on button type
         switch buttonType {
         case .completion:

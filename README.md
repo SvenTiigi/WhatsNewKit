@@ -156,12 +156,15 @@ let whatsNewViewController = WhatsNewViewController(
 The upcoming subsection will explain the properties `Theme`, `DetailButton` and `CompletionButton` in detail.
 
 #### Theme
-The [WhatsNewViewController.Configuration.Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme.swift) struct allows you to perfectly match the design to your existing App. You can customize all kinds of `UI` related settings.
+The [WhatsNewViewController.Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme.swift) struct allows you to perfectly match the design to your existing App. The following table list the available properties.
 
-```swift
-// Initialize and configure the Theme to your needs
-var theme: WhatsNewViewController.Configuration.Theme
-```
+| Property      | Description   |
+| ------------- | ------------- |
+| backgroundColor      | The backgroun color of the WhatsNewViewController |
+| titleViewTheme      | Customize the font and text color of the TitleView |
+| itemsViewTheme | Adjust title and subtitle via text color and font as well as the auto tint image option |
+| detailButtonTheme | Title color and font of the DetailButton |
+| completionButtonTheme | Configure title color and font for the CompletionButton |
 
 ##### Templates
 
@@ -173,10 +176,10 @@ Beside the full configuration possibilities you can make use of the predefined `
 
 ```swift
 // Dark Red template Theme
-let darkRed = WhatsNewViewController.Configuration.Theme.darkRed
+let darkRed = WhatsNewViewController.Theme.darkRed
 
 // White Red template Theme
-let whiteRed = WhatsNewViewController.Configuration.Theme.whiteRed
+let whiteRed = WhatsNewViewController.Theme.whiteRed
 
 // TODO: Check out the example application for all available Tempaltes
 ```
@@ -184,7 +187,7 @@ let whiteRed = WhatsNewViewController.Configuration.Theme.whiteRed
 ##### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
-By setting the `animation` property on the `WhatsNewViewController.Configuration.Theme.ItemsViewTheme` you can apply an animation while displaying the `ItemsView`.
+By setting the `animation` property on the `WhatsNewViewController.ItemsViewTheme` you can apply an animation while displaying the `ItemsView`.
 
 ```swift
 // Set custom animation for displaying WhatsNew.Item's
@@ -215,13 +218,13 @@ By setting an `DetailButton` struct on the `WhatsNewViewController.Configuration
 
 ```swift
 // Initialize DetailButton with title and open website at url
-let detailButton = WhatsNewViewController.Configuration.DetailButton(
+let detailButton = WhatsNewViewController.DetailButton(
     title: "Read more", 
     action: .website(url: "https://github.com/SvenTiigi/WhatsNewKit")
 )
 
 // Initialize DetailButton with title and custom action
-let detailButton = WhatsNewViewController.Configuration.DetailButton(
+let detailButton = WhatsNewViewController.DetailButton(
     title: "Read more", 
     action: .custom(action: { (whatsNewViewController) in {
         // Perform custom action on detail button pressed
@@ -241,13 +244,13 @@ The `CompletionButton` struct configures the displayed title and the action when
 
 ```swift
 // Initialize CompletionButton with title and dismiss action
-let completionButton = WhatsNewViewController.Configuration.CompletionButton(
+let completionButton = WhatsNewViewController.CompletionButton(
     title: "Continue", 
     action: .dismiss
 )
 
 // Initialize CompletionButton with title and custom action
-let completionButton = WhatsNewViewController.Configuration.CompletionButton(
+let completionButton = WhatsNewViewController.CompletionButton(
     title: "Continue", 
     action: .custom(action: { (whatsNewViewController) in {
         // Perform custom action on completion button pressed
@@ -311,17 +314,27 @@ extension MyUserSettingsDatabase: WhatsNewVersionStore {
 
 If not you can make use of the predefined `WhatsNewVersionStore` implementations which `WhatsNewKit` offers.
 
-[UserDefaultsWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/UserDefaultsWhatsNewVersionStore.swift)
+[KeyValueWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/UserDefaultsWhatsNewVersionStore.swift)
 
 ```swift
-// Initialize WhatsNewViewController with UserDefaultsWhatsNewVersionStore
+// Local KeyValueStore
+let keyValueVersionStore = KeyValueWhatsNewVersionStore(
+    keyValueable: UserDefaults.standard
+)
+
+// iCloud KeyValueStore
+let keyValueVersionStore = KeyValueWhatsNewVersionStore(
+    keyValueable: NSUbiquitousKeyValueStore.default
+)
+
+// Initialize WhatsNewViewController with KeyValueWhatsNewVersionStore
 let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
     whatsNew: whatsNew, 
-    versionStore: UserDefaultsWhatsNewVersionStore()
+    versionStore: keyValueVersionStore
 )
 ```
 
-> Saves and retrieves the `WhatsNew.Version` to the `UserDefaults`.
+> Saves and retrieves the `WhatsNew.Version` via a `KeyValueable` protocol conform object. UserDefaults and NSUbiquitousKeyValueStore are already conform to that protocol 🙌
 
 [InMemoryWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/InMemoryWhatsNewVersionStore.swift)
 
@@ -333,7 +346,7 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
 )
 ```
 
-> Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👌
+> Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
 
 #### WhatsNew.Version
 During the initialization of the `WhatsNew` struct the `WhatsNewKit` will automatically retrieve the current App-Version via the `CFBundleShortVersionString` and construct a `WhatsNew.Version` for you which is used by the `WhatsNewVersionStore` protocol in order to persist the presented app versions. If you want to manually set the version you can do it like the following example.
@@ -346,9 +359,13 @@ let version = WhatsNew.Version(
     patch: 0
 )
 
-// Or use a String literal
+// Use a String literal
 let version = WhatsNew.Version(stringLiteral: "1.0.0")
+
+// Current Version in Bundle (Default)
+let version = WhatsNew.Version.current()
 ```
+
 After you initialize a `WhatsNew.Version` you can pass it to the initializer of a `WhatsNew` struct.
 
 ```swift
@@ -394,7 +411,7 @@ let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
 Contributions are very welcome 🙌 🤓
 
 ## Credits
-The `WhatsNew.Item` images ([icons8-github](https://icons8.com/icon/62856/github), [icons8-puzzle](https://icons8.com/icon/61018/puzzle), [icons8-approval](https://icons8.com/icon/59733/approval), [icons8-picture](https://icons8.com/icon/68826/picture)) which are seen on the screenshots and inside the example application are taken from [icons8.com](https://icons8.com/) and licensed under [Creative Commons Attribution-NoDerivs 3.0 Unported](https://creativecommons.org/licenses/by-nd/3.0/).
+The `WhatsNew.Item` images ([icons8-github](https://icons8.com/icon/62856/github), [icons8-puzzle](https://icons8.com/icon/61018/puzzle), [icons8-approval](https://icons8.com/icon/59733/approval), [icons8-picture](https://icons8.com/icon/68826/picture)) which are seen on the screenshots and inside the example application are taken from [icons8.com](https://icons8.com/) which are licensed under [Creative Commons Attribution-NoDerivs 3.0 Unported](https://creativecommons.org/licenses/by-nd/3.0/).
 
 ## License
 

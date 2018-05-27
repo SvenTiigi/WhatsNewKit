@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import WhatsNewKit
 
 class BaseTests: XCTestCase {
     
@@ -26,6 +27,9 @@ class BaseTests: XCTestCase {
     /// Random Double
     lazy var randomDouble: Double = self.generateRandomDouble()
     
+    /// Random WhatsNew
+    lazy var randomWhatsNew: WhatsNew = self.generateRandomWhatsNew()
+    
     /// SetUp
     override func setUp() {
         super.setUp()
@@ -41,9 +45,9 @@ class BaseTests: XCTestCase {
     ///   - execution: The test execution
     ///   - completionHandler: The optional XCWaitCompletionHandler
     func performTest(name: String = "\(#function): Line \(#line)",
-                     timeout: TimeInterval? = nil,
-                     execution: (XCTestExpectation) -> Void,
-                     completionHandler: XCWaitCompletionHandler? = nil) {
+        timeout: TimeInterval? = nil,
+        execution: (XCTestExpectation) -> Void,
+        completionHandler: XCWaitCompletionHandler? = nil) {
         // Create expectation with function name
         let expectation = self.expectation(description: name)
         // Perform test execution with expectation
@@ -81,6 +85,23 @@ class BaseTests: XCTestCase {
     /// - Returns: Random Data object
     func generateRandomData() -> Data {
         return Data(self.generateRandomString().utf8)
+    }
+    
+    func generateRandomWhatsNew() -> WhatsNew {
+        return WhatsNew(
+            version: .init(
+                major: self.generateRandomInt(),
+                minor: self.generateRandomInt(),
+                patch: self.generateRandomInt()),
+            title: self.generateRandomString(),
+            items: [
+                WhatsNew.Item(
+                    title: self.generateRandomString(),
+                    subtitle: self.generateRandomString(),
+                    image: nil
+                )
+            ]
+        )
     }
     
 }
