@@ -84,6 +84,17 @@
 		3D2412D420BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+ItemsViewTheme.swift"; sourceTree = "<group>"; };
 		3D2412D620BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButtonTheme.swift"; sourceTree = "<group>"; };
 		3D2412D820BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButtonTheme.swift"; sourceTree = "<group>"; };
+		3D2412E420BAEB56005A04D6 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = SOURCE_ROOT; };
+		3D2412E520BAEB56005A04D6 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
+		3D2412E620BAEB56005A04D6 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
+		3D2412E720BAEB56005A04D6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		3D2412E820BAEB56005A04D6 /* .codebeatignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codebeatignore; sourceTree = SOURCE_ROOT; };
+		3D2412E920BAEB56005A04D6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		3D2412EA20BAEB56005A04D6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		3D2412EB20BAEB56005A04D6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		3D2412EC20BAEB56005A04D6 /* WhatsNewKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = WhatsNewKit.podspec; sourceTree = SOURCE_ROOT; };
+		3D2412ED20BAEB56005A04D6 /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
+		3D2412EE20BAEB6C005A04D6 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
 		3D2F868320B9C45500B852F4 /* WhatsNewViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewControllerTests.swift; sourceTree = "<group>"; };
 		3D4A3E3F20B717C000CA59E2 /* WhatsNewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewTests.swift; sourceTree = "<group>"; };
 		3D4A3E4120B717EC00CA59E2 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
@@ -289,6 +300,17 @@
 			children = (
 				DD7502721C68FC1B006590AF /* Frameworks */,
 				DD7502731C68FC20006590AF /* Tests */,
+				3D2412E820BAEB56005A04D6 /* .codebeatignore */,
+				3D2412ED20BAEB56005A04D6 /* .codecov.yml */,
+				3D2412EE20BAEB6C005A04D6 /* Fastfile */,
+				3D2412E920BAEB56005A04D6 /* .gitignore */,
+				3D2412E620BAEB56005A04D6 /* .jazzy.yaml */,
+				3D2412E420BAEB56005A04D6 /* .swift-version */,
+				3D2412EB20BAEB56005A04D6 /* .swiftlint.yml */,
+				3D2412E520BAEB56005A04D6 /* .travis.yml */,
+				3D2412E720BAEB56005A04D6 /* LICENSE */,
+				3D2412EA20BAEB56005A04D6 /* README.md */,
+				3D2412EC20BAEB56005A04D6 /* WhatsNewKit.podspec */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
