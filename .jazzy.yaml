@@ -6,4 +6,3 @@ github_url: https://github.com/SvenTiigi/WhatsNewKit
 xcodebuild_arguments: [-target, WhatsNewKit-iOS]
 clean: true
 output: ./Documentation
-min_acl: private
