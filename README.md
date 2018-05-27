@@ -22,9 +22,6 @@
    <a href="https://codebeat.co/projects/github-com-sventiigi-whatsnewkit-master">
       <img src="https://codebeat.co/badges/058f975e-3f81-4466-b8d1-a8dd08830db7" alt="Codebeat">
    </a>
-   <a href="https://codecov.io/gh/SvenTiigi/WhatsNewKit">
-      <img src="https://codecov.io/gh/SvenTiigi/WhatsNewKit/branch/master/graph/badge.svg" alt="Coverage" />
-   </a>	
    <a href="https://sventiigi.github.io/WhatsNewKit">
       <img src="https://github.com/SvenTiigi/WhatsNewKit/blob/gh-pages/badge.svg" alt="Documentation">
    </a>
