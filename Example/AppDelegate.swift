@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// The UINavigationController with ViewController as root viewcontroller
     private lazy var navigationController: UINavigationController = {
-        let navigationController = UINavigationController(rootViewController: ViewController())
+        let navigationController = UINavigationController(rootViewController: ExampleViewController())
         navigationController.navigationBar.prefersLargeTitles = true
         let tintColor = WhatsNewViewController.Theme.default.tintColor
         navigationController.navigationBar.largeTitleTextAttributes = [
