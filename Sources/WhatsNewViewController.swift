@@ -19,10 +19,10 @@ public class WhatsNewViewController: UIViewController {
         return self.view.backgroundColor?.isLight == true ? .default : .lightContent
     }
     
-    // MARK: Private Properties
-    
     /// The WhatsNew
     public let whatsNew: WhatsNew
+    
+    // MARK: Private Properties
     
     /// The Configuration
     private var configuration: Configuration
