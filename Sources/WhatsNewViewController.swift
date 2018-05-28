@@ -147,6 +147,8 @@ public class WhatsNewViewController: UIViewController {
         // Switch on button type
         switch buttonType {
         case .completion:
+            // Invoke HapticFeebdack for completion button
+            self.configuration.completionButton.hapticFeedback?.execute()
             // Store Version if VersionStore is available
             self.versionStore?.set(version: self.whatsNew.version)
             // Switch on CompletionAction
@@ -157,6 +159,8 @@ public class WhatsNewViewController: UIViewController {
                 action(self)
             }
         case .detail:
+            // Invoke HapticFeebdack for detail button
+            self.configuration.detailButton?.hapticFeedback?.execute()
             // Switch on DetailAction
             switch self.configuration.detailButton?.action {
             case .some(.website(let urlString)):
