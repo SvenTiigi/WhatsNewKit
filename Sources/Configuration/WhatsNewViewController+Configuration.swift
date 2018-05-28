@@ -16,13 +16,13 @@ public extension WhatsNewViewController {
     struct Configuration: Equatable {
         
         /// The Theme
-        public let theme: Theme
+        public var theme: Theme
         
         /// The optional DetailButton
-        public let detailButton: DetailButton?
+        public var detailButton: DetailButton?
         
         /// The CompletionButton
-        public let completionButton: CompletionButton
+        public var completionButton: CompletionButton
         
         /// Default initializer
         ///

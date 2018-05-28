@@ -101,7 +101,7 @@ extension ExampleViewController.ButtonCell {
             self.titleLabel?.numberOfLines = 0
             self.titleLabel?.lineBreakMode = .byWordWrapping
             self.titleLabel?.textColor = tintColor
-            self.layer.cornerRadius = 5.0
+            self.layer.cornerRadius = 8.0
             self.layer.masksToBounds = true
             self.setTitleColor(.white, for: .normal)
         }

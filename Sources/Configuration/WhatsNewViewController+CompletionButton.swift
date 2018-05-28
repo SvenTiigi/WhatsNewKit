@@ -16,20 +16,26 @@ public extension WhatsNewViewController {
     struct CompletionButton: Equatable {
         
         /// The Title
-        public let title: String
+        public var title: String
         
         /// The Action
-        public let action: Action
+        public var action: Action
+        
+        /// The HapticFeedback
+        public var hapticFeedback: HapticFeedback?
         
         /// Default initializer
         ///
         /// - Parameters:
         ///   - title: The Title as String. Default value `Continue`
         ///   - action: The Action. Default value `dismiss`
+        ///   - hapticFeedback: The optional HapticFeedback. Default value `nil`
         public init(title: String = "Continue",
-                    action: Action = .dismiss) {
+                    action: Action = .dismiss,
+                    hapticFeedback: HapticFeedback? = nil) {
             self.title = title
             self.action = action
+            self.hapticFeedback = hapticFeedback
         }
     }
     
