@@ -15,11 +15,14 @@
 		3D2412D720BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D620BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift */; };
 		3D2412D920BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D820BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift */; };
 		3D2F868420B9C45500B852F4 /* WhatsNewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F868320B9C45500B852F4 /* WhatsNewViewControllerTests.swift */; };
+		3D375B9C20BC5713005DE31B /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9B20BC5713005DE31B /* ExampleViewController.swift */; };
+		3D375B9E20BC630C005DE31B /* SharedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9D20BC630B005DE31B /* SharedTheme.swift */; };
+		3D375BA020BC6582005DE31B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9F20BC6582005DE31B /* UIColorExtension.swift */; };
+		3D375BA220BC67D1005DE31B /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375BA120BC67D1005DE31B /* ItemCell.swift */; };
+		3D375BA420BC6800005DE31B /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375BA320BC6800005DE31B /* ButtonCell.swift */; };
 		3D4A3E4220B717EC00CA59E2 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A3E4120B717EC00CA59E2 /* BaseTests.swift */; };
 		3D4A3E4320B7180700CA59E2 /* WhatsNewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A3E3F20B717C000CA59E2 /* WhatsNewTests.swift */; };
 		3D4A3E4520B718E600CA59E2 /* WhatsNewVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A3E4420B718E600CA59E2 /* WhatsNewVersionTests.swift */; };
-		3D4A3E4720B71E5700CA59E2 /* TitledSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A3E4620B71E5700CA59E2 /* TitledSegmentedControl.swift */; };
-		3D4A3E4920B72C3D00CA59E2 /* PresentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A3E4820B72C3D00CA59E2 /* PresentButton.swift */; };
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
 		3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5120B546A100AF4DAF /* ThemableView.swift */; };
 		3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */; };
@@ -37,7 +40,6 @@
 		3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */; };
 		3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */; };
 		3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AA20AED02400292C94 /* AppDelegate.swift */; };
-		3DC8A6AD20AED02400292C94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AC20AED02400292C94 /* ViewController.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
 		3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */; };
 		3DDDB59720B832AB001D59C5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */; };
@@ -96,11 +98,14 @@
 		3D2412ED20BAEB56005A04D6 /* .codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codecov.yml; sourceTree = SOURCE_ROOT; };
 		3D2412EE20BAEB6C005A04D6 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
 		3D2F868320B9C45500B852F4 /* WhatsNewViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewControllerTests.swift; sourceTree = "<group>"; };
+		3D375B9B20BC5713005DE31B /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		3D375B9D20BC630B005DE31B /* SharedTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTheme.swift; sourceTree = "<group>"; };
+		3D375B9F20BC6582005DE31B /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		3D375BA120BC67D1005DE31B /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		3D375BA320BC6800005DE31B /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		3D4A3E3F20B717C000CA59E2 /* WhatsNewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewTests.swift; sourceTree = "<group>"; };
 		3D4A3E4120B717EC00CA59E2 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		3D4A3E4420B718E600CA59E2 /* WhatsNewVersionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionTests.swift; sourceTree = "<group>"; };
-		3D4A3E4620B71E5700CA59E2 /* TitledSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledSegmentedControl.swift; sourceTree = "<group>"; };
-		3D4A3E4820B72C3D00CA59E2 /* PresentButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentButton.swift; sourceTree = "<group>"; };
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
 		3D56AD5120B546A100AF4DAF /* ThemableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemableView.swift; sourceTree = "<group>"; };
 		3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Configuration.swift"; sourceTree = "<group>"; };
@@ -117,7 +122,6 @@
 		3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3DC8A6A820AED02400292C94 /* WhatsNewKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsNewKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC8A6AA20AED02400292C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DC8A6AC20AED02400292C94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3DC8A6B120AED02600292C94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC8A6B420AED02600292C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC8A6B620AED02600292C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -228,7 +232,10 @@
 		3DBFB67720B6ED9300FF0899 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3D4A3E4820B72C3D00CA59E2 /* PresentButton.swift */,
+				3D375B9D20BC630B005DE31B /* SharedTheme.swift */,
+				3D375BA120BC67D1005DE31B /* ItemCell.swift */,
+				3D375BA320BC6800005DE31B /* ButtonCell.swift */,
+				3D375B9F20BC6582005DE31B /* UIColorExtension.swift */,
 				3DC8A6B120AED02600292C94 /* Assets.xcassets */,
 				3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */,
 				3DC8A6B620AED02600292C94 /* Info.plist */,
@@ -240,9 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				3DC8A6AA20AED02400292C94 /* AppDelegate.swift */,
-				3DC8A6AC20AED02400292C94 /* ViewController.swift */,
-				3D4A3E4620B71E5700CA59E2 /* TitledSegmentedControl.swift */,
 				3D7E00C520B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift */,
+				3D375B9B20BC5713005DE31B /* ExampleViewController.swift */,
 				3DBFB67720B6ED9300FF0899 /* Supporting Files */,
 			);
 			path = Example;
@@ -520,11 +526,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D4A3E4920B72C3D00CA59E2 /* PresentButton.swift in Sources */,
-				3DC8A6AD20AED02400292C94 /* ViewController.swift in Sources */,
 				3D7E00C620B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift in Sources */,
-				3D4A3E4720B71E5700CA59E2 /* TitledSegmentedControl.swift in Sources */,
+				3D375B9E20BC630C005DE31B /* SharedTheme.swift in Sources */,
 				3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */,
+				3D375BA220BC67D1005DE31B /* ItemCell.swift in Sources */,
+				3D375B9C20BC5713005DE31B /* ExampleViewController.swift in Sources */,
+				3D375BA020BC6582005DE31B /* UIColorExtension.swift in Sources */,
+				3D375BA420BC6800005DE31B /* ButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
