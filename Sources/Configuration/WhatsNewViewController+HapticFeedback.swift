@@ -25,12 +25,15 @@ public enum HapticFeedback: Equatable {
         // Switch on self
         switch self {
         case .impact:
+            // UIImpactFeedbackGenerator
             let impactFeedbackGenerator = UIImpactFeedbackGenerator()
             impactFeedbackGenerator.impactOccurred()
         case .selection:
+            // UISelectionFeedbackGenerator
             let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
             selectionFeedbackGenerator.selectionChanged()
         case .notification(let feedbackType):
+            // UINotificationFeedbackGenerator
             let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
             notificationFeedbackGenerator.notificationOccurred(feedbackType)
         }
