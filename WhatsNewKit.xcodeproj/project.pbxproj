@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D13455E20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13455D20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift */; };
 		3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */; };
 		3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */; };
 		3D2412D120BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */; };
@@ -79,6 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D13455D20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+HapticFeedback.swift"; sourceTree = "<group>"; };
 		3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButton.swift"; sourceTree = "<group>"; };
 		3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButton.swift"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */,
 				3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */,
 				3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */,
+				3D13455D20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				3D92C67420AF88AC00A10333 /* WhatsNewItemTableViewCell.swift in Sources */,
 				3D92C67720AF88B400A10333 /* WhatsNewRoundedButton.swift in Sources */,
 				3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */,
+				3D13455E20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift in Sources */,
 				3D2412D320BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift in Sources */,
 				3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */,
 				3D2412D920BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift in Sources */,

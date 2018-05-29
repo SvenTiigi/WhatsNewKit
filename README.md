@@ -87,28 +87,25 @@ The following first usage description shows the easiest way of presenting your n
 > 👨‍💻 Please see the [Advanced](https://github.com/SvenTiigi/WhatsNewKit#advanced) section for further configuration options and features.
 
 ### WhatsNew
-To present your awesome new app features, you first have to declare what is new and what are those amazing features inside your app. You start off with a [WhatsNew.Item](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew%2BItem.swift) which represents a new feature in your app. You initialize a `WhatsNew.Item` by passing a `title`, `subtitle` and an optional `UIImage`.
+To showcase your awesome new app features, simply setup a [WhatsNew](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew.swift) struct with a `title` and `items`. A [WhatsNew.Item](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew%2BItem.swift) represents a single feature that you want to showcase.
 
 ```swift
-// Initialize a WhatsNew.Item which represents an App-Feature
-let installationItem = WhatsNew.Item(
-    title: "Installation",
-    subtitle: "You can install WhatsNewKit via CocoaPods or Carthage",
-    image: .init(named: "installation")
-)
-```
-
-After you initialized various `WhatsNew.Item`s you are good to go to setup the [WhatsNew](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew.swift) struct by passing a `title` and your `WhatsNew.Item` array.
-
-```swift
-// Initialize WhatsNew with Title and Items
+// Initialize WhatsNew
 let whatsNew = WhatsNew(
+    // The Title
     title: "WhatsNewKit",
+    // The features you want to showcase
     items: [
-        easySetupItem,
-        themesItem,
-        installationItem,
-        openSourceItem
+        WhatsNew.Item(
+            title: "Installation",
+            subtitle: "You can install WhatsNewKit via CocoaPods or Carthage",
+            image: .init(named: "installation")
+        ),
+        WhatsNew.Item(
+            title: "Open Source",
+            subtitle: "Contributions are very welcome 👨‍💻",
+            image: .init(named: "openSource")
+        )
     ]
 )
 ```
