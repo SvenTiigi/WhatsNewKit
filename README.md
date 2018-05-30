@@ -192,9 +192,9 @@ By setting the `animation` property on the `WhatsNewViewController.ItemsViewThem
 
 ```swift
 // Set custom animation for displaying WhatsNew.Item's
-theme.itemsViewTheme.animation = .custom(animator: { (view, count) in
+theme.itemsViewTheme.animation = .custom(animator: { [weak self] (view: UIView, index: Int) in
     // view: The View to perform animation on
-    // count: The current WhatsNew.Item count (starting at zero)
+    // index: The current WhatsNew.Item index (starting at zero)
 })
 ```
 Or you can make use of the predefined animations like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`.
