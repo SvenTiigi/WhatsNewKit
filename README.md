@@ -161,15 +161,15 @@ The [WhatsNewViewController.Theme](https://github.com/SvenTiigi/WhatsNewKit/blob
 
 | Property      | Description   |
 | ------------- | ------------- |
-| backgroundColor      | The backgroun color of the WhatsNewViewController |
-| titleViewTheme      | Customize the font and text color of the TitleView |
-| itemsViewTheme | Adjust title and subtitle via text color and font as well as the auto tint image option |
-| detailButtonTheme | Title color and font of the DetailButton |
-| completionButtonTheme | Configure title color and font for the CompletionButton |
+| `backgroundColor`      | The backgroun color of the WhatsNewViewController |
+| `titleViewTheme`      | Customize the font and text color of the TitleView |
+| `itemsViewTheme` | Adjust title and subtitle via text color and font as well as the auto tint image option |
+| `detailButtonTheme` | Title color and font of the DetailButton |
+| `completionButtonTheme` | Configure title color and font for the CompletionButton |
 
 ##### Templates
 
-Beside the full configuration possibilities you can make use of the predefined `Theme` [Templates](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme.swift) which are available as static properties. All templates are available in white and dark mode 😎.
+Beside the full configuration possibilities you can make use of the predefined [Templates](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme.swift) which are available as static properties on a Theme. All templates are available in white and dark mode 😎.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
@@ -181,9 +181,9 @@ let darkRed = WhatsNewViewController.Theme.darkRed
 
 // White Red template Theme
 let whiteRed = WhatsNewViewController.Theme.whiteRed
-
-// TODO: Check out the example application for all available Tempaltes
 ```
+
+For a full overview of the available Templates check out the [Example-Application](https://github.com/SvenTiigi/WhatsNewKit/tree/master/Example).
 
 ##### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
@@ -203,8 +203,6 @@ Or you can make use of the predefined animations like `fade`, `slideUp`, `slideD
 // Set predefined slideUp theme
 theme.itemsViewTheme.animation = .slideUp
 ```
-
-
 > ☝️ In default the Animation is set to `.none`
 
 #### DetailButton
@@ -214,8 +212,8 @@ By setting an [DetailButton](https://github.com/SvenTiigi/WhatsNewKit/blob/maste
 
 | Action | Description   |
 | ------------- | ------------- |
-| website | When the user pressed the detail button a `SFSafariViewController` with the given `URL` will be presented |
-| custom | After the detail button has been pressed by the user, your custom action will be invoked |
+| `website` | When the user pressed the detail button a `SFSafariViewController` with the given `URL` will be presented |
+| `custom` | After the detail button has been pressed by the user, your custom action will be invoked |
 
 ```swift
 // Initialize DetailButton with title and open website at url
@@ -240,8 +238,8 @@ The [CompletionButton](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sour
 
 | Action | Description   |
 | ------------- | ------------- |
-| dismiss | When the user pressed the completion button, the `WhatsNewViewController` will be dismissed. This is the default value |
-| custom | After the completion button has been pressed by the user, your custom action will be invoked |
+| `dismiss` | When the user pressed the completion button, the `WhatsNewViewController` will be dismissed. This is the default value |
+| `custom` | After the completion button has been pressed by the user, your custom action will be invoked |
 
 ```swift
 // Initialize CompletionButton with title and dismiss action
@@ -258,6 +256,25 @@ let completionButton = WhatsNewViewController.CompletionButton(
     })
 )
 ```
+
+#### HapticFeedback
+You can enable on both `DetailButton` and `CompletionButton` haptic feedback when the user pressed one of these buttons. Either by setting the property or passing it to the initializer.
+
+```swift
+// Impact Feedback
+button.hapticFeedback = .impact
+
+// Selection Feedback
+button.hapticFeedback = .selection
+
+// Notification Feedback with type
+let completionButton = WhatsNewViewController.CompletionButton(
+    title: "Continue", 
+    action: .dismiss,
+    hapticFeedback: .notification(.success)
+)
+```
+> ☝️ In default the `HapticFeedback` is `nil` indicating no haptic feedback should be executed.
 
 ### WhatsNewVersionStore
 <p align="center">
@@ -282,8 +299,8 @@ The `WhatsNewViewController` will use the APIs of the `WhatsNewVersionStore` in 
 
 | API      	   | Description   |
 | ------------- | ------------- |
-| has(version:) | Checks if the `Whatsnew.Version` is available and will return `nil` during initialization. |
-| set(version:) | The `WhatsNew.Version` will be set after the `CompletionButton` has been pressed. |
+| `has(version:)` | Checks if the `Whatsnew.Version` is available and will return `nil` during initialization. |
+| `set(version:)` | The `WhatsNew.Version` will be set after the `CompletionButton` has been pressed. |
 
 The `WhatsNewVersionStore` can be passed as an parameter to the initializer. If you do so the initializer will become `optional`.
 
@@ -350,7 +367,7 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
 > Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
 
 #### WhatsNew.Version
-During the initialization of the `WhatsNew` struct the `WhatsNewKit` will automatically retrieve the current App-Version via the `CFBundleShortVersionString` and construct a [WhatsNew.Version](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew%2BVersion.swift) for you which is used by the `WhatsNewVersionStore` protocol in order to persist the presented app versions. If you want to manually set the version you can do it like the following example.
+During the initialization of the `WhatsNew` struct the `WhatsNewKit` will automatically retrieve the current App-Version via the [CFBundleShortVersionString](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html) and construct a [WhatsNew.Version](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew%2BVersion.swift) for you which is used by the `WhatsNewVersionStore` protocol in order to persist the presented app versions. If you want to manually set the version you can do it like the following example.
 
 ```swift
 // Initialize Version 1.0.0
@@ -398,7 +415,7 @@ The `WhatsNew` struct is conform the `Codable` protocol which allows you to init
     ]
 }
 ```
-The optional `image` property of the `WhatsNew.Item` will be decoded and encoded in `Base64`.
+The optional `image` property of the `WhatsNew.Item` will be decoded and encoded in [Base64](https://en.wikipedia.org/wiki/Base64).
 
 ```swift
 // Encode to JSON
