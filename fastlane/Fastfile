@@ -8,7 +8,7 @@ platform :ios do
   lane :release do |options|
     ensure_git_status_clean
     ensure_git_branch(branch: 'master')
-    test
+    scan
     pod_lib_lint(verbose: true)
     version = version_bump_podspec(path: "WhatsNewKit.podspec", version_number: options[:version])
     git_commit(
@@ -19,14 +19,6 @@ platform :ios do
     push_git_tags()
     push_to_git_remote()
     pod_push()
-  end
-
-  desc "Runs all the tests"
-  lane :test do
-    scan(
-      project: "WhatsNewKit.xcodeproj",
-      scheme: "WhatsNewKit-iOS"
-    )
   end
   
 end
