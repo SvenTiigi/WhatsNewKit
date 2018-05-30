@@ -325,7 +325,7 @@ if let controller = whatsNewViewController {
 > ☝️ Please keep in mind the `WhatsNewViewController` initializer will only become `optional` and checks if the Version has been already presented if you pass a `WhatsNewVersionStore` object.
 
 #### Implementation
-If you already handled saving user settings in your app to something like `Realm`, `CoreData` or `UserDefaults` you can conform the `WhatsNewVersionStore` and pass it as an initializer parameter to the `WhatsNewViewController`.
+If you already handled saving user settings in your app to something like `Realm`, `CoreData` or `UserDefaults` you can conform that to the `WhatsNewVersionStore`.
 
 ```swift
 // Extend your existing App-Logic
@@ -334,11 +334,13 @@ extension MyUserSettingsDatabase: WhatsNewVersionStore {
 }
 ```
 
-##### Predefined Implementations
+#### Predefined Implementations
 
-If not you can make use of the predefined `WhatsNewVersionStore` implementations which `WhatsNewKit` offers.
+`WhatsNewKit` brings along two predefined Implementations of the `WhatsNewVersionStore`.
 
 [KeyValueWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/KeyValueWhatsNewVersionStore.swift)
+
+Saves and retrieves the `WhatsNew.Version` via a `KeyValueable` protocol conform object. `UserDefaults` and `NSUbiquitousKeyValueStore` are already conform to that protocol 🙌
 
 ```swift
 // Local KeyValueStore
@@ -358,9 +360,9 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
 )
 ```
 
-> Saves and retrieves the `WhatsNew.Version` via a `KeyValueable` protocol conform object. UserDefaults and NSUbiquitousKeyValueStore are already conform to that protocol 🙌
-
 [InMemoryWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/InMemoryWhatsNewVersionStore.swift)
+
+Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
 
 ```swift
 // Initialize WhatsNewViewController with InMemoryWhatsNewVersionStore
@@ -369,8 +371,6 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
     versionStore: InMemoryWhatsNewVersionStore()
 )
 ```
-
-> Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
 
 #### WhatsNew.Version
 During the initialization of the `WhatsNew` struct the `WhatsNewKit` will automatically retrieve the current App-Version via the [CFBundleShortVersionString](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html) and construct a [WhatsNew.Version](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew%2BVersion.swift) for you which is used by the `WhatsNewVersionStore` protocol in order to persist the presented app versions. If you want to manually set the version you can do it like the following example.
