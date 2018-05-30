@@ -295,8 +295,13 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
 )
 
 // Check if WhatsNewViewController is available to present it.
-// If it's nil the user has already seen your new features for the corresponding Version.
-// ...
+if let controller = whatsNewViewController {
+    // Present it as WhatsNewViewController is available 
+    // after init with WhatsNewVersionStore
+    self.present(controller, animated: true)
+} else {
+    // WhatsNewViewController is `nil` this Version has already been presented
+}
 ```
 
 > ☝️ Please keep in mind the `WhatsNewViewController` initializer will only become `optional` and checks if the Version has been already presented if you pass a `WhatsNewVersionStore` object.
