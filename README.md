@@ -225,7 +225,7 @@ let detailButton = WhatsNewViewController.DetailButton(
 // Initialize DetailButton with title and custom action
 let detailButton = WhatsNewViewController.DetailButton(
     title: "Read more", 
-    action: .custom(action: { (whatsNewViewController) in {
+    action: .custom(action: { [weak self] whatsNewViewController in {
         // Perform custom action on detail button pressed
     })
 )
@@ -251,7 +251,7 @@ let completionButton = WhatsNewViewController.CompletionButton(
 // Initialize CompletionButton with title and custom action
 let completionButton = WhatsNewViewController.CompletionButton(
     title: "Continue", 
-    action: .custom(action: { (whatsNewViewController) in {
+    action: .custom(action: { [weak self] whatsNewViewController in {
         // Perform custom action on completion button pressed
     })
 )
@@ -284,6 +284,7 @@ let completionButton = WhatsNewViewController.CompletionButton(
 If we speak about presenting awesome new app features we have to take care that this kind of `UI` action only happens once if the user installed the app or opened it after an update. The `WhatsNewKind` offers a neat solution for this kind of problem via the [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/WhatsNewVersionStore.swift) protocol.
 
 ```swift
+/// WhatsNewVersionStore typealias protocol composition
 public typealias WhatsNewVersionStore = WriteableWhatsNewVersionStore & ReadableWhatsNewVersionStore
 
 public protocol WriteableWhatsNewVersionStore {
