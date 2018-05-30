@@ -362,7 +362,7 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
 
 ##### InMemoryWhatsNewVersionStore
 
-[InMemoryWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/InMemoryWhatsNewVersionStore.swift) saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
+The [InMemoryWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/InMemoryWhatsNewVersionStore.swift) saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
 
 ```swift
 // Initialize WhatsNewViewController with InMemoryWhatsNewVersionStore
