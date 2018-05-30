@@ -338,9 +338,9 @@ extension MyUserSettingsDatabase: WhatsNewVersionStore {
 
 `WhatsNewKit` brings along two predefined Implementations of the `WhatsNewVersionStore`.
 
-[KeyValueWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/KeyValueWhatsNewVersionStore.swift)
+##### KeyValueWhatsNewVersionStore
 
-Saves and retrieves the `WhatsNew.Version` via a `KeyValueable` protocol conform object. `UserDefaults` and `NSUbiquitousKeyValueStore` are already conform to that protocol 🙌
+The [KeyValueWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/KeyValueWhatsNewVersionStore.swift) saves and retrieves the `WhatsNew.Version` via a `KeyValueable` protocol conform object. `UserDefaults` and `NSUbiquitousKeyValueStore` are already conform to that protocol 🙌
 
 ```swift
 // Local KeyValueStore
@@ -360,9 +360,9 @@ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
 )
 ```
 
-[InMemoryWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/InMemoryWhatsNewVersionStore.swift)
+##### InMemoryWhatsNewVersionStore
 
-Saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
+[InMemoryWhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Store/InMemoryWhatsNewVersionStore.swift) saves and retrieves the `WhatsNew.Version` in memory. Perfect for development or testing phase 👨‍💻
 
 ```swift
 // Initialize WhatsNewViewController with InMemoryWhatsNewVersionStore
