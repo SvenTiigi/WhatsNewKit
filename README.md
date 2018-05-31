@@ -137,9 +137,9 @@ The `WhatsNewViewController.Configuration` consist of three main properties.
 
 | Property      | Description   |
 | ------------- | ------------- |
-| theme      | All `UI` related settings can be customized here |
-| detailButton      | Optional detail button to configure the title and the action that should be performed after pressing |
-| completionButton | The completion button to configure the title and the corresponding action that should take place after pressing |
+| `theme`      | All `UI` related settings can be customized here |
+| `detailButton`      | Optional detail button to configure the title and the action that should be performed after pressing |
+| `completionButton` | The completion button to configure the title and the corresponding action that should take place after pressing |
 
 The configuration itself can be passed to the initializer of the `WhatsNewViewController`.
 
