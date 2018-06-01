@@ -25,4 +25,8 @@ class WhatsNewViewControllerTests: BaseTests {
         XCTAssert(versionStore.has(version: self.randomWhatsNew.version))
     }
     
+    func testCoderInitializer() {
+        XCTAssertNil(WhatsNewViewController(coder: .init()))
+    }
+    
 }
