@@ -232,6 +232,15 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		3DB63CAF20C14CB40079623A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D4A3E3F20B717C000CA59E2 /* WhatsNewTests.swift */,
+				3D4A3E4420B718E600CA59E2 /* WhatsNewVersionTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3DBFB67720B6ED9300FF0899 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,9 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				3D4A3E4120B717EC00CA59E2 /* BaseTests.swift */,
-				3D4A3E3F20B717C000CA59E2 /* WhatsNewTests.swift */,
-				3D4A3E4420B718E600CA59E2 /* WhatsNewVersionTests.swift */,
 				3D2F868320B9C45500B852F4 /* WhatsNewViewControllerTests.swift */,
+				3DB63CAF20C14CB40079623A /* Models */,
 			);
 			name = Tests;
 			path = Tests/WhatsNewKitTests;
