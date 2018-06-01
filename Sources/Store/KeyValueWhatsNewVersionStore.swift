@@ -67,7 +67,11 @@ public struct KeyValueWhatsNewVersionStore {
     /// - Parameter version: The Version
     /// - Returns: String key concatenated with prefix identifier
     private func key(forVersion version: WhatsNew.Version) -> String {
-        return "\(self.prefixIdentifier).\(version)"
+        if self.prefixIdentifier.isEmpty {
+            return version.description
+        } else {
+            return "\(self.prefixIdentifier).\(version)"
+        }
     }
     
 }
