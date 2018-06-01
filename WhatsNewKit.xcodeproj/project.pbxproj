@@ -39,6 +39,7 @@
 		3DA667A920B0C8B600DB18FF /* WhatsNewItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667A820B0C8B600DB18FF /* WhatsNewItemsView.swift */; };
 		3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */; };
 		3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */; };
+		3DB63CB320C159540079623A /* WhatsNewItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB63CB220C159540079623A /* WhatsNewItemTests.swift */; };
 		3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */; };
 		3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AA20AED02400292C94 /* AppDelegate.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		3DA667A820B0C8B600DB18FF /* WhatsNewItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewItemsView.swift; sourceTree = "<group>"; };
 		3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewButtonView.swift; sourceTree = "<group>"; };
 		3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Theme.swift"; sourceTree = "<group>"; };
+		3DB63CB220C159540079623A /* WhatsNewItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewItemTests.swift; sourceTree = "<group>"; };
 		3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3DC8A6A820AED02400292C94 /* WhatsNewKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsNewKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC8A6AA20AED02400292C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				3D4A3E3F20B717C000CA59E2 /* WhatsNewTests.swift */,
 				3D4A3E4420B718E600CA59E2 /* WhatsNewVersionTests.swift */,
+				3DB63CB220C159540079623A /* WhatsNewItemTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				3D2F868420B9C45500B852F4 /* WhatsNewViewControllerTests.swift in Sources */,
 				3D4A3E4320B7180700CA59E2 /* WhatsNewTests.swift in Sources */,
 				3D4A3E4220B717EC00CA59E2 /* BaseTests.swift in Sources */,
+				3DB63CB320C159540079623A /* WhatsNewItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

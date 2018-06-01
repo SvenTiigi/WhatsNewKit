@@ -30,6 +30,9 @@ class BaseTests: XCTestCase {
     /// Random WhatsNew
     lazy var randomWhatsNew: WhatsNew = self.generateRandomWhatsNew()
     
+    /// System Image
+    lazy var image: UIImage? = UIButton(type: .infoLight).image(for: .normal)
+    
     /// SetUp
     override func setUp() {
         super.setUp()
