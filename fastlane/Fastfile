@@ -28,7 +28,7 @@ platform :ios do
       clean: true,
       code_coverage: true
     )
-    pod_lib_lint(verbose: true)
+    pod_lib_lint
   end
 
   desc "Runs coverage"
