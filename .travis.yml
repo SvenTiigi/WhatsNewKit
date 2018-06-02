@@ -20,7 +20,6 @@ before_script:
 
 script: 
   - carthage build --no-skip-current
-  - pod lib lint
   - fastlane test
   
 after_script:
