@@ -1,5 +1,0 @@
-coverage:
-  ignore:
-   - "Tests/*"
-   - "Example/*"
-   - "Carthage/*"
