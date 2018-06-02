@@ -36,7 +36,8 @@ platform :ios do
     slather(
       proj: "WhatsNewKit.xcodeproj",
       scheme: "WhatsNewKit-iOS",
-      travis: true
+      travis: true,
+      cobertura_xml: true
     )
   end
   
