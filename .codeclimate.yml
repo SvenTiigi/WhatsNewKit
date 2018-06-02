@@ -1,0 +1,3 @@
+plugins:
+  swiftlint:
+    enabled: true
