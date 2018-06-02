@@ -13,10 +13,16 @@ notifications:
 osx_image: xcode9.3
 language: swift
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 script: 
   - carthage build --no-skip-current
-  - fastlane scan
   - pod lib lint
+  - fastlane test
+  - fastlance coverage
   
-after_success:
-- bash <(curl -s https://codecov.io/bash) -J 'WhatsNewKit'
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
