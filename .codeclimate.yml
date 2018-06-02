@@ -1,3 +1,9 @@
 plugins:
   swiftlint:
     enabled: true
+exclude_patterns: 
+  - "Example/"
+  - "Tests/"
+  - "Configs/"
+  - "Carthage/"
+  - "fastlane/"
