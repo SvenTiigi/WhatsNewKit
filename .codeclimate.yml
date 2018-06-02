@@ -8,6 +8,7 @@ exclude_patterns:
   - "Carthage/"
   - "fastlane/"
   - "*.yml"
+  - "*.yaml"
   - ".gitignore"
   - ".swift-version"
   - "LICENSE"
