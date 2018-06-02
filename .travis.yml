@@ -13,8 +13,17 @@ notifications:
 osx_image: xcode9.3
 language: swift
 
-script: 
-  - fastlane test
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
-after_success:
-- bash <(curl -s https://codecov.io/bash)
+script: 
+  - carthage build --no-skip-current
+  - pod lib lint
+  - fastlane test
+  
+after_script:
+  - fastlane coverage
+  - ./cc-test-reporter format-coverage -t cobertura
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
