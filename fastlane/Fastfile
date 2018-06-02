@@ -36,8 +36,7 @@ platform :ios do
     slather(
       proj: "WhatsNewKit.xcodeproj",
       scheme: "WhatsNewKit-iOS",
-      travis: true,
-      sourceDirectory: "Sources"
+      travis: true
     )
   end
   
