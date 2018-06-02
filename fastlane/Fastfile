@@ -33,17 +33,12 @@ platform :ios do
 
   desc "Runs coverage"
   lane :coverage do
-    coverage_files_to_ignore = [
-        'Example/*',
-        'Carthage/*',
-        'Tests/*'
-    ]
     slather(
       proj: "WhatsNewKit.xcodeproj",
       scheme: "WhatsNewKit-iOS",
       travis: true,
       cobertura_xml: true,
-      ignore: coverage_files_to_ignore
+      ignore: ["Tests/*"]
     )
   end
   
