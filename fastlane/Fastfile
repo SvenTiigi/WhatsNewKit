@@ -20,5 +20,25 @@ platform :ios do
     push_to_git_remote()
     pod_push()
   end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(
+      project: "WhatsNewKit.xcodeproj",
+      scheme: "WhatsNewKit-iOS",
+      clean: true,
+      code_coverage: true
+    )
+  end
+
+  desc "Runs coverage"
+  lane :coverage do
+    slather(
+      proj: "WhatsNewKit.xcodeproj",
+      scheme: "WhatsNewKit-iOS",
+      travis: true,
+      sourceDirectory: "Sources"
+    )
+  end
   
 end
