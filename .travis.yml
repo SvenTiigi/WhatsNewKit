@@ -22,7 +22,8 @@ script:
   - carthage build --no-skip-current
   - pod lib lint
   - fastlane test
-  - fastlane coverage
   
 after_script:
+  - fastlane coverage
+  - ./cc-test-reporter format-coverage -t cobertura
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
