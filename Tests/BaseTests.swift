@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import WhatsNewKit
+@testable import WhatsNewKit
 
 class BaseTests: XCTestCase {
     
