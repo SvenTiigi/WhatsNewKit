@@ -81,8 +81,7 @@ public extension WhatsNewViewController.Theme {
                 ),
                 titleColor: .black,
                 subtitleFont: .systemFont(ofSize: 17),
-                subtitleColor: .black,
-                animation: .none
+                subtitleColor: .black
             ),
             detailButtonTheme: .init(
                 titleFont: .systemFont(ofSize: 17),

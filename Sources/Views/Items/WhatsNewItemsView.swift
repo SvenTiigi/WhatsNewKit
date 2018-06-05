@@ -153,7 +153,7 @@ extension WhatsNewItemsView: UITableViewDelegate {
         // Increment CellDisplayCount
         self.cellDisplayCount += 1
         // Animate Cell
-        self.theme.itemsViewTheme.animation.rawValue?(cell, indexPath.row)
+        self.theme.itemsViewTheme.animation?.rawValue(cell, indexPath.row)
     }
     
 }

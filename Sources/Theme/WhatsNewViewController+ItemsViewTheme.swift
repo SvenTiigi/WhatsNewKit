@@ -31,7 +31,7 @@ public extension WhatsNewViewController {
         public var autoTintImage: Bool
         
         /// The Animation
-        public var animation: Animation
+        public var animation: Animation?
         
         /// Default initializer
         ///
@@ -41,13 +41,13 @@ public extension WhatsNewViewController {
         ///   - subtitleFont: The subtitle font
         ///   - subtitleColor: The subtitle color
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
-        ///   - animation: The Animation
+        ///   - animation: The Animation. Default value `nil`
         public init(titleFont: UIFont,
                     titleColor: UIColor,
                     subtitleFont: UIFont,
                     subtitleColor: UIColor,
                     autoTintImage: Bool = true,
-                    animation: Animation) {
+                    animation: Animation? = nil) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.subtitleFont = subtitleFont
@@ -66,8 +66,6 @@ public extension WhatsNewViewController.ItemsViewTheme {
     
     /// The Animation
     enum Animation {
-        /// None
-        case none
         /// Fade
         case fade
         /// Slide up
@@ -102,8 +100,6 @@ extension WhatsNewViewController.ItemsViewTheme.Animation: Equatable {
                            rhs: WhatsNewViewController.ItemsViewTheme.Animation) -> Bool {
         // Switch on lhs and rhs
         switch (lhs, rhs) {
-        case (.none, .none):
-            return true
         case (.fade, .fade):
             return true
         case (.slideUp, .slideUp):
@@ -128,21 +124,19 @@ extension WhatsNewViewController.ItemsViewTheme.Animation: Equatable {
 extension WhatsNewViewController.ItemsViewTheme.Animation: RawRepresentable {
     
     /// Associated type RawValue as optional Animator
-    public typealias RawValue = WhatsNewViewController.ItemsViewTheme.Animator?
+    public typealias RawValue = WhatsNewViewController.ItemsViewTheme.Animator
     
-    /// RawRepresentable initializer. Which always returns nil
+    /// RawRepresentable initializer
     ///
     /// - Parameters:
     ///   - rawValue: The rawValue
-    public init?(rawValue: RawValue) {
-        return nil
+    public init?(rawValue: @escaping RawValue) {
+        self = .custom(animator: rawValue)
     }
     
     /// The optional Animator rawValue
     public var rawValue: RawValue {
         switch self {
-        case .none:
-            return nil
         case .custom(animator: let animator):
             // Return custom animator
             return animator
