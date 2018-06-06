@@ -147,7 +147,7 @@ let whatsNewViewController = WhatsNewViewController(
 )
 ```
 
-#### Theme
+### Theme
 Beside the full configuration possibilities you can make use of the predefined [Themes]() which are available as static properties. All templates are available in white and dark mode.
 
 <p align="center">
@@ -175,7 +175,7 @@ let configuration = WhatsNewViewController.Configuration(
 
 For a full overview of the available predefined Themes check out the [Example-Application](https://github.com/SvenTiigi/WhatsNewKit/tree/master/Example).
 
-##### Animation
+### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
 You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or apply your own animation. In default all Animation properties are `nil` indicating no animation should be perfomed.
@@ -201,7 +201,7 @@ If you wish to animate all views with the same type simply apply it to the confi
 configuration.apply(animation: .fade)
 ```
 
-#### DetailButton
+### DetailButton
  <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="DetailButton">
 
 By setting an [DetailButton](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BDetailButton.swift) struct on the `WhatsNewViewController.Configuration` struct you can customize the `title` and the corresponding `action` of the displayed detail button on the `WhatsNewViewController`. As the `DetailButton` struct is declared as optional the `WhatsNewViewController` will only display the button if a `DetailButton` configuration is available
@@ -227,7 +227,7 @@ let detailButton = WhatsNewViewController.DetailButton(
 )
 ```
 
-#### CompletionButton
+### CompletionButton
  <img width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/completionButton.jpg" alt="CompletionButton">
  
 The [CompletionButton](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BCompletionButton.swift) struct configures the displayed title and the action when the user pressed the completion button on the `WhatsNewViewController`.
@@ -253,7 +253,7 @@ let completionButton = WhatsNewViewController.CompletionButton(
 )
 ```
 
-#### HapticFeedback
+### HapticFeedback
 You can enable on both `DetailButton` and `CompletionButton` haptic feedback when the user pressed one of these buttons. Either by setting the property or passing it to the initializer.
 
 ```swift
