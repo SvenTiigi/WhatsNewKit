@@ -33,22 +33,20 @@ public class WhatsNewViewController: UIViewController {
     // MARK: ThemableViews
 
     /// The TitleView
-    private lazy var titleView: ThemableView = WhatsNewTitleView(
+    private lazy var titleView: UIView = WhatsNewTitleView(
         title: self.whatsNew.title,
-        theme: self.configuration.theme
+        configuration: self.configuration
     )
     
     /// The ItemsView
-    private lazy var itemsView: ThemableView = WhatsNewItemsView(
+    private lazy var itemsView: UIView = WhatsNewItemsView(
         items: self.whatsNew.items,
-        theme: self.configuration.theme
+        configuration: self.configuration
     )
     
     /// The ButtonView
-    private lazy var buttonView: ThemableView = WhatsNewButtonView(
-        completionButtonTitle: self.configuration.completionButton.title,
-        detailButtonTitle: self.configuration.detailButton?.title,
-        theme: self.configuration.theme,
+    private lazy var buttonView: UIView = WhatsNewButtonView(
+        configuration: self.configuration,
         onPress: { [weak self] buttonType in
             // Handle button type
             self?.handleOnPress(buttonType: buttonType)
@@ -71,7 +69,7 @@ public class WhatsNewViewController: UIViewController {
         // Super init
         super.init(nibName: nil, bundle: nil)
         // Set background color
-        self.view.backgroundColor = self.configuration.theme.backgroundColor
+        self.view.backgroundColor = self.configuration.backgroundColor
         // Add TitleView
         self.view.addSubview(self.titleView)
         // Add ItemsView
@@ -172,7 +170,7 @@ public class WhatsNewViewController: UIViewController {
                 // Initialize SafariViewController
                 let safariViewController = SFSafariViewController(url: url)
                 // Set tint color
-                safariViewController.preferredControlTintColor = self.configuration.theme.tintColor
+                safariViewController.preferredControlTintColor = self.configuration.tintColor
                 // Present ViewController
                 self.present(safariViewController, animated: true)
             case .some(.custom(action: let action)):

@@ -1,68 +1,16 @@
 //
-//  WhatsNewViewController+ItemsViewTheme.swift
+//  WhatsNewViewController+Animation.swift
 //  WhatsNewKit-iOS
 //
-//  Created by Sven Tiigi on 27.05.18.
+//  Created by Sven Tiigi on 06.06.18.
 //  Copyright © 2018 WhatsNewKit. All rights reserved.
 //
 
 import UIKit
 
-// MARK: - ItemsViewTheme
+// MARK: - Animation
 
 public extension WhatsNewViewController {
-    
-    /// The ItemsViewTheme
-    struct ItemsViewTheme: Equatable {
-        
-        /// The title font
-        public var titleFont: UIFont
-        
-        /// The title color
-        public var titleColor: UIColor
-        
-        /// The subtitle font
-        public var subtitleFont: UIFont
-        
-        /// The subtitle color
-        public var subtitleColor: UIColor
-        
-        /// Boolean if Image should be auto tinted
-        public var autoTintImage: Bool
-        
-        /// The Animation
-        public var animation: Animation?
-        
-        /// Default initializer
-        ///
-        /// - Parameters:
-        ///   - titleFont: The title font
-        ///   - titleColor: The title color
-        ///   - subtitleFont: The subtitle font
-        ///   - subtitleColor: The subtitle color
-        ///   - autoTintImage: The autoTintImage boolean. Default value `true`
-        ///   - animation: The Animation. Default value `nil`
-        public init(titleFont: UIFont,
-                    titleColor: UIColor,
-                    subtitleFont: UIFont,
-                    subtitleColor: UIColor,
-                    autoTintImage: Bool = true,
-                    animation: Animation? = nil) {
-            self.titleFont = titleFont
-            self.titleColor = titleColor
-            self.subtitleFont = subtitleFont
-            self.subtitleColor = subtitleColor
-            self.autoTintImage = autoTintImage
-            self.animation = animation
-        }
-        
-    }
-    
-}
-
-// MARK: - ItemsViewTheme Animation
-
-public extension WhatsNewViewController.ItemsViewTheme {
     
     /// The Animation
     enum Animation {
@@ -82,22 +30,13 @@ public extension WhatsNewViewController.ItemsViewTheme {
     
 }
 
-// MARK: - ItemsViewTheme Animator Typealias
+// MARK: - Animator Equatable
 
-public extension WhatsNewViewController.ItemsViewTheme {
-    
-    /// The Animator typealias closure with UIView and Item count
-    typealias Animator = (UIView, Int) -> Void
-    
-}
-
-// MARK: - ItemsViewTheme Animator Equatable
-
-extension WhatsNewViewController.ItemsViewTheme.Animation: Equatable {
+extension WhatsNewViewController.Animation: Equatable {
     
     /// Returns a Boolean value indicating whether two values are equal.
-    public static func == (lhs: WhatsNewViewController.ItemsViewTheme.Animation,
-                           rhs: WhatsNewViewController.ItemsViewTheme.Animation) -> Bool {
+    public static func == (lhs: WhatsNewViewController.Animation,
+                           rhs: WhatsNewViewController.Animation) -> Bool {
         // Switch on lhs and rhs
         switch (lhs, rhs) {
         case (.fade, .fade):
@@ -119,12 +58,43 @@ extension WhatsNewViewController.ItemsViewTheme.Animation: Equatable {
     
 }
 
-// MARK: - ItemsViewTheme Animator RawRepresentable
+// MARK: - Animator Typealias
 
-extension WhatsNewViewController.ItemsViewTheme.Animation: RawRepresentable {
+public extension WhatsNewViewController.Animation {
+    
+    /// The Animator typealias closure with UIView and Item count
+    typealias Animator = (UIView, AnimatorSettings) -> Void
+    
+    /// The AnimatorSettings
+    struct AnimatorSettings: Codable, Equatable {
+        
+        /// The preferred duration
+        public let preferredDuration: TimeInterval
+        
+        /// The preferred delay
+        public let preferredDelay: TimeInterval
+        
+        /// Default initializer
+        ///
+        /// - Parameters:
+        ///   - preferredDuration: The preferred duration
+        ///   - preferredDelay: The preferred delay
+        public init(preferredDuration: TimeInterval,
+                    preferredDelay: TimeInterval) {
+            self.preferredDuration = preferredDuration
+            self.preferredDelay = preferredDelay
+        }
+        
+    }
+    
+}
+
+// MARK: - Animator RawRepresentable
+
+extension WhatsNewViewController.Animation: RawRepresentable {
     
     /// Associated type RawValue as optional Animator
-    public typealias RawValue = WhatsNewViewController.ItemsViewTheme.Animator
+    public typealias RawValue = WhatsNewViewController.Animation.Animator
     
     /// RawRepresentable initializer
     ///
@@ -150,14 +120,14 @@ extension WhatsNewViewController.ItemsViewTheme.Animation: RawRepresentable {
 
 // MARK: Predefined Animation
 
-private extension WhatsNewViewController.ItemsViewTheme.Animation {
+private extension WhatsNewViewController.Animation {
     
     /// Predefined Animation
     ///
     /// - Parameters:
     ///   - view: The View
     ///   - index: The Index
-    func animate(view: UIView, index: Int) {
+    func animate(view: UIView, animatorSettings: AnimatorSettings) {
         // Declare Transform
         let transform: CGAffineTransform
         // Switch on self to initialize Transform
@@ -191,10 +161,10 @@ private extension WhatsNewViewController.ItemsViewTheme.Animation {
         view.alpha = 0.0
         // Perform animation
         UIView.animate(
-            // Standard duration
-            withDuration: 0.5,
-            // Incremented delay via Item count
-            delay: 0.15 * (Double(index) + 1.0),
+            // Duration
+            withDuration: animatorSettings.preferredDuration,
+            // Delay
+            delay: animatorSettings.preferredDelay,
             // Ease in and out
             options: .curveEaseInOut,
             animations: {

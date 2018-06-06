@@ -11,12 +11,15 @@ import UIKit
 // MARK: - WhatsNewItemsView
 
 /// The WhatsNewItemsView
-class WhatsNewItemsView: ThemableView {
+class WhatsNewItemsView: UIView {
     
     // MARK: Properties
     
     /// The WhatsNew Items
     private let items: [WhatsNew.Item]
+    
+    /// The Configuration
+    private let configuration: WhatsNewViewController.Configuration
     
     /// The cell display count
     private var cellDisplayCount = 0
@@ -40,7 +43,7 @@ class WhatsNewItemsView: ThemableView {
         // No selection
         tableView.allowsSelection = false
         // Set indicator style based on theme backgroundcolor
-        tableView.indicatorStyle = self.theme.backgroundColor.isLight ? .black : .white
+        tableView.indicatorStyle = self.configuration.backgroundColor.isLight ? .black : .white
         // Return TableView
         return tableView
     }()
@@ -51,15 +54,17 @@ class WhatsNewItemsView: ThemableView {
     ///
     /// - Parameters:
     ///   - items: The WhatsNew Items
-    ///   - theme: The Theme
+    ///   - configuration: The Configuration
     init(items: [WhatsNew.Item],
-         theme: WhatsNewViewController.Theme) {
+         configuration: WhatsNewViewController.Configuration) {
         // Set items
         self.items = items
-        // Super init theme
-        super.init(theme: theme)
+        // Set configuration
+        self.configuration = configuration
+        // Super init
+        super.init(frame: .zero)
         // Set background color
-        self.backgroundColor = self.theme.backgroundColor
+        self.backgroundColor = self.configuration.backgroundColor
         // Add TableView
         self.addSubview(self.tableView)
     }
@@ -126,7 +131,7 @@ extension WhatsNewItemsView: UITableViewDataSource {
         // Return WhatsNewItemTableViewCell
         return WhatsNewItemTableViewCell(
             item: self.items[indexPath.row],
-            theme: self.theme
+            configuration: self.configuration
         )
     }
     
@@ -143,7 +148,7 @@ extension WhatsNewItemsView: UITableViewDelegate {
     ///   - cell: The Cell
     ///   - indexPath: The indexPath
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = self.theme.backgroundColor
+        cell.backgroundColor = self.configuration.backgroundColor
         // Unwrap cell as WhatsNewItemTableViewCell and verify cellDisplayCount is less then the items count
         guard let cell = cell as? WhatsNewItemTableViewCell,
             self.cellDisplayCount < self.items.count else {
@@ -153,7 +158,13 @@ extension WhatsNewItemsView: UITableViewDelegate {
         // Increment CellDisplayCount
         self.cellDisplayCount += 1
         // Animate Cell
-        self.theme.itemsViewTheme.animation?.rawValue(cell, indexPath.row)
+        self.configuration.itemsView.animation?.rawValue(
+            cell,
+            .init(
+                preferredDuration: 0.5,
+                preferredDelay: 0.15 * (Double(indexPath.row) + 1.0)
+            )
+        )
     }
     
 }

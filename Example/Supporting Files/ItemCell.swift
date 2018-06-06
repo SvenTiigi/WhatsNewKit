@@ -27,7 +27,7 @@ extension ExampleViewController {
             let segmentedControl = UISegmentedControl(items: self.item.options)
             segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
             segmentedControl.selectedSegmentIndex = 0
-            segmentedControl.tintColor = self.sharedTheme.theme.tintColor
+            segmentedControl.tintColor = .main
             return segmentedControl
         }()
         

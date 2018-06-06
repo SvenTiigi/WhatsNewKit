@@ -24,18 +24,48 @@ public extension WhatsNewViewController {
         /// The HapticFeedback
         public var hapticFeedback: HapticFeedback?
         
+        /// The background color
+        public var backgroundColor: UIColor
+        
+        /// The title font
+        public var titleFont: UIFont
+        
+        /// The title color
+        public var titleColor: UIColor
+        
+        /// The corner radius
+        public var cornerRadius: CGFloat
+        
+        /// The Animation
+        public var animation: Animation?
+        
         /// Default initializer
         ///
         /// - Parameters:
-        ///   - title: The Title as String. Default value `Continue`
-        ///   - action: The Action. Default value `dismiss`
-        ///   - hapticFeedback: The optional HapticFeedback. Default value `nil`
+        ///   - title: The Title
+        ///   - action: The Action. Default value `.dismiss`
+        ///   - hapticFeedback: The optional HapticFedback. Default value `nil`
+        ///   - backgroundColor: The background color. Default value `.whatsNewKitBlue`
+        ///   - titleFont: The title font. Default value `size: 17, weight: semibold`
+        ///   - titleColor: The title color. Default value `white`
+        ///   - cornerRadius: The corner radius. Default value `8.0`
+        ///   - animation: The Animation. Default value `nil`
         public init(title: String = "Continue",
                     action: Action = .dismiss,
-                    hapticFeedback: HapticFeedback? = nil) {
+                    hapticFeedback: HapticFeedback? = nil,
+                    backgroundColor: UIColor = .whatsNewKitBlue,
+                    titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
+                    titleColor: UIColor = .white,
+                    cornerRadius: CGFloat = 8.0,
+                    animation: Animation? = nil) {
             self.title = title
             self.action = action
             self.hapticFeedback = hapticFeedback
+            self.backgroundColor = backgroundColor
+            self.titleFont = titleFont
+            self.titleColor = titleColor
+            self.cornerRadius = cornerRadius
+            self.animation = animation
         }
     }
     
