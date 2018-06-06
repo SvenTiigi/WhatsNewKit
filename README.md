@@ -87,10 +87,8 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 ## Usage
 The following first usage description shows the easiest way of presenting your new app features with `WhatsNewKit`.
-> 👨‍💻 Please see the [Advanced](https://github.com/SvenTiigi/WhatsNewKit#advanced) section for further configuration options and features.
 
-### WhatsNew
-To showcase your awesome new app features, simply setup a [WhatsNew](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew.swift) struct with a `title` and `items`. A [WhatsNew.Item](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Models/WhatsNew%2BItem.swift) represents a single feature that you want to showcase.
+> 👨‍💻 Please see the [Advanced](https://github.com/SvenTiigi/WhatsNewKit#advanced) section for further configuration options and features.
 
 ```swift
 // Initialize WhatsNew
@@ -111,18 +109,13 @@ let whatsNew = WhatsNew(
         )
     ]
 )
-```
 
-### WhatsNewViewController 
-
-The presentation of your new app features are handled via the [WhatsNewViewController](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/WhatsNewViewController.swift). Simply pass your `WhatsNew` struct to the initializer and present or push the `WhatsNewViewController`
-
-```swift
 // Initialize WhatsNewViewController with WhatsNew
 let whatsNewViewController = WhatsNewViewController(
     whatsNew: whatsNew
 )
-// Present it
+
+// Present it 🤩
 self.present(whatsNewViewController, animated: true)
 ```
 
@@ -134,21 +127,15 @@ As mentioned before `WhatsNewKit` can be fully customized to your needs. The Adv
 </p>
 
 ### WhatsNewViewController.Configuration
-The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` to your needs.
-
-The `WhatsNewViewController.Configuration` consist of three main properties.
-
-| Property      | Description   |
-| ------------- | ------------- |
-| `theme`      | All `UI` related settings can be customized here |
-| `detailButton`      | Optional detail button to configure the title and the action that should be performed after pressing |
-| `completionButton` | The completion button to configure the title and the corresponding action that should take place after pressing |
-
-The configuration itself can be passed to the initializer of the `WhatsNewViewController`.
+The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` to your needs. The configuration itself can be passed to the initializer of the `WhatsNewViewController`.
 
 ```swift
 // Initialize default Configuration
-let configuration = WhatsNewViewController.Configuration()
+var configuration = WhatsNewViewController.Configuration()
+
+// Customize Configuration
+configuration.titleView.titleColor = .orange
+// Further customization ...
 
 // Initialize WhatsNewViewController with custom configuration
 let whatsNewViewController = WhatsNewViewController(
@@ -157,60 +144,86 @@ let whatsNewViewController = WhatsNewViewController(
 )
 ```
 
-The upcoming subsection will explain the properties `Theme`, `DetailButton` and `CompletionButton` in detail.
+The `WhatsNewViewController.Configuration` consist of five main properties in order to customize the explained components of the `WhatsNewViewController`
+
+```swift
+struct Configuration {
+    /// The background color
+    public var backgroundColor: UIColor
+
+    /// The TitleView
+    public var titleView: TitleView
+        
+    /// The ItemsView
+    public var itemsView: ItemsView
+        
+    /// The optional DetailButton
+    public var detailButton: DetailButton?
+        
+    /// The CompletionButton
+    public var completionButton: CompletionButton
+}
+```
 
 #### Theme
-The [WhatsNewViewController.Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme.swift) struct allows you to perfectly match the design to your existing App. The following table list the available properties.
+Beside the full configuration possibilities you can make use of the predefined [Themes]() which are available as static properties. All templates are available in white and dark mode.
 
-| Property      | Description   |
-| ------------- | ------------- |
-| `backgroundColor`      | The backgroun color of the WhatsNewViewController |
-| `titleViewTheme`      | Customize the font and text color of the TitleView |
-| `itemsViewTheme` | Adjust title and subtitle via text color and font as well as the auto tint image option |
-| `detailButtonTheme` | Title color and font of the DetailButton |
-| `completionButtonTheme` | Configure title color and font for the CompletionButton |
+```swift
+// Configuration with Dark Red Theme
+let darkRed = WhatsNewViewController.Configuration(
+    theme: .darkRed
+)
 
-##### Templates
+// Apply White Red Theme to Configuration
+var configuration = WhatsNewViewController.Configuration()
+configuration.apply(theme: .whiteRed)
 
-Beside the full configuration possibilities you can make use of the predefined [Templates](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Theme/WhatsNewViewController%2BTheme.swift) which are available as static properties on a Theme. All templates are available in white and dark mode 😎.
+// Or create your own Theme and initialize Configuration
+let myTheme = WhatsNewViewController.Theme { configuration in
+    // Apply customizations ...
+}
+let configuration = WhatsNewViewController.Configuration(
+    theme: myTheme
+)
+```
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
 </p>
 
-```swift
-// Dark Red template Theme
-let darkRed = WhatsNewViewController.Theme.darkRed
-
-// White Red template Theme
-let whiteRed = WhatsNewViewController.Theme.whiteRed
-```
-
-For a full overview of the available Templates check out the [Example-Application](https://github.com/SvenTiigi/WhatsNewKit/tree/master/Example).
+For a full overview of the available predefined Themes check out the [Example-Application](https://github.com/SvenTiigi/WhatsNewKit/tree/master/Example).
 
 ##### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
-By setting the `animation` property on the `WhatsNewViewController.ItemsViewTheme` you can apply an animation while displaying the `ItemsView`.
+You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or you define your custom animation
 
 ```swift
+// Set SlideUp Animation to TitleView
+configuration.titleView.animation = .slideUp
+
+// Set SlideRight Animation to ItemsView
+configuration.itemsView.animation = .slideRight
+
 // Set custom animation for displaying WhatsNew.Item's
-theme.itemsViewTheme.animation = .custom(animator: { [weak self] (view: UIView, index: Int) in
+theme.itemsViewTheme.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
     // view: The View to perform animation on
-    // index: The current WhatsNew.Item index (starting at zero)
+    // settings: Preferred duration and delay
 })
 ```
-Or you can make use of the predefined animations like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`.
+
+If you wish to animate all views with the same type simply apply it to the configuration.
 
 ```swift
-// Set predefined slideUp theme
-theme.itemsViewTheme.animation = .slideUp
+// Global Animation-Type for all WhatsNewViewController components
+configuration.apply(animation: .fade)
 ```
-> ☝️ In default the Animation is set to `.none`
+
+> ☝️ In default all Animation properties are `nil`
 
 #### DetailButton
  <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="DetailButton">
- 
+
 By setting an [DetailButton](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BDetailButton.swift) struct on the `WhatsNewViewController.Configuration` struct you can customize the `title` and the corresponding `action` of the displayed detail button on the `WhatsNewViewController`. As the `DetailButton` struct is declared as optional the `WhatsNewViewController` will only display the button if a `DetailButton` configuration is available
 
 | Action | Description   |
