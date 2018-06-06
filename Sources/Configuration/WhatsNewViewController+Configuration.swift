@@ -58,18 +58,37 @@ public extension WhatsNewViewController {
             self.apply(theme: theme)
         }
         
-        /// Apply Theme to Configuration
-        ///
-        /// - Parameter theme: The Theme
-        /// - Returns: Discardable Configuration
-        @discardableResult
-        public mutating func apply(theme: Theme) -> Configuration {
-            // Perform Customization
-            theme.customization(&self)
-            // Return self
-            return self
-        }
-        
+    }
+    
+}
+
+// MARK: - Configuration Apply Functions
+
+public extension WhatsNewViewController.Configuration {
+    
+    /// Apply Theme to Configuration
+    ///
+    /// - Parameter theme: The Theme
+    /// - Returns: Discardable Configuration
+    @discardableResult
+    mutating func apply(theme: WhatsNewViewController.Theme) -> WhatsNewViewController.Configuration {
+        // Perform Customization
+        theme.customization(&self)
+        // Return self
+        return self
+    }
+    
+    /// Apply a given Animation to all Views
+    ///
+    /// - Parameter animation: The Animation
+    /// - Returns: Discardable Configuration
+    @discardableResult
+    mutating func apply(animation: WhatsNewViewController.Animation) -> WhatsNewViewController.Configuration {
+        self.titleView.animation = animation
+        self.itemsView.animation = animation
+        self.detailButton?.animation = animation
+        self.completionButton.animation = animation
+        return self
     }
     
 }
@@ -103,83 +122,105 @@ public extension WhatsNewViewController {
 public extension WhatsNewViewController.Theme {
     
     /// Default Theme (white background and blue tint color)
-    static let `default`: WhatsNewViewController.Theme = .init { configuration in
-        configuration.backgroundColor = .white
-        configuration.titleView.titleFont = .systemFont(ofSize: 30, weight: .semibold)
-        configuration.titleView.titleColor = .black
-        configuration.itemsView.titleFont = .systemFont(ofSize: 17, weight: .semibold)
-        configuration.itemsView.titleColor = .black
-        configuration.itemsView.subtitleFont = .systemFont(ofSize: 17)
-        configuration.itemsView.subtitleColor = .black
-        configuration.detailButton?.titleFont = .systemFont(ofSize: 17)
-        configuration.detailButton?.titleColor = .whatsNewKitBlue
-        configuration.completionButton.backgroundColor = .whatsNewKitBlue
-        configuration.completionButton.titleFont = .systemFont(ofSize: 17, weight: .semibold)
-        configuration.completionButton.titleColor = .white
-        configuration.completionButton.cornerRadius = 8.0
+    static var `default`: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.backgroundColor = .white
+            configuration.titleView.titleFont = .systemFont(ofSize: 30, weight: .semibold)
+            configuration.titleView.titleColor = .black
+            configuration.itemsView.titleFont = .systemFont(ofSize: 17, weight: .semibold)
+            configuration.itemsView.titleColor = .black
+            configuration.itemsView.subtitleFont = .systemFont(ofSize: 17)
+            configuration.itemsView.subtitleColor = .black
+            configuration.detailButton?.titleFont = .systemFont(ofSize: 17)
+            configuration.detailButton?.titleColor = .whatsNewKitBlue
+            configuration.completionButton.backgroundColor = .whatsNewKitBlue
+            configuration.completionButton.titleFont = .systemFont(ofSize: 17, weight: .semibold)
+            configuration.completionButton.titleColor = .white
+            configuration.completionButton.cornerRadius = 8.0
+        }
     }
     
     /// Dark Default Theme (dark background and blue tint color)
-    static let darkDefault: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .default)
-        configuration.backgroundColor = .whatsNewKitDark
-        configuration.titleView.titleColor = .white
-        configuration.itemsView.titleColor = .white
-        configuration.itemsView.subtitleColor = .white
+    static var darkDefault: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .default)
+            configuration.backgroundColor = .whatsNewKitDark
+            configuration.titleView.titleColor = .white
+            configuration.itemsView.titleColor = .white
+            configuration.itemsView.subtitleColor = .white
+        }
     }
     
     /// White Orange Theme (white background and orange tint color)
-    static let whiteOrange: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .default)
-        configuration.detailButton?.titleColor = .orange
-        configuration.completionButton.backgroundColor = .orange
+    static var whiteOrange: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .default)
+            configuration.detailButton?.titleColor = .orange
+            configuration.completionButton.backgroundColor = .orange
+        }
     }
     
     /// Dark Orange Theme (dark background and orange tint color)
-    static let darkOrange: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .darkDefault)
-        configuration.detailButton?.titleColor = .orange
-        configuration.completionButton.backgroundColor = .orange
+    static var darkOrange: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .darkDefault)
+            configuration.detailButton?.titleColor = .orange
+            configuration.completionButton.backgroundColor = .orange
+        }
     }
     
     /// White Purple Theme (white background and purple tint color)
-    static let whitePurple: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .default)
-        configuration.detailButton?.titleColor = .whatsNewKitPurple
-        configuration.completionButton.backgroundColor = .whatsNewKitPurple
+    static var whitePurple: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .default)
+            configuration.detailButton?.titleColor = .whatsNewKitPurple
+            configuration.completionButton.backgroundColor = .whatsNewKitPurple
+        }
     }
     
     /// Dark Purple Theme (dark background and purple tint color)
-    static let darkPurple: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .darkDefault)
-        configuration.detailButton?.titleColor = .whatsNewKitPurple
-        configuration.completionButton.backgroundColor = .whatsNewKitPurple
+    static var darkPurple: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .darkDefault)
+            configuration.detailButton?.titleColor = .whatsNewKitPurple
+            configuration.completionButton.backgroundColor = .whatsNewKitPurple
+        }
     }
     
     /// White Red Theme (white background and red tint color)
-    static let whiteRed: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .default)
-        configuration.detailButton?.titleColor = .whatsNewKitRed
-        configuration.completionButton.backgroundColor = .whatsNewKitRed
+    static var whiteRed: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .default)
+            configuration.detailButton?.titleColor = .whatsNewKitRed
+            configuration.completionButton.backgroundColor = .whatsNewKitRed
+        }
     }
     
     /// Dard Red Theme (dark background and red tint color)
-    static let darkRed: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .darkDefault)
+    static var darkRed: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .darkDefault)
+            configuration.detailButton?.titleColor = .whatsNewKitRed
+            configuration.completionButton.backgroundColor = .whatsNewKitRed
+        }
     }
     
     /// White Green Theme (white background and green tint color)
-    static let whiteGreen: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .default)
-        configuration.detailButton?.titleColor = .whatsNewKitGreen
-        configuration.completionButton.backgroundColor = .whatsNewKitGreen
+    static var whiteGreen: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .default)
+            configuration.detailButton?.titleColor = .whatsNewKitGreen
+            configuration.completionButton.backgroundColor = .whatsNewKitGreen
+        }
     }
     
     /// Dard Green Theme (dark background and green tint color)
-    static let darkGreen: WhatsNewViewController.Theme = .init { configuration in
-        configuration.apply(theme: .darkDefault)
-        configuration.detailButton?.titleColor = .whatsNewKitGreen
-        configuration.completionButton.backgroundColor = .whatsNewKitGreen
+    static var darkGreen: WhatsNewViewController.Theme {
+        return .init { configuration in
+            configuration.apply(theme: .darkDefault)
+            configuration.detailButton?.titleColor = .whatsNewKitGreen
+            configuration.completionButton.backgroundColor = .whatsNewKitGreen
+        }
     }
     
 }
