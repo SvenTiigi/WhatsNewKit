@@ -74,8 +74,14 @@ extension ExampleViewController {
                 self.sharedTheme.backgroundColor = selected
             case .tintColor:
                 self.sharedTheme.tintColor = selected
-            case .animation:
-                self.sharedTheme.animation = selected
+            case .titleViewAnimation:
+                self.sharedTheme.animation.titleView = selected
+            case .itemsViewAnimation:
+                self.sharedTheme.animation.itemsView = selected
+            case .detailButtonAnimation:
+                self.sharedTheme.animation.detailButton = selected
+            case .completionButtonAnimation:
+                self.sharedTheme.animation.completionButton = selected
             }
         }
         

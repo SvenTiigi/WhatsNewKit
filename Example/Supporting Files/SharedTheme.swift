@@ -32,7 +32,7 @@ class SharedTheme {
     }
     
     /// Animation String
-    var animation: String = "None" {
+    var animation: (titleView: String, itemsView: String, detailButton: String, completionButton: String) = ("None", "None", "None", "None") {
         didSet {
             self.updateTheme()
         }
@@ -76,22 +76,29 @@ class SharedTheme {
             default:
                 configuration.apply(theme: .default)
             }
-            switch self.animation {
-            case "None":
-                configuration.itemsView.animation = .none
-            case "Fade":
-                configuration.itemsView.animation = .fade
-            case "SlideUp":
-                configuration.itemsView.animation = .slideUp
-            case "SlideDown":
-                configuration.itemsView.animation = .slideDown
-            case "SlideLeft":
-                configuration.itemsView.animation = .slideLeft
-            case "SlideRight":
-                configuration.itemsView.animation = .slideRight
-            default:
-                break
+            let updateAnimation: (inout WhatsNewViewController.Animation?, String) -> WhatsNewViewController.Animation? = { animation, string in
+                switch string {
+                case "Fade":
+                    animation = .fade
+                case "SlideUp":
+                    animation = .slideUp
+                case "SlideDown":
+                    animation = .slideDown
+                case "SlideLeft":
+                    animation = .slideLeft
+                case "SlideRight":
+                    animation = .slideRight
+                default:
+                    animation = nil
+                }
+                return animation
             }
+            _ = updateAnimation(&configuration.titleView.animation, self.animation.titleView)
+            _ = updateAnimation(&configuration.itemsView.animation, self.animation.itemsView)
+            if var detailButton = configuration.detailButton {
+                configuration.detailButton?.animation = updateAnimation(&detailButton.animation, self.animation.detailButton)
+            }
+            _ = updateAnimation(&configuration.completionButton.animation, self.animation.completionButton)
         }
     }
     
