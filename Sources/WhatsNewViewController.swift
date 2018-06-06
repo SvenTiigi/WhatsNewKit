@@ -152,8 +152,10 @@ public class WhatsNewViewController: UIViewController {
             // Switch on CompletionAction
             switch self.configuration.completionButton.action {
             case .dismiss:
+                // Dismiss WhatsNewViewController
                 self.dismiss(animated: true)
             case .custom(action: let action):
+                // Perform custom action and pass self
                 action(self)
             }
         case .detail:
@@ -174,6 +176,7 @@ public class WhatsNewViewController: UIViewController {
                 // Present ViewController
                 self.present(safariViewController, animated: true)
             case .some(.custom(action: let action)):
+                // Perform custom action and pass self
                 action(self)
             case .none:
                 break
