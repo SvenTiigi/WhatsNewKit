@@ -178,7 +178,7 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 ##### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
-You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft` or `slideRight`. In default all Animation properties are `nil` indicating no animation should be perfomed.
+You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or apply your own animation. In default all Animation properties are `nil` indicating no animation should be perfomed.
 
 ```swift
 // Set SlideUp Animation to TitleView
@@ -186,12 +186,8 @@ configuration.titleView.animation = .slideUp
 
 // Set SlideRight Animation to ItemsView
 configuration.itemsView.animation = .slideRight
-```
 
-Or initialize your own animation by passing an animation closure.
-
-```swift
-// Set custom animation for displaying WhatsNew.Item's
+// Custom Animation for DetailButton
 configuration.detailButton.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
     // view: The View to perform animation on
     // settings: Preferred duration and delay
