@@ -133,36 +133,18 @@ The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNew
 // Initialize default Configuration
 var configuration = WhatsNewViewController.Configuration()
 
-// Customize Configuration
+// Customize Configuration to your needs
+configuration.backgroundColor = .white
 configuration.titleView.titleColor = .orange
-// Further customization ...
+configuration.itemsView.titleFont = .systemFont(ofSize: 17)
+configuration.detailButton.titleColor = .orange
+configuration.completionButton.backgroundColor = .orange
 
 // Initialize WhatsNewViewController with custom configuration
 let whatsNewViewController = WhatsNewViewController(
     whatsNew: whatsNew, 
     configuration: configuration
 )
-```
-
-The `WhatsNewViewController.Configuration` consist of five main properties in order to customize the explained components of the `WhatsNewViewController`
-
-```swift
-struct Configuration {
-    /// The background color
-    public var backgroundColor: UIColor
-
-    /// The TitleView
-    public var titleView: TitleView
-        
-    /// The ItemsView
-    public var itemsView: ItemsView
-        
-    /// The optional DetailButton
-    public var detailButton: DetailButton?
-        
-    /// The CompletionButton
-    public var completionButton: CompletionButton
-}
 ```
 
 #### Theme
@@ -196,7 +178,7 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 ##### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
-You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or you define your custom animation
+You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or you define your custom animation. In default all Animation properties are `nil` indicating no animation should be perfomed.
 
 ```swift
 // Set SlideUp Animation to TitleView
@@ -218,8 +200,6 @@ If you wish to animate all views with the same type simply apply it to the confi
 // Global Animation-Type for all WhatsNewViewController components
 configuration.apply(animation: .fade)
 ```
-
-> ☝️ In default all Animation properties are `nil`
 
 #### DetailButton
  <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="DetailButton">
