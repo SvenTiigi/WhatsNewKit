@@ -64,7 +64,9 @@ public extension WhatsNewViewController {
         /// - Returns: Discardable Configuration
         @discardableResult
         public mutating func apply(theme: Theme) -> Configuration {
+            // Perform Customization
             theme.customization(&self)
+            // Return self
             return self
         }
         
