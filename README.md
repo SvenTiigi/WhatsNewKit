@@ -150,6 +150,10 @@ let whatsNewViewController = WhatsNewViewController(
 #### Theme
 Beside the full configuration possibilities you can make use of the predefined [Themes]() which are available as static properties. All templates are available in white and dark mode.
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
+</p>
+
 ```swift
 // Configuration with Dark Red Theme
 let darkRed = WhatsNewViewController.Configuration(
@@ -169,16 +173,12 @@ let configuration = WhatsNewViewController.Configuration(
 )
 ```
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
-</p>
-
 For a full overview of the available predefined Themes check out the [Example-Application](https://github.com/SvenTiigi/WhatsNewKit/tree/master/Example).
 
 ##### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
-You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or you define your custom animation. In default all Animation properties are `nil` indicating no animation should be perfomed.
+You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft` or `slideRight`. In default all Animation properties are `nil` indicating no animation should be perfomed.
 
 ```swift
 // Set SlideUp Animation to TitleView
@@ -186,9 +186,13 @@ configuration.titleView.animation = .slideUp
 
 // Set SlideRight Animation to ItemsView
 configuration.itemsView.animation = .slideRight
+```
 
+Or initialize your own animation by passing an animation closure.
+
+```swift
 // Set custom animation for displaying WhatsNew.Item's
-theme.itemsViewTheme.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
+configuration.detailButton.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
     // view: The View to perform animation on
     // settings: Preferred duration and delay
 })
