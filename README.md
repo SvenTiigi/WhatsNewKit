@@ -417,7 +417,7 @@ let whatsNewVersion1 = whatsNews.get(byVersion:
 let whatsNewVersion2 = whatsNews.get(byVersion: "2.0.0")
 
 // If you want the WhatsNew for your current App-Version
-// based on the CFBundleShortVersionString from Bundle.Main
+// based on the CFBundleShortVersionString from Bundle.main
 let currentWhatsNew = whatsNews.get()
 
 ```
