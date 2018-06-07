@@ -139,6 +139,7 @@ configuration.titleView.titleColor = .orange
 configuration.itemsView.titleFont = .systemFont(ofSize: 17)
 configuration.detailButton.titleColor = .orange
 configuration.completionButton.backgroundColor = .orange
+// And many more configuration properties...
 
 // Initialize WhatsNewViewController with custom configuration
 let whatsNewViewController = WhatsNewViewController(
