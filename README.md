@@ -149,7 +149,7 @@ let whatsNewViewController = WhatsNewViewController(
 ```
 
 ### Theme
-A [Theme] allows you to group the customization of a `WhatsNewViewController.Configuration`. `WhatsNewKit` implemented predefined Themes which are available as static properties both in white and dark mode. Or you create your very own Theme to configure it to your needs.
+A [Theme]() allows you to group the customization of a `WhatsNewViewController.Configuration`. `WhatsNewKit` implemented predefined Themes which are available as static properties both in white and dark mode. Or you create your very own Theme to configure it to your needs.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
@@ -179,7 +179,7 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 ### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
-You can apply animations to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or apply your own animation. In default all Animation properties are `nil` indicating no animation should be perfomed.
+You can apply a [Animation]() to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or apply your own animation. In default all Animation properties are `nil` indicating no animation should be perfomed.
 
 ```swift
 // Set SlideUp Animation to TitleView
