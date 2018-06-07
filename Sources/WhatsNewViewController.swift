@@ -68,14 +68,6 @@ public class WhatsNewViewController: UIViewController {
         self.configuration = configuration
         // Super init
         super.init(nibName: nil, bundle: nil)
-        // Set background color
-        self.view.backgroundColor = self.configuration.backgroundColor
-        // Add TitleView
-        self.view.addSubview(self.titleView)
-        // Add ItemsView
-        self.view.addSubview(self.itemsView)
-        // Add ButtonView
-        self.view.addSubview(self.buttonView)
     }
     
     /// Convenience optional initializer with WhatsNewVersionStore.
@@ -109,6 +101,20 @@ public class WhatsNewViewController: UIViewController {
     }
     
     // MARK: View-Lifecycle
+    
+    /// View did load
+    public override func viewDidLoad() {
+        // Invoke super
+        super.viewDidLoad()
+        // Set background color
+        self.view.backgroundColor = self.configuration.backgroundColor
+        // Add TitleView
+        self.view.addSubview(self.titleView)
+        // Add ItemsView
+        self.view.addSubview(self.itemsView)
+        // Add ButtonView
+        self.view.addSubview(self.buttonView)
+    }
     
     /// View did layout subviews
     public override func viewDidLayoutSubviews() {
