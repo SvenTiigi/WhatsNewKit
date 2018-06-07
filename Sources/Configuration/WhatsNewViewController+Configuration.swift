@@ -154,73 +154,103 @@ public extension WhatsNewViewController.Theme {
     /// White Orange Theme (white background and orange tint color)
     static var whiteOrange: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .default)
-            configuration.detailButton?.titleColor = .orange
-            configuration.completionButton.backgroundColor = .orange
+            self.customize(
+                configuration: &configuration,
+                theme: .default,
+                tintColor: .orange
+            )
         }
     }
     
     /// Dark Orange Theme (dark background and orange tint color)
     static var darkOrange: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .darkDefault)
-            configuration.detailButton?.titleColor = .orange
-            configuration.completionButton.backgroundColor = .orange
+            self.customize(
+                configuration: &configuration,
+                theme: .darkDefault,
+                tintColor: .orange
+            )
         }
     }
     
     /// White Purple Theme (white background and purple tint color)
     static var whitePurple: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .default)
-            configuration.detailButton?.titleColor = .whatsNewKitPurple
-            configuration.completionButton.backgroundColor = .whatsNewKitPurple
+            self.customize(
+                configuration: &configuration,
+                theme: .default,
+                tintColor: .whatsNewKitPurple
+            )
         }
     }
     
     /// Dark Purple Theme (dark background and purple tint color)
     static var darkPurple: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .darkDefault)
-            configuration.detailButton?.titleColor = .whatsNewKitPurple
-            configuration.completionButton.backgroundColor = .whatsNewKitPurple
+            self.customize(
+                configuration: &configuration,
+                theme: .darkDefault,
+                tintColor: .whatsNewKitPurple
+            )
         }
     }
     
     /// White Red Theme (white background and red tint color)
     static var whiteRed: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .default)
-            configuration.detailButton?.titleColor = .whatsNewKitRed
-            configuration.completionButton.backgroundColor = .whatsNewKitRed
+            self.customize(
+                configuration: &configuration,
+                theme: .default,
+                tintColor: .whatsNewKitRed
+            )
         }
     }
     
     /// Dard Red Theme (dark background and red tint color)
     static var darkRed: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .darkDefault)
-            configuration.detailButton?.titleColor = .whatsNewKitRed
-            configuration.completionButton.backgroundColor = .whatsNewKitRed
+            self.customize(
+                configuration: &configuration,
+                theme: .darkDefault,
+                tintColor: .whatsNewKitRed
+            )
         }
     }
     
     /// White Green Theme (white background and green tint color)
     static var whiteGreen: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .default)
-            configuration.detailButton?.titleColor = .whatsNewKitGreen
-            configuration.completionButton.backgroundColor = .whatsNewKitGreen
+            self.customize(
+                configuration: &configuration,
+                theme: .default,
+                tintColor: .whatsNewKitGreen
+            )
         }
     }
     
     /// Dard Green Theme (dark background and green tint color)
     static var darkGreen: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .darkDefault)
-            configuration.detailButton?.titleColor = .whatsNewKitGreen
-            configuration.completionButton.backgroundColor = .whatsNewKitGreen
+            self.customize(
+                configuration: &configuration,
+                theme: .darkDefault,
+                tintColor: .whatsNewKitGreen
+            )
         }
+    }
+    
+    /// Customize Configuration with Theme and TintColor
+    ///
+    /// - Parameters:
+    ///   - configuration: The Configuration
+    ///   - theme: The Theme
+    ///   - tintColor: The TintColor
+    private static func customize(configuration: inout WhatsNewViewController.Configuration,
+                                  theme: WhatsNewViewController.Theme,
+                                  tintColor: UIColor) {
+        configuration.apply(theme: theme)
+        configuration.detailButton?.titleColor = tintColor
+        configuration.completionButton.backgroundColor = tintColor
     }
     
 }
