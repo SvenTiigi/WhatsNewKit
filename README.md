@@ -317,6 +317,10 @@ if let controller = whatsNewViewController {
 } else {
     // WhatsNewViewController is `nil` this Version has already been presented
 }
+
+// Or invoke present on the WhatsNewViewController
+// to avoid the need of unwrapping the optional
+whatsNewViewController?.present(on: self)
 ```
 
 > ☝️ Please keep in mind the `WhatsNewViewController` initializer will only become `optional` and checks if the Version has been already presented if you pass a `WhatsNewVersionStore` object.
