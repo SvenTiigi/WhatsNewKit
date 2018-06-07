@@ -176,7 +176,7 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 ### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
-You can apply a [Animation](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BAnimation.swift) to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or apply your own animation. In default all Animation properties are `nil` indicating no animation should be perfomed.
+You can apply a [Animation](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BAnimation.swift) to all components of the `WhatsNewViewController` via predefined animation types. In default all Animation properties are `nil` indicating no animation should be perfomed.
 
 ```swift
 // Set SlideUp Animation to TitleView
