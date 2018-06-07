@@ -127,7 +127,7 @@ As mentioned before `WhatsNewKit` can be fully customized to your needs. The Adv
 </p>
 
 ### WhatsNewViewController.Configuration
-The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` to your needs. The configuration itself can be passed to the initializer of the `WhatsNewViewController`.
+The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` components to your needs. The configuration itself can be passed to the initializer of the `WhatsNewViewController`.
 
 ```swift
 // Initialize default Configuration
@@ -139,6 +139,7 @@ configuration.titleView.titleColor = .orange
 configuration.itemsView.titleFont = .systemFont(ofSize: 17)
 configuration.detailButton.titleColor = .orange
 configuration.completionButton.backgroundColor = .orange
+// And many more configuration properties...
 
 // Initialize WhatsNewViewController with custom configuration
 let whatsNewViewController = WhatsNewViewController(
@@ -148,23 +149,23 @@ let whatsNewViewController = WhatsNewViewController(
 ```
 
 ### Theme
-Beside the full configuration possibilities you can make use of the predefined [Themes]() which are available as static properties. All templates are available in white and dark mode.
+A [Theme] allows you to group the customization of a `WhatsNewViewController.Configuration`. `WhatsNewKit` implemented predefined Themes which are available as static properties both in white and dark mode. Or you create your very own Theme to configure it to your needs.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
 </p>
 
 ```swift
-// Configuration with Dark Red Theme
+// Configuration with predefined Dark Red Theme
 let darkRed = WhatsNewViewController.Configuration(
     theme: .darkRed
 )
 
-// Apply White Red Theme to Configuration
+// Apply predefined White Red Theme to Configuration
 var configuration = WhatsNewViewController.Configuration()
 configuration.apply(theme: .whiteRed)
 
-// Or create your own Theme and initialize Configuration
+// Or create your own Theme and initialize a Configuration with your Theme
 let myTheme = WhatsNewViewController.Theme { configuration in
     // Apply customizations ...
 }
@@ -194,7 +195,7 @@ configuration.detailButton.animation = .custom(animator: { [weak self] (view: UI
 })
 ```
 
-If you wish to animate all views with the same type simply apply it to the configuration.
+If you wish to animate all views with the same type you can do so by simply applying it to the configuration.
 
 ```swift
 // Global Animation-Type for all WhatsNewViewController components
@@ -316,6 +317,10 @@ if let controller = whatsNewViewController {
 } else {
     // WhatsNewViewController is `nil` this Version has already been presented
 }
+
+// Or invoke present on the WhatsNewViewController
+// to avoid the need of unwrapping the optional
+whatsNewViewController?.present(on: self)
 ```
 
 > ☝️ Please keep in mind the `WhatsNewViewController` initializer will only become `optional` and checks if the Version has been already presented if you pass a `WhatsNewVersionStore` object.
