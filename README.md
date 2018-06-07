@@ -185,11 +185,11 @@ configuration.titleView.animation = .slideUp
 // Set SlideRight Animation to ItemsView
 configuration.itemsView.animation = .slideRight
 
-// Custom Animation for DetailButton
-configuration.detailButton.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
-    // view: The View to perform animation on
-    // settings: Preferred duration and delay
-})
+// Set SlideLeft Animation to DetailButton
+configuration.detailButton.animation = .slideLeft
+
+// Set SlideDown Animation to CompletionButton
+configuration.completionButton.animation = .slideDown
 ```
 
 If you wish to animate all views with the same type you can do so by simply applying it to the configuration.
@@ -197,6 +197,16 @@ If you wish to animate all views with the same type you can do so by simply appl
 ```swift
 // Global Animation-Type for all WhatsNewViewController components
 configuration.apply(animation: .fade)
+```
+
+If you wish to define your custom animation, simply set the `custom` enum and pass an animation closure.
+
+```swift
+// Custom Animation for DetailButton
+configuration.detailButton.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
+    // view: The View to perform animation on
+    // settings: Preferred duration and delay
+})
 ```
 
 ### DetailButton
