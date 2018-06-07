@@ -42,6 +42,18 @@ public extension WhatsNew {
     
 }
 
+// MARK: - Comparable
+
+extension WhatsNew.Version: Comparable {
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    public static func < (lhs: WhatsNew.Version, rhs: WhatsNew.Version) -> Bool {
+        let sum: (WhatsNew.Version) -> Int = { $0.major * 100 + $0.minor * 10 + $0.patch }
+        return sum(lhs) < sum(rhs)
+    }
+    
+}
+
 // MARK: - CustomStringConvertible
 
 extension WhatsNew.Version: CustomStringConvertible {
