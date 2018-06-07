@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3D04214620C2D68C00DA5126 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214520C2D68C00DA5126 /* BaseTests.swift */; };
 		3D04215120C2D6A100DA5126 /* WhatsNewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214720C2D6A000DA5126 /* WhatsNewViewControllerTests.swift */; };
-		3D04215220C2D6A100DA5126 /* ThemeableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214920C2D6A000DA5126 /* ThemeableViewTests.swift */; };
 		3D04215320C2D6A100DA5126 /* WhatsNewVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214B20C2D6A100DA5126 /* WhatsNewVersionTests.swift */; };
 		3D04215420C2D6A100DA5126 /* WhatsNewItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214C20C2D6A100DA5126 /* WhatsNewItemTests.swift */; };
 		3D04215520C2D6A100DA5126 /* WhatsNewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214D20C2D6A100DA5126 /* WhatsNewTests.swift */; };
@@ -19,17 +18,15 @@
 		3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */; };
 		3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */; };
 		3D2412D120BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */; };
-		3D2412D320BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D220BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift */; };
-		3D2412D520BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D420BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift */; };
-		3D2412D720BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D620BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift */; };
-		3D2412D920BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D820BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift */; };
 		3D375B9C20BC5713005DE31B /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9B20BC5713005DE31B /* ExampleViewController.swift */; };
 		3D375B9E20BC630C005DE31B /* SharedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9D20BC630B005DE31B /* SharedTheme.swift */; };
 		3D375BA020BC6582005DE31B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9F20BC6582005DE31B /* UIColorExtension.swift */; };
 		3D375BA220BC67D1005DE31B /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375BA120BC67D1005DE31B /* ItemCell.swift */; };
 		3D375BA420BC6800005DE31B /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375BA320BC6800005DE31B /* ButtonCell.swift */; };
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
-		3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D56AD5120B546A100AF4DAF /* ThemableView.swift */; };
+		3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */; };
+		3D5D06BF20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */; };
+		3D5D06C120C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */; };
 		3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */; };
 		3D7E00C620B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E00C520B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift */; };
 		3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66920AF87E600A10333 /* WhatsNew.swift */; };
@@ -42,7 +39,6 @@
 		3DA667A620B0C8AF00DB18FF /* WhatsNewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667A520B0C8AF00DB18FF /* WhatsNewTitleView.swift */; };
 		3DA667A920B0C8B600DB18FF /* WhatsNewItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667A820B0C8B600DB18FF /* WhatsNewItemsView.swift */; };
 		3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */; };
-		3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */; };
 		3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */; };
 		3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AA20AED02400292C94 /* AppDelegate.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
@@ -86,7 +82,6 @@
 /* Begin PBXFileReference section */
 		3D04214520C2D68C00DA5126 /* BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		3D04214720C2D6A000DA5126 /* WhatsNewViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewViewControllerTests.swift; sourceTree = "<group>"; };
-		3D04214920C2D6A000DA5126 /* ThemeableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeableViewTests.swift; sourceTree = "<group>"; };
 		3D04214B20C2D6A100DA5126 /* WhatsNewVersionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionTests.swift; sourceTree = "<group>"; };
 		3D04214C20C2D6A100DA5126 /* WhatsNewItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewItemTests.swift; sourceTree = "<group>"; };
 		3D04214D20C2D6A100DA5126 /* WhatsNewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewTests.swift; sourceTree = "<group>"; };
@@ -97,10 +92,6 @@
 		3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButton.swift"; sourceTree = "<group>"; };
 		3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButton.swift"; sourceTree = "<group>"; };
-		3D2412D220BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+TitleViewTheme.swift"; sourceTree = "<group>"; };
-		3D2412D420BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+ItemsViewTheme.swift"; sourceTree = "<group>"; };
-		3D2412D620BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButtonTheme.swift"; sourceTree = "<group>"; };
-		3D2412D820BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButtonTheme.swift"; sourceTree = "<group>"; };
 		3D2412E420BAEB56005A04D6 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = SOURCE_ROOT; };
 		3D2412E520BAEB56005A04D6 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		3D2412E620BAEB56005A04D6 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
@@ -116,7 +107,9 @@
 		3D375BA120BC67D1005DE31B /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		3D375BA320BC6800005DE31B /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
-		3D56AD5120B546A100AF4DAF /* ThemableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemableView.swift; sourceTree = "<group>"; };
+		3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+TitleView.swift"; sourceTree = "<group>"; };
+		3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Animation.swift"; sourceTree = "<group>"; };
+		3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+ItemsView.swift"; sourceTree = "<group>"; };
 		3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Configuration.swift"; sourceTree = "<group>"; };
 		3D7E00C520B6AA0C0036BDB1 /* WhatsNewViewController+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Demo.swift"; sourceTree = "<group>"; };
 		3D92C66920AF87E600A10333 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
@@ -127,7 +120,6 @@
 		3DA667A520B0C8AF00DB18FF /* WhatsNewTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewTitleView.swift; sourceTree = "<group>"; };
 		3DA667A820B0C8B600DB18FF /* WhatsNewItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewItemsView.swift; sourceTree = "<group>"; };
 		3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewButtonView.swift; sourceTree = "<group>"; };
-		3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Theme.swift"; sourceTree = "<group>"; };
 		3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3DC8A6A820AED02400292C94 /* WhatsNewKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsNewKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC8A6AA20AED02400292C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,14 +161,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D04214820C2D6A000DA5126 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3D04214920C2D6A000DA5126 /* ThemeableViewTests.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		3D04214A20C2D6A100DA5126 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,18 +180,6 @@
 			path = Stores;
 			sourceTree = "<group>";
 		};
-		3D56AD5C20B559D400AF4DAF /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				3DB3A2B420B4BF4700C013C3 /* WhatsNewViewController+Theme.swift */,
-				3D2412D220BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift */,
-				3D2412D420BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift */,
-				3D2412D620BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift */,
-				3D2412D820BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift */,
-			);
-			path = Theme;
-			sourceTree = "<group>";
-		};
 		3D92C66C20AF87EA00A10333 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +193,6 @@
 		3D92C67920AF88DC00A10333 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3D56AD5120B546A100AF4DAF /* ThemableView.swift */,
 				3DA1829C20B336BF00D2C155 /* Title */,
 				3DA1829D20B336C600D2C155 /* Items */,
 				3DA1829E20B336CB00D2C155 /* Button */,
@@ -233,9 +204,12 @@
 			isa = PBXGroup;
 			children = (
 				3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */,
+				3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */,
+				3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */,
 				3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */,
 				3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */,
 				3D13455D20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift */,
+				3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -362,7 +336,6 @@
 			children = (
 				3D92C67020AF883300A10333 /* WhatsNewViewController.swift */,
 				3D92C67A20AF88E000A10333 /* Configuration */,
-				3D56AD5C20B559D400AF4DAF /* Theme */,
 				3DFB6FFE20B34F7E00673FD6 /* Store */,
 				3D92C67920AF88DC00A10333 /* Views */,
 				3D92C66C20AF87EA00A10333 /* Models */,
@@ -378,7 +351,6 @@
 				3D04214720C2D6A000DA5126 /* WhatsNewViewControllerTests.swift */,
 				3D04214A20C2D6A100DA5126 /* Models */,
 				3D04214E20C2D6A100DA5126 /* Stores */,
-				3D04214820C2D6A000DA5126 /* Views */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -577,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */,
+				3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */,
 				3DDDB59720B832AB001D59C5 /* UIColorExtension.swift in Sources */,
 				3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */,
 				3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */,
@@ -584,20 +557,16 @@
 				3D92C67720AF88B400A10333 /* WhatsNewRoundedButton.swift in Sources */,
 				3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */,
 				3D13455E20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift in Sources */,
-				3D2412D320BAE877005A04D6 /* WhatsNewViewController+TitleViewTheme.swift in Sources */,
 				3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */,
-				3D2412D920BAE8F3005A04D6 /* WhatsNewViewController+CompletionButtonTheme.swift in Sources */,
 				3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */,
+				3D5D06C120C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift in Sources */,
 				3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonView.swift in Sources */,
 				3DA667A920B0C8B600DB18FF /* WhatsNewItemsView.swift in Sources */,
 				3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */,
 				3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */,
-				3DB3A2B520B4BF4700C013C3 /* WhatsNewViewController+Theme.swift in Sources */,
+				3D5D06BF20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift in Sources */,
 				3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */,
 				3DA667A620B0C8AF00DB18FF /* WhatsNewTitleView.swift in Sources */,
-				3D2412D520BAE89F005A04D6 /* WhatsNewViewController+ItemsViewTheme.swift in Sources */,
-				3D2412D720BAE8C3005A04D6 /* WhatsNewViewController+DetailButtonTheme.swift in Sources */,
-				3D56AD5220B546A100AF4DAF /* ThemableView.swift in Sources */,
 				3D2412D120BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,7 +578,6 @@
 				3D04215620C2D6A100DA5126 /* KeyValueWhatsNewVersionStoreTests.swift in Sources */,
 				3D04215720C2D6A100DA5126 /* InMemoryWhatsNewVersionStoreTests.swift in Sources */,
 				3D04215520C2D6A100DA5126 /* WhatsNewTests.swift in Sources */,
-				3D04215220C2D6A100DA5126 /* ThemeableViewTests.swift in Sources */,
 				3D04214620C2D68C00DA5126 /* BaseTests.swift in Sources */,
 				3D04215120C2D6A100DA5126 /* WhatsNewViewControllerTests.swift in Sources */,
 				3D04215320C2D6A100DA5126 /* WhatsNewVersionTests.swift in Sources */,

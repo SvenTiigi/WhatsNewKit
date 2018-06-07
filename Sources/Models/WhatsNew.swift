@@ -61,7 +61,7 @@ public extension Sequence where Element == WhatsNew {
     ///
     /// - Parameter bundle: The Bundle
     /// - Returns: The first matching WhatsNew element
-    func get(byBundle bundle: Bundle) -> WhatsNew? {
+    func get(byBundle bundle: Bundle = .main) -> WhatsNew? {
         // Initialize current Version based on bundle
         let currentVersion = WhatsNew.Version.current(inBundle: bundle)
         // Return WhatsView by version

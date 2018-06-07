@@ -25,21 +25,21 @@ class WhatsNewRoundedButton: UIButton {
     ///
     /// - Parameters:
     ///   - title: The title
-    ///   - theme: The Theme
+    ///   - configuration: The Configuration
     ///   - onPress: The on press closure
     convenience init(title: String,
-                     theme: WhatsNewViewController.Theme,
+                     configuration: WhatsNewViewController.Configuration,
                      onPress: @escaping () -> Void) {
         // Init with Custom Type
         self.init(type: .custom)
         // Set onPress closure
         self.onPress = onPress
         // Set highlighted background color
-        self.highlightedBackgroundColor = theme.completionButtonTheme.backgroundColor
+        self.highlightedBackgroundColor = configuration.completionButton.backgroundColor
         // Set title
         self.setTitle(title, for: .normal)
         // Perform configuration
-        self.configure(withTheme: theme)
+        self.configure(withConfiguration: configuration)
     }
     
     // MARK: ViewLifecycle
@@ -63,15 +63,15 @@ class WhatsNewRoundedButton: UIButton {
     // MARK: Private API
     
     /// Perform configuration
-    private func configure(withTheme theme: WhatsNewViewController.Theme) {
+    private func configure(withConfiguration configuration: WhatsNewViewController.Configuration) {
         // Set corner radius to rounded button
-        self.layer.cornerRadius = theme.completionButtonTheme.cornerRadius
+        self.layer.cornerRadius = configuration.completionButton.cornerRadius
         // Set mask to bound
         self.layer.masksToBounds = true
         // Set font
-        self.titleLabel?.font = theme.completionButtonTheme.titleFont
+        self.titleLabel?.font = configuration.completionButton.titleFont
         // Set normal title color
-        self.setTitleColor(theme.completionButtonTheme.titleColor, for: .normal)
+        self.setTitleColor(configuration.completionButton.titleColor, for: .normal)
         // Set number of lines
         self.titleLabel?.numberOfLines = 0
         // Set line break mode
