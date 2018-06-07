@@ -190,7 +190,11 @@ public class WhatsNewViewController: UIViewController {
         }
     }
     
-    // MARK: Public API
+}
+
+// MARK: Present - Push API
+
+public extension WhatsNewViewController {
     
     /// Present WhatsNewViewController
     ///
@@ -198,9 +202,10 @@ public class WhatsNewViewController: UIViewController {
     ///   - viewController: The ViewController to present on
     ///   - animated: Should be presented animated
     ///   - completion: The completion
-    public func present(on viewController: UIViewController?,
-                        animated: Bool = true,
-                        completion: (() -> Void)? = nil) {
+    func present(on viewController: UIViewController?,
+                 animated: Bool = true,
+                 completion: (() -> Void)? = nil) {
+        // Present WhatsNewViewController
         viewController?.present(self, animated: animated, completion: completion)
     }
     
@@ -209,8 +214,9 @@ public class WhatsNewViewController: UIViewController {
     /// - Parameters:
     ///   - navigationController: The NavigationController
     ///   - animated: Should be pushed animated
-    public func push(on navigationController: UINavigationController?,
-                     animated: Bool = true) {
+    func push(on navigationController: UINavigationController?,
+              animated: Bool = true) {
+        // Push WhatsNewViewController
         navigationController?.pushViewController(self, animated: animated)
     }
     
