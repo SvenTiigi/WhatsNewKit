@@ -199,7 +199,7 @@ If you wish to animate all views with the same type you can do so by simply appl
 configuration.apply(animation: .fade)
 ```
 
-If you wish to define your custom animation, simply set the `custom` enum and pass an animation closure.
+If you wish to define your custom animation, simply set the `custom` enum and pass an animator closure.
 
 ```swift
 // Custom Animation for DetailButton
