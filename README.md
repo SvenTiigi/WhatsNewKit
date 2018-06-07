@@ -22,9 +22,6 @@
    <a href="https://codeclimate.com/github/SvenTiigi/WhatsNewKit/maintainability">
       <img src="https://api.codeclimate.com/v1/badges/e1a0a92affd3c0d0f402/maintainability" />
    </a>
-   <a href="https://codeclimate.com/github/SvenTiigi/WhatsNewKit/test_coverage">
-      <img src="https://api.codeclimate.com/v1/badges/e1a0a92affd3c0d0f402/test_coverage" />
-   </a>
    <a href="https://sventiigi.github.io/WhatsNewKit">
       <img src="https://github.com/SvenTiigi/WhatsNewKit/blob/gh-pages/badge.svg" alt="Documentation">
    </a>
