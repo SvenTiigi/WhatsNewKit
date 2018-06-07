@@ -127,7 +127,7 @@ As mentioned before `WhatsNewKit` can be fully customized to your needs. The Adv
 </p>
 
 ### WhatsNewViewController.Configuration
-The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the aforementioned `WhatsNewViewController` components to your needs. The configuration itself can be passed to the initializer of the `WhatsNewViewController`.
+The [WhatsNewViewController.Configuration](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) struct enables you to customize the `WhatsNewViewController` components to your needs. The configuration itself can be passed to the initializer of the `WhatsNewViewController`.
 
 ```swift
 // Initialize default Configuration
