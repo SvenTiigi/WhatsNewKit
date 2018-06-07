@@ -22,9 +22,6 @@
    <a href="https://codeclimate.com/github/SvenTiigi/WhatsNewKit/maintainability">
       <img src="https://api.codeclimate.com/v1/badges/e1a0a92affd3c0d0f402/maintainability" />
    </a>
-   <a href="https://codeclimate.com/github/SvenTiigi/WhatsNewKit/test_coverage">
-      <img src="https://api.codeclimate.com/v1/badges/e1a0a92affd3c0d0f402/test_coverage" />
-   </a>
    <a href="https://sventiigi.github.io/WhatsNewKit">
       <img src="https://github.com/SvenTiigi/WhatsNewKit/blob/gh-pages/badge.svg" alt="Documentation">
    </a>
@@ -149,7 +146,7 @@ let whatsNewViewController = WhatsNewViewController(
 ```
 
 ### Theme
-A [Theme]() allows you to group the customization of a `WhatsNewViewController.Configuration`. `WhatsNewKit` implemented predefined Themes which are available as static properties both in white and dark mode. Or you create your very own Theme to configure it to your needs.
+A [Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) allows you to group the customization of a `WhatsNewViewController.Configuration`. `WhatsNewKit` implemented predefined Themes which are available as static properties both in white and dark mode. Or you create your very own Theme to configure it to your needs.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
@@ -179,7 +176,7 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 ### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
-You can apply a [Animation]() to all components of the `WhatsNewViewController` via predefined animation types like `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight` or apply your own animation. In default all Animation properties are `nil` indicating no animation should be perfomed.
+You can apply a [Animation](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BAnimation.swift) to all components of the `WhatsNewViewController` via predefined animation types. In default all Animation properties are `nil` indicating no animation should be perfomed.
 
 ```swift
 // Set SlideUp Animation to TitleView
@@ -188,11 +185,11 @@ configuration.titleView.animation = .slideUp
 // Set SlideRight Animation to ItemsView
 configuration.itemsView.animation = .slideRight
 
-// Custom Animation for DetailButton
-configuration.detailButton.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
-    // view: The View to perform animation on
-    // settings: Preferred duration and delay
-})
+// Set SlideLeft Animation to DetailButton
+configuration.detailButton.animation = .slideLeft
+
+// Set SlideDown Animation to CompletionButton
+configuration.completionButton.animation = .slideDown
 ```
 
 If you wish to animate all views with the same type you can do so by simply applying it to the configuration.
@@ -200,6 +197,16 @@ If you wish to animate all views with the same type you can do so by simply appl
 ```swift
 // Global Animation-Type for all WhatsNewViewController components
 configuration.apply(animation: .fade)
+```
+
+If you wish to define your custom animation, simply set the `custom` enum and pass an animator closure.
+
+```swift
+// Custom Animation for DetailButton
+configuration.detailButton.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
+    // view: The View to perform animation on
+    // settings: Preferred duration and delay
+})
 ```
 
 ### DetailButton
@@ -271,7 +278,7 @@ let completionButton = WhatsNewViewController.CompletionButton(
     hapticFeedback: .notification(.success)
 )
 ```
-> ☝️ In default the `HapticFeedback` is `nil` indicating no haptic feedback should be executed.
+> ☝️ In default the [HapticFeedback](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BHapticFeedback.swift) is `nil` indicating no haptic feedback should be executed.
 
 ### WhatsNewVersionStore
 <p align="center">

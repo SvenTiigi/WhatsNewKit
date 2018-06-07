@@ -55,6 +55,16 @@ class ExampleViewController: UITableViewController {
     /// The SharedTheme
     private lazy var sharedTheme = SharedTheme()
     
+    private lazy var cells: [UITableViewCell] = {
+        var cells: [UITableViewCell] = self.items.map {
+            ItemCell(item: $0, sharedTheme: self.sharedTheme)
+        }
+        cells.append(ButtonCell(onPress: { [weak self] in
+            self?.presentWhatsNewViewController()
+        }))
+        return cells
+    }()
+    
     // MARK: Initializer
 
     /// Default initializer
@@ -111,7 +121,7 @@ class ExampleViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // Return Items count plus 1 ButtoNcell
-        return self.items.count + 1
+        return self.cells.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,25 +130,12 @@ class ExampleViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Check if section is greater than items count
-        if indexPath.section > self.items.count - 1 {
-            // Return ButtonCell
-            return ButtonCell(onPress: { [weak self] in
-                // Present WhatsNewViewController
-                self?.presentWhatsNewViewController()
-            })
-        } else {
-            // Return ItemCell
-            return ItemCell(
-                item: self.items[indexPath.section],
-                sharedTheme: self.sharedTheme
-            )
-        }
+        return self.cells[indexPath.section]
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // Check if section is greater items count
-        if section > self.items.count - 1 {
+        if section == self.cells.count - 1 {
             // Empty title
             return ""
         } else {
