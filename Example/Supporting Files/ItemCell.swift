@@ -27,7 +27,7 @@ extension ExampleViewController {
             let segmentedControl = UISegmentedControl(items: self.item.options)
             segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
             segmentedControl.selectedSegmentIndex = 0
-            segmentedControl.tintColor = self.sharedTheme.theme.tintColor
+            segmentedControl.tintColor = .main
             return segmentedControl
         }()
         
@@ -74,8 +74,14 @@ extension ExampleViewController {
                 self.sharedTheme.backgroundColor = selected
             case .tintColor:
                 self.sharedTheme.tintColor = selected
-            case .animation:
-                self.sharedTheme.animation = selected
+            case .titleViewAnimation:
+                self.sharedTheme.animation.titleView = selected
+            case .itemsViewAnimation:
+                self.sharedTheme.animation.itemsView = selected
+            case .detailButtonAnimation:
+                self.sharedTheme.animation.detailButton = selected
+            case .completionButtonAnimation:
+                self.sharedTheme.animation.completionButton = selected
             }
         }
         

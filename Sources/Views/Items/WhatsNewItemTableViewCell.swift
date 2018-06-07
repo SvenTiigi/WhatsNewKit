@@ -16,8 +16,8 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     /// The Item
     private let item: WhatsNew.Item
     
-    /// The Theme
-    private let theme: WhatsNewViewController.Theme
+    /// The Configuration
+    private let configuration: WhatsNewViewController.Configuration
     
     // MARK: Initializer
     
@@ -25,20 +25,20 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     ///
     /// - Parameters:
     ///   - item: The WhatsNew Item
-    ///   - theme: The Theme
+    ///   - configuration: The Configuration
     init(item: WhatsNew.Item,
-         theme: WhatsNewViewController.Theme) {
+         configuration: WhatsNewViewController.Configuration) {
         // Set item
         self.item = item
-        // Set theme
-        self.theme = theme
+        // Set configuration
+        self.configuration = configuration
         // Super init default style
         super.init(
             style: .default,
             reuseIdentifier: String(describing: WhatsNewItemTableViewCell.self)
         )
         // Set background color
-        self.contentView.backgroundColor = self.theme.backgroundColor
+        self.contentView.backgroundColor = self.configuration.backgroundColor
         // Perform ImageView Configuration
         self.configureImageView()
         // Perform TextLabel Configuration
@@ -55,11 +55,11 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     /// Configure ImageView
     private func configureImageView() {
         // Check if autoTintImage is activated
-        if self.theme.itemsViewTheme.autoTintImage {
+        if self.configuration.itemsView.autoTintImage {
             // Set template tinted image
             let templateImage = self.item.image?.withRenderingMode(.alwaysTemplate)
             self.imageView?.image = templateImage
-            self.imageView?.tintColor = self.theme.tintColor
+            self.imageView?.tintColor = self.configuration.tintColor
         } else {
             // Set original image
             self.imageView?.image = self.item.image
@@ -71,9 +71,9 @@ class WhatsNewItemTableViewCell: UITableViewCell {
         // Set attributed text
         self.textLabel?.attributedText = self.getAttributedTextString()
         // Set font
-        self.textLabel?.font = self.theme.itemsViewTheme.subtitleFont
+        self.textLabel?.font = self.configuration.itemsView.subtitleFont
         // Set textcolor
-        self.textLabel?.textColor = self.theme.itemsViewTheme.subtitleColor
+        self.textLabel?.textColor = self.configuration.itemsView.subtitleColor
         // Set number of lines to zero
         self.textLabel?.numberOfLines = 0
         // Set linebreak mode to word wrapping
@@ -95,12 +95,12 @@ class WhatsNewItemTableViewCell: UITableViewCell {
             let attributedString = NSMutableAttributedString(string: "\(self.item.title)\n\(self.item.subtitle)")
             // Add title font
             attributedString.addAttributes(
-                [NSAttributedStringKey.font: self.theme.itemsViewTheme.titleFont],
+                [NSAttributedStringKey.font: self.configuration.itemsView.titleFont],
                 range: NSRange(location: 0, length: self.item.title.count)
             )
             // Add title color
             attributedString.addAttributes(
-                [NSAttributedStringKey.foregroundColor: self.theme.itemsViewTheme.titleColor],
+                [NSAttributedStringKey.foregroundColor: self.configuration.itemsView.titleColor],
                 range: NSRange(location: 0, length: self.item.title.count)
             )
             // Return attributed title and text string

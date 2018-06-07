@@ -23,45 +23,45 @@ extension UIColor {
 
 // MARK: - Template Colors
 
-extension UIColor {
+public extension UIColor {
     
-    /// The template blue color
-    static let templateBlue = UIColor(
+    /// The WhatsNewKit blue color
+    static let whatsNewKitBlue = UIColor(
         red: 0,
-        green: 122/255,
+        green: 122 / 255,
         blue: 1,
         alpha: 1
     )
     
-    /// The template dark color
-    static let templateDark = UIColor(
-        red: 20/255,
-        green: 29/255,
-        blue: 38/255,
+    /// The WhatsNewKit dark color
+    static let whatsNewKitDark = UIColor(
+        red: 20 / 255,
+        green: 29 / 255,
+        blue: 38 / 255,
         alpha: 1
     )
     
-    /// The template purple color
-    static let templatePurple = UIColor(
-        red: 183/255,
-        green: 35/255,
+    /// The WhatsNewKit purple color
+    static let whatsNewKitPurple = UIColor(
+        red: 183 / 255,
+        green: 35 / 255,
         blue: 1,
         alpha: 1
     )
     
-    /// The template red color
-    static let templateRed = UIColor(
+    /// The WhatsNewKit red color
+    static let whatsNewKitRed = UIColor(
         red: 1,
-        green: 45/255,
-        blue: 85/255,
+        green: 45 / 255,
+        blue: 85 / 255,
         alpha: 1
     )
     
-    /// The template green color
-    static let templateGreen = UIColor(
-        red: 76/255,
-        green: 217/255,
-        blue: 100/255,
+    /// The WhatsNewKit green color
+    static let whatsNewKitGreen = UIColor(
+        red: 76 / 255,
+        green: 217 / 255,
+        blue: 100 / 255,
         alpha: 1
     )
     

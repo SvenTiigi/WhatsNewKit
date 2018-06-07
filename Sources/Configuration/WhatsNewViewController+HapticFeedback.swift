@@ -8,35 +8,36 @@
 
 import UIKit
 
-/// The HapticFeedback Enumeration
-public enum HapticFeedback: Equatable {
+public extension WhatsNewViewController {
     
-    /// ImpactFeedback
-    case impact
-    
-    /// SelectionFeedback
-    case selection
-    
-    /// NotificationFeedback with FeedbackType
-    case notification(UINotificationFeedbackType)
-    
-    /// Execute Feedback
-    func execute() {
-        // Switch on self
-        switch self {
-        case .impact:
-            // UIImpactFeedbackGenerator
-            let impactFeedbackGenerator = UIImpactFeedbackGenerator()
-            impactFeedbackGenerator.impactOccurred()
-        case .selection:
-            // UISelectionFeedbackGenerator
-            let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
-            selectionFeedbackGenerator.selectionChanged()
-        case .notification(let feedbackType):
-            // UINotificationFeedbackGenerator
-            let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
-            notificationFeedbackGenerator.notificationOccurred(feedbackType)
+    /// The HapticFeedback Enumeration
+    enum HapticFeedback: Equatable {
+        /// ImpactFeedback
+        case impact
+        /// SelectionFeedback
+        case selection
+        /// NotificationFeedback with FeedbackType
+        case notification(UINotificationFeedbackType)
+        
+        /// Execute Feedback
+        func execute() {
+            // Switch on self
+            switch self {
+            case .impact:
+                // UIImpactFeedbackGenerator
+                let impactFeedbackGenerator = UIImpactFeedbackGenerator()
+                impactFeedbackGenerator.impactOccurred()
+            case .selection:
+                // UISelectionFeedbackGenerator
+                let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+                selectionFeedbackGenerator.selectionChanged()
+            case .notification(let feedbackType):
+                // UINotificationFeedbackGenerator
+                let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+                notificationFeedbackGenerator.notificationOccurred(feedbackType)
+            }
         }
+        
     }
     
 }

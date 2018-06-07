@@ -9,7 +9,7 @@
 import UIKit
 
 /// The WhatsNewButtonView
-class WhatsNewButtonView: ThemableView {
+class WhatsNewButtonView: UIView {
     
     // MARK: Properties
     
@@ -21,19 +21,16 @@ class WhatsNewButtonView: ThemableView {
         case completion
     }
     
-    /// The completion button title
-    private let completionButtonTitle: String
-    
-    /// The optional detail button title
-    private var detailButtonTitle: String?
+    /// The Configuration
+    private let configuration: WhatsNewViewController.Configuration
     
     /// The onPress closure
     private let onPress: (ButtonType) -> Void
     
     /// The completion Button
     private lazy var completionButton = WhatsNewRoundedButton(
-        title: self.completionButtonTitle,
-        theme: self.theme,
+        title: self.configuration.completionButton.title,
+        configuration: self.configuration,
         onPress: { [weak self] in
             // Invoke on press with completion button type
             self?.onPress(.completion)
@@ -46,7 +43,7 @@ class WhatsNewButtonView: ThemableView {
         let button = UIButton()
         // Set title
         button.setTitle(
-            self.detailButtonTitle,
+            self.configuration.detailButton?.title,
             for: .normal
         )
         // Add target
@@ -57,37 +54,34 @@ class WhatsNewButtonView: ThemableView {
         )
         // Set title color
         button.setTitleColor(
-            theme.detailButtonTheme.titleColor,
+            self.configuration.detailButton?.titleColor,
             for: .normal
         )
         // Set font
-        button.titleLabel?.font = theme.detailButtonTheme.titleFont
+        button.titleLabel?.font = self.configuration.detailButton?.titleFont
         return button
     }()
+    
+    /// Has animated Bool-Tupel for Detail and Completion Button
+    public var hasAnimated: (detail: Bool, completion: Bool) = (false, false)
     
     // MARK: Initializer
 
     /// Default initializer
     ///
     /// - Parameters:
-    ///   - completionButtonTitle: The completion button title
-    ///   - detailButtonTitle: The detail button title
-    ///   - theme: The Theme
+    ///   - configuration: The Configuration
     ///   - onPress: The onPress closure with ButtonType
-    init(completionButtonTitle: String,
-         detailButtonTitle: String?,
-         theme: WhatsNewViewController.Theme,
+    init(configuration: WhatsNewViewController.Configuration,
          onPress: @escaping (ButtonType) -> Void) {
-        // Set completion button title
-        self.completionButtonTitle = completionButtonTitle
-        // Set detail button title
-        self.detailButtonTitle = detailButtonTitle
+        // Set Configuration
+        self.configuration = configuration
         // Set onPress
         self.onPress = onPress
         // Super init theme
-        super.init(theme: theme)
+        super.init(frame: .zero)
         // Set background color
-        self.backgroundColor = self.theme.backgroundColor
+        self.backgroundColor = self.configuration.backgroundColor
         // Add completion Button subview
         self.addSubview(self.completionButton)
         // Add detail Button subview
@@ -108,8 +102,35 @@ class WhatsNewButtonView: ThemableView {
         let padding: CGFloat = 20
         // Initialize button height constant
         let buttonHeight: CGFloat = 60.0
+        // Check if detail button frame is not empty and hasn't animated
+        if self.detailButton.frame != .zero && !self.hasAnimated.detail {
+            // Perform animation if available
+            self.configuration.detailButton?.animation?.rawValue(
+                self.detailButton,
+                .init(
+                    preferredDuration: 0.5,
+                    preferredDelay: 0.3
+                )
+            )
+            // Set animated true
+            self.hasAnimated.detail = true
+        }
+        // Check if completion button frame is not empty and hasn't animated
+        if self.completionButton.frame != .zero && !self.hasAnimated.completion {
+            // Perform animation if available
+            self.configuration.completionButton.animation?.rawValue(
+                self.completionButton,
+                .init(
+                    preferredDuration: 0.5,
+                    preferredDelay: 0.4
+                )
+            )
+            // Set animated true
+            self.hasAnimated.completion = true
+        }
         // Check if orientation is portrait and detail button title is available
-        if UIScreen.main.bounds.height > UIScreen.main.bounds.width && self.detailButtonTitle != nil {
+        if UIScreen.main.bounds.height > UIScreen.main.bounds.width
+            && self.configuration.detailButton != nil {
             // Set DetailButton frame
             self.detailButton.frame = CGRect(
                 x: 0,

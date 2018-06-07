@@ -33,22 +33,20 @@ public class WhatsNewViewController: UIViewController {
     // MARK: ThemableViews
 
     /// The TitleView
-    private lazy var titleView: ThemableView = WhatsNewTitleView(
+    private lazy var titleView: UIView = WhatsNewTitleView(
         title: self.whatsNew.title,
-        theme: self.configuration.theme
+        configuration: self.configuration
     )
     
     /// The ItemsView
-    private lazy var itemsView: ThemableView = WhatsNewItemsView(
+    private lazy var itemsView: UIView = WhatsNewItemsView(
         items: self.whatsNew.items,
-        theme: self.configuration.theme
+        configuration: self.configuration
     )
     
     /// The ButtonView
-    private lazy var buttonView: ThemableView = WhatsNewButtonView(
-        completionButtonTitle: self.configuration.completionButton.title,
-        detailButtonTitle: self.configuration.detailButton?.title,
-        theme: self.configuration.theme,
+    private lazy var buttonView: UIView = WhatsNewButtonView(
+        configuration: self.configuration,
         onPress: { [weak self] buttonType in
             // Handle button type
             self?.handleOnPress(buttonType: buttonType)
@@ -70,14 +68,6 @@ public class WhatsNewViewController: UIViewController {
         self.configuration = configuration
         // Super init
         super.init(nibName: nil, bundle: nil)
-        // Set background color
-        self.view.backgroundColor = self.configuration.theme.backgroundColor
-        // Add TitleView
-        self.view.addSubview(self.titleView)
-        // Add ItemsView
-        self.view.addSubview(self.itemsView)
-        // Add ButtonView
-        self.view.addSubview(self.buttonView)
     }
     
     /// Convenience optional initializer with WhatsNewVersionStore.
@@ -111,6 +101,20 @@ public class WhatsNewViewController: UIViewController {
     }
     
     // MARK: View-Lifecycle
+    
+    /// View did load
+    public override func viewDidLoad() {
+        // Invoke super
+        super.viewDidLoad()
+        // Set background color
+        self.view.backgroundColor = self.configuration.backgroundColor
+        // Add TitleView
+        self.view.addSubview(self.titleView)
+        // Add ItemsView
+        self.view.addSubview(self.itemsView)
+        // Add ButtonView
+        self.view.addSubview(self.buttonView)
+    }
     
     /// View did layout subviews
     public override func viewDidLayoutSubviews() {
@@ -154,8 +158,10 @@ public class WhatsNewViewController: UIViewController {
             // Switch on CompletionAction
             switch self.configuration.completionButton.action {
             case .dismiss:
+                // Dismiss WhatsNewViewController
                 self.dismiss(animated: true)
             case .custom(action: let action):
+                // Perform custom action and pass self
                 action(self)
             }
         case .detail:
@@ -172,15 +178,46 @@ public class WhatsNewViewController: UIViewController {
                 // Initialize SafariViewController
                 let safariViewController = SFSafariViewController(url: url)
                 // Set tint color
-                safariViewController.preferredControlTintColor = self.configuration.theme.tintColor
+                safariViewController.preferredControlTintColor = self.configuration.tintColor
                 // Present ViewController
                 self.present(safariViewController, animated: true)
             case .some(.custom(action: let action)):
+                // Perform custom action and pass self
                 action(self)
             case .none:
                 break
             }
         }
+    }
+    
+}
+
+// MARK: Present - Push API
+
+public extension WhatsNewViewController {
+    
+    /// Present WhatsNewViewController
+    ///
+    /// - Parameters:
+    ///   - viewController: The ViewController to present on
+    ///   - animated: Should be presented animated
+    ///   - completion: The completion
+    func present(on viewController: UIViewController?,
+                 animated: Bool = true,
+                 completion: (() -> Void)? = nil) {
+        // Present WhatsNewViewController
+        viewController?.present(self, animated: animated, completion: completion)
+    }
+    
+    /// Push WhatsNewViewController
+    ///
+    /// - Parameters:
+    ///   - navigationController: The NavigationController
+    ///   - animated: Should be pushed animated
+    func push(on navigationController: UINavigationController?,
+              animated: Bool = true) {
+        // Push WhatsNewViewController
+        navigationController?.pushViewController(self, animated: animated)
     }
     
 }

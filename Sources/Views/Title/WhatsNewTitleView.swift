@@ -9,12 +9,18 @@
 import UIKit
 
 /// The WhatsNewTitleView
-class WhatsNewTitleView: ThemableView {
+class WhatsNewTitleView: UIView {
     
     // MARK: Properties
     
     /// The WhatsNew Title
     private let title: String
+    
+    /// The Configuration
+    private let configuration: WhatsNewViewController.Configuration
+    
+    /// Bool has animated
+    private var hasAnimated = false
 
     /// The title label
     private lazy var titleLabel: UILabel = {
@@ -24,8 +30,8 @@ class WhatsNewTitleView: ThemableView {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.font = self.theme.titleViewTheme.titleFont
-        label.textColor = self.theme.titleViewTheme.titleColor
+        label.font = self.configuration.titleView.titleFont
+        label.textColor = self.configuration.titleView.titleColor
         return label
     }()
     
@@ -35,15 +41,17 @@ class WhatsNewTitleView: ThemableView {
     ///
     /// - Parameters:
     ///   - title: The Title
-    ///   - theme: The Theme
+    ///   - configuration: The Configuration
     init(title: String,
-         theme: WhatsNewViewController.Theme) {
+         configuration: WhatsNewViewController.Configuration) {
         // Set title
         self.title = title
-        // Super init theme
-        super.init(theme: theme)
+        // Set configuration
+        self.configuration = configuration
+        // Super init
+        super.init(frame: .zero)
         // Set background color
-        self.backgroundColor = self.theme.backgroundColor
+        self.backgroundColor = self.configuration.backgroundColor
         // Add title label
         self.addSubview(self.titleLabel)
     }
@@ -60,6 +68,19 @@ class WhatsNewTitleView: ThemableView {
         super.layoutSubviews()
         // Initialize label height
         let titleLabelHeight: CGFloat = self.frame.size.height * 0.7
+        // Check if TitleLabel frame is not empty and hasn't animated
+        if self.titleLabel.frame != .zero && !self.hasAnimated {
+            // Perform animation if available
+            self.configuration.titleView.animation?.rawValue(
+                self.titleLabel,
+                .init(
+                    preferredDuration: 0.5,
+                    preferredDelay: 0.2
+                )
+            )
+            // Set animated true
+            self.hasAnimated = true
+        }
         // Set title label frame
         self.titleLabel.frame = CGRect(
             x: 0,

@@ -25,7 +25,10 @@ class ExampleViewController: UITableViewController {
         /// TintColor
         case tintColor = "TintColor 🖌"
         /// Animation
-        case animation = "Animation 🎬"
+        case titleViewAnimation = "TitleView Animation 🎬"
+        case itemsViewAnimation = "ItemsView Animation 🎬"
+        case detailButtonAnimation = "DetailButton Animation 🎬"
+        case completionButtonAnimation = "CompletionButton Animation 🎬"
         /// The Options
         var options: [String] {
             switch self {
@@ -33,16 +36,21 @@ class ExampleViewController: UITableViewController {
                 return ["White", "Dark"]
             case .tintColor:
                 return ["Blue", "Orange", "Purple", "Red", "Green"]
-            case .animation:
+            case .titleViewAnimation, .itemsViewAnimation, .detailButtonAnimation, .completionButtonAnimation:
                 return ["None", "Fade", "SlideUp", "SlideDown", "SlideLeft", "SlideRight"]
             }
         }
     }
     
     /// The items
-    private lazy var items: [Item] = {
-        return[.backgroundColor, .tintColor, .animation]
-    }()
+    private lazy var items: [Item] = [
+        .backgroundColor,
+        .tintColor,
+        .titleViewAnimation,
+        .itemsViewAnimation,
+        .detailButtonAnimation,
+        .completionButtonAnimation
+    ]
     
     /// The SharedTheme
     private lazy var sharedTheme = SharedTheme()

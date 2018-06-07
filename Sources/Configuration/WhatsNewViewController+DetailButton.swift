@@ -24,19 +24,38 @@ public extension WhatsNewViewController {
         /// The HapticFeedback
         public var hapticFeedback: HapticFeedback?
         
+        /// The title font
+        public var titleFont: UIFont
+        
+        /// The title color
+        public var titleColor: UIColor
+        
+        /// The Animation
+        public var animation: Animation?
+        
         /// Default initializer
         ///
         /// - Parameters:
-        ///   - title: The Title as String
+        ///   - title: The Title
         ///   - action: The Action
-        ///   - hapticFeedback: The optional HapticFeedback. Default value `nil`
+        ///   - hapticFeedback: The optional HapticFeedback
+        ///   - titleFont: The title font. Default value `size: 17`
+        ///   - titleColor: The title color. Default value `.whatsNewKitBlue`
+        ///   - animation: The Animation. Default value `nil`
         public init(title: String,
                     action: Action,
-                    hapticFeedback: HapticFeedback? = nil) {
+                    hapticFeedback: HapticFeedback? = nil,
+                    titleFont: UIFont = .systemFont(ofSize: 17),
+                    titleColor: UIColor = .whatsNewKitBlue,
+                    animation: Animation? = nil) {
             self.title = title
             self.action = action
             self.hapticFeedback = hapticFeedback
+            self.titleFont = titleFont
+            self.titleColor = titleColor
+            self.animation = animation
         }
+        
     }
     
 }

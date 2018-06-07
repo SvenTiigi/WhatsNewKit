@@ -12,8 +12,6 @@ import WhatsNewKit
 extension UIColor {
     
     // Main Example Color
-    static var main: UIColor {
-        return WhatsNewViewController.Theme.default.tintColor
-    }
+    static var main: UIColor = .whatsNewKitBlue
     
 }
