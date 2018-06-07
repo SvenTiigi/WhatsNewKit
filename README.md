@@ -402,6 +402,26 @@ let whatsNew = WhatsNew(
 )
 ```
 
+If you holding multiple `WhatsNew` structs in an array you can make use of the following two functions to retrieve a `WhatsNew` struct based on the `WhatsNewVersion`.
+
+```swift
+let whatsNews: [WhatsNew] = [...]
+
+// Retrieve WhatsNew from array based on Version 1.0.0
+let whatsNewVersion1 = whatsNews.get(byVersion:
+    .init(major: 1, minor: 0, patch: 0)
+)
+
+// Or retrieve it via String as WhatsNew.Version is
+// conform to the ExpressibleByStringLiteral protocol
+let whatsNewVersion2 = whatsNews.get(byVersion: "2.0.0")
+
+// If you want the WhatsNew for your current App-Version
+// based on the CFBundleShortVersionString from Bundle.Main
+let currentWhatsNew = whatsNews.get()
+
+```
+
 ### Codable WhatsNew
 The `WhatsNew` struct is conform the `Codable` protocol which allows you to initialize a `WhatsNew` struct via `JSON`.
 
