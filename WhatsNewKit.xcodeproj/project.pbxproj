@@ -633,7 +633,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tiigi.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tiigi.WhatsNewKit.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.0;
@@ -662,7 +662,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tiigi.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tiigi.WhatsNewKit.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
@@ -801,7 +801,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.WhatsNewKit.WhatsNewKit-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.tiigi.WhatsNewKit.WhatsNewKit-iOS";
 				PRODUCT_NAME = WhatsNewKit;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -828,7 +828,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.WhatsNewKit.WhatsNewKit-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.tiigi.WhatsNewKit.WhatsNewKit-iOS";
 				PRODUCT_NAME = WhatsNewKit;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
