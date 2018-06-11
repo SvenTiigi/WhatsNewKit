@@ -26,7 +26,7 @@ class KeyValueWhatsNewVersionStoreTests: BaseTests {
         
         let randomWhatsNewVersion = self.randomWhatsNew.version
         keyValueWhatsNewVersionStore.set(version: randomWhatsNewVersion)
-        XCTAssertEqual(randomWhatsNewVersion, fakeKeyValueable.objects[randomWhatsNewVersion.description] as? WhatsNew.Version)
+        XCTAssertEqual(randomWhatsNewVersion.description, fakeKeyValueable.objects[randomWhatsNewVersion.description] as? String)
         XCTAssert(keyValueWhatsNewVersionStore.has(version: randomWhatsNewVersion))
         XCTAssertFalse(keyValueWhatsNewVersionStore.has(version: self.generateRandomWhatsNew().version))
     }
