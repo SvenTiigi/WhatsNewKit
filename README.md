@@ -266,7 +266,7 @@ You can enable on both `DetailButton` and `CompletionButton` haptic feedback whe
 
 ```swift
 // Impact Feedback
-button.hapticFeedback = .impact
+button.hapticFeedback = .impact(.medium)
 
 // Selection Feedback
 button.hapticFeedback = .selection

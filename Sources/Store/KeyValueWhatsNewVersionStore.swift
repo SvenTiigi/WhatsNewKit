@@ -85,7 +85,7 @@ extension KeyValueWhatsNewVersionStore: WriteableWhatsNewVersionStore {
     /// - Parameter version: The Version
     public func set(version: WhatsNew.Version) {
         // Set Version
-        self.keyValueable.set(version, forKey: self.key(forVersion: version))
+        self.keyValueable.set(version.description, forKey: self.key(forVersion: version))
     }
     
 }
@@ -100,7 +100,7 @@ extension KeyValueWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     /// - Returns: Bool if Version has been presented
     public func has(version: WhatsNew.Version) -> Bool {
         // Retrieve object for key and return comparison result with the WhatsNew.Version
-        return self.keyValueable.object(forKey: self.key(forVersion: version)) as? WhatsNew.Version == version
+        return self.keyValueable.object(forKey: self.key(forVersion: version)) as? String == version.description
     }
     
 }
