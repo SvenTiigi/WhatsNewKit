@@ -22,11 +22,10 @@ class KeyValueWhatsNewVersionStoreTests: BaseTests {
             }
         }
         let fakeKeyValueable = FakeKeyValueable()
-        let keyValueWhatsNewVersionStore = KeyValueWhatsNewVersionStore(keyValueable: fakeKeyValueable, prefixIdentifier: "")
-        
+        let keyValueWhatsNewVersionStore = KeyValueWhatsNewVersionStore(keyValueable: fakeKeyValueable, prefixIdentifier: "unit.test")
         let randomWhatsNewVersion = self.randomWhatsNew.version
         keyValueWhatsNewVersionStore.set(version: randomWhatsNewVersion)
-        XCTAssertEqual(randomWhatsNewVersion.description, fakeKeyValueable.objects[randomWhatsNewVersion.description] as? String)
+        XCTAssertEqual(randomWhatsNewVersion.description, fakeKeyValueable.objects["unit.test.\(randomWhatsNewVersion.description)"] as? String)
         XCTAssert(keyValueWhatsNewVersionStore.has(version: randomWhatsNewVersion))
         XCTAssertFalse(keyValueWhatsNewVersionStore.has(version: self.generateRandomWhatsNew().version))
     }
