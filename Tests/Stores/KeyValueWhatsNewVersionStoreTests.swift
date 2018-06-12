@@ -31,5 +31,27 @@ class KeyValueWhatsNewVersionStoreTests: BaseTests {
         XCTAssertFalse(keyValueWhatsNewVersionStore.has(version: self.generateRandomWhatsNew().version))
     }
     
+    func testKeyValueWhatsNewVersionNSUbiquitousKeyValueStore() {
+        let iCloudKeyValue = NSUbiquitousKeyValueStore.default
+        let version = self.randomWhatsNew.version
+        iCloudKeyValue.removeObject(forKey: version.description)
+        let keyValueWhatsNewVersionStore = KeyValueWhatsNewVersionStore(keyValueable: iCloudKeyValue, prefixIdentifier: "")
+        XCTAssertFalse(keyValueWhatsNewVersionStore.has(version: version))
+        keyValueWhatsNewVersionStore.set(version: version)
+        XCTAssertTrue(keyValueWhatsNewVersionStore.has(version: version))
+        XCTAssertEqual(iCloudKeyValue.object(forKey: version.description) as? String, version.description)
+    }
+    
+    func testKeyValueWhatsNewVersionUserDefaultsStore() {
+        let userDefaults = UserDefaults.standard
+        let version = self.randomWhatsNew.version
+        userDefaults.removeObject(forKey: version.description)
+        let keyValueWhatsNewVersionStore = KeyValueWhatsNewVersionStore(keyValueable: userDefaults, prefixIdentifier: "")
+        XCTAssertFalse(keyValueWhatsNewVersionStore.has(version: version))
+        keyValueWhatsNewVersionStore.set(version: version)
+        XCTAssertTrue(keyValueWhatsNewVersionStore.has(version: version))
+        XCTAssertEqual(userDefaults.object(forKey: version.description) as? String, version.description)
+    }
+    
 }
 
