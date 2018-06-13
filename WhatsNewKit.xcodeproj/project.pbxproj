@@ -33,17 +33,18 @@
 		3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */; };
 		3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67020AF883300A10333 /* WhatsNewViewController.swift */; };
 		3D92C67420AF88AC00A10333 /* WhatsNewItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67320AF88AC00A10333 /* WhatsNewItemTableViewCell.swift */; };
-		3D92C67720AF88B400A10333 /* WhatsNewRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67620AF88B400A10333 /* WhatsNewRoundedButton.swift */; };
+		3D92C67720AF88B400A10333 /* WhatsNewCompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67620AF88B400A10333 /* WhatsNewCompletionButton.swift */; };
 		3DA6679C20B0BB3B00DB18FF /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
 		3DA6679D20B0BB3B00DB18FF /* WhatsNewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DA667A620B0C8AF00DB18FF /* WhatsNewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667A520B0C8AF00DB18FF /* WhatsNewTitleView.swift */; };
 		3DA667A920B0C8B600DB18FF /* WhatsNewItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667A820B0C8B600DB18FF /* WhatsNewItemsView.swift */; };
-		3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */; };
+		3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonsView.swift */; };
 		3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */; };
 		3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AA20AED02400292C94 /* AppDelegate.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
 		3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */; };
 		3DDDB59720B832AB001D59C5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */; };
+		3DFAA78720D1B82D00F9B006 /* WhatsNewDetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFAA78620D1B82D00F9B006 /* WhatsNewDetailButton.swift */; };
 		3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */; };
 		52D6D9871BEFF229002C0205 /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
 /* End PBXBuildFile section */
@@ -116,10 +117,10 @@
 		3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Item.swift"; sourceTree = "<group>"; };
 		3D92C67020AF883300A10333 /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
 		3D92C67320AF88AC00A10333 /* WhatsNewItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewItemTableViewCell.swift; sourceTree = "<group>"; };
-		3D92C67620AF88B400A10333 /* WhatsNewRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewRoundedButton.swift; sourceTree = "<group>"; };
+		3D92C67620AF88B400A10333 /* WhatsNewCompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewCompletionButton.swift; sourceTree = "<group>"; };
 		3DA667A520B0C8AF00DB18FF /* WhatsNewTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewTitleView.swift; sourceTree = "<group>"; };
 		3DA667A820B0C8B600DB18FF /* WhatsNewItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewItemsView.swift; sourceTree = "<group>"; };
-		3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewButtonView.swift; sourceTree = "<group>"; };
+		3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewButtonsView.swift; sourceTree = "<group>"; };
 		3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3DC8A6A820AED02400292C94 /* WhatsNewKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsNewKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC8A6AA20AED02400292C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		3DC8A6B420AED02600292C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC8A6B620AED02600292C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		3DFAA78620D1B82D00F9B006 /* WhatsNewDetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewDetailButton.swift; sourceTree = "<group>"; };
 		3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsNewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* WhatsNewKit-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WhatsNewKit-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,8 +236,9 @@
 		3DA1829E20B336CB00D2C155 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonView.swift */,
-				3D92C67620AF88B400A10333 /* WhatsNewRoundedButton.swift */,
+				3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonsView.swift */,
+				3DFAA78620D1B82D00F9B006 /* WhatsNewDetailButton.swift */,
+				3D92C67620AF88B400A10333 /* WhatsNewCompletionButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -554,13 +557,14 @@
 				3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */,
 				3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */,
 				3D92C67420AF88AC00A10333 /* WhatsNewItemTableViewCell.swift in Sources */,
-				3D92C67720AF88B400A10333 /* WhatsNewRoundedButton.swift in Sources */,
+				3D92C67720AF88B400A10333 /* WhatsNewCompletionButton.swift in Sources */,
+				3DFAA78720D1B82D00F9B006 /* WhatsNewDetailButton.swift in Sources */,
 				3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */,
 				3D13455E20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift in Sources */,
 				3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */,
 				3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */,
 				3D5D06C120C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift in Sources */,
-				3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonView.swift in Sources */,
+				3DA667AC20B0C8BC00DB18FF /* WhatsNewButtonsView.swift in Sources */,
 				3DA667A920B0C8B600DB18FF /* WhatsNewItemsView.swift in Sources */,
 				3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */,
 				3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */,

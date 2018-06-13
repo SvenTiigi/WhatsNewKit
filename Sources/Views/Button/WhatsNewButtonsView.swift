@@ -1,5 +1,5 @@
 //
-//  WhatsNewButtonView.swift
+//  WhatsNewButtonsView.swift
 //  WhatsNewKit
 //
 //  Created by Sven Tiigi on 19.05.18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// The WhatsNewButtonView
-class WhatsNewButtonView: UIView {
+/// The WhatsNewButtonsView
+class WhatsNewButtonsView: UIView {
     
     // MARK: Properties
     
@@ -28,7 +28,7 @@ class WhatsNewButtonView: UIView {
     private let onPress: (ButtonType) -> Void
     
     /// The completion Button
-    private lazy var completionButton = WhatsNewRoundedButton(
+    private lazy var completionButton = WhatsNewCompletionButton(
         title: self.configuration.completionButton.title,
         configuration: self.configuration,
         onPress: { [weak self] in
@@ -38,29 +38,13 @@ class WhatsNewButtonView: UIView {
     )
     
     /// The detail button
-    private lazy var detailButton: UIButton = {
-        // Initialize Button
-        let button = UIButton()
-        // Set title
-        button.setTitle(
-            self.configuration.detailButton?.title,
-            for: .normal
-        )
-        // Add target
-        button.addTarget(
-            self,
-            action: #selector(self.detailButtonDidTouchUpInside),
-            for: .touchUpInside
-        )
-        // Set title color
-        button.setTitleColor(
-            self.configuration.detailButton?.titleColor,
-            for: .normal
-        )
-        // Set font
-        button.titleLabel?.font = self.configuration.detailButton?.titleFont
-        return button
-    }()
+    private lazy var detailButton = WhatsNewDetailButton(
+        detailButton: self.configuration.detailButton,
+        onPress: { [weak self] in
+            // Invoke on press with detail button type
+            self?.onPress(.detail)
+        }
+    )
     
     /// Has animated Bool-Tupel for Detail and Completion Button
     public var hasAnimated: (detail: Bool, completion: Bool) = (false, false)
@@ -158,14 +142,6 @@ class WhatsNewButtonView: UIView {
                 height: landScapeButtonHeight
             )
         }
-    }
-    
-    // MARK: Target Handler
-    
-    /// DetailButton did touch up inside
-    @objc private func detailButtonDidTouchUpInside() {
-        // Invoke onPress with detail button type
-        self.onPress(.detail)
     }
     
 }

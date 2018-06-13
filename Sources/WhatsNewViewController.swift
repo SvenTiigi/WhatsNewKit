@@ -44,8 +44,8 @@ public class WhatsNewViewController: UIViewController {
         configuration: self.configuration
     )
     
-    /// The ButtonView
-    private lazy var buttonView: UIView = WhatsNewButtonView(
+    /// The ButtonsView
+    private lazy var buttonsView: UIView = WhatsNewButtonsView(
         configuration: self.configuration,
         onPress: { [weak self] buttonType in
             // Handle button type
@@ -113,7 +113,7 @@ public class WhatsNewViewController: UIViewController {
         // Add ItemsView
         self.view.addSubview(self.itemsView)
         // Add ButtonView
-        self.view.addSubview(self.buttonView)
+        self.view.addSubview(self.buttonsView)
     }
     
     /// View did layout subviews
@@ -134,7 +134,7 @@ public class WhatsNewViewController: UIViewController {
             height: self.view.frame.size.height * 0.6
         )
         // Set ButtonView frame
-        self.buttonView.frame = CGRect(
+        self.buttonsView.frame = CGRect(
             x: 0,
             y: self.view.frame.size.height - self.view.frame.size.height * 0.2,
             width: self.view.frame.size.width,
@@ -147,7 +147,7 @@ public class WhatsNewViewController: UIViewController {
     /// Handle onPress with button type
     ///
     /// - Parameter buttonType: The Button type
-    func handleOnPress(buttonType: WhatsNewButtonView.ButtonType) {
+    func handleOnPress(buttonType: WhatsNewButtonsView.ButtonType) {
         // Switch on button type
         switch buttonType {
         case .completion:
