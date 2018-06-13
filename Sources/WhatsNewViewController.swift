@@ -119,21 +119,21 @@ public class WhatsNewViewController: UIViewController {
     /// View did layout subviews
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Set TitleView frame
+        // Set TitleView frame (20% height)
         self.titleView.frame = CGRect(
             x: 0,
             y: 0,
             width: self.view.frame.size.width,
             height: self.view.frame.size.height * 0.2
         )
-        // Set ItemsView frame
+        // Set ItemsView frame (60% height)
         self.itemsView.frame = CGRect(
             x: 0,
             y: self.titleView.frame.size.height,
             width: self.view.frame.size.width,
             height: self.view.frame.size.height * 0.6
         )
-        // Set ButtonView frame
+        // Set ButtonView frame (20% height)
         self.buttonsView.frame = CGRect(
             x: 0,
             y: self.view.frame.size.height - self.view.frame.size.height * 0.2,
