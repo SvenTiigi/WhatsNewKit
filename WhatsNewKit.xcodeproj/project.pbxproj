@@ -197,7 +197,7 @@
 			children = (
 				3DA1829C20B336BF00D2C155 /* Title */,
 				3DA1829D20B336C600D2C155 /* Items */,
-				3DA1829E20B336CB00D2C155 /* Button */,
+				3DA1829E20B336CB00D2C155 /* Buttons */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,14 +233,14 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		3DA1829E20B336CB00D2C155 /* Button */ = {
+		3DA1829E20B336CB00D2C155 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				3DA667AB20B0C8BC00DB18FF /* WhatsNewButtonsView.swift */,
 				3DFAA78620D1B82D00F9B006 /* WhatsNewDetailButton.swift */,
 				3D92C67620AF88B400A10333 /* WhatsNewCompletionButton.swift */,
 			);
-			path = Button;
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		3DBFB67720B6ED9300FF0899 /* Supporting Files */ = {
