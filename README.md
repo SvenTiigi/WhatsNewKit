@@ -229,7 +229,7 @@ let detailButton = WhatsNewViewController.DetailButton(
 // Initialize DetailButton with title and custom action
 let detailButton = WhatsNewViewController.DetailButton(
     title: "Read more", 
-    action: .custom(action: { [weak self] whatsNewViewController in {
+    action: .custom(action: { [weak self] whatsNewViewController in
         // Perform custom action on detail button pressed
     })
 )
@@ -255,7 +255,7 @@ let completionButton = WhatsNewViewController.CompletionButton(
 // Initialize CompletionButton with title and custom action
 let completionButton = WhatsNewViewController.CompletionButton(
     title: "Continue", 
-    action: .custom(action: { [weak self] whatsNewViewController in {
+    action: .custom(action: { [weak self] whatsNewViewController in
         // Perform custom action on completion button pressed
     })
 )
