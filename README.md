@@ -461,7 +461,7 @@ let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
 
 ## Featured on
 
-* [Awesome iOS weekly](http://weekly.awesomeios.com/issues/2#start)
+* [Awesome iOS Weekly](http://weekly.awesomeios.com/issues/2#start)
 * [Swift Weekly](http://digest.swiftweekly.com/issues/swift-weekly-issue-118-114740)
 * [AppCoda Weekly](http://digest.appcoda.com/issues/appcoda-weekly-issue-74-116292)
 * [iOS Goodies](http://ios-goodies.com/post/174437386181/week-232)
