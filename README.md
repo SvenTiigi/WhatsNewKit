@@ -459,6 +459,16 @@ let encoded = try? JSONEncoder().encode(whatsNew)
 let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
 ```
 
+## Featured on
+
+* [Awesome iOS weekly](http://weekly.awesomeios.com/issues/2#start)
+* [Swift Weekly](http://digest.swiftweekly.com/issues/swift-weekly-issue-118-114740)
+* [AppCoda Weekly](http://digest.appcoda.com/issues/appcoda-weekly-issue-74-116292)
+* [iOS Goodies](http://ios-goodies.com/post/174437386181/week-232)
+* [MyBridge - Open Source Swift Projects (June 2018)](https://medium.mybridge.co/swift-open-source-projects-of-the-month-v-june-2018-f9ce1239eee4)
+* [The iOS Times](http://theiostimes.com/issue-44.html)
+* [DZone](https://dzone.com/articles/this-week-in-mobile-11-june-2018)
+
 ## Contributing
 Contributions are very welcome 🙌 🤓
 
