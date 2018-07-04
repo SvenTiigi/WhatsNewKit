@@ -42,6 +42,8 @@ class WhatsNewItemsView: UIView {
         tableView.separatorStyle = .none
         // No selection
         tableView.allowsSelection = false
+        // Hide Vertical Scroll Indicator
+        tableView.showsVerticalScrollIndicator = false
         // Set indicator style based on theme backgroundcolor
         tableView.indicatorStyle = self.configuration.backgroundColor.isLight ? .black : .white
         // Return TableView
