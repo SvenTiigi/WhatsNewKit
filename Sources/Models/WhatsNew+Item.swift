@@ -93,7 +93,7 @@ extension WhatsNew.Item: Codable {
         // Encode Subtitle
         try container.encode(self.subtitle, forKey: .subtitle)
         // Try to Encode Image as Base64 string
-        if let image = self.image, let data = UIImagePNGRepresentation(image) {
+        if let image = self.image, let data = image.pngData() {
             let base64 = data.base64EncodedString(options: .lineLength64Characters)
             try container.encode(base64, forKey: .image)
         }

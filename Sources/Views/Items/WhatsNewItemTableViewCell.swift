@@ -95,12 +95,12 @@ class WhatsNewItemTableViewCell: UITableViewCell {
             let attributedString = NSMutableAttributedString(string: "\(self.item.title)\n\(self.item.subtitle)")
             // Add title font
             attributedString.addAttributes(
-                [NSAttributedStringKey.font: self.configuration.itemsView.titleFont],
+                [.font: self.configuration.itemsView.titleFont],
                 range: NSRange(location: 0, length: self.item.title.count)
             )
             // Add title color
             attributedString.addAttributes(
-                [NSAttributedStringKey.foregroundColor: self.configuration.itemsView.titleColor],
+                [.foregroundColor: self.configuration.itemsView.titleColor],
                 range: NSRange(location: 0, length: self.item.title.count)
             )
             // Return attributed title and text string
