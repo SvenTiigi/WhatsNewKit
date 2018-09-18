@@ -151,6 +151,28 @@ public extension WhatsNewViewController.Theme {
         }
     }
     
+    /// White LightBlue Theme (white background and light blue tint color)
+    static var whiteLightBlue: WhatsNewViewController.Theme {
+        return .init { configuration in
+            self.customize(
+                configuration: &configuration,
+                theme: .default,
+                tintColor: .whatsNewKitLightBlue
+            )
+        }
+    }
+    
+    /// Dark LightBlue Theme (dark background and light blue tint color)
+    static var darkLightBlue: WhatsNewViewController.Theme {
+        return .init { configuration in
+            self.customize(
+                configuration: &configuration,
+                theme: .darkDefault,
+                tintColor: .whatsNewKitLightBlue
+            )
+        }
+    }
+    
     /// White Orange Theme (white background and orange tint color)
     static var whiteOrange: WhatsNewViewController.Theme {
         return .init { configuration in
