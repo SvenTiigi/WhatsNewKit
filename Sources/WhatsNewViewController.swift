@@ -44,8 +44,8 @@ public class WhatsNewViewController: UIViewController {
         configuration: self.configuration
     )
     
-    /// The ButtonView
-    private lazy var buttonView: UIView = WhatsNewButtonView(
+    /// The ButtonsView
+    private lazy var buttonsView: UIView = WhatsNewButtonsView(
         configuration: self.configuration,
         onPress: { [weak self] buttonType in
             // Handle button type
@@ -113,28 +113,28 @@ public class WhatsNewViewController: UIViewController {
         // Add ItemsView
         self.view.addSubview(self.itemsView)
         // Add ButtonView
-        self.view.addSubview(self.buttonView)
+        self.view.addSubview(self.buttonsView)
     }
     
     /// View did layout subviews
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Set TitleView frame
+        // Set TitleView frame (20% height)
         self.titleView.frame = CGRect(
             x: 0,
             y: 0,
             width: self.view.frame.size.width,
             height: self.view.frame.size.height * 0.2
         )
-        // Set ItemsView frame
+        // Set ItemsView frame (60% height)
         self.itemsView.frame = CGRect(
             x: 0,
             y: self.titleView.frame.size.height,
             width: self.view.frame.size.width,
             height: self.view.frame.size.height * 0.6
         )
-        // Set ButtonView frame
-        self.buttonView.frame = CGRect(
+        // Set ButtonView frame (20% height)
+        self.buttonsView.frame = CGRect(
             x: 0,
             y: self.view.frame.size.height - self.view.frame.size.height * 0.2,
             width: self.view.frame.size.width,
@@ -147,7 +147,7 @@ public class WhatsNewViewController: UIViewController {
     /// Handle onPress with button type
     ///
     /// - Parameter buttonType: The Button type
-    func handleOnPress(buttonType: WhatsNewButtonView.ButtonType) {
+    func handleOnPress(buttonType: WhatsNewButtonsView.ButtonType) {
         // Switch on button type
         switch buttonType {
         case .completion:

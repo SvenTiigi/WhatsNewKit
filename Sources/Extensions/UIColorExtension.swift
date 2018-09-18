@@ -33,6 +33,14 @@ public extension UIColor {
         alpha: 1
     )
     
+    /// The WhatsNewKit light blue color
+    static let whatsNewKitLightBlue = UIColor(
+        red: 95 / 255,
+        green: 200 / 255,
+        blue: 248 / 255,
+        alpha: 1
+    )
+    
     /// The WhatsNewKit dark color
     static let whatsNewKitDark = UIColor(
         red: 20 / 255,

@@ -52,9 +52,9 @@ public struct KeyValueWhatsNewVersionStore {
     /// Default initializer
     ///
     /// - Parameters:
-    ///   - userDefaults: The UserDefaults. Default value `.standard`
+    ///   - keyValueable: The KeyValueable Object. Default value `UserDefaults.standard`
     ///   - prefixIdentifier: The prefix identifier. Default value `de.tiigi.whatsnewkit.`
-    public init(keyValueable: KeyValueable,
+    public init(keyValueable: KeyValueable = UserDefaults.standard,
                 prefixIdentifier: String = "de.tiigi.whatsnewkit") {
         self.keyValueable = keyValueable
         self.prefixIdentifier = prefixIdentifier
@@ -67,11 +67,7 @@ public struct KeyValueWhatsNewVersionStore {
     /// - Parameter version: The Version
     /// - Returns: String key concatenated with prefix identifier
     private func key(forVersion version: WhatsNew.Version) -> String {
-        if self.prefixIdentifier.isEmpty {
-            return version.description
-        } else {
-            return "\(self.prefixIdentifier).\(version)"
-        }
+        return "\(self.prefixIdentifier)\(!self.prefixIdentifier.isEmpty ? "." : "")\(version)"
     }
     
 }
@@ -84,8 +80,11 @@ extension KeyValueWhatsNewVersionStore: WriteableWhatsNewVersionStore {
     ///
     /// - Parameter version: The Version
     public func set(version: WhatsNew.Version) {
-        // Set Version
-        self.keyValueable.set(version.description, forKey: self.key(forVersion: version))
+        // Set Version String representation
+        self.keyValueable.set(
+            version.description,
+            forKey: self.key(forVersion: version)
+        )
     }
     
 }
@@ -99,8 +98,10 @@ extension KeyValueWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     /// - Parameter version: The Version
     /// - Returns: Bool if Version has been presented
     public func has(version: WhatsNew.Version) -> Bool {
-        // Retrieve object for key and return comparison result with the WhatsNew.Version
-        return self.keyValueable.object(forKey: self.key(forVersion: version)) as? String == version.description
+        // Retrieve object for key as String
+        let versionObjectString = self.keyValueable.object(forKey: self.key(forVersion: version)) as? String
+        // Return string comparison result
+        return versionObjectString == version.description
     }
     
 }

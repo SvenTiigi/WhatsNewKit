@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// The WhatsNewRoundedButton
-class WhatsNewRoundedButton: UIButton {
+/// The WhatsNewCompletionButton
+class WhatsNewCompletionButton: UIButton {
     
     // MARK: Properties
     
@@ -39,7 +39,7 @@ class WhatsNewRoundedButton: UIButton {
         // Set title
         self.setTitle(title, for: .normal)
         // Perform configuration
-        self.configure(withConfiguration: configuration)
+        self.configure(completionButton: configuration.completionButton)
     }
     
     // MARK: ViewLifecycle
@@ -63,15 +63,15 @@ class WhatsNewRoundedButton: UIButton {
     // MARK: Private API
     
     /// Perform configuration
-    private func configure(withConfiguration configuration: WhatsNewViewController.Configuration) {
+    private func configure(completionButton: WhatsNewViewController.CompletionButton) {
         // Set corner radius to rounded button
-        self.layer.cornerRadius = configuration.completionButton.cornerRadius
+        self.layer.cornerRadius = completionButton.cornerRadius
         // Set mask to bound
         self.layer.masksToBounds = true
         // Set font
-        self.titleLabel?.font = configuration.completionButton.titleFont
+        self.titleLabel?.font = completionButton.titleFont
         // Set normal title color
-        self.setTitleColor(configuration.completionButton.titleColor, for: .normal)
+        self.setTitleColor(completionButton.titleColor, for: .normal)
         // Set number of lines
         self.titleLabel?.numberOfLines = 0
         // Set line break mode
