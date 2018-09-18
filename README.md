@@ -4,7 +4,7 @@
 
 <p align="center">
    <a href="https://developer.apple.com/swift/">
-      <img src="https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat" alt="Swift 4.1">
+      <img src="https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat" alt="Swift 4.2">
    </a>
    <a href="https://travis-ci.com/SvenTiigi/WhatsNewKit">
       <img src="https://travis-ci.com/SvenTiigi/WhatsNewKit.svg?branch=master" alt="Build Status">
@@ -229,7 +229,7 @@ let detailButton = WhatsNewViewController.DetailButton(
 // Initialize DetailButton with title and custom action
 let detailButton = WhatsNewViewController.DetailButton(
     title: "Read more", 
-    action: .custom(action: { [weak self] whatsNewViewController in {
+    action: .custom(action: { [weak self] whatsNewViewController in
         // Perform custom action on detail button pressed
     })
 )
@@ -255,7 +255,7 @@ let completionButton = WhatsNewViewController.CompletionButton(
 // Initialize CompletionButton with title and custom action
 let completionButton = WhatsNewViewController.CompletionButton(
     title: "Continue", 
-    action: .custom(action: { [weak self] whatsNewViewController in {
+    action: .custom(action: { [weak self] whatsNewViewController in
         // Perform custom action on completion button pressed
     })
 )
@@ -458,6 +458,16 @@ let encoded = try? JSONEncoder().encode(whatsNew)
 // Decode from JSON data
 let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
 ```
+
+## Featured on
+
+* [Awesome iOS Weekly](http://weekly.awesomeios.com/issues/2#start)
+* [Swift Weekly](http://digest.swiftweekly.com/issues/swift-weekly-issue-118-114740)
+* [AppCoda Weekly](http://digest.appcoda.com/issues/appcoda-weekly-issue-74-116292)
+* [iOS Goodies](http://ios-goodies.com/post/174437386181/week-232)
+* [MyBridge - Open Source Swift Projects (June 2018)](https://medium.mybridge.co/swift-open-source-projects-of-the-month-v-june-2018-f9ce1239eee4)
+* [The iOS Times](http://theiostimes.com/issue-44.html)
+* [DZone](https://dzone.com/articles/this-week-in-mobile-11-june-2018)
 
 ## Contributing
 Contributions are very welcome 🙌 🤓
