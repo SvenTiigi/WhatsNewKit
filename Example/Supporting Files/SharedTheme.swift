@@ -55,6 +55,8 @@ class SharedTheme {
             switch (self.backgroundColor, self.tintColor)  {
             case ("White", "Blue"):
                 configuration.apply(theme: .default)
+            case ("White", "LightBlue"):
+                configuration.apply(theme: .whiteLightBlue)
             case ("White", "Orange"):
                 configuration.apply(theme: .whiteOrange)
             case ("White", "Purple"):
@@ -65,6 +67,8 @@ class SharedTheme {
                 configuration.apply(theme: .whiteGreen)
             case ("Dark", "Blue"):
                 configuration.apply(theme: .darkDefault)
+            case ("Dark", "LightBlue"):
+                configuration.apply(theme: .darkLightBlue)
             case ("Dark", "Orange"):
                 configuration.apply(theme: .darkOrange)
             case ("Dark", "Purple"):

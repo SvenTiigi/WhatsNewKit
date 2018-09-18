@@ -35,7 +35,7 @@ class ExampleViewController: UITableViewController {
             case .backgroundColor:
                 return ["White", "Dark"]
             case .tintColor:
-                return ["Blue", "Orange", "Purple", "Red", "Green"]
+                return ["Blue", "LightBlue", "Orange", "Purple", "Red", "Green"]
             case .titleViewAnimation, .itemsViewAnimation, .detailButtonAnimation, .completionButtonAnimation:
                 return ["None", "Fade", "SlideUp", "SlideDown", "SlideLeft", "SlideRight"]
             }
@@ -108,7 +108,7 @@ class ExampleViewController: UITableViewController {
             return
         }
         let safariViewController = SFSafariViewController(url: url)
-        //safariViewController.preferredControlTintColor = self.tintColor
+        safariViewController.preferredControlTintColor = .main
         self.present(safariViewController, animated: true)
     }
     
