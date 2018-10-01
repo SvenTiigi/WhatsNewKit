@@ -33,23 +33,27 @@ class KeyValueWhatsNewVersionStoreTests: BaseTests {
     func testKeyValueWhatsNewVersionNSUbiquitousKeyValueStore() {
         let iCloudKeyValue = NSUbiquitousKeyValueStore.default
         let version = self.randomWhatsNew.version
+        let versionKey = "unit.test.\(version.description)"
         iCloudKeyValue.removeObject(forKey: version.description)
-        let keyValueWhatsNewVersionStore = KeyValueWhatsNewVersionStore(keyValueable: iCloudKeyValue, prefixIdentifier: "")
+        XCTAssertNil(iCloudKeyValue.object(forKey: versionKey))
+        let keyValueWhatsNewVersionStore = KeyValueWhatsNewVersionStore(keyValueable: iCloudKeyValue, prefixIdentifier: "unit.test")
         XCTAssertFalse(keyValueWhatsNewVersionStore.has(version: version))
         keyValueWhatsNewVersionStore.set(version: version)
         XCTAssertTrue(keyValueWhatsNewVersionStore.has(version: version))
-        XCTAssertEqual(iCloudKeyValue.object(forKey: version.description) as? String, version.description)
+        XCTAssertEqual(iCloudKeyValue.object(forKey: versionKey) as? String, version.description)
     }
     
     func testKeyValueWhatsNewVersionUserDefaultsStore() {
         let userDefaults = UserDefaults.standard
         let version = self.randomWhatsNew.version
-        userDefaults.removeObject(forKey: version.description)
-        let keyValueWhatsNewVersionStore = KeyValueWhatsNewVersionStore(keyValueable: userDefaults, prefixIdentifier: "")
+        let versionKey = "unit.test.\(version.description)"
+        userDefaults.removeObject(forKey: versionKey)
+        XCTAssertNil(userDefaults.object(forKey: versionKey))
+        let keyValueWhatsNewVersionStore = KeyValueWhatsNewVersionStore(keyValueable: userDefaults, prefixIdentifier: "unit.test")
         XCTAssertFalse(keyValueWhatsNewVersionStore.has(version: version))
         keyValueWhatsNewVersionStore.set(version: version)
         XCTAssertTrue(keyValueWhatsNewVersionStore.has(version: version))
-        XCTAssertEqual(userDefaults.object(forKey: version.description) as? String, version.description)
+        XCTAssertEqual(userDefaults.object(forKey: versionKey) as? String, version.description)
     }
     
 }
