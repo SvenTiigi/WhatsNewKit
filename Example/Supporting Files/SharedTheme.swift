@@ -38,6 +38,12 @@ class SharedTheme {
         }
     }
     
+    var layout: String = "Default" {
+        didSet {
+            self.updateTheme()
+        }
+    }
+    
     // MARK: Initializer
     
     /// Default initializer
@@ -103,6 +109,7 @@ class SharedTheme {
                 configuration.detailButton?.animation = updateAnimation(&detailButton.animation, self.animation.detailButton)
             }
             _ = updateAnimation(&configuration.completionButton.animation, self.animation.completionButton)
+            configuration.itemsView.layout = self.layout == "Default" ? .default : .centered
         }
     }
     

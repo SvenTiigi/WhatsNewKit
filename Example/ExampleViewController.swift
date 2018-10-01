@@ -29,6 +29,8 @@ class ExampleViewController: UITableViewController {
         case itemsViewAnimation = "ItemsView Animation 🎬"
         case detailButtonAnimation = "DetailButton Animation 🎬"
         case completionButtonAnimation = "CompletionButton Animation 🎬"
+        /// Layout
+        case layout = "Layout 📐"
         /// The Options
         var options: [String] {
             switch self {
@@ -38,6 +40,8 @@ class ExampleViewController: UITableViewController {
                 return ["Blue", "LightBlue", "Orange", "Purple", "Red", "Green"]
             case .titleViewAnimation, .itemsViewAnimation, .detailButtonAnimation, .completionButtonAnimation:
                 return ["None", "Fade", "SlideUp", "SlideDown", "SlideLeft", "SlideRight"]
+            case .layout:
+                return ["Default", "Centered"]
             }
         }
     }
@@ -49,7 +53,8 @@ class ExampleViewController: UITableViewController {
         .titleViewAnimation,
         .itemsViewAnimation,
         .detailButtonAnimation,
-        .completionButtonAnimation
+        .completionButtonAnimation,
+        .layout
     ]
     
     /// The SharedTheme

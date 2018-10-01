@@ -82,6 +82,8 @@ extension ExampleViewController {
                 self.sharedTheme.animation.detailButton = selected
             case .completionButtonAnimation:
                 self.sharedTheme.animation.completionButton = selected
+            case .layout:
+                self.sharedTheme.layout = selected
             }
         }
         
