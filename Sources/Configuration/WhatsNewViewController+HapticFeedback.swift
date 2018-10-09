@@ -13,11 +13,11 @@ public extension WhatsNewViewController {
     /// The HapticFeedback Enumeration
     enum HapticFeedback: Equatable {
         /// ImpactFeedback with FeedbackStyle
-        case impact(UIImpactFeedbackGenerator.FeedbackStyle)
+        case impact(UIImpactFeedbackStyle)
         /// SelectionFeedback
         case selection
         /// NotificationFeedback with FeedbackType
-        case notification(UINotificationFeedbackGenerator.FeedbackType)
+        case notification(UINotificationFeedbackType)
         
         /// Execute HapticFeedback
         func execute() {
