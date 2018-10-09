@@ -32,6 +32,7 @@ platform :ios do
 
   desc "Runs Tests"
   lane :test do
+    carthage(command: "build", no_skip_current: true)
     pod_lib_lint
     scan(
       project: "WhatsNewKit.xcodeproj",
