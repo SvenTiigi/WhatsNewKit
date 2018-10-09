@@ -9,31 +9,36 @@ platform :ios do
     ensure_git_status_clean
     ensure_git_branch(branch: 'master')
     test
-    version = version_bump_podspec(path: "WhatsNewKit.podspec", version_number: options[:version])
-    increment_version_number(version_number: version)
-    git_commit(
-      path: ["WhatsNewKit.podspec"],
-      message: "[WhatsNewKit Release 🚀] Bump to #{version}"
-    )
+    version = options[:version]
+    increment(version: version)
     add_git_tag(tag: version)
     push_git_tags()
     push_to_git_remote()
     pod_push()
   end
 
-  desc "Runs all the tests"
+  desc "Increment Version"
+    lane :increment do |options|
+    version = options[:version]
+    version_bump_podspec(path: "WhatsNewKit.podspec", version_number: version)
+    set_info_plist_value(path: "Configs/WhatsNewKit.plist", key: "CFBundleShortVersionString", value: version)
+    set_info_plist_value(path: "Configs/WhatsNewKitTests.plist", key: "CFBundleShortVersionString", value: version)
+    set_info_plist_value(path: "Example/Supporting Files/Info.plist", key: "CFBundleShortVersionString", value: version)
+    git_commit(
+        path: ["WhatsNewKit.podspec", "Configs/WhatsNewKit.plist", "Configs/WhatsNewKitTests.plist", "Example/Supporting Files/Info.plist"],
+        message: "WhatsNewKit Version #{version} 🚀"
+    )
+  end
+
+  desc "Runs Tests"
   lane :test do
+    pod_lib_lint
     scan(
       project: "WhatsNewKit.xcodeproj",
       scheme: "WhatsNewKit-iOS",
       clean: true,
       code_coverage: true
     )
-    pod_lib_lint
-  end
-
-  desc "Runs coverage"
-  lane :coverage do
     slather(
       proj: "WhatsNewKit.xcodeproj",
       scheme: "WhatsNewKit-iOS",
@@ -42,5 +47,5 @@ platform :ios do
       ignore: ["Tests/*"]
     )
   end
-  
+
 end
