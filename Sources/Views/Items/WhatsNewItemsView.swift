@@ -46,6 +46,8 @@ class WhatsNewItemsView: UIView {
         tableView.showsVerticalScrollIndicator = false
         // Set indicator style based on theme backgroundcolor
         tableView.indicatorStyle = self.configuration.backgroundColor.isLight ? .black : .white
+        // Set estimatedRowHeight so autosizing will work on iOS 10
+        tableView.estimatedRowHeight = 44.0
         // Return TableView
         return tableView
     }()
