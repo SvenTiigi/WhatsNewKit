@@ -39,6 +39,10 @@ platform :ios do
       clean: true,
       code_coverage: true
     )
+  end
+
+  desc "Runs coverage"
+  lane :coverage do
     slather(
       proj: "WhatsNewKit.xcodeproj",
       scheme: "WhatsNewKit-iOS",
