@@ -181,7 +181,7 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 
 ### Layout
 
-`WhatsNewKit` comes with two predefined `ItemsView.Layouts`. 
+`WhatsNewKit` comes with two predefined [`ItemsView.Layouts`](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift). 
 
 | Default | Centered   |
 | ------------- | ------------- |
