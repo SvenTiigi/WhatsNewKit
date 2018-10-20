@@ -71,7 +71,7 @@ extension Fastfile {
         let infoPlistPaths = [
             "Configs/WhatsNewKit.plist",
             "Configs/WhatsNewKitTests.plist",
-            "Example/Supporting Files/Info.plist"
+            "Example/Resources/Info.plist"
         ]
         // For Each Info.plist Path
         for infoPlistPath in infoPlistPaths {
