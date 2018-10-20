@@ -12,10 +12,11 @@ import WhatsNewKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    /// The UIWindow
     var window: UIWindow?
     
     /// The UINavigationController with ViewController as root viewcontroller
-    private lazy var navigationController: UINavigationController = {
+    lazy var navigationController: UINavigationController = {
         let navigationController = UINavigationController(rootViewController: ExampleViewController())
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.largeTitleTextAttributes = [

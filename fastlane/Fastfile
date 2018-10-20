@@ -23,7 +23,7 @@ platform :ios do
     version_bump_podspec(path: "WhatsNewKit.podspec", version_number: version)
     set_info_plist_value(path: "Configs/WhatsNewKit.plist", key: "CFBundleShortVersionString", value: version)
     set_info_plist_value(path: "Configs/WhatsNewKitTests.plist", key: "CFBundleShortVersionString", value: version)
-    set_info_plist_value(path: "Example/Supporting Files/Info.plist", key: "CFBundleShortVersionString", value: version)
+    set_info_plist_value(path: "Example/Resources/Info.plist", key: "CFBundleShortVersionString", value: version)
     git_commit(
         path: ["WhatsNewKit.podspec", "Configs/WhatsNewKit.plist", "Configs/WhatsNewKitTests.plist", "Example/Supporting Files/Info.plist"],
         message: "WhatsNewKit Version #{version} 🚀"
