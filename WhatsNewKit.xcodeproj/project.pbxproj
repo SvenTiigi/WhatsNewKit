@@ -109,7 +109,6 @@
 		3D2412EA20BAEB56005A04D6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3D2412EB20BAEB56005A04D6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		3D2412EC20BAEB56005A04D6 /* WhatsNewKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = WhatsNewKit.podspec; sourceTree = SOURCE_ROOT; };
-		3D2412EE20BAEB6C005A04D6 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = SOURCE_ROOT; };
 		3D299143217B5D8100132C91 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		3D299145217B5EDD00132C91 /* ConfigurationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationsTableViewCell.swift; sourceTree = "<group>"; };
 		3D299147217B5FC700132C91 /* ConfigurationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -368,7 +367,6 @@
 			children = (
 				DD7502721C68FC1B006590AF /* Frameworks */,
 				DD7502731C68FC20006590AF /* Tests */,
-				3D2412EE20BAEB6C005A04D6 /* Fastfile */,
 				3D04215820C2D7B100DA5126 /* .codeclimate.yml */,
 				3D2412E920BAEB56005A04D6 /* .gitignore */,
 				3D2412E620BAEB56005A04D6 /* .jazzy.yaml */,
