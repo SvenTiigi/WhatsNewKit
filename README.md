@@ -227,7 +227,7 @@ If you wish to define your custom animation, simply set the `custom` enum and pa
 
 ```swift
 // Custom Animation for DetailButton
-configuration.detailButton.animation = .custom(animator: { [weak self] (view: UIView, settings: AnimatorSettings) in
+configuration.detailButton.animation = .custom(animator: { (view: UIView, settings: AnimatorSettings) in
     // view: The View to perform animation on
     // settings: Preferred duration and delay
 })
