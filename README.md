@@ -315,10 +315,12 @@ If we speak about presenting awesome new app features we have to take care that 
 /// WhatsNewVersionStore typealias protocol composition
 public typealias WhatsNewVersionStore = WriteableWhatsNewVersionStore & ReadableWhatsNewVersionStore
 
+/// The WriteableWhatsNewVersionStore
 public protocol WriteableWhatsNewVersionStore {
     func set(version: WhatsNew.Version)
 }
 
+/// The ReadableWhatsNewVersionStore
 public protocol ReadableWhatsNewVersionStore {
     func has(version: WhatsNew.Version) -> Bool
 }
