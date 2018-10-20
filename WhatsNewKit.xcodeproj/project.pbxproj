@@ -30,6 +30,7 @@
 		3D29915D217B6FCD00132C91 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29915C217B6FCD00132C91 /* Collection+Safe.swift */; };
 		3D29915F217B720400132C91 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29915E217B720400132C91 /* ReuseIdentifiable.swift */; };
 		3D299161217B7EEB00132C91 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299160217B7EEB00132C91 /* UIImage+Assets.swift */; };
+		3D330EC4217B8E8E002359E7 /* HapticFeedbackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */; };
 		3D349B902162903400C76FDA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */; };
 		3D375BA020BC6582005DE31B /* UIColor+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9F20BC6582005DE31B /* UIColor+Main.swift */; };
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
@@ -128,6 +129,7 @@
 		3D29915C217B6FCD00132C91 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		3D29915E217B720400132C91 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		3D299160217B7EEB00132C91 /* UIImage+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
+		3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackConfiguration.swift; sourceTree = "<group>"; };
 		3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3D375B9F20BC6582005DE31B /* UIColor+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Main.swift"; sourceTree = "<group>"; };
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				3D299151217B6E9600132C91 /* TintColorConfiguration.swift */,
 				3D299153217B6EA600132C91 /* AnimationConfiguration.swift */,
 				3D299155217B6EBA00132C91 /* LayoutConfiguration.swift */,
+				3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				TargetAttributes = {
 					3DC8A6A720AED02400292C94 = {
 						CreatedOnToolsVersion = 9.3.1;
+						DevelopmentTeam = 9PL44RX378;
 						ProvisioningStyle = Automatic;
 					};
 					52D6D97B1BEFF229002C0205 = {
@@ -629,6 +633,7 @@
 				3D29915D217B6FCD00132C91 /* Collection+Safe.swift in Sources */,
 				3D299161217B7EEB00132C91 /* UIImage+Assets.swift in Sources */,
 				3D299144217B5D8100132C91 /* ExampleViewController.swift in Sources */,
+				3D330EC4217B8E8E002359E7 /* HapticFeedbackConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,7 +722,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9PL44RX378;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -746,7 +751,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9PL44RX378;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

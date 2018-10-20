@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WhatsNewKit
 
 /// The ConfigurationCollectionViewCell
 class ConfigurationCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
@@ -34,7 +35,7 @@ class ConfigurationCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
                 options: .curveLinear,
                 animations: { [weak self] in
                     if self?.isSelected == true {
-                        self?.backgroundColor = .main
+                        self?.backgroundColor = self?.preferredBackgroundColor
                         self?.transform = CGAffineTransform(
                             scaleX: 1.09,
                             y: 1.07
@@ -45,6 +46,26 @@ class ConfigurationCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
                     }
                 }
             )
+        }
+    }
+    
+    /// The preferred BackgroundColor
+    var preferredBackgroundColor: UIColor {
+        switch self.titleLabel.text {
+        case "Blue":
+            return .main
+        case "LightBlue":
+            return .whatsNewKitLightBlue
+        case "Orange":
+            return .orange
+        case "Purple":
+            return .whatsNewKitPurple
+        case "Red":
+            return .whatsNewKitRed
+        case "Green":
+            return .whatsNewKitGreen
+        default:
+            return .main
         }
     }
     
