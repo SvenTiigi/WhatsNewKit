@@ -71,8 +71,6 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     
     /// Configure TextLabel
     private func configureTextLabel() {
-        // Set attributed text
-        self.textLabel?.attributedText = self.getAttributedTextString()
         // Set font
         self.textLabel?.font = self.configuration.itemsView.subtitleFont
         // Set textcolor
@@ -81,6 +79,8 @@ class WhatsNewItemTableViewCell: UITableViewCell {
         self.textLabel?.numberOfLines = 0
         // Set linebreak mode to word wrapping
         self.textLabel?.lineBreakMode = .byWordWrapping
+        // Set attributed text
+        self.textLabel?.attributedText = self.getAttributedTextString()
         // Set white background color
         self.backgroundColor = .white
         // Check if Layout is centered
