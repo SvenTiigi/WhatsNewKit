@@ -164,14 +164,38 @@ configuration.apply(theme: .whiteRed)
 
 // Or create your own Theme and initialize a Configuration with your Theme
 let myTheme = WhatsNewViewController.Theme { configuration in
-    // Apply customizations ...
+    configuration.backgroundColor = .white
+    configuration.titleView.titleColor = .orange
+    configuration.itemsView.titleFont = .systemFont(ofSize: 17)
+    configuration.detailButton.titleColor = .orange
+    configuration.completionButton.backgroundColor = .orange
+    // ...
 }
+
 let configuration = WhatsNewViewController.Configuration(
     theme: myTheme
 )
 ```
 
 For a full overview of the available predefined Themes check out the [Example-Application](https://github.com/SvenTiigi/WhatsNewKit/tree/master/Example).
+
+### Layout
+
+`WhatsNewKit` comes with two predefined `ItemsView.Layouts`. 
+
+| Default | Centered   |
+| ------------- | ------------- |
+| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutDefault.png" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutCentered.png" /> |
+| The `default` layout shows an image on the left side and the text on the right side. | The `centered` layout aligns the image as well as the text in center. |
+
+```swift
+/// Default Layout
+configuration.itemsView.layout = .default
+
+// Centered Layout
+configuration.itemsView.layout = .centered
+```
+> ☝️ By default the ItemsView layout is set to `default`.
 
 ### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
