@@ -25,7 +25,7 @@ platform :ios do
     set_info_plist_value(path: "Configs/WhatsNewKitTests.plist", key: "CFBundleShortVersionString", value: version)
     set_info_plist_value(path: "Example/Resources/Info.plist", key: "CFBundleShortVersionString", value: version)
     git_commit(
-        path: ["WhatsNewKit.podspec", "Configs/WhatsNewKit.plist", "Configs/WhatsNewKitTests.plist", "Example/Supporting Files/Info.plist"],
+        path: ["WhatsNewKit.podspec", "Configs/WhatsNewKit.plist", "Configs/WhatsNewKitTests.plist", "Example/Resources/Info.plist"],
         message: "WhatsNewKit Version #{version} 🚀"
     )
   end
