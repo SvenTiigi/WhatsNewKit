@@ -1,20 +1,20 @@
 //
-//  WhatsNewViewController+Demo.swift
+//  ExampleViewController+PresentWhatsNew.swift
 //  WhatsNewKit-Example
 //
-//  Created by Sven Tiigi on 24.05.18.
+//  Created by Sven Tiigi on 20.10.18.
 //  Copyright © 2018 WhatsNewKit. All rights reserved.
 //
 
 import UIKit
 import WhatsNewKit
 
-extension WhatsNewViewController {
+extension ExampleViewController {
     
-    /// The WhatsNewViewController for demo purpose
-    static func demo(withTheme theme: WhatsNewViewController.Theme) -> WhatsNewViewController {
+    /// Present the WhatsNewViewController
+    func presentWhatsNewViewController() {
         
-        // MARK: 1.Step Setup WhatsNew Items
+        // MARK: Step 1: Initialize the WhatsNew.Items
         
         // Easy Setup Item
         let easySetupItem = WhatsNew.Item(
@@ -41,13 +41,11 @@ extension WhatsNewViewController {
             image: #imageLiteral(resourceName: "openSource")
         )
         
-        // MARK: 2.Step Setup WhatsNew
+        // MARK: Step 2: Initialize WhatsNew with title and items
         
-        // WhatsNew
+        // Initialize WhatsNew
         let whatsNew = WhatsNew(
-            // The Title
             title: "WhatsNewKit",
-            // The Items
             items: [
                 easySetupItem,
                 themesItem,
@@ -56,20 +54,17 @@ extension WhatsNewViewController {
             ]
         )
         
-        // MARK: 3.Step Setup WhatsNewViewController Configuration
+        // MARK: Step 3: Initialize a WhatsNewViewController Configuration
         
-        /// The Configuration
-        let configuration = WhatsNewViewController.Configuration(
-            // Custom Demo Theme
-            theme: theme,
-            // DetailButton
+        // Initialize WhatsNewViewController Configuration in order to customize the Layout and behaviour
+        var configuration = WhatsNewViewController.Configuration(
+            theme: .default,
             detailButton: .init(
                 // Detail Button Title
                 title: "Read more",
                 // Detail Button Action
                 action: .website(url: "https://github.com/SvenTiigi/WhatsNewKit")
             ),
-            // CompletionButton
             completionButton: .init(
                 // Completion Button Title
                 title: "Let's go",
@@ -78,19 +73,21 @@ extension WhatsNewViewController {
             )
         )
         
-        // MARK: 4.Step Setup WhatsNewViewController
+        // Example-Application specific in order to apply configurations that has been selected
+        self.configurations.forEach {
+            $0.configure(configuration: &configuration)
+        }
         
-        /// The WhatsNewViewController
-        let controller = WhatsNewViewController(
-            // WhatsNew
+        // MARK: Step 3: Initialize and present a WhatsNewViewController
+        
+        // Initialize a WhatsNewViewController with WhatsNew and the Configuration
+        let whatsNewViewController = WhatsNewViewController(
             whatsNew: whatsNew,
-            // Configuration
             configuration: configuration
         )
         
-        // Return WhatsNewViewController
-        return controller
+        // Present the WhatsNewViewController
+        self.present(whatsNewViewController, animated: true)
     }
-    
     
 }

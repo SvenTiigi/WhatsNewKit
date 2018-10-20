@@ -28,6 +28,9 @@ public extension WhatsNewViewController {
         /// Boolean if Image should be auto tinted
         public var autoTintImage: Bool
         
+        /// The Layout
+        public var layout: Layout
+        
         /// The Animation
         public var animation: Animation?
         
@@ -39,21 +42,38 @@ public extension WhatsNewViewController {
         ///   - subtitleFont: The subtitle font. Default value `size: 17`
         ///   - subtitleColor: The subtitle color. Default value `black`
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
+        ///   - layout: The Layout. Default value `default`
         ///   - animation: The Animation. Default value `nil`
         public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
                     titleColor: UIColor = .black,
                     subtitleFont: UIFont = .systemFont(ofSize: 17),
                     subtitleColor: UIColor = .black,
                     autoTintImage: Bool = true,
+                    layout: Layout = .default,
                     animation: Animation? = nil) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.subtitleFont = subtitleFont
             self.subtitleColor = subtitleColor
             self.autoTintImage = autoTintImage
+            self.layout = layout
             self.animation = animation
         }
         
+    }
+    
+}
+
+// MARK: - ItemsView.Layout
+
+public extension WhatsNewViewController.ItemsView {
+    
+    /// The Layout
+    enum Layout: Equatable {
+        /// Default left image right text
+        case `default`
+        /// Centered image and centered text
+        case centered
     }
     
 }
