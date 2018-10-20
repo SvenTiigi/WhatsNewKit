@@ -58,6 +58,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3D702F82217B875900E8F20B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D702F7E217B875900E8F20B /* FastlaneSwiftRunner.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D556D6A91F6A08F5003108E3;
+			remoteInfo = FastlaneRunner;
+		};
 		3DA6679E20B0BB3B00DB18FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 52D6D9731BEFF229002C0205 /* Project object */;
@@ -127,6 +134,7 @@
 		3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+TitleView.swift"; sourceTree = "<group>"; };
 		3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Animation.swift"; sourceTree = "<group>"; };
 		3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+ItemsView.swift"; sourceTree = "<group>"; };
+		3D702F7E217B875900E8F20B /* FastlaneSwiftRunner.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FastlaneSwiftRunner.xcodeproj; path = fastlane/swift/FastlaneSwiftRunner/FastlaneSwiftRunner.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Configuration.swift"; sourceTree = "<group>"; };
 		3D92C66920AF87E600A10333 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Item.swift"; sourceTree = "<group>"; };
@@ -229,6 +237,14 @@
 				3D29915E217B720400132C91 /* ReuseIdentifiable.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		3D702F7F217B875900E8F20B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D702F83217B875900E8F20B /* FastlaneRunner */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3D92C66C20AF87EA00A10333 /* Models */ = {
@@ -367,6 +383,7 @@
 			children = (
 				DD7502721C68FC1B006590AF /* Frameworks */,
 				DD7502731C68FC20006590AF /* Tests */,
+				3D702F7E217B875900E8F20B /* FastlaneSwiftRunner.xcodeproj */,
 				3D04215820C2D7B100DA5126 /* .codeclimate.yml */,
 				3D2412E920BAEB56005A04D6 /* .gitignore */,
 				3D2412E620BAEB56005A04D6 /* .jazzy.yaml */,
@@ -526,6 +543,12 @@
 			mainGroup = 52D6D9721BEFF229002C0205;
 			productRefGroup = 52D6D97D1BEFF229002C0205 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3D702F7F217B875900E8F20B /* Products */;
+					ProjectRef = 3D702F7E217B875900E8F20B /* FastlaneSwiftRunner.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3DC8A6A720AED02400292C94 /* WhatsNewKit-Example */,
@@ -534,6 +557,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3D702F83217B875900E8F20B /* FastlaneRunner */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = FastlaneRunner;
+			remoteRef = 3D702F82217B875900E8F20B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3DC8A6A620AED02400292C94 /* Resources */ = {
