@@ -61,7 +61,7 @@ WhatsNewKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```bash
-pod 'WhatsNewKit', '~> 1.0.0'
+pod 'WhatsNewKit'
 ```
 
 ### Carthage
@@ -71,7 +71,7 @@ pod 'WhatsNewKit', '~> 1.0.0'
 To integrate WhatsNewKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "SvenTiigi/WhatsNewKit" ~> 1.0.0
+github "SvenTiigi/WhatsNewKit"
 ```
 
 Run `carthage update --platform iOS` to build the framework and drag the built `WhatsNewKit.framework` into your Xcode project. 
