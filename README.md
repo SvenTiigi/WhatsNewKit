@@ -51,11 +51,7 @@
 
 ## Example
 
-[<img style="float: right" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/xcodeopen.png" alt="Xcode open icon" align="left" width="100">](xcode://clone?repo=https%3A%2F%2Fgithub.com%2FSvenTiigi%2FWhatsNewKit)
-
-The example Application is an excellent way to see `WhatsNewKit` in action. 
-
-You get a brief look of the available configuration options and how they affect the look and feel of the `WhatsNewViewController`. Simply open the `WhatsNewKit.xcodeproj` and run the `WhatsNewKit-Example` scheme.
+The example Application is an excellent way to see `WhatsNewKit` in action. You get a brief look of the available configuration options and how they affect the look and feel of the `WhatsNewViewController`. Simply open the `WhatsNewKit.xcodeproj` and run the `WhatsNewKit-Example` scheme.
 
 ## Installation
 
