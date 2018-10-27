@@ -51,9 +51,7 @@
 
 ## Example
 
-<a href="xcode://clone?repo=https%3A%2F%2Fgithub.com%2FSvenTiigi%2FWhatsNewKit">
-   <img style="float: right" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/xcodeopen.png" alt="Xcode open icon" align="left" width="100">
-</a>
+[<img style="float: right" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/xcodeopen.png" alt="Xcode open icon" align="left" width="100">](xcode://clone?repo=https%3A%2F%2Fgithub.com%2FSvenTiigi%2FWhatsNewKit)
 
 The example Application is an excellent way to see `WhatsNewKit` in action. 
 
