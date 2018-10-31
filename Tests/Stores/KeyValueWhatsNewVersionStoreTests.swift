@@ -41,6 +41,7 @@ class KeyValueWhatsNewVersionStoreTests: BaseTests {
         keyValueWhatsNewVersionStore.set(version: version)
         XCTAssertTrue(keyValueWhatsNewVersionStore.has(version: version))
         XCTAssertEqual(iCloudKeyValue.object(forKey: versionKey) as? String, version.description)
+        iCloudKeyValue.removeObject(forKey: version.description)
     }
     
     func testKeyValueWhatsNewVersionUserDefaultsStore() {
@@ -54,6 +55,7 @@ class KeyValueWhatsNewVersionStoreTests: BaseTests {
         keyValueWhatsNewVersionStore.set(version: version)
         XCTAssertTrue(keyValueWhatsNewVersionStore.has(version: version))
         XCTAssertEqual(userDefaults.object(forKey: versionKey) as? String, version.description)
+        userDefaults.removeObject(forKey: versionKey)
     }
     
 }
