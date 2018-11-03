@@ -21,6 +21,7 @@ class ConfigurationCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.font = .systemFont(ofSize: 16)
         return label
     }()
     

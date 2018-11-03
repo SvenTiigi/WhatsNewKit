@@ -33,6 +33,7 @@
 		3D330EC4217B8E8E002359E7 /* HapticFeedbackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */; };
 		3D349B902162903400C76FDA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */; };
 		3D375BA020BC6582005DE31B /* UIColor+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9F20BC6582005DE31B /* UIColor+Main.swift */; };
+		3D3BAA71218E39E900068A5A /* SpacingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BAA70218E39E900068A5A /* SpacingConfiguration.swift */; };
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
 		3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */; };
 		3D5D06BF20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */; };
@@ -125,6 +126,7 @@
 		3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackConfiguration.swift; sourceTree = "<group>"; };
 		3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3D375B9F20BC6582005DE31B /* UIColor+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Main.swift"; sourceTree = "<group>"; };
+		3D3BAA70218E39E900068A5A /* SpacingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingConfiguration.swift; sourceTree = "<group>"; };
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
 		3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+TitleView.swift"; sourceTree = "<group>"; };
 		3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Animation.swift"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				3D299153217B6EA600132C91 /* AnimationConfiguration.swift */,
 				3D299155217B6EBA00132C91 /* LayoutConfiguration.swift */,
 				3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */,
+				3D3BAA70218E39E900068A5A /* SpacingConfiguration.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 			files = (
 				3D299148217B5FC700132C91 /* ConfigurationCollectionViewCell.swift in Sources */,
 				3D29915F217B720400132C91 /* ReuseIdentifiable.swift in Sources */,
+				3D3BAA71218E39E900068A5A /* SpacingConfiguration.swift in Sources */,
 				3D29914A217B691100132C91 /* ExampleViewController+PresentWhatsNew.swift in Sources */,
 				3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */,
 				3D299152217B6E9600132C91 /* TintColorConfiguration.swift in Sources */,

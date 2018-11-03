@@ -92,6 +92,7 @@ class WhatsNewItemsView: UIView {
             width: self.frame.size.width - self.frame.size.width * relativePadding * 2,
             height: self.frame.size.height
         )
+        self.tableView.reloadData()
     }
     
 }
@@ -226,14 +227,18 @@ extension WhatsNewItemsView: UITableViewDelegate {
             // Verify more then 1 item is available and last visible max y can be retrieved
             guard self.items.count > 1,
                 let lastCellMaxY = tableView.visibleCells.last?.frame.maxY else {
+                    // Return zero spacing
                     return 0
             }
             // Initialize the remaining space
             let remainingSpace = self.frame.maxY - lastCellMaxY
+            // Check if the remaining space is negative
+            if remainingSpace < 0 {
+                // Return zero spacing
+                return 0
+            }
             // Divide the remaining space with the items count
-            let spacing = remainingSpace / CGFloat(self.items.count)
-            // Return the spacing as absolute value
-            return CGFloat(abs(spacing))
+            return .init(remainingSpace / CGFloat(self.items.count))
         }
     }
     
