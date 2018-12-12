@@ -111,13 +111,38 @@ public extension WhatsNewViewController.ItemsView {
 public extension WhatsNewViewController.ItemsView {
     
     /// The ImageSize
-    enum ImageSize: Equatable {
+    enum ImageSize {
+        /// The original Image Size
+        case original
         /// The preferred Image size
         case preferred
-        /// The default Image Size
-        case original
-        /// A fixed Image Size
-        case fixed(Double)
+        /// A custom scale factor
+        case custom(scaleFactor: (CGSize) -> CGFloat)
+    }
+    
+}
+
+// MARK: - ItemsView.ImageSize Equatable
+
+extension WhatsNewViewController.ItemsView.ImageSize: Equatable {
+    
+    /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
+    public static func == (lhs: WhatsNewViewController.ItemsView.ImageSize,
+                           rhs: WhatsNewViewController.ItemsView.ImageSize) -> Bool {
+        switch (lhs, rhs) {
+        case (.original, .original):
+            return true
+        case (.preferred, .preferred):
+            return true
+        case (.custom, .custom):
+            return true
+        default:
+            return false
+        }
     }
     
 }

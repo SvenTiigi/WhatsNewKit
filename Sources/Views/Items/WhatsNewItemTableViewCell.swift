@@ -57,18 +57,56 @@ class WhatsNewItemTableViewCell: UITableViewCell {
     
     /// Configure ImageView
     private func configureImageView() {
+        // Enable scale aspect fit
+        self.imageView?.contentMode = .scaleAspectFit
+        // Clip to Bounds
+        self.imageView?.clipsToBounds = true
+        // Initialize Image from Item
+        var image = self.item.image
+        // Declare scale factor
+        let scaleFactor: CGFloat?
+        // Switch on ImageSize
+        switch self.configuration.itemsView.imageSize {
+        case .original:
+            // No scale factor
+            scaleFactor = nil
+        case .preferred:
+            // Preferred scale factor 25
+            scaleFactor = 25
+        case .custom(let scaleFactorClosure):
+            // Check if image size is available
+            if let size = image?.size {
+                // Initialize scale factor with closure
+                scaleFactor = scaleFactorClosure(size)
+            } else {
+                // No scale factor
+                scaleFactor = nil
+            }
+        }
+        // Check if a scale factor is available
+        if let scaleFactor = scaleFactor,
+            let cgImage = image?.cgImage,
+            let size = image?.size,
+            let imageOrientation = image?.imageOrientation {
+            // Re-Initialize Image with scaled CGImage
+            image = .init(
+                cgImage: cgImage,
+                scale: size.width / scaleFactor,
+                orientation: imageOrientation
+            )
+        }
         // Check if autoTintImage is activated
         if self.configuration.itemsView.autoTintImage {
             // Set template tinted image
-            let templateImage = self.item.image?.withRenderingMode(.alwaysTemplate)
+            let templateImage = image?.withRenderingMode(.alwaysTemplate)
             self.imageView?.image = templateImage
             self.imageView?.tintColor = self.configuration.tintColor
         } else {
             // Set original image
-            self.imageView?.image = self.item.image
+            self.imageView?.image = image
         }
     }
-    
+
     /// Configure TextLabel
     private func configureTextLabel() {
         // Set font
