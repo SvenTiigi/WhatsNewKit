@@ -47,7 +47,7 @@ public extension WhatsNewViewController {
         ///   - titleColor: The title color. Default value `black`
         ///   - subtitleFont: The subtitle font. Default value `size: 17`
         ///   - subtitleColor: The subtitle color. Default value `black`
-        ///   - imageSize: The ImageSize. Default value `true`
+        ///   - imageSize: The ImageSize. Default value `preferred`
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
         ///   - layout: The Layout. Default value `default`
         ///   - animation: The Animation. Default value `nil`
@@ -81,7 +81,7 @@ public extension WhatsNewViewController {
 public extension WhatsNewViewController.ItemsView {
     
     /// The Layout
-    enum Layout: Equatable {
+    enum Layout: String, Equatable, Hashable, CaseIterable {
         /// Default left image right text
         case `default`
         /// Centered image and centered text
@@ -95,7 +95,7 @@ public extension WhatsNewViewController.ItemsView {
 public extension WhatsNewViewController.ItemsView {
     
     /// The Spacing between ItemViews
-    enum Spacing: Equatable {
+    enum Spacing: Equatable, Hashable {
         /// Default will apply no spacing between the ItemViews
         case `default`
         /// Apply a fixed spacing between ItemViews
@@ -111,38 +111,13 @@ public extension WhatsNewViewController.ItemsView {
 public extension WhatsNewViewController.ItemsView {
     
     /// The ImageSize
-    enum ImageSize {
+    enum ImageSize: Equatable, Hashable {
         /// The original Image Size
         case original
-        /// The preferred Image size
+        /// The preferred Image Size
         case preferred
-        /// A custom scale factor
-        case custom(scaleFactor: (CGSize) -> CGFloat)
-    }
-    
-}
-
-// MARK: - ItemsView.ImageSize Equatable
-
-extension WhatsNewViewController.ItemsView.ImageSize: Equatable {
-    
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
-    public static func == (lhs: WhatsNewViewController.ItemsView.ImageSize,
-                           rhs: WhatsNewViewController.ItemsView.ImageSize) -> Bool {
-        switch (lhs, rhs) {
-        case (.original, .original):
-            return true
-        case (.preferred, .preferred):
-            return true
-        case (.custom, .custom):
-            return true
-        default:
-            return false
-        }
+        /// A fixed height by keeping the aspect ratio
+        case fixed(height: Double)
     }
     
 }

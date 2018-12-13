@@ -73,15 +73,9 @@ class WhatsNewItemTableViewCell: UITableViewCell {
         case .preferred:
             // Preferred scale factor 25
             scaleFactor = 25
-        case .custom(let scaleFactorClosure):
-            // Check if image size is available
-            if let size = image?.size {
-                // Initialize scale factor with closure
-                scaleFactor = scaleFactorClosure(size)
-            } else {
-                // No scale factor
-                scaleFactor = nil
-            }
+        case .fixed(let height):
+            // Initialize scale factor with fixed height
+            scaleFactor = .init(height)
         }
         // Check if a scale factor is available
         if let scaleFactor = scaleFactor,
@@ -91,7 +85,7 @@ class WhatsNewItemTableViewCell: UITableViewCell {
             // Re-Initialize Image with scaled CGImage
             image = .init(
                 cgImage: cgImage,
-                scale: size.width / scaleFactor,
+                scale: size.height / scaleFactor,
                 orientation: imageOrientation
             )
         }
