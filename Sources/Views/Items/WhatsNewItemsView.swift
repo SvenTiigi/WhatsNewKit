@@ -48,6 +48,8 @@ class WhatsNewItemsView: UIView {
         tableView.indicatorStyle = self.configuration.backgroundColor.isLight ? .black : .white
         // Set estimatedRowHeight so autosizing will work on iOS 10
         tableView.estimatedRowHeight = 44.0
+        // Set automtic dimension for row height
+        tableView.rowHeight = UITableView.automaticDimension
         // Return TableView
         return tableView
     }()
@@ -92,7 +94,6 @@ class WhatsNewItemsView: UIView {
             width: self.frame.size.width - self.frame.size.width * relativePadding * 2,
             height: self.frame.size.height
         )
-        self.tableView.reloadData()
     }
     
 }
@@ -106,8 +107,8 @@ extension WhatsNewItemsView: UITableViewDataSource {
     /// - Parameter tableView: The TableView
     /// - Returns: Amount of section
     public func numberOfSections(in tableView: UITableView) -> Int {
-        // Return items count
-        return self.items.count
+        // Return one section
+        return 1
     }
     
     /// Retrieve number of rows in section
@@ -117,8 +118,8 @@ extension WhatsNewItemsView: UITableViewDataSource {
     ///   - section: The section
     /// - Returns: The amount of rows in section
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return one row for each section
-        return 1
+        // Return items count
+        return self.items.count
     }
     
     /// Retrieve cell for row at IndexPath
@@ -129,13 +130,13 @@ extension WhatsNewItemsView: UITableViewDataSource {
     /// - Returns: The configured Cell
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Verify row is contained in indicies
-        guard self.items.indices.contains(indexPath.section) else {
+        guard self.items.indices.contains(indexPath.row) else {
             // Return unkown TableViewCell
             return UITableViewCell(style: .default, reuseIdentifier: "unkown")
         }
         // Return WhatsNewItemTableViewCell
         return WhatsNewItemTableViewCell(
-            item: self.items[indexPath.section],
+            item: self.items[indexPath.row],
             configuration: self.configuration
         )
     }
