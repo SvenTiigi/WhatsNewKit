@@ -28,7 +28,7 @@ class WhatsNewTitleView: UIView {
         label.text = self.title
         label.backgroundColor = .clear
         label.numberOfLines = 0
-        label.textAlignment = .center
+        label.textAlignment = self.configuration.titleView.titleAlignment
         label.lineBreakMode = .byWordWrapping
         label.font = self.configuration.titleView.titleFont
         label.textColor = self.configuration.titleView.titleColor
