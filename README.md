@@ -264,6 +264,7 @@ configuration.titleView.secondaryColor = .init(
     color: .whatsNewKitLightBlue
 )
 ```
+> ☝️ By default the secondaryTitleColor is set to `nil`.
 
 ### DetailButton
  <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="DetailButton">
