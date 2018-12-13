@@ -25,13 +25,33 @@ class WhatsNewTitleView: UIView {
     /// The title label
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = self.title
         label.backgroundColor = .clear
         label.numberOfLines = 0
         label.textAlignment = self.configuration.titleView.titleAlignment
         label.lineBreakMode = .byWordWrapping
         label.font = self.configuration.titleView.titleFont
         label.textColor = self.configuration.titleView.titleColor
+        // Check if a secondary color is available
+        if let secondaryColor = self.configuration.titleView.secondaryColor {
+            // Initialize Attribted Text
+            let attributedText = NSMutableAttributedString(string: self.title)
+            // Check if start index and length matches the string
+            if self.title.dropFirst(secondaryColor.startIndex).count >= secondaryColor.length {
+                // Add foreground color attribut
+                attributedText.addAttributes(
+                    [.foregroundColor: secondaryColor.color],
+                    range: .init(
+                        location: secondaryColor.startIndex,
+                        length: secondaryColor.length
+                    )
+                )
+            }
+            // Set attributed text
+            label.attributedText = attributedText
+        } else {
+            // No secondary color available simply set text
+            label.text = self.title
+        }
         return label
     }()
     
