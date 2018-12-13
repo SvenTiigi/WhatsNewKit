@@ -77,8 +77,7 @@ class ExampleViewController: UIViewController {
         TintColorConfiguration(),
         AnimationConfiguration(),
         LayoutConfiguration(),
-        HapticFeedbackConfiguration(),
-        SpacingConfiguration()
+        HapticFeedbackConfiguration()
     ]
     
     /// The Cells

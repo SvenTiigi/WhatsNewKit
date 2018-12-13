@@ -27,7 +27,7 @@ class WhatsNewItemsView: UIView {
     /// The TableView
     private lazy var tableView: UITableView = {
         // Initialize TableView
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         // Set clear background color
         tableView.backgroundColor = .clear
         // Only bounce vertical if space is needed
@@ -172,74 +172,6 @@ extension WhatsNewItemsView: UITableViewDelegate {
                 preferredDelay: 0.15 * (Double(indexPath.row) + 1.0)
             )
         )
-    }
-    
-    /// View for Header in Section
-    ///
-    /// - Parameters:
-    ///   - tableView: The TableView
-    ///   - section: The Section
-    /// - Returns: The Header View
-    func tableView(_ tableView: UITableView,
-                   viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-    }
-
-    /// Height for Header in Section
-    ///
-    /// - Parameters:
-    ///   - tableView: The TableView
-    ///   - section: The Section
-    /// - Returns: The Header Height
-    func tableView(_ tableView: UITableView,
-                   heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
-    }
-
-    /// View for Footer in Section
-    ///
-    /// - Parameters:
-    ///   - tableView: The TableView
-    ///   - section: The Section
-    /// - Returns: The Footer View
-    func tableView(_ tableView: UITableView,
-                   viewForFooterInSection section: Int) -> UIView? {
-        return nil
-    }
-    
-    /// Height for Footer in Section
-    ///
-    /// - Parameters:
-    ///   - tableView: The TableView
-    ///   - section: The Section
-    /// - Returns: The Footer Height
-    func tableView(_ tableView: UITableView,
-                   heightForFooterInSection section: Int) -> CGFloat {
-        // Switch on Spacing
-        switch self.configuration.itemsView.spacing {
-        case .default:
-            // Return zero height
-            return 0
-        case .fixed(let value):
-            // Return fixed value
-            return .init(value)
-        case .automatic:
-            // Verify more then 1 item is available and last visible max y can be retrieved
-            guard self.items.count > 1,
-                let lastCellMaxY = tableView.visibleCells.last?.frame.maxY else {
-                    // Return zero spacing
-                    return 0
-            }
-            // Initialize the remaining space
-            let remainingSpace = self.frame.maxY - lastCellMaxY
-            // Check if the remaining space is negative
-            if remainingSpace < 0 {
-                // Return zero spacing
-                return 0
-            }
-            // Divide the remaining space with the items count
-            return .init(remainingSpace / CGFloat(self.items.count))
-        }
     }
     
 }

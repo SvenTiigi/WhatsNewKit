@@ -37,9 +37,6 @@ public extension WhatsNewViewController {
         /// The Animation
         public var animation: Animation?
         
-        /// The Spacing
-        public var spacing: Spacing
-        
         /// Default initializer
         ///
         /// - Parameters:
@@ -59,8 +56,7 @@ public extension WhatsNewViewController {
                     imageSize: ImageSize = .preferred,
                     autoTintImage: Bool = true,
                     layout: Layout = .default,
-                    animation: Animation? = nil,
-                    spacing: Spacing = .default) {
+                    animation: Animation? = nil) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.subtitleFont = subtitleFont
@@ -69,7 +65,6 @@ public extension WhatsNewViewController {
             self.autoTintImage = autoTintImage
             self.layout = layout
             self.animation = animation
-            self.spacing = spacing
         }
         
     }
@@ -86,22 +81,6 @@ public extension WhatsNewViewController.ItemsView {
         case `default`
         /// Centered image and centered text
         case centered
-    }
-    
-}
-
-// MARK: - ItemsView.Spacing
-
-public extension WhatsNewViewController.ItemsView {
-    
-    /// The Spacing between ItemViews
-    enum Spacing: Equatable, Hashable {
-        /// Default will apply no spacing between the ItemViews
-        case `default`
-        /// Apply a fixed spacing between ItemViews
-        case fixed(Double)
-        /// Automatically calculate the appropriate spacing to fill the View
-        case automatic
     }
     
 }
