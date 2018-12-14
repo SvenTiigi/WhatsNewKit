@@ -251,7 +251,7 @@ configuration.detailButton.animation = .custom(animator: { (view: UIView, settin
 ### Secondary Title Color
 By setting a secondary title color you can change the color of the Title View for certain characters.
 
-<img align="right" width="355" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/SecondaryColor.jpg" alt="SecondaryColor" />
+<img align="right" width="360" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/SecondaryColor.jpg" alt="SecondaryColor" />
 
 ```swift
 // Set secondary color on TitleView Configuration
