@@ -31,6 +31,7 @@
 		3D29915F217B720400132C91 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29915E217B720400132C91 /* ReuseIdentifiable.swift */; };
 		3D299161217B7EEB00132C91 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299160217B7EEB00132C91 /* UIImage+Assets.swift */; };
 		3D330EC4217B8E8E002359E7 /* HapticFeedbackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */; };
+		3D33221D21C416E900B2949F /* SecondaryTitleColorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */; };
 		3D349B902162903400C76FDA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */; };
 		3D375BA020BC6582005DE31B /* UIColor+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9F20BC6582005DE31B /* UIColor+Main.swift */; };
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
@@ -123,6 +124,7 @@
 		3D29915E217B720400132C91 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		3D299160217B7EEB00132C91 /* UIImage+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
 		3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackConfiguration.swift; sourceTree = "<group>"; };
+		3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleColorConfiguration.swift; sourceTree = "<group>"; };
 		3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3D375B9F20BC6582005DE31B /* UIColor+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Main.swift"; sourceTree = "<group>"; };
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				3D299153217B6EA600132C91 /* AnimationConfiguration.swift */,
 				3D299155217B6EBA00132C91 /* LayoutConfiguration.swift */,
 				3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */,
+				3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				3D299146217B5EDD00132C91 /* ConfigurationsTableViewCell.swift in Sources */,
 				3D29914E217B6E7100132C91 /* Configuration.swift in Sources */,
 				3D299154217B6EA600132C91 /* AnimationConfiguration.swift in Sources */,
+				3D33221D21C416E900B2949F /* SecondaryTitleColorConfiguration.swift in Sources */,
 				3D299156217B6EBA00132C91 /* LayoutConfiguration.swift in Sources */,
 				3D29915D217B6FCD00132C91 /* Collection+Safe.swift in Sources */,
 				3D299161217B7EEB00132C91 /* UIImage+Assets.swift in Sources */,
