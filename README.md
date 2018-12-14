@@ -198,7 +198,7 @@ configuration.itemsView.layout = .centered
 > ☝️ By default the ItemsView layout is set to `default`.
 
 ### ImageSize
-In order to define the size of your images for each of your feature you can set an `ImageSize` on the `ItemsView` configuration.
+In order to define the size of your images for each of your feature you can set an [ImageSize](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift) on the `ItemsView` configuration.
 
 ```swift
 // Use the original image size as it is
@@ -249,7 +249,7 @@ configuration.detailButton.animation = .custom(animator: { (view: UIView, settin
 ```
 
 ### Secondary Title Color
-By setting a secondary title color you can change the color of the Title View for certain characters.
+By setting a [SecondaryColor](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BTitleView.swift) on the TitleView you can change the color of certain characters.
 
 <img align="right" width="360" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/SecondaryColor.jpg" alt="SecondaryColor" />
 
