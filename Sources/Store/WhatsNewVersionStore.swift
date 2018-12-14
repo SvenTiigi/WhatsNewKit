@@ -16,7 +16,7 @@ public typealias WhatsNewVersionStore = WriteableWhatsNewVersionStore & Readable
 // MARK: - WriteableWhatsNewVersionStore
 
 /// The WriteableWhatsNewVersionStore
-public protocol WriteableWhatsNewVersionStore: class {
+public protocol WriteableWhatsNewVersionStore {
     
     /// Set Version
     ///
@@ -28,7 +28,7 @@ public protocol WriteableWhatsNewVersionStore: class {
 // MARK: - ReadableWhatsNewVersionStore
 
 /// The ReadableWhatsNewVersionStore
-public protocol ReadableWhatsNewVersionStore: class {
+public protocol ReadableWhatsNewVersionStore {
     
     /// Has Version
     ///

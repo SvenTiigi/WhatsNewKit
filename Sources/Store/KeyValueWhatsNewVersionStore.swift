@@ -39,7 +39,7 @@ extension NSUbiquitousKeyValueStore: KeyValueable {}
 // MARK: - KeyValueWhatsNewVersionStore
 
 /// The KeyValueWhatsNewVersionStore
-public class KeyValueWhatsNewVersionStore {
+public struct KeyValueWhatsNewVersionStore {
     
     /// The KeyValueable
     private let keyValueable: KeyValueable
