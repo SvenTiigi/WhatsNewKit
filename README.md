@@ -189,13 +189,28 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 | The `default` layout shows an image on the left side and the text on the right side. | The `centered` layout aligns the image as well as the text in center. |
 
 ```swift
-/// Default Layout
+// Default Layout
 configuration.itemsView.layout = .default
 
 // Centered Layout
 configuration.itemsView.layout = .centered
 ```
 > ☝️ By default the ItemsView layout is set to `default`.
+
+### ImageSize
+In order to define the size of your images for each of your feature you can set an `ImageSize` on the `ItemsView` configuration.
+
+```swift
+// Use the original image size as it is
+configuration.itemsView.imageSize = .original
+
+// Use the preferred image size which fits perfectly :)
+configuration.itemsView.imageSize = .preferred
+
+// Use a custom height for each image
+configuration.itemsView.imageSize = .fixed(height: 25)
+```
+> ☝️ By default the ItemsView ImageSize  is set to `preferred`.
 
 ### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
@@ -233,6 +248,24 @@ configuration.detailButton.animation = .custom(animator: { (view: UIView, settin
 })
 ```
 
+### Secondary Title Color
+By setting a secondary title color you can change the color of the Title View for certain characters.
+
+<img align="right" width="360" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/SecondaryColor.jpg" alt="SecondaryColor" />
+
+```swift
+// Set secondary color on TitleView Configuration
+configuration.titleView.secondaryColor = .init(
+    // The start index
+    startIndex: 0,
+    // The length of characters
+    length: 5,
+    // The secondary color to apply 
+    color: .whatsNewKitLightBlue
+)
+```
+> ☝️ By default the secondaryTitleColor is set to `nil`.
+
 ### DetailButton
  <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="DetailButton">
 
@@ -261,7 +294,7 @@ let detailButton = WhatsNewViewController.DetailButton(
 
 ### CompletionButton
  <img width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/completionButton.jpg" alt="CompletionButton">
- 
+
 The [CompletionButton](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BCompletionButton.swift) struct configures the displayed title and the action when the user pressed the completion button on the `WhatsNewViewController`.
 
 | Action | Description   |
@@ -494,6 +527,7 @@ let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
 * [MyBridge - Open Source Swift Projects (June 2018)](https://medium.mybridge.co/swift-open-source-projects-of-the-month-v-june-2018-f9ce1239eee4)
 * [The iOS Times](http://theiostimes.com/issue-44.html)
 * [DZone](https://dzone.com/articles/this-week-in-mobile-11-june-2018)
+* [Brian Advent](https://youtu.be/zCHEpN1Wgz4)
 
 ## Contributing
 Contributions are very welcome 🙌 🤓

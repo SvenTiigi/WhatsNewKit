@@ -91,6 +91,18 @@ public extension WhatsNewViewController.Configuration {
         return self
     }
     
+    /// Apply a given UIColor as text color to all Views
+    ///
+    /// - Parameter textColor: The text color
+    /// - Returns: Discardable Configuration
+    @discardableResult
+    mutating func apply(textColor: UIColor) -> WhatsNewViewController.Configuration {
+        self.titleView.titleColor = textColor
+        self.itemsView.titleColor = textColor
+        self.itemsView.subtitleColor = textColor
+        return self
+    }
+    
 }
 
 // MARK: - Theme
@@ -144,10 +156,8 @@ public extension WhatsNewViewController.Theme {
     static var darkDefault: WhatsNewViewController.Theme {
         return .init { configuration in
             configuration.apply(theme: .default)
+            configuration.apply(textColor: .white)
             configuration.backgroundColor = .whatsNewKitDark
-            configuration.titleView.titleColor = .white
-            configuration.itemsView.titleColor = .white
-            configuration.itemsView.subtitleColor = .white
         }
     }
     

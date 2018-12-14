@@ -25,6 +25,9 @@ public extension WhatsNewViewController {
         /// The subtitle color
         public var subtitleColor: UIColor
         
+        /// The ImageSize
+        public var imageSize: ImageSize
+        
         /// Boolean if Image should be auto tinted
         public var autoTintImage: Bool
         
@@ -41,13 +44,16 @@ public extension WhatsNewViewController {
         ///   - titleColor: The title color. Default value `black`
         ///   - subtitleFont: The subtitle font. Default value `size: 17`
         ///   - subtitleColor: The subtitle color. Default value `black`
+        ///   - imageSize: The ImageSize. Default value `preferred`
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
         ///   - layout: The Layout. Default value `default`
         ///   - animation: The Animation. Default value `nil`
+        ///   - spacing: The Spacing. Default value `default`
         public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
                     titleColor: UIColor = .black,
                     subtitleFont: UIFont = .systemFont(ofSize: 17),
                     subtitleColor: UIColor = .black,
+                    imageSize: ImageSize = .preferred,
                     autoTintImage: Bool = true,
                     layout: Layout = .default,
                     animation: Animation? = nil) {
@@ -55,6 +61,7 @@ public extension WhatsNewViewController {
             self.titleColor = titleColor
             self.subtitleFont = subtitleFont
             self.subtitleColor = subtitleColor
+            self.imageSize = imageSize
             self.autoTintImage = autoTintImage
             self.layout = layout
             self.animation = animation
@@ -69,11 +76,27 @@ public extension WhatsNewViewController {
 public extension WhatsNewViewController.ItemsView {
     
     /// The Layout
-    enum Layout: Equatable {
+    enum Layout: String, Equatable, Hashable, CaseIterable {
         /// Default left image right text
         case `default`
         /// Centered image and centered text
         case centered
+    }
+    
+}
+
+// MARK: - ItemsView.ImageSize
+
+public extension WhatsNewViewController.ItemsView {
+    
+    /// The ImageSize
+    enum ImageSize: Equatable, Hashable {
+        /// The original Image Size
+        case original
+        /// The preferred Image Size
+        case preferred
+        /// A fixed height by keeping the aspect ratio
+        case fixed(height: Double)
     }
     
 }

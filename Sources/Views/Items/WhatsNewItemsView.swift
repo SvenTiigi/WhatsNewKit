@@ -27,7 +27,7 @@ class WhatsNewItemsView: UIView {
     /// The TableView
     private lazy var tableView: UITableView = {
         // Initialize TableView
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .plain)
         // Set clear background color
         tableView.backgroundColor = .clear
         // Only bounce vertical if space is needed
@@ -48,6 +48,8 @@ class WhatsNewItemsView: UIView {
         tableView.indicatorStyle = self.configuration.backgroundColor.isLight ? .black : .white
         // Set estimatedRowHeight so autosizing will work on iOS 10
         tableView.estimatedRowHeight = 44.0
+        // Set automtic dimension for row height
+        tableView.rowHeight = UITableView.automaticDimension
         // Return TableView
         return tableView
     }()
@@ -105,7 +107,7 @@ extension WhatsNewItemsView: UITableViewDataSource {
     /// - Parameter tableView: The TableView
     /// - Returns: Amount of section
     public func numberOfSections(in tableView: UITableView) -> Int {
-        // Just one section
+        // Return one section
         return 1
     }
     
@@ -151,7 +153,9 @@ extension WhatsNewItemsView: UITableViewDelegate {
     ///   - tableView: The TableView
     ///   - cell: The Cell
     ///   - indexPath: The indexPath
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
         cell.backgroundColor = self.configuration.backgroundColor
         // Unwrap cell as WhatsNewItemTableViewCell and verify cellDisplayCount is less then the items count
         guard let cell = cell as? WhatsNewItemTableViewCell,

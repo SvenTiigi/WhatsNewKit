@@ -28,7 +28,7 @@ public class WhatsNewViewController: UIViewController {
     private var configuration: Configuration
     
     /// The VersionStore
-    private var versionStore: WhatsNewVersionStore?
+    private weak var versionStore: WhatsNewVersionStore?
     
     // MARK: ThemableViews
 
