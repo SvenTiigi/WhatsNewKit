@@ -1,6 +1,6 @@
 //
 //  WhatsNewViewController.swift
-//  WhatsNewKit
+//  WhatsNewKit-iOS
 //
 //  Created by Sven Tiigi on 19.05.18.
 //  Copyright © 2018 WhatsNewKit. All rights reserved.
@@ -12,7 +12,7 @@ import UIKit
 /// The WhatsNewViewController
 public class WhatsNewViewController: UIViewController {
     
-    // MARK: Public Properties
+    // MARK: Properties
     
     /// The preferred status bar style
     public override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -22,34 +22,30 @@ public class WhatsNewViewController: UIViewController {
     /// The WhatsNew
     public let whatsNew: WhatsNew
     
-    // MARK: Private Properties
-    
     /// The Configuration
-    private var configuration: Configuration
+    var configuration: Configuration
     
     /// The VersionStore
-    private var versionStore: WhatsNewVersionStore?
+    var versionStore: WhatsNewVersionStore?
     
-    // MARK: ThemableViews
-
-    /// The TitleView
-    private lazy var titleView: UIView = WhatsNewTitleView(
+    /// The TitleViewController
+    lazy var titleViewController: UIViewController = WhatsNewTitleViewController(
         title: self.whatsNew.title,
         configuration: self.configuration
     )
     
-    /// The ItemsView
-    private lazy var itemsView: UIView = WhatsNewItemsView(
+    /// The ItemsViewController
+    lazy var itemsViewController: UIViewController = WhatsNewItemsViewController(
         items: self.whatsNew.items,
         configuration: self.configuration
     )
     
-    /// The ButtonsView
-    private lazy var buttonsView: UIView = WhatsNewButtonsView(
+    /// The ButtonViewController
+    lazy var buttonViewController: UIViewController = WhatsNewButtonViewController(
         configuration: self.configuration,
         onPress: { [weak self] buttonType in
-            // Handle button type
-            self?.handleOnPress(buttonType: buttonType)
+            // Handle Button Press
+            self?.handlePress(buttonType: buttonType)
         }
     )
     
@@ -68,6 +64,11 @@ public class WhatsNewViewController: UIViewController {
         self.configuration = configuration
         // Super init
         super.init(nibName: nil, bundle: nil)
+        // Check if Device is iPad
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            // Invoke iPad Adjustment closure
+            self.configuration.padAdjustment(&self.configuration)
+        }
     }
     
     /// Convenience optional initializer with WhatsNewVersionStore.
@@ -108,46 +109,79 @@ public class WhatsNewViewController: UIViewController {
         super.viewDidLoad()
         // Set background color
         self.view.backgroundColor = self.configuration.backgroundColor
-        // Add TitleView
-        self.view.addSubview(self.titleView)
-        // Add ItemsView
-        self.view.addSubview(self.itemsView)
-        // Add ButtonView
-        self.view.addSubview(self.buttonsView)
+        // Add Subviews
+        self.addSubviews()
+    }
+
+}
+
+// MARK: - Add Subviews
+
+extension WhatsNewViewController {
+    
+    /// Add Subviews
+    func addSubviews() {
+        // Add TitleViewController with Constraints
+        self.add(self.titleViewController, constraints: [
+            self.titleViewController.view.topAnchor.constraint(
+                equalTo: self.anchor.topAnchor,
+                constant: self.configuration.titleView.insets.top
+            ),
+            self.titleViewController.view.leadingAnchor.constraint(
+                equalTo: self.anchor.leadingAnchor,
+                constant: self.configuration.titleView.insets.left
+            ),
+            self.titleViewController.view.trailingAnchor.constraint(
+                equalTo: self.anchor.trailingAnchor,
+                constant: -self.configuration.titleView.insets.right
+            )
+        ])
+        // Add ButtonViewController with Constraints
+        self.add(self.buttonViewController, constraints: [
+            self.buttonViewController.view.leadingAnchor.constraint(
+                equalTo: self.anchor.leadingAnchor,
+                constant: self.configuration.completionButton.insets.left
+            ),
+            self.buttonViewController.view.trailingAnchor.constraint(
+                equalTo: self.anchor.trailingAnchor,
+                constant: -self.configuration.completionButton.insets.right
+            ),
+            self.buttonViewController.view.bottomAnchor.constraint(
+                equalTo: self.anchor.bottomAnchor,
+                constant: -self.configuration.completionButton.insets.bottom
+            )
+        ])
+        // Add ItemsViewController with Constraints
+        self.add(self.itemsViewController, constraints: [
+            self.itemsViewController.view.topAnchor.constraint(
+                equalTo: self.titleViewController.view.bottomAnchor,
+                constant: self.configuration.itemsView.insets.top + self.configuration.titleView.insets.bottom
+            ),
+            self.itemsViewController.view.leadingAnchor.constraint(
+                equalTo: self.anchor.leadingAnchor,
+                constant: self.configuration.itemsView.insets.left
+            ),
+            self.itemsViewController.view.trailingAnchor.constraint(
+                equalTo: self.anchor.trailingAnchor,
+                constant: -self.configuration.itemsView.insets.right
+            ),
+            self.itemsViewController.view.bottomAnchor.constraint(
+                equalTo: self.buttonViewController.view.topAnchor,
+                constant: -(self.configuration.itemsView.insets.bottom + self.configuration.completionButton.insets.top)
+            )
+        ])
     }
     
-    /// View did layout subviews
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        // Set TitleView frame (20% height)
-        self.titleView.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: self.view.frame.size.width,
-            height: self.view.frame.size.height * 0.2
-        )
-        // Set ItemsView frame (60% height)
-        self.itemsView.frame = CGRect(
-            x: 0,
-            y: self.titleView.frame.size.height,
-            width: self.view.frame.size.width,
-            height: self.view.frame.size.height * 0.6
-        )
-        // Set ButtonView frame (20% height)
-        self.buttonsView.frame = CGRect(
-            x: 0,
-            y: self.view.frame.size.height - self.view.frame.size.height * 0.2,
-            width: self.view.frame.size.width,
-            height: self.view.frame.size.height * 0.2
-        )
-    }
+}
+
+// MARK: - Handle Button Press
+
+extension WhatsNewViewController {
     
-    // MARK: Action Handler
-    
-    /// Handle onPress with button type
+    /// Handle Button Press
     ///
     /// - Parameter buttonType: The Button type
-    func handleOnPress(buttonType: WhatsNewButtonsView.ButtonType) {
+    func handlePress(buttonType: WhatsNewButtonViewController.ButtonType) {
         // Switch on button type
         switch buttonType {
         case .completion:
@@ -172,13 +206,15 @@ public class WhatsNewViewController: UIViewController {
             case .some(.website(let urlString)):
                 // Check if url is available
                 guard let url = URL(string: urlString) else {
-                        // URL unavailable
-                        return
+                    // URL unavailable
+                    return
                 }
                 // Initialize SafariViewController
                 let safariViewController = SFSafariViewController(url: url)
                 // Set tint color
                 safariViewController.preferredControlTintColor = self.configuration.tintColor
+                // Set Bar tint Color
+                safariViewController.preferredBarTintColor = self.configuration.backgroundColor
                 // Present ViewController
                 self.present(safariViewController, animated: true)
             case .some(.custom(action: let action)):
@@ -192,7 +228,7 @@ public class WhatsNewViewController: UIViewController {
     
 }
 
-// MARK: Present - Push API
+// MARK: Present/Push
 
 public extension WhatsNewViewController {
     

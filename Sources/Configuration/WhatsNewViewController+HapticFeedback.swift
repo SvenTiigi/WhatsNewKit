@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - HapticFeedback
+
 public extension WhatsNewViewController {
     
     /// The HapticFeedback Enumeration

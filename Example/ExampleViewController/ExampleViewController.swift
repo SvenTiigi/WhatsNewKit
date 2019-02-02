@@ -17,6 +17,9 @@ class ExampleViewController: UIViewController {
     
     // MARK: Properties
     
+    /// The static WhatsNewVersionStore
+    static var versionStore: WhatsNewVersionStore?
+    
     /// The HeaderView
     lazy var headerView: UIView = {
         let view = UIView()
@@ -76,6 +79,7 @@ class ExampleViewController: UIViewController {
         BackgroundColorConfiguration(),
         TintColorConfiguration(),
         AnimationConfiguration(),
+        VersionStoreConfiguration(),
         LayoutConfiguration(),
         HapticFeedbackConfiguration(),
         SecondaryTitleColorConfiguration()
@@ -257,6 +261,24 @@ extension ExampleViewController: ConfigurationsTableViewCellDelegate {
         if option == "Dark" {
             self.demoImageView.image = .darkPreview
         }
+    }
+    
+}
+
+// MARK: - Already Presented
+
+extension ExampleViewController {
+    
+    /// Present already Presented Alert
+    func presentAlreadyPresentedAlert() {
+        let alertController = UIAlertController(
+            title: "WhatsNewVersionStore",
+            message: "The Version \(WhatsNew.Version.current().description) has already been presented",
+            preferredStyle: .alert
+        )
+        let confirmAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true)
     }
     
 }

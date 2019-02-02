@@ -80,14 +80,33 @@ extension ExampleViewController {
         
         // MARK: Step 3: Initialize and present a WhatsNewViewController
         
-        // Initialize a WhatsNewViewController with WhatsNew and the Configuration
-        let whatsNewViewController = WhatsNewViewController(
-            whatsNew: whatsNew,
-            configuration: configuration
-        )
+        // Declare WhatsNewViewController
+        let whatsNewViewController: WhatsNewViewController?
         
-        // Present the WhatsNewViewController
-        self.present(whatsNewViewController, animated: true)
+        // Check if a WhatsNewVersionStore is available/enabled
+        if let versionStore = ExampleViewController.versionStore {
+            // Initialize WhatsNewViewController with WhatsNewVersionStore
+            whatsNewViewController = WhatsNewViewController(
+                whatsNew: whatsNew,
+                configuration: configuration,
+                versionStore: versionStore
+            )
+        } else {
+            // Initialize WhatsNewViewController
+            whatsNewViewController = WhatsNewViewController(
+                whatsNew: whatsNew,
+                configuration: configuration
+            )
+        }
+        
+        /// Check if WhatsNewViewController is available
+        if let controller = whatsNewViewController {
+            // Present the WhatsNewViewController
+            self.present(controller, animated: true)
+        } else {
+            // Present already presented Alert
+            self.presentAlreadyPresentedAlert()
+        }
     }
     
 }
