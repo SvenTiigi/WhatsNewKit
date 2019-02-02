@@ -1,5 +1,5 @@
 //
-//  UIColorExtension.swift
+//  UIColor+Defaults.swift
 //  WhatsNewKit-iOS
 //
 //  Created by Sven Tiigi on 25.05.18.

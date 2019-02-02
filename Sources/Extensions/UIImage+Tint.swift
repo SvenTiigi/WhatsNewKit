@@ -1,5 +1,5 @@
 //
-//  UIImageExtension.swift
+//  UIImage+Tint.swift
 //  WhatsNewKit-Example
 //
 //  Created by Sven Tiigi on 01.10.18.

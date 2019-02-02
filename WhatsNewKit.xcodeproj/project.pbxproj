@@ -32,7 +32,7 @@
 		3D299161217B7EEB00132C91 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299160217B7EEB00132C91 /* UIImage+Assets.swift */; };
 		3D330EC4217B8E8E002359E7 /* HapticFeedbackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */; };
 		3D33221D21C416E900B2949F /* SecondaryTitleColorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */; };
-		3D349B902162903400C76FDA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */; };
+		3D349B902162903400C76FDA /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D349B8E21628FDD00C76FDA /* UIImage+Tint.swift */; };
 		3D375BA020BC6582005DE31B /* UIColor+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9F20BC6582005DE31B /* UIColor+Main.swift */; };
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
 		3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */; };
@@ -53,7 +53,7 @@
 		3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AA20AED02400292C94 /* AppDelegate.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
 		3DC8A6B520AED02600292C94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B320AED02600292C94 /* LaunchScreen.storyboard */; };
-		3DDDB59720B832AB001D59C5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */; };
+		3DDDB59720B832AB001D59C5 /* UIColor+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB59620B832AB001D59C5 /* UIColor+Defaults.swift */; };
 		3DFAA78720D1B82D00F9B006 /* WhatsNewDetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFAA78620D1B82D00F9B006 /* WhatsNewDetailButton.swift */; };
 		3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */; };
 		52D6D9871BEFF229002C0205 /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
@@ -125,7 +125,7 @@
 		3D299160217B7EEB00132C91 /* UIImage+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
 		3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackConfiguration.swift; sourceTree = "<group>"; };
 		3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleColorConfiguration.swift; sourceTree = "<group>"; };
-		3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		3D349B8E21628FDD00C76FDA /* UIImage+Tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
 		3D375B9F20BC6582005DE31B /* UIColor+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Main.swift"; sourceTree = "<group>"; };
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
 		3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+TitleView.swift"; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		3DC8A6B120AED02600292C94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC8A6B420AED02600292C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC8A6B620AED02600292C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		3DDDB59620B832AB001D59C5 /* UIColor+Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Defaults.swift"; sourceTree = "<group>"; };
 		3DFAA78620D1B82D00F9B006 /* WhatsNewDetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewDetailButton.swift; sourceTree = "<group>"; };
 		3DFB6FFF20B34F8800673FD6 /* WhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsNewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -330,8 +330,8 @@
 		3DDDB59520B83296001D59C5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3DDDB59620B832AB001D59C5 /* UIColorExtension.swift */,
-				3D349B8E21628FDD00C76FDA /* UIImageExtension.swift */,
+				3DDDB59620B832AB001D59C5 /* UIColor+Defaults.swift */,
+				3D349B8E21628FDD00C76FDA /* UIImage+Tint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -613,8 +613,8 @@
 			files = (
 				3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */,
 				3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */,
-				3DDDB59720B832AB001D59C5 /* UIColorExtension.swift in Sources */,
-				3D349B902162903400C76FDA /* UIImageExtension.swift in Sources */,
+				3DDDB59720B832AB001D59C5 /* UIColor+Defaults.swift in Sources */,
+				3D349B902162903400C76FDA /* UIImage+Tint.swift in Sources */,
 				3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */,
 				3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */,
 				3D92C67420AF88AC00A10333 /* WhatsNewItemTableViewCell.swift in Sources */,
