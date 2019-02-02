@@ -18,6 +18,7 @@
 		3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */; };
 		3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */; };
 		3D2412D120BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */; };
+		3D2803CC220598F400E1FA31 /* NSLayoutConstraint+Activate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2803CB220598F400E1FA31 /* NSLayoutConstraint+Activate.swift */; };
 		3D299144217B5D8100132C91 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299143217B5D8100132C91 /* ExampleViewController.swift */; };
 		3D299146217B5EDD00132C91 /* ConfigurationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299145217B5EDD00132C91 /* ConfigurationsTableViewCell.swift */; };
 		3D299148217B5FC700132C91 /* ConfigurationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299147217B5FC700132C91 /* ConfigurationCollectionViewCell.swift */; };
@@ -111,6 +112,7 @@
 		3D2412EA20BAEB56005A04D6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3D2412EB20BAEB56005A04D6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		3D2412EC20BAEB56005A04D6 /* WhatsNewKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = WhatsNewKit.podspec; sourceTree = SOURCE_ROOT; };
+		3D2803CB220598F400E1FA31 /* NSLayoutConstraint+Activate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Activate.swift"; sourceTree = "<group>"; };
 		3D299143217B5D8100132C91 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		3D299145217B5EDD00132C91 /* ConfigurationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationsTableViewCell.swift; sourceTree = "<group>"; };
 		3D299147217B5FC700132C91 /* ConfigurationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			children = (
 				3DDDB59620B832AB001D59C5 /* UIColor+Defaults.swift */,
 				3D349B8E21628FDD00C76FDA /* UIImage+Tint.swift */,
+				3D2803CB220598F400E1FA31 /* NSLayoutConstraint+Activate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				3D299148217B5FC700132C91 /* ConfigurationCollectionViewCell.swift in Sources */,
 				3D29915F217B720400132C91 /* ReuseIdentifiable.swift in Sources */,
 				3D29914A217B691100132C91 /* ExampleViewController+PresentWhatsNew.swift in Sources */,
+				3D2803CC220598F400E1FA31 /* NSLayoutConstraint+Activate.swift in Sources */,
 				3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */,
 				3D299152217B6E9600132C91 /* TintColorConfiguration.swift in Sources */,
 				3D375BA020BC6582005DE31B /* UIColor+Main.swift in Sources */,
