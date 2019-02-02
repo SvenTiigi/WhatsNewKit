@@ -197,6 +197,18 @@ configuration.itemsView.layout = .centered
 ```
 > ☝️ By default the ItemsView layout is set to `default`.
 
+### Insets
+
+Additionally, if you wish you can modify the layout insets of the `WhatsNewViewController` components.
+
+```swift
+// Set TitleView Insets (Default values)
+configuration.titleView.insets = UIEdgeInsets(top: 50, left: 20, bottom: 15, right: 20)
+
+// Increase the CompletionButton Bottom Inset 
+configuration.completionButton.insets.bottom += 10
+```
+
 ### ImageSize
 In order to define the size of your images for each of your feature you can set an [ImageSize](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift) on the `ItemsView` configuration.
 
@@ -336,6 +348,21 @@ let completionButton = WhatsNewViewController.CompletionButton(
 )
 ```
 > ☝️ In default the [HapticFeedback](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BHapticFeedback.swift) is `nil` indicating no haptic feedback should be executed.
+
+### iPad Adjustments
+
+If you wish to modify the `WhatsNewViewController.Configuration` when presenting it on an iPad you can set the `padAdjustment` closure.
+
+```swift
+// Set PadAdjustment closure
+configuration.padAdjustment = { configuration in
+     // Adjust TitleView FontSize
+     configuration.titleView.titleFont = .systemFont(ofSize: 45, weight: .bold)
+     // Invoke default PadAdjustments (Adjusts Insets for iPad)
+     WhatsNewViewController.Configuration.defaultPadAdjustment(&configuration)
+}
+```
+> ☝️ In default the `WhatsNewViewController.Configuration.defaultPadAdjustment` will be invoked.
 
 ### WhatsNewVersionStore
 <p align="center">
