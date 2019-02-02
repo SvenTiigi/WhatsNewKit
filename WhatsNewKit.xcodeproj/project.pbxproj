@@ -26,6 +26,7 @@
 		3D2803D92205ABAB00E1FA31 /* WhatsNewButtonViewController+CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2803D82205ABAB00E1FA31 /* WhatsNewButtonViewController+CompletionButton.swift */; };
 		3D2803DB2205AE5C00E1FA31 /* WhatsNewItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2803DA2205AE5C00E1FA31 /* WhatsNewItemsViewController.swift */; };
 		3D2803DD2205B4E200E1FA31 /* WhatsNewItemsViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2803DC2205B4E200E1FA31 /* WhatsNewItemsViewController+Cell.swift */; };
+		3D2803E62205D4E800E1FA31 /* VersionStoreConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2803E52205D4E800E1FA31 /* VersionStoreConfiguration.swift */; };
 		3D299144217B5D8100132C91 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299143217B5D8100132C91 /* ExampleViewController.swift */; };
 		3D299146217B5EDD00132C91 /* ConfigurationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299145217B5EDD00132C91 /* ConfigurationsTableViewCell.swift */; };
 		3D299148217B5FC700132C91 /* ConfigurationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D299147217B5FC700132C91 /* ConfigurationCollectionViewCell.swift */; };
@@ -120,6 +121,7 @@
 		3D2803D82205ABAB00E1FA31 /* WhatsNewButtonViewController+CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewButtonViewController+CompletionButton.swift"; sourceTree = "<group>"; };
 		3D2803DA2205AE5C00E1FA31 /* WhatsNewItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewItemsViewController.swift; sourceTree = "<group>"; };
 		3D2803DC2205B4E200E1FA31 /* WhatsNewItemsViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewItemsViewController+Cell.swift"; sourceTree = "<group>"; };
+		3D2803E52205D4E800E1FA31 /* VersionStoreConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionStoreConfiguration.swift; sourceTree = "<group>"; };
 		3D299143217B5D8100132C91 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		3D299145217B5EDD00132C91 /* ConfigurationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationsTableViewCell.swift; sourceTree = "<group>"; };
 		3D299147217B5FC700132C91 /* ConfigurationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				3D299155217B6EBA00132C91 /* LayoutConfiguration.swift */,
 				3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */,
 				3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */,
+				3D2803E52205D4E800E1FA31 /* VersionStoreConfiguration.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D299148217B5FC700132C91 /* ConfigurationCollectionViewCell.swift in Sources */,
+				3D2803E62205D4E800E1FA31 /* VersionStoreConfiguration.swift in Sources */,
 				3D29915F217B720400132C91 /* ReuseIdentifiable.swift in Sources */,
 				3D29914A217B691100132C91 /* ExampleViewController+PresentWhatsNew.swift in Sources */,
 				3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */,
