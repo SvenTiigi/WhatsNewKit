@@ -40,6 +40,8 @@ class WhatsNewItemsView: UIView {
         tableView.tableFooterView = UIView()
         // No seperators
         tableView.separatorStyle = .none
+        // Enable Readable Width
+        tableView.cellLayoutMarginsFollowReadableWidth = true
         // No selection
         tableView.allowsSelection = false
         // Hide Vertical Scroll Indicator
