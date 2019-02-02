@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - TitleView Configuration
+
 public extension WhatsNewViewController {
     
     /// The TitleView
@@ -28,6 +30,9 @@ public extension WhatsNewViewController {
         /// The SecondaryColor
         public var secondaryColor: SecondaryColor?
         
+        /// The Insets
+        public var insets: UIEdgeInsets
+        
         /// Default initializer
         ///
         /// - Parameters:
@@ -36,16 +41,19 @@ public extension WhatsNewViewController {
         ///   - titleAlignment: The title alignment. Default value `center`
         ///   - animation: The Animation. Default value `nil`
         ///   - secondaryColor: The SecondaryColor. Default value `nil`
+        ///   - insets: The UIEdgeInsets. Default value `top: 30`
         public init(titleFont: UIFont = .systemFont(ofSize: 30, weight: .semibold),
                     titleColor: UIColor = .black,
                     titleAlignment: NSTextAlignment = .center,
                     animation: Animation? = nil,
-                    secondaryColor: SecondaryColor? = nil) {
+                    secondaryColor: SecondaryColor? = nil,
+                    insets: UIEdgeInsets = .init(top: 30, left: 0, bottom: 0, right: 0)) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.titleAlignment = titleAlignment
             self.animation = animation
             self.secondaryColor = secondaryColor
+            self.insets = insets
         }
         
     }

@@ -1,29 +1,28 @@
 //
-//  WhatsNewTitleView.swift
-//  WhatsNewKit
+//  WhatsNewTitleViewController.swift
+//  WhatsNewKit-iOS
 //
-//  Created by Sven Tiigi on 19.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
+//  Created by Sven Tiigi on 02.02.19.
+//  Copyright © 2019 WhatsNewKit. All rights reserved.
 //
 
 import UIKit
 
-/// The WhatsNewTitleView
-class WhatsNewTitleView: UIView {
+// MARK: - WhatsNewTitleViewController
+
+/// The WhatsNewTitleViewController
+class WhatsNewTitleViewController: UIViewController {
     
     // MARK: Properties
     
     /// The WhatsNew Title
-    private let title: String
+    let titleText: String
     
     /// The Configuration
-    private let configuration: WhatsNewViewController.Configuration
+    var configuration: WhatsNewViewController.Configuration
     
-    /// Bool has animated
-    private var hasAnimated = false
-
     /// The title label
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
         label.numberOfLines = 0
@@ -34,9 +33,9 @@ class WhatsNewTitleView: UIView {
         // Check if a secondary color is available
         if let secondaryColor = self.configuration.titleView.secondaryColor {
             // Initialize Attribted Text
-            let attributedText = NSMutableAttributedString(string: self.title)
+            let attributedText = NSMutableAttributedString(string: self.titleText)
             // Check if start index and length matches the string
-            if self.title.dropFirst(secondaryColor.startIndex).count >= secondaryColor.length {
+            if self.titleText.dropFirst(secondaryColor.startIndex).count >= secondaryColor.length {
                 // Add foreground color attribut
                 attributedText.addAttributes(
                     [.foregroundColor: secondaryColor.color],
@@ -50,7 +49,7 @@ class WhatsNewTitleView: UIView {
             label.attributedText = attributedText
         } else {
             // No secondary color available simply set text
-            label.text = self.title
+            label.text = self.titleText
         }
         return label
     }()
@@ -65,49 +64,40 @@ class WhatsNewTitleView: UIView {
     init(title: String,
          configuration: WhatsNewViewController.Configuration) {
         // Set title
-        self.title = title
+        self.titleText = title
         // Set configuration
         self.configuration = configuration
         // Super init
-        super.init(frame: .zero)
+        super.init(nibName: nil, bundle: nil)
         // Set background color
-        self.backgroundColor = self.configuration.backgroundColor
-        // Add title label
-        self.addSubview(self.titleLabel)
+        self.view.backgroundColor = self.configuration.backgroundColor
     }
     
-    /// Initializer with Coder always returns nil
+    /// Initializer with Coder always return nil
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
     
     // MARK: View-Lifecycle
     
-    /// Layout Subviews
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        // Initialize label height
-        let titleLabelHeight: CGFloat = self.frame.size.height * 0.7
-        // Check if TitleLabel frame is not empty and hasn't animated
-        if self.titleLabel.frame != .zero && !self.hasAnimated {
-            // Perform animation if available
-            self.configuration.titleView.animation?.rawValue(
-                self.titleLabel,
-                .init(
-                    preferredDuration: 0.5,
-                    preferredDelay: 0.2
-                )
+    /// Load View
+    override func loadView() {
+        self.view = self.titleLabel
+    }
+    
+    /// View did layout Subviews
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // Perform animation if available
+        self.configuration.titleView.animation?.rawValue(
+            self.titleLabel,
+            .init(
+                preferredDuration: 0.5,
+                preferredDelay: 0.2
             )
-            // Set animated true
-            self.hasAnimated = true
-        }
-        // Set title label frame
-        self.titleLabel.frame = CGRect(
-            x: 0,
-            y: self.frame.size.height - titleLabelHeight,
-            width: self.frame.size.width,
-            height: titleLabelHeight
         )
+        // Clear Animation
+        self.configuration.titleView.animation = nil
     }
     
 }

@@ -1,31 +1,31 @@
 //
-//  WhatsNewItemsView.swift
-//  WhatsNewKit
+//  WhatsNewItemsViewController.swift
+//  WhatsNewKit-iOS
 //
-//  Created by Sven Tiigi on 19.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
+//  Created by Sven Tiigi on 02.02.19.
+//  Copyright © 2019 WhatsNewKit. All rights reserved.
 //
 
 import UIKit
 
-// MARK: - WhatsNewItemsView
+// MARK: - WhatsNewItemsViewController
 
-/// The WhatsNewItemsView
-class WhatsNewItemsView: UIView {
+/// The WhatsNewItemsViewController
+class WhatsNewItemsViewController: UIViewController {
     
     // MARK: Properties
     
     /// The WhatsNew Items
-    private let items: [WhatsNew.Item]
+    let items: [WhatsNew.Item]
     
     /// The Configuration
-    private let configuration: WhatsNewViewController.Configuration
+    let configuration: WhatsNewViewController.Configuration
     
     /// The cell display count
-    private var cellDisplayCount = 0
+    var cellDisplayCount = 0
     
     /// The TableView
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         // Initialize TableView
         let tableView = UITableView(frame: .zero, style: .plain)
         // Set clear background color
@@ -40,8 +40,6 @@ class WhatsNewItemsView: UIView {
         tableView.tableFooterView = UIView()
         // No seperators
         tableView.separatorStyle = .none
-        // Enable Readable Width
-        tableView.cellLayoutMarginsFollowReadableWidth = true
         // No selection
         tableView.allowsSelection = false
         // Hide Vertical Scroll Indicator
@@ -70,39 +68,28 @@ class WhatsNewItemsView: UIView {
         // Set configuration
         self.configuration = configuration
         // Super init
-        super.init(frame: .zero)
+        super.init(nibName: nil, bundle: nil)
         // Set background color
-        self.backgroundColor = self.configuration.backgroundColor
-        // Add TableView
-        self.addSubview(self.tableView)
+        self.view.backgroundColor = self.configuration.backgroundColor
     }
     
-    /// Initializer with Coder always returns nil
+    /// Initializer with Coder always return nil
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
     
     // MARK: View-Lifecycle
     
-    /// Layout Subviews
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        // Initialize relative padding
-        let relativePadding: CGFloat = 0.05
-        // Set TableView frame
-        self.tableView.frame = CGRect(
-            x: self.frame.size.width * relativePadding,
-            y: 0,
-            width: self.frame.size.width - self.frame.size.width * relativePadding * 2,
-            height: self.frame.size.height
-        )
+    /// Load View
+    override func loadView() {
+        self.view = self.tableView
     }
     
 }
 
 // MARK: - UITableViewDataSource
 
-extension WhatsNewItemsView: UITableViewDataSource {
+extension WhatsNewItemsViewController: UITableViewDataSource {
     
     /// Retrieve number of sections
     ///
@@ -136,8 +123,8 @@ extension WhatsNewItemsView: UITableViewDataSource {
             // Return unkown TableViewCell
             return UITableViewCell(style: .default, reuseIdentifier: "unkown")
         }
-        // Return WhatsNewItemTableViewCell
-        return WhatsNewItemTableViewCell(
+        // Return Cell
+        return Cell(
             item: self.items[indexPath.row],
             configuration: self.configuration
         )
@@ -147,7 +134,7 @@ extension WhatsNewItemsView: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension WhatsNewItemsView: UITableViewDelegate {
+extension WhatsNewItemsViewController: UITableViewDelegate {
     
     /// TableView will display cell
     ///
@@ -159,8 +146,8 @@ extension WhatsNewItemsView: UITableViewDelegate {
                    willDisplay cell: UITableViewCell,
                    forRowAt indexPath: IndexPath) {
         cell.backgroundColor = self.configuration.backgroundColor
-        // Unwrap cell as WhatsNewItemTableViewCell and verify cellDisplayCount is less then the items count
-        guard let cell = cell as? WhatsNewItemTableViewCell,
+        // Unwrap cell as Cell and verify cellDisplayCount is less then the items count
+        guard let cell = cell as? Cell,
             self.cellDisplayCount < self.items.count else {
                 // Return out of function
                 return

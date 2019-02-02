@@ -1,6 +1,6 @@
 //
 //  NSLayoutConstraint+Activate.swift
-//  WhatsNewKit-Example
+//  WhatsNewKit-iOS
 //
 //  Created by Sven Tiigi on 02.02.19.
 //  Copyright © 2019 WhatsNewKit. All rights reserved.
@@ -18,7 +18,9 @@ extension NSLayoutConstraint {
     ///   - view: The View
     ///   - constraints: The Constraints
     static func activate(on view: UIView, _ constraints: [NSLayoutConstraint]) {
+        // Disable translate AutoresizingMask intro Constraints
         view.translatesAutoresizingMaskIntoConstraints = false
+        // Activate Constraints
         self.activate(constraints)
     }
     
@@ -57,7 +59,19 @@ protocol Anchor {
 
 // MARK: - UIView+Anchor
 
-extension UIView: Anchor {}
+extension UIView: Anchor {
+    
+    /// Add Subview with Constraints
+    ///
+    /// - Parameters:
+    ///   - view: The Subview
+    ///   - constraints: The Constraints
+    func addSubview(_ view: UIView, constraints: [NSLayoutConstraint]) {
+        self.addSubview(view)
+        NSLayoutConstraint.activate(on: view, constraints)
+    }
+    
+}
 
 // MARK: - UILayoutGuide+Anchor
 

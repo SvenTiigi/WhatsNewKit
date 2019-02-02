@@ -39,10 +39,13 @@ public extension WhatsNewViewController {
         /// The Animation
         public var animation: Animation?
         
+        /// The Insets
+        public var insets: UIEdgeInsets
+        
         /// Default initializer
         ///
         /// - Parameters:
-        ///   - title: The Title
+        ///   - title: The Title. Default value `Continue`
         ///   - action: The Action. Default value `.dismiss`
         ///   - hapticFeedback: The optional HapticFedback. Default value `nil`
         ///   - backgroundColor: The background color. Default value `.whatsNewKitBlue`
@@ -50,6 +53,7 @@ public extension WhatsNewViewController {
         ///   - titleColor: The title color. Default value `white`
         ///   - cornerRadius: The corner radius. Default value `8.0`
         ///   - animation: The Animation. Default value `nil`
+        ///   - insets: The UIEdgeInsets. Default value `top: 10, left: 20, bottom: 10, right: 20`
         public init(title: String = "Continue",
                     action: Action = .dismiss,
                     hapticFeedback: HapticFeedback? = nil,
@@ -57,7 +61,8 @@ public extension WhatsNewViewController {
                     titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
                     titleColor: UIColor = .white,
                     cornerRadius: CGFloat = 8.0,
-                    animation: Animation? = nil) {
+                    animation: Animation? = nil,
+                    insets: UIEdgeInsets = .init(top: 10, left: 20, bottom: 10, right: 20)) {
             self.title = title
             self.action = action
             self.hapticFeedback = hapticFeedback
@@ -66,6 +71,7 @@ public extension WhatsNewViewController {
             self.titleColor = titleColor
             self.cornerRadius = cornerRadius
             self.animation = animation
+            self.insets = insets
         }
     }
     

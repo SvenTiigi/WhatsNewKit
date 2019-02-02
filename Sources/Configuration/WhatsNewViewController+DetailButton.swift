@@ -33,6 +33,9 @@ public extension WhatsNewViewController {
         /// The Animation
         public var animation: Animation?
         
+        /// The Bottom Layout Offset
+        public var bottomOffset: CGFloat
+        
         /// Default initializer
         ///
         /// - Parameters:
@@ -42,18 +45,21 @@ public extension WhatsNewViewController {
         ///   - titleFont: The title font. Default value `size: 17`
         ///   - titleColor: The title color. Default value `.whatsNewKitBlue`
         ///   - animation: The Animation. Default value `nil`
+        ///   - bottomOffset: The Bottom Layout Offset. Default value `10`
         public init(title: String,
                     action: Action,
                     hapticFeedback: HapticFeedback? = nil,
                     titleFont: UIFont = .systemFont(ofSize: 17),
                     titleColor: UIColor = .whatsNewKitBlue,
-                    animation: Animation? = nil) {
+                    animation: Animation? = nil,
+                    bottomOffset: CGFloat = 10) {
             self.title = title
             self.action = action
             self.hapticFeedback = hapticFeedback
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.animation = animation
+            self.bottomOffset = bottomOffset
         }
         
     }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - ItemsView
+
 public extension WhatsNewViewController {
     
     /// The ItemsViewTheme
@@ -37,6 +39,9 @@ public extension WhatsNewViewController {
         /// The Animation
         public var animation: Animation?
         
+        /// The Insets
+        public var insets: UIEdgeInsets
+        
         /// Default initializer
         ///
         /// - Parameters:
@@ -48,7 +53,7 @@ public extension WhatsNewViewController {
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
         ///   - layout: The Layout. Default value `default`
         ///   - animation: The Animation. Default value `nil`
-        ///   - spacing: The Spacing. Default value `default`
+        ///   - insets: The UIEdgeInsets. Default value `top: 30`
         public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
                     titleColor: UIColor = .black,
                     subtitleFont: UIFont = .systemFont(ofSize: 17),
@@ -56,7 +61,8 @@ public extension WhatsNewViewController {
                     imageSize: ImageSize = .preferred,
                     autoTintImage: Bool = true,
                     layout: Layout = .default,
-                    animation: Animation? = nil) {
+                    animation: Animation? = nil,
+                    insets: UIEdgeInsets = UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.subtitleFont = subtitleFont
@@ -65,6 +71,7 @@ public extension WhatsNewViewController {
             self.autoTintImage = autoTintImage
             self.layout = layout
             self.animation = animation
+            self.insets = insets
         }
         
     }
