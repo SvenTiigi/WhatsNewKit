@@ -21,7 +21,7 @@ class WhatsNewViewControllerTests: BaseTests {
         let versionStore = InMemoryWhatsNewVersionStore()
         let whatsNewViewController = WhatsNewViewController(whatsNew: self.randomWhatsNew, versionStore: versionStore)
         XCTAssertNotNil(whatsNewViewController)
-        whatsNewViewController?.handleOnPress(buttonType: .completion)
+        whatsNewViewController?.handlePress(buttonType: .completion)
         XCTAssert(versionStore.has(version: self.randomWhatsNew.version))
     }
     
