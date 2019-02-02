@@ -13,7 +13,9 @@ import UIKit
 public extension WhatsNewViewController {
     
     /// The WhatsNewViewController Configuration
-    struct Configuration: Equatable {
+    struct Configuration {
+        
+        // MARK: Properties
         
         /// The background color
         public var backgroundColor: UIColor
@@ -30,11 +32,16 @@ public extension WhatsNewViewController {
         /// The CompletionButton
         public var completionButton: CompletionButton
         
+        /// The iPad Adjustment Closure
+        public var padAdjustment: PadAdjustment
+        
         /// The tint color based on completionButtonTheme backgroundcolor
         public var tintColor: UIColor {
             return self.completionButton.backgroundColor
         }
 
+        // MARK: Initializer
+        
         /// Default initializer
         ///
         /// - Parameters:
@@ -44,20 +51,51 @@ public extension WhatsNewViewController {
         ///   - itemsView: The ItemsView. Default value `.init()`
         ///   - detailButton: The optional DetailButton. Default value `nil`
         ///   - completionButton: The completion button. Default value `.init()`
+        ///   - padAdjustment: The The iPad Adjustment Closure. Default value `defaultPadAdjustment`
         public init(theme: Theme = .default,
                     backgroundColor: UIColor = .white,
                     titleView: TitleView = .init(),
                     itemsView: ItemsView = .init(),
                     detailButton: DetailButton? = nil,
-                    completionButton: CompletionButton = .init()) {
+                    completionButton: CompletionButton = .init(),
+                    padAdjustment: @escaping PadAdjustment = Configuration.defaultPadAdjustment) {
             self.backgroundColor = backgroundColor
             self.titleView = titleView
             self.itemsView = itemsView
             self.detailButton = detailButton
             self.completionButton = completionButton
+            self.padAdjustment = padAdjustment
             self.apply(theme: theme)
         }
         
+    }
+    
+}
+
+// MARK: - PadAdjustment
+
+public extension WhatsNewViewController.Configuration {
+    
+    /// The Pad Adjustment Closure
+    typealias PadAdjustment = (inout WhatsNewViewController.Configuration) -> Void
+    
+    /// The default iPad Adjustment closure
+    static let defaultPadAdjustment: PadAdjustment = { configuration in
+        // Increase TitleView Insets
+        configuration.titleView.insets.top *= 1.5
+        configuration.titleView.insets.left *= 2
+        configuration.titleView.insets.right *= 2
+        configuration.titleView.insets.bottom *= 2
+        // Increase ItemsView Insets
+        configuration.itemsView.insets.top *= 2
+        configuration.itemsView.insets.left *= 5
+        configuration.itemsView.insets.right *= 5
+        configuration.itemsView.insets.bottom *= 2
+        // Increase CompletionButton Insets
+        configuration.completionButton.insets.top *= 4
+        configuration.completionButton.insets.left *= 5
+        configuration.completionButton.insets.right *= 5
+        configuration.completionButton.insets.bottom *= 2.5
     }
     
 }

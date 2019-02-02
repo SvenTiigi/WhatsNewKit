@@ -53,7 +53,7 @@ public extension WhatsNewViewController {
         ///   - titleColor: The title color. Default value `white`
         ///   - cornerRadius: The corner radius. Default value `8.0`
         ///   - animation: The Animation. Default value `nil`
-        ///   - insets: The UIEdgeInsets. Default value `top: 10, left: 20, bottom: 10, right: 20`
+        ///   - insets: The UIEdgeInsets. Default value `top: 5, left: 20, bottom: 25, right: 20`
         public init(title: String = "Continue",
                     action: Action = .dismiss,
                     hapticFeedback: HapticFeedback? = nil,
@@ -62,7 +62,7 @@ public extension WhatsNewViewController {
                     titleColor: UIColor = .white,
                     cornerRadius: CGFloat = 8.0,
                     animation: Animation? = nil,
-                    insets: UIEdgeInsets = .init(top: 10, left: 20, bottom: 10, right: 20)) {
+                    insets: UIEdgeInsets = .init(top: 5, left: 20, bottom: 25, right: 20)) {
             self.title = title
             self.action = action
             self.hapticFeedback = hapticFeedback
@@ -77,7 +77,7 @@ public extension WhatsNewViewController {
     
 }
 
-// MARK: - ExpressibleByStringLiteral CompletionButton
+// MARK: - ExpressibleByStringLiteral
 
 extension WhatsNewViewController.CompletionButton: ExpressibleByStringLiteral {
     

@@ -53,7 +53,7 @@ public extension WhatsNewViewController {
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
         ///   - layout: The Layout. Default value `default`
         ///   - animation: The Animation. Default value `nil`
-        ///   - insets: The UIEdgeInsets. Default value `top: 30`
+        ///   - insets: The UIEdgeInsets. Default value `top: 15, left: 20, bottom: 5, right: 20`
         public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
                     titleColor: UIColor = .black,
                     subtitleFont: UIFont = .systemFont(ofSize: 17),
@@ -62,7 +62,7 @@ public extension WhatsNewViewController {
                     autoTintImage: Bool = true,
                     layout: Layout = .default,
                     animation: Animation? = nil,
-                    insets: UIEdgeInsets = UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)) {
+                    insets: UIEdgeInsets = UIEdgeInsets(top: 15, left: 20, bottom: 5, right: 20)) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.subtitleFont = subtitleFont

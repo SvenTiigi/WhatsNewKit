@@ -12,7 +12,7 @@ import UIKit
 /// The WhatsNewViewController
 public class WhatsNewViewController: UIViewController {
     
-    // MARK: Public Properties
+    // MARK: Properties
     
     /// The preferred status bar style
     public override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -21,8 +21,6 @@ public class WhatsNewViewController: UIViewController {
     
     /// The WhatsNew
     public let whatsNew: WhatsNew
-    
-    // MARK: Private Properties
     
     /// The Configuration
     var configuration: Configuration
@@ -66,6 +64,11 @@ public class WhatsNewViewController: UIViewController {
         self.configuration = configuration
         // Super init
         super.init(nibName: nil, bundle: nil)
+        // Check if Device is iPad
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            // Invoke iPad Adjustment closure
+            self.configuration.padAdjustment(&self.configuration)
+        }
     }
     
     /// Convenience optional initializer with WhatsNewVersionStore.
@@ -130,7 +133,7 @@ extension WhatsNewViewController {
             ),
             self.titleViewController.view.trailingAnchor.constraint(
                 equalTo: self.anchor.trailingAnchor,
-                constant: self.configuration.titleView.insets.right
+                constant: -self.configuration.titleView.insets.right
             )
         ])
         // Add ButtonViewController with Constraints

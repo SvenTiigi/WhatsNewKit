@@ -41,13 +41,13 @@ public extension WhatsNewViewController {
         ///   - titleAlignment: The title alignment. Default value `center`
         ///   - animation: The Animation. Default value `nil`
         ///   - secondaryColor: The SecondaryColor. Default value `nil`
-        ///   - insets: The UIEdgeInsets. Default value `top: 30`
+        ///   - insets: The UIEdgeInsets. Default value `top: 50, left: 20, bottom: 15, right: 20`
         public init(titleFont: UIFont = .systemFont(ofSize: 30, weight: .semibold),
                     titleColor: UIColor = .black,
                     titleAlignment: NSTextAlignment = .center,
                     animation: Animation? = nil,
                     secondaryColor: SecondaryColor? = nil,
-                    insets: UIEdgeInsets = .init(top: 30, left: 0, bottom: 0, right: 0)) {
+                    insets: UIEdgeInsets = .init(top: 50, left: 20, bottom: 15, right: 20)) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.titleAlignment = titleAlignment
