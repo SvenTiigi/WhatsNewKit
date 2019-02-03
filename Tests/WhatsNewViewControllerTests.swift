@@ -34,6 +34,37 @@ class WhatsNewViewControllerTests: BaseTests {
         XCTAssertNil(WhatsNewViewController(coder: .init()))
     }
     
+    func testBackgroundColor() {
+        let color = UIColor.purple
+        var configuration = WhatsNewViewController.Configuration()
+        configuration.backgroundColor = color
+        let whatsNewViewController = WhatsNewViewController(whatsNew: self.randomWhatsNew, configuration: configuration)
+        XCTAssertEqual(color, whatsNewViewController.view.backgroundColor)
+    }
+    
+    func testPadAdjustment() {
+        WhatsNewViewController.userInterfaceIdiom = .pad
+        self.performTest(execution: { expectation in
+            var configuration = WhatsNewViewController.Configuration()
+            configuration.padAdjustment = { _ in
+                expectation.fulfill()
+            }
+            _ = WhatsNewViewController(whatsNew: self.randomWhatsNew, configuration: configuration)
+        }, completionHandler: { _ in
+            WhatsNewViewController.userInterfaceIdiom = UIDevice.current.userInterfaceIdiom
+        })
+    }
+    
+    func testNoPadAdjustment() {
+        WhatsNewViewController.userInterfaceIdiom = .phone
+        var configuration = WhatsNewViewController.Configuration()
+        configuration.padAdjustment = { _ in
+            XCTFail("Pad Adjustment mustn't be called when UserInterfaceIdiom is Phone")
+        }
+        _ = WhatsNewViewController(whatsNew: self.randomWhatsNew, configuration: configuration)
+        WhatsNewViewController.userInterfaceIdiom = UIDevice.current.userInterfaceIdiom
+    }
+    
     func testPresent() {
         let whatsNewViewController = WhatsNewViewController(whatsNew: self.randomWhatsNew)
         class FakeViewController: UIViewController {

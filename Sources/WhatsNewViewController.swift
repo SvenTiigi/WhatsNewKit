@@ -14,6 +14,9 @@ public class WhatsNewViewController: UIViewController {
     
     // MARK: Properties
     
+    /// The UserInterfaceIdiom
+    static var userInterfaceIdiom = UIDevice.current.userInterfaceIdiom
+    
     /// The preferred status bar style
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.view.backgroundColor?.isLight == true ? .default : .lightContent
@@ -65,7 +68,7 @@ public class WhatsNewViewController: UIViewController {
         // Super init
         super.init(nibName: nil, bundle: nil)
         // Check if Device is iPad
-        if UIDevice.current.userInterfaceIdiom == .pad {
+        if WhatsNewViewController.userInterfaceIdiom == .pad {
             // Invoke iPad Adjustment closure
             self.configuration.padAdjustment(&self.configuration)
         }

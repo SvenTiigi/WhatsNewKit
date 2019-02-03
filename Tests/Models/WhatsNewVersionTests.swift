@@ -50,6 +50,20 @@ class WhatsNewVersionTests: BaseTests {
         XCTAssertEqual(versionString, version.description)
     }
     
+    func testCurrentInBundleUnavailable() {
+        class FakeBundle: Bundle {
+            override var infoDictionary: [String : Any]? {
+                return nil
+            }
+        }
+        let fakeBundle = FakeBundle()
+        let version = WhatsNew.Version.current(inBundle: fakeBundle)
+        XCTAssertEqual(0, version.major)
+        XCTAssertEqual(0, version.minor)
+        XCTAssertEqual(0, version.patch)
+        XCTAssertEqual("0.0.0", version.description)
+    }
+    
     func testComparable() {
         let version0 = WhatsNew.Version(major: 0, minor: 0, patch: 1)
         let version1 = WhatsNew.Version(major: 1, minor: 0, patch: 0)
