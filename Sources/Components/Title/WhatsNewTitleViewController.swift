@@ -32,21 +32,11 @@ class WhatsNewTitleViewController: UIViewController {
         label.textColor = self.configuration.titleView.titleColor
         // Check if a secondary color is available
         if let secondaryColor = self.configuration.titleView.secondaryColor {
-            // Initialize Attribted Text
-            let attributedText = NSMutableAttributedString(string: self.titleText)
-            // Check if start index and length matches the string
-            if self.titleText.dropFirst(secondaryColor.startIndex).count >= secondaryColor.length {
-                // Add foreground color attribut
-                attributedText.addAttributes(
-                    [.foregroundColor: secondaryColor.color],
-                    range: .init(
-                        location: secondaryColor.startIndex,
-                        length: secondaryColor.length
-                    )
-                )
-            }
             // Set attributed text
-            label.attributedText = attributedText
+            label.attributedText = .init(
+                text: self.titleText,
+                colorConfiguration: secondaryColor
+            )
         } else {
             // No secondary color available simply set text
             label.text = self.titleText
@@ -98,6 +88,35 @@ class WhatsNewTitleViewController: UIViewController {
         )
         // Clear Animation
         self.configuration.titleView.animation = nil
+    }
+    
+}
+
+// MARK: - NSAttributedString+Init
+
+private extension NSAttributedString {
+    
+    /// Convenience Initializer with Text and SecondaryColor Configuration
+    ///
+    /// - Parameters:
+    ///   - text: The Text
+    ///   - colorConfiguration: The SecondaryColor Configuration
+    convenience init(text: String, colorConfiguration: WhatsNewViewController.TitleView.SecondaryColor) {
+        // Initialize NSMutableAttributedString with text
+        let attributedString = NSMutableAttributedString(string: text)
+        // Check if start index and length matches the string
+        if text.dropFirst(colorConfiguration.startIndex).count >= colorConfiguration.length {
+            // Add foreground color attribut
+            attributedString.addAttributes(
+                [.foregroundColor: colorConfiguration.color],
+                range: .init(
+                    location: colorConfiguration.startIndex,
+                    length: colorConfiguration.length
+                )
+            )
+        }
+        // Init with AttributedString
+        self.init(attributedString: attributedString)
     }
     
 }
