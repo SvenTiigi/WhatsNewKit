@@ -128,10 +128,8 @@ extension WhatsNewItemsViewController.Cell {
         }
         // Check if autoTintImage is activated
         if self.configuration.itemsView.autoTintImage {
-            // Set template tinted image
-            let templateImage = image?.withRenderingMode(.alwaysTemplate)
-            self.imageView?.image = templateImage
-            self.imageView?.tintColor = self.configuration.tintColor
+            // Set tinted image
+            self.imageView?.image = image?.tint(color: self.configuration.tintColor)
         } else {
             // Set original image
             self.imageView?.image = image

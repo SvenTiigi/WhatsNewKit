@@ -20,6 +20,12 @@ class ExampleViewController: UIViewController {
     /// The static WhatsNewVersionStore
     static var versionStore: WhatsNewVersionStore?
     
+    /// The number of visible Items
+    static var numberOfVisibleItems: Int = 4
+    
+    /// The maximum number of visible Items
+    static let maximumNumberOfVisibleItems: Int = 4
+    
     /// The HeaderView
     lazy var headerView: UIView = {
         let view = UIView()
@@ -81,8 +87,10 @@ class ExampleViewController: UIViewController {
         AnimationConfiguration(),
         VersionStoreConfiguration(),
         LayoutConfiguration(),
+        ContentModeConfiguration(),
         HapticFeedbackConfiguration(),
-        SecondaryTitleColorConfiguration()
+        SecondaryTitleColorConfiguration(),
+        ItemsCountConfiguration()
     ]
     
     /// The Cells

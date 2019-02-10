@@ -21,3 +21,4 @@ disabled_rules: # rule identifiers to exclude from running
   - identifier_name
 
 line_length: 130
+cyclomatic_complexity: 13

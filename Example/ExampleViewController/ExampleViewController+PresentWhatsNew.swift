@@ -41,17 +41,31 @@ extension ExampleViewController {
             image: #imageLiteral(resourceName: "openSource")
         )
         
+        // Initialize Items
+        var items = [
+            easySetupItem,
+            themesItem,
+            installationItem,
+            openSourceItem
+        ]
+        
+        // Check if number of visible items exceeds the maximum
+        if ExampleViewController.numberOfVisibleItems > ExampleViewController.maximumNumberOfVisibleItems {
+            for _ in 0...2 {
+                items.append(contentsOf: items)
+            }
+        } else {
+            items = .init(
+                items.dropLast(ExampleViewController.maximumNumberOfVisibleItems - ExampleViewController.numberOfVisibleItems)
+            )
+        }
+        
         // MARK: Step 2: Initialize WhatsNew with title and items
         
         // Initialize WhatsNew
         let whatsNew = WhatsNew(
             title: "WhatsNewKit",
-            items: [
-                easySetupItem,
-                themesItem,
-                installationItem,
-                openSourceItem
-            ]
+            items: items
         )
         
         // MARK: Step 3: Initialize a WhatsNewViewController Configuration

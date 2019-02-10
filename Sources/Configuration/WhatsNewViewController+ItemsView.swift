@@ -36,6 +36,9 @@ public extension WhatsNewViewController {
         /// The Layout
         public var layout: Layout
         
+        /// The ContentMode
+        public var contentMode: ContentMode
+        
         /// The Animation
         public var animation: Animation?
         
@@ -52,6 +55,7 @@ public extension WhatsNewViewController {
         ///   - imageSize: The ImageSize. Default value `preferred`
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
         ///   - layout: The Layout. Default value `default`
+        ///   - contentMode: The ContentMode. Default value `top`
         ///   - animation: The Animation. Default value `nil`
         ///   - insets: The UIEdgeInsets. Default value `top: 15, left: 20, bottom: 5, right: 20`
         public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
@@ -61,6 +65,7 @@ public extension WhatsNewViewController {
                     imageSize: ImageSize = .preferred,
                     autoTintImage: Bool = true,
                     layout: Layout = .default,
+                    contentMode: ContentMode = .top,
                     animation: Animation? = nil,
                     insets: UIEdgeInsets = .init(top: 15, left: 20, bottom: 5, right: 20)) {
             self.titleFont = titleFont
@@ -70,6 +75,7 @@ public extension WhatsNewViewController {
             self.imageSize = imageSize
             self.autoTintImage = autoTintImage
             self.layout = layout
+            self.contentMode = contentMode
             self.animation = animation
             self.insets = insets
         }
@@ -83,11 +89,27 @@ public extension WhatsNewViewController {
 public extension WhatsNewViewController.ItemsView {
     
     /// The Layout
-    enum Layout: String, Equatable, Hashable, CaseIterable {
+    enum Layout: String, Codable, Equatable, Hashable, CaseIterable {
         /// Default left image right text
         case `default`
         /// Centered image and centered text
         case centered
+    }
+    
+}
+
+// MARK: - ItemsView.ContentMode
+
+public extension WhatsNewViewController.ItemsView {
+    
+    /// The ContentMode
+    enum ContentMode: String, Codable, Equatable, Hashable, CaseIterable {
+        /// Top
+        case top
+        /// Center
+        case center
+        /// Fill
+        case fill
     }
     
 }
