@@ -42,6 +42,22 @@ class WhatsNewViewControllerTests: BaseTests {
         XCTAssertEqual(color, whatsNewViewController.view.backgroundColor)
     }
     
+    func testPreferredStatusBarStyleLightContent() {
+        let color = UIColor.black
+        var configuration = WhatsNewViewController.Configuration()
+        configuration.backgroundColor = color
+        let whatsNewViewController = WhatsNewViewController(whatsNew: self.randomWhatsNew, configuration: configuration)
+        XCTAssertEqual(.lightContent, whatsNewViewController.preferredStatusBarStyle)
+    }
+    
+    func testPreferredStatusBarStyleDefault() {
+        let color = UIColor.white
+        var configuration = WhatsNewViewController.Configuration()
+        configuration.backgroundColor = color
+        let whatsNewViewController = WhatsNewViewController(whatsNew: self.randomWhatsNew, configuration: configuration)
+        XCTAssertEqual(.default, whatsNewViewController.preferredStatusBarStyle)
+    }
+    
     func testPadAdjustment() {
         WhatsNewViewController.userInterfaceIdiom = .pad
         self.performTest(execution: { expectation in
