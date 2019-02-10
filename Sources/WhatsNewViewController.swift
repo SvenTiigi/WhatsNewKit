@@ -214,10 +214,13 @@ extension WhatsNewViewController {
                 }
                 // Initialize SafariViewController
                 let safariViewController = SFSafariViewController(url: url)
-                // Set tint color
-                safariViewController.preferredControlTintColor = self.configuration.tintColor
-                // Set Bar tint Color
-                safariViewController.preferredBarTintColor = self.configuration.backgroundColor
+                // Check if iOS 10 or greater is available
+                if #available(iOS 10.0, *) {
+                    // Set tint color
+                    safariViewController.preferredControlTintColor = self.configuration.tintColor
+                    // Set Bar tint Color
+                    safariViewController.preferredBarTintColor = self.configuration.backgroundColor
+                }
                 // Present ViewController
                 self.present(safariViewController, animated: true)
             case .some(.custom(action: let action)):
@@ -239,8 +242,8 @@ public extension WhatsNewViewController {
     ///
     /// - Parameters:
     ///   - viewController: The ViewController to present on
-    ///   - animated: Should be presented animated
-    ///   - completion: The completion
+    ///   - animated: If present should be animated. Default value `true`
+    ///   - completion: The completion closure. Default value `nil`
     func present(on viewController: UIViewController?,
                  animated: Bool = true,
                  completion: (() -> Void)? = nil) {
@@ -252,7 +255,7 @@ public extension WhatsNewViewController {
     ///
     /// - Parameters:
     ///   - navigationController: The NavigationController
-    ///   - animated: Should be pushed animated
+    ///   - animated: Should be pushed animated. Default value `true`
     func push(on navigationController: UINavigationController?,
               animated: Bool = true) {
         // Push WhatsNewViewController

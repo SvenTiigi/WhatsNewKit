@@ -62,7 +62,7 @@ public extension WhatsNewViewController {
                     autoTintImage: Bool = true,
                     layout: Layout = .default,
                     animation: Animation? = nil,
-                    insets: UIEdgeInsets = UIEdgeInsets(top: 15, left: 20, bottom: 5, right: 20)) {
+                    insets: UIEdgeInsets = .init(top: 15, left: 20, bottom: 5, right: 20)) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.subtitleFont = subtitleFont
