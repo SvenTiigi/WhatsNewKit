@@ -68,6 +68,13 @@ public extension WhatsNewViewController {
             self.apply(theme: theme)
         }
         
+        /// Convenience Initializer with Theme
+        ///
+        /// - Parameter theme: The Theme
+        public init(_ theme: Theme) {
+            self.init(theme: theme)
+        }
+        
     }
     
 }
