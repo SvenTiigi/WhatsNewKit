@@ -92,6 +92,8 @@ The following first usage description shows the easiest way of presenting your n
 > 👨‍💻 Please see the [Advanced](https://github.com/SvenTiigi/WhatsNewKit#advanced) section for further configuration options and features.
 
 ```swift
+import WhatsNewKit
+
 // Initialize WhatsNew
 let whatsNew = WhatsNew(
     // The Title
@@ -101,12 +103,12 @@ let whatsNew = WhatsNew(
         WhatsNew.Item(
             title: "Installation",
             subtitle: "You can install WhatsNewKit via CocoaPods or Carthage",
-            image: .init(named: "installation")
+            image: UIImage(named: "installation")
         ),
         WhatsNew.Item(
             title: "Open Source",
             subtitle: "Contributions are very welcome 👨‍💻",
-            image: .init(named: "openSource")
+            image: UIImage(named: "openSource")
         )
     ]
 )
