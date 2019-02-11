@@ -499,7 +499,7 @@ let version = WhatsNew.Version(
 )
 
 // Use a String literal
-let version = WhatsNew.Version(stringLiteral: "1.0.0")
+let version: WhatsNew.Version = "1.0.0"
 
 // Current Version in Bundle (Default)
 let version = WhatsNew.Version.current()
