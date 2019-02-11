@@ -145,7 +145,7 @@ let whatsNewViewController = WhatsNewViewController(
 )
 ```
 
-### Theme
+### Theme 🌄
 A [Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) allows you to group the customization of a `WhatsNewViewController.Configuration`. `WhatsNewKit` implemented predefined Themes which are available as static properties both in white and dark mode. Or you create your very own Theme to configure it to your needs.
 
 | `.darkRed` | `.whiteRed`   |
@@ -179,7 +179,7 @@ let configuration = WhatsNewViewController.Configuration(
 
 For a full overview of the available predefined Themes check out the [Example-Application](https://github.com/SvenTiigi/WhatsNewKit/tree/master/Example).
 
-### Layout
+### Layout 📐
 
 `WhatsNewKit` comes with two predefined [`ItemsView.Layouts`](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift). 
 
@@ -197,7 +197,7 @@ configuration.itemsView.layout = .centered
 ```
 > ☝️ In default the ItemsView layout is set to `default`.
 
-### ContentMode
+### ContentMode 📏
 
 Setting the `ContentMode` in the `ItemsView` Configuration will adjust for how your Features are arranged along the axis.
 
@@ -229,7 +229,7 @@ configuration.titleView.insets = UIEdgeInsets(top: 50, left: 20, bottom: 15, rig
 configuration.completionButton.insets.bottom += 10
 ```
 
-### ImageSize
+### ImageSize 
 In order to define the size of your images for each of your feature you can set an [ImageSize](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift) on the `ItemsView` configuration.
 
 ```swift
@@ -244,7 +244,7 @@ configuration.itemsView.imageSize = .fixed(height: 25)
 ```
 > ☝️ In default the ItemsView ImageSize  is set to `preferred`.
 
-### Animation
+### Animation 🎬
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
 
 You can apply a [Animation](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BAnimation.swift) to all components of the `WhatsNewViewController` via predefined animation types. In default all Animation properties are `nil` indicating no animation should be perfomed.
@@ -350,7 +350,8 @@ let completionButton = WhatsNewViewController.CompletionButton(
 )
 ```
 
-### HapticFeedback
+### HapticFeedback 📳
+
 You can enable on both `DetailButton` and `CompletionButton` haptic feedback when the user pressed one of these buttons. Either by setting the property or passing it to the initializer.
 
 ```swift
@@ -384,7 +385,7 @@ configuration.padAdjustment = { configuration in
 ```
 > ☝️ In default the `WhatsNewViewController.Configuration.defaultPadAdjustment` will be invoked.
 
-### WhatsNewVersionStore
+### WhatsNewVersionStore 💾
 <p align="center">
    <img width="750" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewVersionStore.jpg" alt="WhatsNewVersionStore">
 </p>
