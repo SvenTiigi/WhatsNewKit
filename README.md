@@ -205,7 +205,7 @@ configuration.itemsView.layout = .centered
 
 ### ContentMode 📏
 
-Setting the `ContentMode` in the `ItemsView` Configuration will adjust for how your Features are arranged along the axis.
+Setting the [`ContentMode`](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift) in the `ItemsView` Configuration will adjust for how your features are arranged along the axis.
 
 | Top | Center | Fill |
 | ------------- | ------------- | ------------- |
