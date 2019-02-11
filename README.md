@@ -148,9 +148,13 @@ let whatsNewViewController = WhatsNewViewController(
 ### Theme
 A [Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) allows you to group the customization of a `WhatsNewViewController.Configuration`. `WhatsNewKit` implemented predefined Themes which are available as static properties both in white and dark mode. Or you create your very own Theme to configure it to your needs.
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Templates.jpg" width="600">
-</p>
+<center>
+
+| `.darkRed` | `.whiteRed`   |
+| ------------- | ------------- |
+| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_darkRed.jpg" height="50%"/> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_whiteRed.jpg" height="50%" /> |
+
+</center>
 
 ```swift
 // Configuration with predefined Dark Red Theme
@@ -195,7 +199,27 @@ configuration.itemsView.layout = .default
 // Centered Layout
 configuration.itemsView.layout = .centered
 ```
-> ☝️ By default the ItemsView layout is set to `default`.
+> ☝️ In default the ItemsView layout is set to `default`.
+
+### ContentMode
+
+Setting the `ContentMode` in the `ItemsView` Configuration will adjust for how your Features are arranged along the axis.
+
+| Top | Center | Fill |
+| ------------- | ------------- | ------------- |
+| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Top.jpg" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Center.jpg" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Fill.jpg" />
+
+```swift
+// ContentMode Top
+configuration.itemsView.contentMode = .top
+
+// ContentMode Center
+configuration.itemsView.contentMode = .center
+
+// ContentMode Fill
+configuration.itemsView.contentMode = .fill
+```
+> ☝️ In default the ItemsView ContentMode  is set to `top`.
 
 ### Insets
 
@@ -222,7 +246,7 @@ configuration.itemsView.imageSize = .preferred
 // Use a custom height for each image
 configuration.itemsView.imageSize = .fixed(height: 25)
 ```
-> ☝️ By default the ItemsView ImageSize  is set to `preferred`.
+> ☝️ In default the ItemsView ImageSize  is set to `preferred`.
 
 ### Animation
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
@@ -276,7 +300,7 @@ configuration.titleView.secondaryColor = .init(
     color: .whatsNewKitLightBlue
 )
 ```
-> ☝️ By default the secondaryColor is set to `nil`.
+> ☝️ In default the secondaryColor is set to `nil`.
 
 ### DetailButton
  <img width="150" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/detailButton.jpg" alt="DetailButton">
