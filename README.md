@@ -148,13 +148,9 @@ let whatsNewViewController = WhatsNewViewController(
 ### Theme
 A [Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BConfiguration.swift) allows you to group the customization of a `WhatsNewViewController.Configuration`. `WhatsNewKit` implemented predefined Themes which are available as static properties both in white and dark mode. Or you create your very own Theme to configure it to your needs.
 
-<center>
-
 | `.darkRed` | `.whiteRed`   |
 | ------------- | ------------- |
-| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_darkRed.jpg" height="50%"/> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_whiteRed.jpg" height="50%" /> |
-
-</center>
+| <p align="center"> <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_darkRed.jpg" width="70%"/> </p> | <p align="center"> <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_whiteRed.jpg" width="70%" /> </p>|
 
 ```swift
 // Configuration with predefined Dark Red Theme
