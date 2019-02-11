@@ -39,7 +39,7 @@
 <br/>
 
 <p align="center">
-   <img width="600" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Example">
+   <img width="600" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/WhatsNewKit.gif" alt="Demo">
 </p>
 
 ## Features
@@ -54,7 +54,7 @@
 The example Application is an excellent way to see `WhatsNewKit` in action. You get a brief look of the available configuration options and how they affect the look and feel of the `WhatsNewViewController`. Simply open the `WhatsNewKit.xcodeproj` and run the `WhatsNewKit-Example` scheme.
 
 <p align="center">
-<img width="80%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ExampleApp.png">
+<img width="80%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ExampleApp.png" alt="Example App">
 </p>
 
 ## Installation
@@ -124,7 +124,7 @@ self.present(whatsNewViewController, animated: true)
 As mentioned before `WhatsNewKit` can be fully customized to your needs. The Advanced section will explain all configuration possibilities and features of `WhatsNewKit` in detail. First off it's important to understand the components of the `WhatsNewViewController` in order to customize the behaviour and `UI`-Design.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/UILayout.gif">
+<img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/UILayout.gif" alt="UILayout">
 </p>
 
 ### WhatsNewViewController.Configuration
@@ -154,7 +154,7 @@ A [Theme](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configura
 
 | `.darkRed` | `.whiteRed`   |
 | ------------- | ------------- |
-| <p align="center"> <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_darkRed.jpg" width="70%"/> </p> | <p align="center"> <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_whiteRed.jpg" width="70%" /> </p>|
+| <p align="center"> <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_darkRed.jpg" width="70%" alt="Theme Dark Red"/> </p> | <p align="center"> <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Theme_whiteRed.jpg" width="70%" alt="Theme White Red" /> </p>|
 
 ```swift
 // Configuration with predefined Dark Red Theme
@@ -189,7 +189,7 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 
 | Default | Centered   |
 | ------------- | ------------- |
-| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutDefault.png" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutCentered.png" /> |
+| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutDefault.png" alt="Default Layout" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutCentered.png" alt="Centered Layout" /> |
 | The `default` layout shows an image on the left side and the text on the right side. | The `centered` layout aligns the image as well as the text in center. |
 
 ```swift
@@ -207,7 +207,7 @@ Setting the `ContentMode` in the `ItemsView` Configuration will adjust for how y
 
 | Top | Center | Fill |
 | ------------- | ------------- | ------------- |
-| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Top.jpg" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Center.jpg" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Fill.jpg" />
+| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Top.jpg" alt="ContentMode Top" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Center.jpg" alt="ContentMode Center" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/ContentMode_Fill.jpg" alt="ContentMode Fill" />
 
 ```swift
 // ContentMode Top
