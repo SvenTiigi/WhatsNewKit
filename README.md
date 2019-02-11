@@ -580,6 +580,7 @@ let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
 * [The iOS Times](http://theiostimes.com/issue-44.html)
 * [DZone](https://dzone.com/articles/this-week-in-mobile-11-june-2018)
 * [Brian Advent](https://youtu.be/zCHEpN1Wgz4)
+* [23 Amazing iOS UI Libraries written in Swift for the Past Year (v.2019)](https://medium.mybridge.co/23-amazing-ios-ui-libraries-written-in-swift-for-the-past-year-v-2019-3e5456318768)
 
 ## Contributing
 Contributions are very welcome 🙌 🤓
