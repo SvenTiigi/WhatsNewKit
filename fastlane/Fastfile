@@ -20,12 +20,32 @@ platform :ios do
   desc "Increment Version"
     lane :increment do |options|
     version = options[:version]
-    version_bump_podspec(path: "WhatsNewKit.podspec", version_number: version)
-    set_info_plist_value(path: "Configs/WhatsNewKit.plist", key: "CFBundleShortVersionString", value: version)
-    set_info_plist_value(path: "Configs/WhatsNewKitTests.plist", key: "CFBundleShortVersionString", value: version)
-    set_info_plist_value(path: "Example/Resources/Info.plist", key: "CFBundleShortVersionString", value: version)
+    version_bump_podspec(
+      path: "WhatsNewKit.podspec", 
+      version_number: version
+    )
+    set_info_plist_value(
+      path: "Configs/WhatsNewKit.plist", 
+      key: "CFBundleShortVersionString", 
+      value: version
+    )
+    set_info_plist_value(
+      path: "Configs/WhatsNewKitTests.plist", 
+      key: "CFBundleShortVersionString", 
+      value: version
+    )
+    set_info_plist_value(
+      path: "Example/Resources/Info.plist", 
+      key: "CFBundleShortVersionString", 
+      value: version
+    )
     git_commit(
-        path: ["WhatsNewKit.podspec", "Configs/WhatsNewKit.plist", "Configs/WhatsNewKitTests.plist", "Example/Resources/Info.plist"],
+        path: [
+          "WhatsNewKit.podspec", 
+          "Configs/WhatsNewKit.plist", 
+          "Configs/WhatsNewKitTests.plist", 
+          "Example/Resources/Info.plist"
+        ],
         message: "WhatsNewKit Version #{version} 🚀"
     )
   end
