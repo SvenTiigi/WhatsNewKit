@@ -557,7 +557,7 @@ The `WhatsNew` struct is conform the `Codable` protocol which allows you to init
         {
             "title": "Open Source",
             "subtitle": "Contributions are very welcome 👨‍💻",
-            "image": "data:image/png;base64,R0lG42......."
+            "image": "iVBORw0KGgoA..."
         }
     ]
 }
