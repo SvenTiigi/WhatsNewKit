@@ -155,7 +155,7 @@ public extension WhatsNewViewController.Configuration {
 public extension WhatsNewViewController {
     
     /// The Customization typealias for an inout Configuration closure
-    public typealias Customization = (inout Configuration) -> Void
+    typealias Customization = (inout Configuration) -> Void
     
     /// The Theme
     struct Theme {
