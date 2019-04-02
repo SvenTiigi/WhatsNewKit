@@ -10,7 +10,7 @@ notifications:
     on_success: change
     on_failure: always
 
-osx_image: xcode10
+osx_image: xcode10.2
 language: swift
 
 before_script:
