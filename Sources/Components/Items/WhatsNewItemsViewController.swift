@@ -131,8 +131,11 @@ extension WhatsNewItemsViewController {
     /// - Parameter notification: The Notification
     @objc
     func orientationDidChange(notification: Notification) {
-        // Set is animation disabled to true
-        self.isAnimationDisabled = true
+        // Check if the Cell Display count is not zero
+        if self.cellDisplayCount != 0 {
+            // Set is animation disabled to true
+            self.isAnimationDisabled = true
+        }
         // Reload TableView
         self.tableView.reloadData()
     }
