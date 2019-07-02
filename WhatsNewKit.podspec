@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                      = "WhatsNewKit"
-    s.version                   = "1.1.9"
+    s.version                   = "1.2.0"
     s.summary                   = "Showcase your awesome new app features"
     s.homepage                  = "https://github.com/SvenTiigi/WhatsNewKit"
     s.social_media_url          = 'http://twitter.com/SvenTiigi'
