@@ -82,6 +82,16 @@ Run `carthage update --platform iOS` to build the framework and drag the built `
 
 On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase” and add the Framework path as mentioned in [Carthage Getting started Step 4, 5 and 6](https://github.com/Carthage/Carthage/blob/master/README.md#if-youre-building-for-ios-tvos-or-watchos)
 
+### Swift Package Manager
+
+To integrate using Apple's [Swift Package Manager](https://swift.org/package-manager/), add the following as a dependency to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/SvenTiigi/WhatsNewKit.git", from: "1.2.0")
+]
+```
+
 ### Manually
 
 If you prefer not to use any of the aforementioned dependency managers, you can integrate WhatsNewKit into your project manually. Simply drag the `Sources` Folder into your Xcode project.
