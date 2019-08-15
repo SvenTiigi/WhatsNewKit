@@ -19,5 +19,5 @@ jobs:
       run: fastlane coverage
     - name: Format Code-Coverage for Test-Reporter
       run: ./cc-test-reporter format-coverage -t cobertura
-    - name: Upload Code-Coverage
+    - name: Upload Code-Coverage to CodeClimate
       run: ./cc-test-reporter after-build
