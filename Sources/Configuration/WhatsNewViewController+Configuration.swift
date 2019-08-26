@@ -182,18 +182,6 @@ public extension WhatsNewViewController.Theme {
     static var `default`: WhatsNewViewController.Theme {
         return .init { configuration in
             configuration.backgroundColor = .white
-            configuration.titleView.titleFont = .systemFont(ofSize: 30, weight: .semibold)
-            configuration.titleView.titleColor = .black
-            configuration.itemsView.titleFont = .systemFont(ofSize: 17, weight: .semibold)
-            configuration.itemsView.titleColor = .black
-            configuration.itemsView.subtitleFont = .systemFont(ofSize: 17)
-            configuration.itemsView.subtitleColor = .black
-            configuration.detailButton?.titleFont = .systemFont(ofSize: 17)
-            configuration.detailButton?.titleColor = .whatsNewKitBlue
-            configuration.completionButton.backgroundColor = .whatsNewKitBlue
-            configuration.completionButton.titleFont = .systemFont(ofSize: 17, weight: .semibold)
-            configuration.completionButton.titleColor = .white
-            configuration.completionButton.cornerRadius = 8.0
         }
     }
     
