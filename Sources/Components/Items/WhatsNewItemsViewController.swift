@@ -58,6 +58,11 @@ class WhatsNewItemsViewController: UIViewController {
         return tableView
     }()
     
+    /// The Cells
+    lazy var cells: [Cell] = self.items.map { item in
+        Cell(item: item, configuration: self.configuration)
+    }
+    
     // MARK: Initializer
     
     /// Default initializer
@@ -173,16 +178,18 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
     ///   - indexPath: The IndexPath
     /// - Returns: The configured Cell
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Verify section is contained in indicies
-        guard self.items.indices.contains(indexPath.section) else {
+        // Initialize index
+        let index = indexPath.section
+        // Verify index is contained in indicies
+        guard self.cells.indices.contains(index) else {
             // Return unkown TableViewCell
-            return UITableViewCell(style: .default, reuseIdentifier: "unkown")
+            return UITableViewCell(
+                style: .default,
+                reuseIdentifier: "unkown"
+            )
         }
         // Return Cell
-        return Cell(
-            item: self.items[indexPath.section],
-            configuration: self.configuration
-        )
+        return self.cells[index]
     }
     
 }
@@ -350,8 +357,8 @@ extension WhatsNewItemsViewController {
             // Re-Initializer Divider with one
             divider = 1
         }
-        // Initialize Height via combining all visible Cells heights
-        let height = self.tableView.visibleCells.map { $0.frame.size.height }.reduce(0, +)
+        // Map Cells to their frame size and add them together
+        let height = self.cells.map { $0.frame.size.height }.reduce(0, +)
         // Initialize Space
         let space = (self.view.bounds.height - height) / divider
         // Verify Space is not negative
