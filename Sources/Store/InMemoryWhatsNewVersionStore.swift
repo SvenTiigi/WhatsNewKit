@@ -11,10 +11,10 @@ import Foundation
 // MARK: - InMemoryWhatsNewVersionStore
 
 /// The InMemoryWhatsNewVersionStore
-public class InMemoryWhatsNewVersionStore {
+public final class InMemoryWhatsNewVersionStore {
     
     /// The Versions
-    private var versions: [WhatsNew.Version]
+    public var versions: [WhatsNew.Version]
     
     /// Default initializer
     public init() {
