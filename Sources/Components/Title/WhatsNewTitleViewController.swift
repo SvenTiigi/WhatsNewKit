@@ -11,7 +11,7 @@ import UIKit
 // MARK: - WhatsNewTitleViewController
 
 /// The WhatsNewTitleViewController
-class WhatsNewTitleViewController: UIViewController {
+final class WhatsNewTitleViewController: UIViewController {
     
     // MARK: Properties
     

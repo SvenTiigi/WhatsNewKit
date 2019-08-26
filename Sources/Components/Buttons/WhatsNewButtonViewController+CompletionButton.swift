@@ -13,7 +13,7 @@ import UIKit
 extension WhatsNewButtonViewController {
     
     /// The CompletionButton
-    class CompletionButton: UIButton {
+    final class CompletionButton: UIButton {
         
         // MARK: Properties
         

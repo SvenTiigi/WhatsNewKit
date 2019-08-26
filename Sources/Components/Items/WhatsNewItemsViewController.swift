@@ -11,7 +11,7 @@ import UIKit
 // MARK: - WhatsNewItemsViewController
 
 /// The WhatsNewItemsViewController
-class WhatsNewItemsViewController: UIViewController {
+final class WhatsNewItemsViewController: UIViewController {
     
     // MARK: Properties
     

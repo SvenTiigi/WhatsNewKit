@@ -10,7 +10,7 @@ import SafariServices
 import UIKit
 
 /// The WhatsNewViewController
-public class WhatsNewViewController: UIViewController {
+public final class WhatsNewViewController: UIViewController {
     
     // MARK: Properties
     

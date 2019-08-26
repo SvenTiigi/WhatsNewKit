@@ -13,7 +13,7 @@ import UIKit
 extension WhatsNewItemsViewController {
     
     /// The Cell
-    class Cell: UITableViewCell {
+    final class Cell: UITableViewCell {
         
         // MARK: Properties
         

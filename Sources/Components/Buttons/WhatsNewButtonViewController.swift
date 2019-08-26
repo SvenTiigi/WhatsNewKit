@@ -11,7 +11,7 @@ import UIKit
 // MARK: - WhatsNewButtonViewController
 
 /// The WhatsNewButtonViewController
-class WhatsNewButtonViewController: UIViewController {
+final class WhatsNewButtonViewController: UIViewController {
     
     // MARK: Properties
     
