@@ -204,9 +204,7 @@ private extension UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         color.set()
         image.draw(in: CGRect(origin: .zero, size: self.size))
-        guard let tintedImage = UIGraphicsGetImageFromCurrentImageContext() else {
-            return nil
-        }
+        let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return tintedImage
     }

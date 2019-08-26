@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - TitleView Configuration
+// MARK: - TitleView
 
 public extension WhatsNewViewController {
     

@@ -87,11 +87,6 @@ public extension WhatsNewViewController {
 
 extension WhatsNewViewController.CompletionButton: ExpressibleByStringLiteral {
     
-    /// A type that represents a string literal.
-    ///
-    /// Valid types for `StringLiteralType` are `String` and `StaticString`.
-    public typealias StringLiteralType = String
-    
     /// Creates an instance initialized to the given string value.
     ///
     /// - Parameter value: The value of the new instance.

@@ -166,7 +166,8 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
     ///   - tableView: The TableView
     ///   - section: The section
     /// - Returns: The amount of rows in section
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView,
+                          numberOfRowsInSection section: Int) -> Int {
         // Return one row
         return 1
     }
@@ -177,7 +178,8 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
     ///   - tableView: The TableView
     ///   - indexPath: The IndexPath
     /// - Returns: The configured Cell
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Initialize index
         let index = indexPath.section
         // Verify index is contained in indicies

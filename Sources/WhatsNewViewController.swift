@@ -9,6 +9,8 @@
 import SafariServices
 import UIKit
 
+// MARK: - WhatsNewViewController
+
 /// The WhatsNewViewController
 public final class WhatsNewViewController: UIViewController {
     

@@ -32,7 +32,7 @@ extension UIViewController {
     func add(_ child: UIViewController, constraints: [NSLayoutConstraint]) {
         // Add ChildViewController
         self.add(child)
-        // Adctivate Constraints
+        // Activate Constraints
         NSLayoutConstraint.activate(on: child.view, constraints)
     }
     
