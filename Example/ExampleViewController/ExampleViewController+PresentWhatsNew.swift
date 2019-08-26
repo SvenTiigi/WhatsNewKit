@@ -81,7 +81,7 @@ extension ExampleViewController {
             ),
             completionButton: .init(
                 // Completion Button Title
-                title: "Let's go",
+                title: "Continue",
                 // Completion Button Action
                 action: .dismiss
             )
