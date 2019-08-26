@@ -85,9 +85,9 @@ public class WhatsNewViewController: UIViewController {
     public convenience init?(whatsNew: WhatsNew,
                              configuration: Configuration = .init(),
                              versionStore: WhatsNewVersionStore) {
-        // Check if VersionStore has version
-        if versionStore.has(version: whatsNew.version) {
-            // Return nil
+        // Verify VersionStore has not stored the WhatsNew Version
+        guard !versionStore.has(version: whatsNew.version) else {
+            // Return nil as Version has already been presented
             return nil
         }
         // Self init with WhatsNew and Configuration
