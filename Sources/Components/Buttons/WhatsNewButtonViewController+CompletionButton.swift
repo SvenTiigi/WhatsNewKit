@@ -81,7 +81,7 @@ extension WhatsNewButtonViewController.CompletionButton {
         // Set mask to bound
         self.layer.masksToBounds = true
         // Set Content EdgeInsets
-        self.contentEdgeInsets = .init(top: 20, left: 20, bottom: 20, right: 20)
+        self.contentEdgeInsets = completionButton.contentEdgeInsets
         // Set font
         self.titleLabel?.font = completionButton.titleFont
         // Set normal title color
