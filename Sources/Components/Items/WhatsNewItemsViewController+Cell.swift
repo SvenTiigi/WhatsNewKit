@@ -142,7 +142,7 @@ extension WhatsNewItemsViewController.Cell {
 
 extension WhatsNewItemsViewController.Cell {
     
-    /// Naje AttributedString Text String
+    /// Make AttributedString Text String
     ///
     /// - Returns: The Attributed String
     func makeAttributedTextString() -> NSAttributedString {
