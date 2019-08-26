@@ -104,6 +104,12 @@ public class WhatsNewViewController: UIViewController {
         return nil
     }
     
+    /// Deinit
+    deinit {
+        // Store WhatsNew Version
+        self.storeWhatsNewVersion()
+    }
+    
     // MARK: View-Lifecycle
     
     /// View did load
@@ -190,8 +196,8 @@ extension WhatsNewViewController {
         case .completion:
             // Invoke HapticFeebdack for completion button
             self.configuration.completionButton.hapticFeedback?.execute()
-            // Store Version if VersionStore is available
-            self.versionStore?.set(version: self.whatsNew.version)
+            // Store WhatsNew Version
+            self.storeWhatsNewVersion()
             // Switch on CompletionAction
             switch self.configuration.completionButton.action {
             case .dismiss:
@@ -230,6 +236,20 @@ extension WhatsNewViewController {
                 break
             }
         }
+    }
+    
+}
+
+// MARK: - Store Version
+
+extension WhatsNewViewController {
+    
+    /// Store presented WhatsNew Version
+    func storeWhatsNewVersion() {
+        // Store Version if VersionStore is available
+        self.versionStore?.set(version: self.whatsNew.version)
+        // Clear VersionStore
+        self.versionStore = nil
     }
     
 }
