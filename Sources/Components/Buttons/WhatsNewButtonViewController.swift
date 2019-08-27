@@ -102,7 +102,7 @@ extension WhatsNewButtonViewController {
     
     /// Add Subviews
     func addSubviews() {
-        // Decalre the CompletionButtonTopAnchor
+        // Declare the CompletionButtonTopAnchor
         let completionButtonTopAnchor: NSLayoutConstraint
         // Check if a DetailButton Configuration is available
         if let detailButton = self.configuration.detailButton {

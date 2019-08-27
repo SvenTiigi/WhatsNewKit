@@ -182,12 +182,12 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Initialize index
         let index = indexPath.section
-        // Verify index is contained in indicies
+        // Verify index is contained in indices
         guard self.cells.indices.contains(index) else {
-            // Return unkown TableViewCell
+            // Return unknown TableViewCell
             return UITableViewCell(
                 style: .default,
-                reuseIdentifier: "unkown"
+                reuseIdentifier: "unknown"
             )
         }
         // Return Cell

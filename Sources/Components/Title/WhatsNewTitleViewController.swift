@@ -106,7 +106,7 @@ private extension NSAttributedString {
         let attributedString = NSMutableAttributedString(string: text)
         // Check if start index and length matches the string
         if text.dropFirst(colorConfiguration.startIndex).count >= colorConfiguration.length {
-            // Add foreground color attribut
+            // Add foreground color attribute
             attributedString.addAttributes(
                 [.foregroundColor: colorConfiguration.color],
                 range: .init(

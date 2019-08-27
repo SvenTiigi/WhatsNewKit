@@ -12,7 +12,7 @@ import UIKit
 
 public extension WhatsNewViewController {
     
-    /// The HapticFeedback Enumeration
+    /// The HapticFeedback
     enum HapticFeedback: Equatable {
         /// ImpactFeedback with FeedbackStyle
         case impact(ImpactFeedbackStyle)
@@ -24,7 +24,7 @@ public extension WhatsNewViewController {
     
 }
 
-// MARK: - HapticFeedback+Execute
+// MARK: - Execute
 
 extension WhatsNewViewController.HapticFeedback {
     

@@ -66,11 +66,11 @@ public extension WhatsNewViewController {
     
 }
 
-// MARK: - DetailButton.Action
+// MARK: - Action
 
 public extension WhatsNewViewController.DetailButton {
     
-    /// DetailButton Action
+    /// The DetailButton Action
     enum Action {
         /// Present Website on URL
         case website(url: String)
@@ -80,11 +80,15 @@ public extension WhatsNewViewController.DetailButton {
     
 }
 
-// MARK: - Equatable DetailButton.Action
+// MARK: - Equatable
 
 extension WhatsNewViewController.DetailButton.Action: Equatable {
     
     /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
     public static func == (lhs: WhatsNewViewController.DetailButton.Action,
                            rhs: WhatsNewViewController.DetailButton.Action) -> Bool {
         switch (lhs, rhs) {

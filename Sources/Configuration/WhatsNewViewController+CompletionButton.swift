@@ -50,7 +50,7 @@ public extension WhatsNewViewController {
         /// - Parameters:
         ///   - title: The Title. Default value `Continue`
         ///   - action: The Action. Default value `.dismiss`
-        ///   - hapticFeedback: The optional HapticFedback. Default value `nil`
+        ///   - hapticFeedback: The optional HapticFeedback. Default value `nil`
         ///   - backgroundColor: The background color. Default value `.whatsNewKitBlue`
         ///   - titleFont: The title font. Default value `size: 17, weight: semibold`
         ///   - titleColor: The title color. Default value `white`
@@ -96,7 +96,7 @@ extension WhatsNewViewController.CompletionButton: ExpressibleByStringLiteral {
     
 }
 
-// MARK: - CompletionButton.Action
+// MARK: - Action
 
 public extension WhatsNewViewController.CompletionButton {
     
@@ -110,11 +110,15 @@ public extension WhatsNewViewController.CompletionButton {
     
 }
 
-// MARK: - Equatable CompletionButton.Action
+// MARK: - Equatable
 
 extension WhatsNewViewController.CompletionButton.Action: Equatable {
     
     /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
     public static func == (lhs: WhatsNewViewController.CompletionButton.Action,
                            rhs: WhatsNewViewController.CompletionButton.Action) -> Bool {
         switch (lhs, rhs) {

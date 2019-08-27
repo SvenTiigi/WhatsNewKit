@@ -69,11 +69,11 @@ extension WhatsNewItemsViewController.Cell {
     func configureTextLabel() {
         // Set font
         self.textLabel?.font = self.configuration.itemsView.subtitleFont
-        // Set textcolor
+        // Set text color
         self.textLabel?.textColor = self.configuration.itemsView.subtitleColor
         // Set number of lines to zero
         self.textLabel?.numberOfLines = 0
-        // Set linebreak mode to word wrapping
+        // Set line break mode to word wrapping
         self.textLabel?.lineBreakMode = .byWordWrapping
         // Set attributed text
         self.textLabel?.attributedText = self.makeAttributedTextString()
@@ -168,7 +168,7 @@ extension WhatsNewItemsViewController.Cell {
         }
         // Check if Layout is centered
         if self.configuration.itemsView.layout == .centered {
-            // Initialize a Textattachment
+            // Initialize a TextAttachment
             let attachment = NSTextAttachment()
             // Set Attachment Image
             attachment.image = self.item.image
