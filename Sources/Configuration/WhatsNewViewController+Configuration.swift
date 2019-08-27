@@ -271,7 +271,7 @@ public extension WhatsNewViewController.Theme {
         }
     }
     
-    /// Dard Red Theme (dark background and red tint color)
+    /// Dark Red Theme (dark background and red tint color)
     static var darkRed: WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(

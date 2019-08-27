@@ -10,7 +10,49 @@ import UIKit
 
 // MARK: - WhatsNew
 
-/// WhatsNew
+/**
+ The `WhatsNew` struct to declare your new app features.
+ Read more on: [https://github.com/SvenTiigi/WhatsNewKit](https://github.com/SvenTiigi/WhatsNewKit)
+
+ In default the `version` property will be initialized by reading out the current app version from the main bundle.
+
+ # Example:
+ ```
+ import WhatsNewKit
+ 
+ // WhatsNew for your current app version
+ let whatsNew = WhatsNew(
+     // The Title
+     title: "WhatsNewKit",
+     // The features you want to showcase
+     items: [
+         WhatsNew.Item(
+             title: "Installation",
+             subtitle: "You can install WhatsNewKit via CocoaPods or Carthage",
+             image: UIImage(named: "installation")
+         ),
+         WhatsNew.Item(
+             title: "Open Source",
+             subtitle: "Contributions are very welcome 👨‍💻",
+             image: UIImage(named: "openSource")
+         )
+     ]
+ )
+ 
+ // WhatsNew for a specific app version
+ let whatsNew = WhatsNew(
+     // The Title
+     title: "WhatsNewKit",
+     // The Version
+     version: "1.0.1",
+     // The features you want to showcase
+     items: [...]
+ )
+ ```
+ 
+ # Note:
+ See  the `WhatsNewViewController` to present your new app features.
+ */
 public struct WhatsNew: Codable, Equatable, Hashable {
     
     // MARK: Properties
