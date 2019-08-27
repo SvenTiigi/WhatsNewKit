@@ -13,7 +13,7 @@ import Foundation
 public extension WhatsNew {
     
     /// The Version
-    struct Version: Codable, Equatable {
+    struct Version: Codable, Equatable, Hashable {
         
         /// The major version
         public let major: Int
@@ -47,6 +47,11 @@ public extension WhatsNew {
 extension WhatsNew.Version: Comparable {
     
     /// Returns a Boolean value indicating whether the value of the first
+    /// argument is less than that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
     public static func < (lhs: WhatsNew.Version, rhs: WhatsNew.Version) -> Bool {
         let sum: (WhatsNew.Version) -> Int = { $0.major * 100 + $0.minor * 10 + $0.patch }
         return sum(lhs) < sum(rhs)
@@ -68,11 +73,6 @@ extension WhatsNew.Version: CustomStringConvertible {
 // MARK: - ExpressibleByStringLiteral
 
 extension WhatsNew.Version: ExpressibleByStringLiteral {
-    
-    /// A type that represents a string literal.
-    ///
-    /// Valid types for `StringLiteralType` are `String` and `StaticString`.
-    public typealias StringLiteralType = String
     
     /// Creates an instance initialized to the given string value.
     ///

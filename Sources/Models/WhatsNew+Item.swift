@@ -13,7 +13,7 @@ import UIKit
 public extension WhatsNew {
     
     /// The Item
-    struct Item: Equatable {
+    struct Item: Equatable, Hashable {
         
         // MARK: Properties
         
