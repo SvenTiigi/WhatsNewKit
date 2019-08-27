@@ -20,7 +20,7 @@ extension UIViewController {
         self.addChild(child)
         // Add Child View
         self.view.addSubview(child.view)
-        // Inovke didMove to parent
+        // Invoke didMove to parent
         child.didMove(toParent: self)
     }
     
