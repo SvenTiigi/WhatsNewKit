@@ -67,7 +67,7 @@ public extension WhatsNewViewController {
                     cornerRadius: CGFloat = 14,
                     animation: Animation? = nil,
                     insets: UIEdgeInsets = .init(top: 5, left: 23.5, bottom: 52.5, right: 23.5),
-                    contentEdgeInsets: UIEdgeInsets = .init(top: 15, left: 0, bottom: 15, right: 0)) {
+                    contentEdgeInsets: UIEdgeInsets = .init(top: 14, left: 0, bottom: 14, right: 0)) {
             self.title = title
             self.action = action
             self.hapticFeedback = hapticFeedback
