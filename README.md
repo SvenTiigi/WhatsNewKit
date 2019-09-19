@@ -88,7 +88,7 @@ To integrate using Apple's [Swift Package Manager](https://swift.org/package-man
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/SvenTiigi/WhatsNewKit.git", from: "1.2.0")
+    .package(url: "https://github.com/SvenTiigi/WhatsNewKit.git", from: "1.3.0")
 ]
 ```
 
