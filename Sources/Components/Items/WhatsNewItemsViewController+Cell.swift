@@ -13,7 +13,7 @@ import UIKit
 extension WhatsNewItemsViewController {
     
     /// The Cell
-    class Cell: UITableViewCell {
+    final class Cell: UITableViewCell {
         
         // MARK: Properties
         
@@ -69,11 +69,11 @@ extension WhatsNewItemsViewController.Cell {
     func configureTextLabel() {
         // Set font
         self.textLabel?.font = self.configuration.itemsView.subtitleFont
-        // Set textcolor
+        // Set text color
         self.textLabel?.textColor = self.configuration.itemsView.subtitleColor
         // Set number of lines to zero
         self.textLabel?.numberOfLines = 0
-        // Set linebreak mode to word wrapping
+        // Set line break mode to word wrapping
         self.textLabel?.lineBreakMode = .byWordWrapping
         // Set attributed text
         self.textLabel?.attributedText = self.makeAttributedTextString()
@@ -98,42 +98,24 @@ extension WhatsNewItemsViewController.Cell {
         self.imageView?.contentMode = .scaleAspectFit
         // Clip to Bounds
         self.imageView?.clipsToBounds = true
-        // Initialize Image from Item
-        var image = self.item.image
-        // Declare scale factor
-        let scaleFactor: CGFloat?
+        // Declare an optional UIImage
+        var image: UIImage?
         // Switch on ImageSize
         switch self.configuration.itemsView.imageSize {
         case .original:
-            // No scale factor
-            scaleFactor = nil
-        case .preferred:
-            // Preferred scale factor 25
-            scaleFactor = 25
+            // Initialize Image with Item Image
+            image = self.item.image
         case .fixed(let height):
-            // Initialize scale factor with fixed height
-            scaleFactor = .init(height)
-        }
-        // Check if a scale factor is available
-        if let scaleFactor = scaleFactor,
-            let cgImage = image?.cgImage,
-            let size = image?.size,
-            let imageOrientation = image?.imageOrientation {
-            // Re-Initialize Image with scaled CGImage
-            image = .init(
-                cgImage: cgImage,
-                scale: size.height / scaleFactor,
-                orientation: imageOrientation
-            )
+            // Initialize Image with resized Item Image
+            image = self.item.image?.resize(height: .init(height))
         }
         // Check if autoTintImage is activated
         if self.configuration.itemsView.autoTintImage {
-            // Set tinted image
-            self.imageView?.image = image?.tint(color: self.configuration.tintColor)
-        } else {
-            // Set original image
-            self.imageView?.image = image
+            // Tint image with tint color
+            image = image?.tint(color: self.configuration.tintColor)
         }
+        // Set image
+        self.imageView?.image = image
     }
     
 }
@@ -142,7 +124,7 @@ extension WhatsNewItemsViewController.Cell {
 
 extension WhatsNewItemsViewController.Cell {
     
-    /// Naje AttributedString Text String
+    /// Make AttributedString Text String
     ///
     /// - Returns: The Attributed String
     func makeAttributedTextString() -> NSAttributedString {
@@ -168,7 +150,7 @@ extension WhatsNewItemsViewController.Cell {
         }
         // Check if Layout is centered
         if self.configuration.itemsView.layout == .centered {
-            // Initialize a Textattachment
+            // Initialize a TextAttachment
             let attachment = NSTextAttachment()
             // Set Attachment Image
             attachment.image = self.item.image
@@ -191,23 +173,56 @@ extension WhatsNewItemsViewController.Cell {
     
 }
 
-// MARK: - UIImage+Tint
+// MARK: - UIImage+Resize/Tint
 
 private extension UIImage {
+    
+    /// Resize UIImage to a give height by keeping the aspect ratio
+    ///
+    /// - Parameter height: The height to resize to
+    /// - Returns: The resized Image
+    func resize(height: CGFloat) -> UIImage? {
+        // Initialize target Size
+        let targetSize = CGSize(width: height, height: height)
+        // Check if iOS 10 or greater is available
+        if #available(iOS 10.0, *) {
+            // Return rendererd Image with target size
+            return UIGraphicsImageRenderer(size: targetSize).image { [weak self] _ in
+                // Draw with target size
+                self?.draw(in: .init(origin: .zero, size: targetSize))
+            }
+        } else {
+            // Begin Image Context with target size
+            UIGraphicsBeginImageContextWithOptions(targetSize, false, 0.0)
+            // Draw Image with target size
+            self.draw(in: .init(origin: .zero, size: targetSize))
+            // Retrive Image from context
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            // End context
+            UIGraphicsEndImageContext()
+            // Return resized image
+            return image
+        }
+    }
     
     /// Tint Image with Color
     ///
     /// - Parameter color: The Color
     /// - Returns: The tinted UIImage
     func tint(color: UIColor) -> UIImage? {
-        let image = withRenderingMode(.alwaysTemplate)
+        // Retrieve image as template image
+        let image = self.withRenderingMode(.alwaysTemplate)
+        // Begin Image Context
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        // Set color
         color.set()
-        image.draw(in: CGRect(origin: .zero, size: self.size))
-        guard let tintedImage = UIGraphicsGetImageFromCurrentImageContext() else {
-            return nil
-        }
+        // Draw image with size
+        image.draw(in: .init(origin: .zero, size: self.size))
+        // Retrieve Image from context
+        let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
+        // End context
         UIGraphicsEndImageContext()
+        // Return tinted image
         return tintedImage
     }
     

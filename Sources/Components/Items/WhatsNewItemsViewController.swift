@@ -11,7 +11,7 @@ import UIKit
 // MARK: - WhatsNewItemsViewController
 
 /// The WhatsNewItemsViewController
-class WhatsNewItemsViewController: UIViewController {
+final class WhatsNewItemsViewController: UIViewController {
     
     // MARK: Properties
     
@@ -58,6 +58,11 @@ class WhatsNewItemsViewController: UIViewController {
         return tableView
     }()
     
+    /// The Cells
+    lazy var cells: [Cell] = self.items.map { item in
+        Cell(item: item, configuration: self.configuration)
+    }
+    
     // MARK: Initializer
     
     /// Default initializer
@@ -77,6 +82,8 @@ class WhatsNewItemsViewController: UIViewController {
         self.notificationCenter = notificationCenter
         // Super init
         super.init(nibName: nil, bundle: nil)
+        // Hide View if an animation is available
+        self.view.isHidden = self.configuration.itemsView.animation != nil
     }
     
     /// Initializer with Coder always return nil
@@ -109,6 +116,17 @@ class WhatsNewItemsViewController: UIViewController {
     /// Load View
     override func loadView() {
         self.view = self.tableView
+    }
+    
+    /// View did appear
+    ///
+    /// - Parameter animated: If should be animated
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Disable isHidden
+        self.view.isHidden = false
+        // Trigger reload data
+        self.tableView.reloadData()
     }
     
     /// ScrollView will begin dragging
@@ -161,7 +179,8 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
     ///   - tableView: The TableView
     ///   - section: The section
     /// - Returns: The amount of rows in section
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView,
+                          numberOfRowsInSection section: Int) -> Int {
         // Return one row
         return 1
     }
@@ -172,17 +191,20 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
     ///   - tableView: The TableView
     ///   - indexPath: The IndexPath
     /// - Returns: The configured Cell
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Verify section is contained in indicies
-        guard self.items.indices.contains(indexPath.section) else {
-            // Return unkown TableViewCell
-            return UITableViewCell(style: .default, reuseIdentifier: "unkown")
+    public func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Initialize index
+        let index = indexPath.section
+        // Verify index is contained in indices
+        guard self.cells.indices.contains(index) else {
+            // Return unknown TableViewCell
+            return UITableViewCell(
+                style: .default,
+                reuseIdentifier: "unknown"
+            )
         }
         // Return Cell
-        return Cell(
-            item: self.items[indexPath.section],
-            configuration: self.configuration
-        )
+        return self.cells[index]
     }
     
 }
@@ -200,7 +222,13 @@ extension WhatsNewItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    willDisplay cell: UITableViewCell,
                    forRowAt indexPath: IndexPath) {
+        // Set background color
         cell.backgroundColor = self.configuration.backgroundColor
+        // Verify view is not hidden
+        guard !self.view.isHidden else {
+            // Otherwise return out of function
+            return
+        }
         // Unwrap cell as Cell and verify cellDisplayCount is less then the items count
         guard let cell = cell as? Cell,
             !self.isAnimationDisabled,
@@ -350,8 +378,8 @@ extension WhatsNewItemsViewController {
             // Re-Initializer Divider with one
             divider = 1
         }
-        // Initialize Height via combining all visible Cells heights
-        let height = self.tableView.visibleCells.map { $0.frame.size.height }.reduce(0, +)
+        // Map Cells to their frame size and add them together
+        let height = self.cells.map { $0.frame.size.height }.reduce(0, +)
         // Initialize Space
         let space = (self.view.bounds.height - height) / divider
         // Verify Space is not negative

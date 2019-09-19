@@ -13,7 +13,7 @@ import UIKit
 extension WhatsNewButtonViewController {
     
     /// The DetailButton
-    class DetailButton: UIButton {
+    final class DetailButton: UIButton {
         
         // MARK: Properties
         

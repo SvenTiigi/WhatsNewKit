@@ -122,10 +122,17 @@ public extension WhatsNewViewController.ItemsView {
     enum ImageSize: Equatable, Hashable {
         /// The original Image Size
         case original
-        /// The preferred Image Size
-        case preferred
         /// A fixed height by keeping the aspect ratio
         case fixed(height: Double)
     }
+    
+}
+
+// MARK: - ItemsView.ImageSize+preferred
+
+public extension WhatsNewViewController.ItemsView.ImageSize {
+    
+    /// The preferred Image Size `.fixed(height: 50)`
+    static let preferred: WhatsNewViewController.ItemsView.ImageSize = .fixed(height: 50)
     
 }

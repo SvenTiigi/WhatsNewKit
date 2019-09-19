@@ -11,7 +11,7 @@ import UIKit
 // MARK: - WhatsNewButtonViewController
 
 /// The WhatsNewButtonViewController
-class WhatsNewButtonViewController: UIViewController {
+final class WhatsNewButtonViewController: UIViewController {
     
     // MARK: Properties
     
@@ -52,6 +52,9 @@ class WhatsNewButtonViewController: UIViewController {
         self.configuration = configuration
         self.onPress = onPress
         super.init(nibName: nil, bundle: nil)
+        // Hide View if an animation is available
+        self.view.isHidden = self.configuration.detailButton?.animation != nil
+            || self.configuration.completionButton.animation != nil
     }
     
     /// Initializer with Coder always return nil
@@ -70,9 +73,13 @@ class WhatsNewButtonViewController: UIViewController {
         self.addSubviews()
     }
     
-    /// View did layout subviews
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    /// View did appear
+    ///
+    /// - Parameter animated: If should be animated
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Disable isHidden
+        self.view.isHidden = false
         // Perform animation if available
         self.configuration.detailButton?.animation?.rawValue(
             self.detailButton,
@@ -102,7 +109,7 @@ extension WhatsNewButtonViewController {
     
     /// Add Subviews
     func addSubviews() {
-        // Decalre the CompletionButtonTopAnchor
+        // Declare the CompletionButtonTopAnchor
         let completionButtonTopAnchor: NSLayoutConstraint
         // Check if a DetailButton Configuration is available
         if let detailButton = self.configuration.detailButton {

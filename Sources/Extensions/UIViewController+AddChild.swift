@@ -20,7 +20,7 @@ extension UIViewController {
         self.addChild(child)
         // Add Child View
         self.view.addSubview(child.view)
-        // Inovke didMove to parent
+        // Invoke didMove to parent
         child.didMove(toParent: self)
     }
     
@@ -32,7 +32,7 @@ extension UIViewController {
     func add(_ child: UIViewController, constraints: [NSLayoutConstraint]) {
         // Add ChildViewController
         self.add(child)
-        // Adctivate Constraints
+        // Activate Constraints
         NSLayoutConstraint.activate(on: child.view, constraints)
     }
     

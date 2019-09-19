@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
     s.license                   = 'MIT'
     s.author                    = { "Sven Tiigi" => "sven.tiigi@gmail.com" }
     s.source                    = { :git => "https://github.com/SvenTiigi/WhatsNewKit.git", :tag => s.version.to_s }
+    s.swift_version             = "5.1"
     s.ios.deployment_target     = "9.0"
     s.source_files              = 'Sources/**/*'
     s.frameworks                = 'Foundation', 'UIKit'

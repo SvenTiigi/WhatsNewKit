@@ -46,6 +46,7 @@
 		3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */; };
 		3D5D06BF20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */; };
 		3D5D06C120C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */; };
+		3D743F3223150AB00024F1F9 /* Sequence+WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D743F3023150AAC0024F1F9 /* Sequence+WhatsNew.swift */; };
 		3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */; };
 		3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66920AF87E600A10333 /* WhatsNew.swift */; };
 		3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */; };
@@ -107,7 +108,6 @@
 		3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButton.swift"; sourceTree = "<group>"; };
 		3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButton.swift"; sourceTree = "<group>"; };
-		3D2412E420BAEB56005A04D6 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = SOURCE_ROOT; };
 		3D2412E520BAEB56005A04D6 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		3D2412E620BAEB56005A04D6 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
 		3D2412E720BAEB56005A04D6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
@@ -143,10 +143,12 @@
 		3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+TitleView.swift"; sourceTree = "<group>"; };
 		3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Animation.swift"; sourceTree = "<group>"; };
 		3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+ItemsView.swift"; sourceTree = "<group>"; };
+		3D743F3023150AAC0024F1F9 /* Sequence+WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+WhatsNew.swift"; sourceTree = "<group>"; };
 		3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Configuration.swift"; sourceTree = "<group>"; };
 		3D92C66920AF87E600A10333 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Item.swift"; sourceTree = "<group>"; };
 		3D92C67020AF883300A10333 /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
+		3DAEF0172328469B00A61D87 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3DC8A6A820AED02400292C94 /* WhatsNewKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsNewKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC8A6AA20AED02400292C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				3DDDB59620B832AB001D59C5 /* UIColor+Defaults.swift */,
 				3D2803CB220598F400E1FA31 /* NSLayoutConstraint+Activate.swift */,
 				3D2803D12205A2FC00E1FA31 /* UIViewController+AddChild.swift */,
+				3D743F3023150AAC0024F1F9 /* Sequence+WhatsNew.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,11 +391,11 @@
 				3D04215820C2D7B100DA5126 /* .codeclimate.yml */,
 				3D2412E920BAEB56005A04D6 /* .gitignore */,
 				3D2412E620BAEB56005A04D6 /* .jazzy.yaml */,
-				3D2412E420BAEB56005A04D6 /* .swift-version */,
 				3D2412EB20BAEB56005A04D6 /* .swiftlint.yml */,
 				3D2412E520BAEB56005A04D6 /* .travis.yml */,
 				3D2412E720BAEB56005A04D6 /* LICENSE */,
 				3D2412EA20BAEB56005A04D6 /* README.md */,
+				3DAEF0172328469B00A61D87 /* Package.swift */,
 				3D2412EC20BAEB56005A04D6 /* WhatsNewKit.podspec */,
 			);
 			path = Configs;
@@ -640,6 +643,7 @@
 				3D13455E20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift in Sources */,
 				3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */,
 				3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */,
+				3D743F3223150AB00024F1F9 /* Sequence+WhatsNew.swift in Sources */,
 				3D5D06C120C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift in Sources */,
 				3D92C66E20AF87F500A10333 /* WhatsNew+Item.swift in Sources */,
 				3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */,

@@ -42,27 +42,32 @@ public extension WhatsNewViewController {
         /// The Insets
         public var insets: UIEdgeInsets
         
+        /// The Content Edge Insets
+        public var contentEdgeInsets: UIEdgeInsets
+        
         /// Default initializer
         ///
         /// - Parameters:
         ///   - title: The Title. Default value `Continue`
         ///   - action: The Action. Default value `.dismiss`
-        ///   - hapticFeedback: The optional HapticFedback. Default value `nil`
+        ///   - hapticFeedback: The optional HapticFeedback. Default value `nil`
         ///   - backgroundColor: The background color. Default value `.whatsNewKitBlue`
         ///   - titleFont: The title font. Default value `size: 17, weight: semibold`
         ///   - titleColor: The title color. Default value `white`
-        ///   - cornerRadius: The corner radius. Default value `8.0`
+        ///   - cornerRadius: The corner radius. Default value `14.0`
         ///   - animation: The Animation. Default value `nil`
-        ///   - insets: The UIEdgeInsets. Default value `top: 5, left: 20, bottom: 25, right: 20`
+        ///   - insets: The UIEdgeInsets. Default value `top: 5, left: 23.5, bottom: 53.5, right: 23.5`
+        ///   - contentEdgeInsets: The Content Edge UIEdgeInsets. Default value `top: 15, left: 0, bottom: 15, right: 0`
         public init(title: String = "Continue",
                     action: Action = .dismiss,
                     hapticFeedback: HapticFeedback? = nil,
                     backgroundColor: UIColor = .whatsNewKitBlue,
                     titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
                     titleColor: UIColor = .white,
-                    cornerRadius: CGFloat = 8.0,
+                    cornerRadius: CGFloat = 14,
                     animation: Animation? = nil,
-                    insets: UIEdgeInsets = .init(top: 5, left: 20, bottom: 25, right: 20)) {
+                    insets: UIEdgeInsets = .init(top: 5, left: 23.5, bottom: 53.5, right: 23.5),
+                    contentEdgeInsets: UIEdgeInsets = .init(top: 14, left: 0, bottom: 14, right: 0)) {
             self.title = title
             self.action = action
             self.hapticFeedback = hapticFeedback
@@ -72,6 +77,7 @@ public extension WhatsNewViewController {
             self.cornerRadius = cornerRadius
             self.animation = animation
             self.insets = insets
+            self.contentEdgeInsets = contentEdgeInsets
         }
     }
     
@@ -80,11 +86,6 @@ public extension WhatsNewViewController {
 // MARK: - ExpressibleByStringLiteral
 
 extension WhatsNewViewController.CompletionButton: ExpressibleByStringLiteral {
-    
-    /// A type that represents a string literal.
-    ///
-    /// Valid types for `StringLiteralType` are `String` and `StaticString`.
-    public typealias StringLiteralType = String
     
     /// Creates an instance initialized to the given string value.
     ///
@@ -95,7 +96,7 @@ extension WhatsNewViewController.CompletionButton: ExpressibleByStringLiteral {
     
 }
 
-// MARK: - CompletionButton.Action
+// MARK: - Action
 
 public extension WhatsNewViewController.CompletionButton {
     
@@ -109,11 +110,15 @@ public extension WhatsNewViewController.CompletionButton {
     
 }
 
-// MARK: - Equatable CompletionButton.Action
+// MARK: - Equatable
 
 extension WhatsNewViewController.CompletionButton.Action: Equatable {
     
     /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
     public static func == (lhs: WhatsNewViewController.CompletionButton.Action,
                            rhs: WhatsNewViewController.CompletionButton.Action) -> Bool {
         switch (lhs, rhs) {

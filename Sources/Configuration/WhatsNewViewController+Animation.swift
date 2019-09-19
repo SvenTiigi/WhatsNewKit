@@ -35,9 +35,13 @@ public extension WhatsNewViewController {
 extension WhatsNewViewController.Animation: Equatable {
     
     /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
     public static func == (lhs: WhatsNewViewController.Animation,
                            rhs: WhatsNewViewController.Animation) -> Bool {
-        // Switch on lhs and rhs
+        // Switch on left-hand and right-hand side
         switch (lhs, rhs) {
         case (.fade, .fade):
             return true
@@ -133,22 +137,22 @@ private extension WhatsNewViewController.Animation {
         // Switch on self to initialize Transform
         switch self {
         case .slideUp:
-            transform = CGAffineTransform(
+            transform = .init(
                 translationX: 0,
                 y: view.frame.size.height / 2
             )
         case .slideDown:
-            transform = CGAffineTransform(
+            transform = .init(
                 translationX: 0,
                 y: view.frame.size.height / -2
             )
         case .slideLeft:
-            transform = CGAffineTransform(
+            transform = .init(
                 translationX: view.frame.size.width,
                 y: 0
             )
         case .slideRight:
-            transform = CGAffineTransform(
+            transform = .init(
                 translationX: -view.frame.size.width,
                 y: 0
             )
@@ -168,7 +172,7 @@ private extension WhatsNewViewController.Animation {
             // Ease in and out
             options: .curveEaseInOut,
             animations: {
-                // Set identitiy transform
+                // Set identity transform
                 view.transform = .identity
                 // Set default alpha
                 view.alpha = 1.0

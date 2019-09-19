@@ -9,8 +9,88 @@
 import SafariServices
 import UIKit
 
-/// The WhatsNewViewController
-public class WhatsNewViewController: UIViewController {
+// MARK: - WhatsNewViewController
+
+/**
+The `WhatsNewViewController` to easily showcase your awesome new app features.
+Read more on: [https://github.com/SvenTiigi/WhatsNewKit](https://github.com/SvenTiigi/WhatsNewKit)
+ 
+Simply pass your `WhatsNew` struct to the `WhatsNewViewController` initializer
+and present it.
+
+```
+import WhatsNewKit
+
+// Initialize WhatsNewViewController with WhatsNew
+let whatsNewViewController = WhatsNewViewController(
+    whatsNew: whatsNew
+)
+ 
+// Present it 🤩
+self.present(whatsNewViewController, animated: true)
+```
+ 
+# Custom Configuration
+ 
+ If you wish to customize the appearance of the `WhatsNewViewController` you can
+ initialize it with a configured `WhatsNewViewController.Configuration`.
+
+ ```
+ // Initialize default Configuration
+ var configuration = WhatsNewViewController.Configuration()
+
+ // Customize the Configuration to your needs
+ configuration.titleView.titleColor = .orange
+ // ...
+
+ // Initialize WhatsNewViewController with custom configuration
+ let whatsNewViewController = WhatsNewViewController(
+     whatsNew: whatsNew,
+     configuration: configuration
+ )
+ ```
+ 
+ # Themes
+ 
+ Beside the aforementioned custom configuration you can make use of predefined themes.
+ 
+ ```
+ // Initialize WhatsNewViewController with a theme
+ let whatsNewViewController = WhatsNewViewController(
+     whatsNew: whatsNew,
+     configuration: .init(theme: .darkRed)
+ )
+ ```
+  
+ # WhatsNewVersionStore
+ 
+ If you pass a `WhatsNewVersionStore` to the initializer will become `optional`.
+ The `WhatsNewViewController` will return nil during initialization if the `version` of your passed `WhatsNew` is
+ contained in the `WhatsNewVersionStore`.
+
+ ```
+ // Initialize WhatsNewViewController with WhatsNewVersionStore
+ let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
+     whatsNew: whatsNew,
+     versionStore: myVersionStore
+ )
+
+ // Check if WhatsNewViewController is available to present it.
+ if let controller = whatsNewViewController {
+     // Present it as WhatsNewViewController is available
+     // after init with WhatsNewVersionStore
+     self.present(controller, animated: true)
+ } else {
+     // WhatsNewViewController is `nil`
+     // this Version has already been presented
+ }
+ ```
+ 
+ If the `version` is not contained in the `WhatsNewVersionStore` the `WhatsNewViewController` will
+ automatically save the presented version inside the passed `WhatsNewVersionStore` to ensure that the presentation
+ of your new app features only happens once.
+*/
+public final class WhatsNewViewController: UIViewController {
     
     // MARK: Properties
     
@@ -85,9 +165,9 @@ public class WhatsNewViewController: UIViewController {
     public convenience init?(whatsNew: WhatsNew,
                              configuration: Configuration = .init(),
                              versionStore: WhatsNewVersionStore) {
-        // Check if VersionStore has version
-        if versionStore.has(version: whatsNew.version) {
-            // Return nil
+        // Verify VersionStore has not stored the WhatsNew Version
+        guard !versionStore.has(version: whatsNew.version) else {
+            // Return nil as Version has already been presented
             return nil
         }
         // Self init with WhatsNew and Configuration
@@ -102,6 +182,12 @@ public class WhatsNewViewController: UIViewController {
     /// Initializer with Coder always returns nil
     public required init?(coder aDecoder: NSCoder) {
         return nil
+    }
+    
+    /// Deinit
+    deinit {
+        // Store WhatsNew Version
+        self.storeWhatsNewVersion()
     }
     
     // MARK: View-Lifecycle
@@ -190,8 +276,8 @@ extension WhatsNewViewController {
         case .completion:
             // Invoke HapticFeebdack for completion button
             self.configuration.completionButton.hapticFeedback?.execute()
-            // Store Version if VersionStore is available
-            self.versionStore?.set(version: self.whatsNew.version)
+            // Store WhatsNew Version
+            self.storeWhatsNewVersion()
             // Switch on CompletionAction
             switch self.configuration.completionButton.action {
             case .dismiss:
@@ -230,6 +316,20 @@ extension WhatsNewViewController {
                 break
             }
         }
+    }
+    
+}
+
+// MARK: - Store Version
+
+extension WhatsNewViewController {
+    
+    /// Store presented WhatsNew Version
+    func storeWhatsNewVersion() {
+        // Store Version if VersionStore is available
+        self.versionStore?.set(version: self.whatsNew.version)
+        // Clear VersionStore
+        self.versionStore = nil
     }
     
 }
