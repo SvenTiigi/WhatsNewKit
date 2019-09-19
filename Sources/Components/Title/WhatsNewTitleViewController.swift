@@ -61,6 +61,8 @@ final class WhatsNewTitleViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         // Set background color
         self.view.backgroundColor = self.configuration.backgroundColor
+        // Hide View if an animation is available
+        self.view.isHidden = self.configuration.titleView.animation != nil
     }
     
     /// Initializer with Coder always return nil
@@ -75,19 +77,23 @@ final class WhatsNewTitleViewController: UIViewController {
         self.view = self.titleLabel
     }
     
-    /// View did layout Subviews
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    /// View did appear
+    ///
+    /// - Parameter animated: If should be animated
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Disable isHidden
+        self.view.isHidden = false
         // Perform animation if available
-        self.configuration.titleView.animation?.rawValue(
-            self.titleLabel,
-            .init(
-                preferredDuration: 0.5,
-                preferredDelay: 0.2
-            )
-        )
-        // Clear Animation
-        self.configuration.titleView.animation = nil
+          self.configuration.titleView.animation?.rawValue(
+              self.titleLabel,
+              .init(
+                  preferredDuration: 0.5,
+                  preferredDelay: 0.2
+              )
+          )
+          // Clear Animation
+          self.configuration.titleView.animation = nil
     }
     
 }

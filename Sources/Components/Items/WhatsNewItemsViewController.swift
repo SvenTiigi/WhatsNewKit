@@ -82,6 +82,8 @@ final class WhatsNewItemsViewController: UIViewController {
         self.notificationCenter = notificationCenter
         // Super init
         super.init(nibName: nil, bundle: nil)
+        // Hide View if an animation is available
+        self.view.isHidden = self.configuration.itemsView.animation != nil
     }
     
     /// Initializer with Coder always return nil
@@ -114,6 +116,17 @@ final class WhatsNewItemsViewController: UIViewController {
     /// Load View
     override func loadView() {
         self.view = self.tableView
+    }
+    
+    /// View did appear
+    ///
+    /// - Parameter animated: If should be animated
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Disable isHidden
+        self.view.isHidden = false
+        // Trigger reload data
+        self.tableView.reloadData()
     }
     
     /// ScrollView will begin dragging
@@ -209,7 +222,13 @@ extension WhatsNewItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    willDisplay cell: UITableViewCell,
                    forRowAt indexPath: IndexPath) {
+        // Set background color
         cell.backgroundColor = self.configuration.backgroundColor
+        // Verify view is not hidden
+        guard !self.view.isHidden else {
+            // Otherwise return out of function
+            return
+        }
         // Unwrap cell as Cell and verify cellDisplayCount is less then the items count
         guard let cell = cell as? Cell,
             !self.isAnimationDisabled,
