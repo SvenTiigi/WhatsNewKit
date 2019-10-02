@@ -140,12 +140,12 @@ extension WhatsNewItemsViewController.Cell {
             // Add title font
             titleSubtitleAttributedString.addAttributes(
                 [.font: self.configuration.itemsView.titleFont],
-                range: NSRange(location: 0, length: self.item.title.count)
+                range: NSRange(location: 0, length: self.item.title.utf16.count)
             )
             // Add title color
             titleSubtitleAttributedString.addAttributes(
                 [.foregroundColor: self.configuration.itemsView.titleColor],
-                range: NSRange(location: 0, length: self.item.title.count)
+                range: NSRange(location: 0, length: self.item.title.utf16.count)
             )
         }
         // Check if Layout is centered
