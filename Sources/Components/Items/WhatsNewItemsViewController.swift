@@ -65,7 +65,10 @@ final class WhatsNewItemsViewController: UIViewController {
     
     /// The Cells
     lazy var cells: [Cell] = self.items.map { item in
-        Cell(item: item, configuration: self.configuration)
+        .init(
+            item: item,
+            configuration: self.configuration
+        )
     }
     
     // MARK: Initializer
