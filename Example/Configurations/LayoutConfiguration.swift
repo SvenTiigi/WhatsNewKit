@@ -20,8 +20,9 @@ class LayoutConfiguration: Configuration {
     
     /// The Options
     let options = [
-        "Default",
-        "Centered"
+        "Left",
+        "Centered",
+        "Right"
     ]
     
     /// The selected Index
@@ -32,9 +33,11 @@ class LayoutConfiguration: Configuration {
     /// - Parameter configuration: The WhatsNewViewController.Configuration
     func configure(configuration: inout WhatsNewViewController.Configuration) {
         if self.selectedIndex == 0 {
-            configuration.itemsView.layout = .default
-        } else {
+            configuration.itemsView.layout = .left
+        } else if self.selectedIndex == 1 {
             configuration.itemsView.layout = .centered
+        } else if self.selectedIndex == 2 {
+            configuration.itemsView.layout = .right
         }
     }
     
