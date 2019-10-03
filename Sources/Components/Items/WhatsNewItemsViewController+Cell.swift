@@ -43,8 +43,8 @@ extension WhatsNewItemsViewController {
             )
             // Set background color
             self.contentView.backgroundColor = self.configuration.backgroundColor
-            // Check if ItemsView Layout is default
-            if self.configuration.itemsView.layout == .default || self.configuration.itemsView.layout == .right {
+            // Check if ItemsView Layout is not eqaul to centered
+            if self.configuration.itemsView.layout != .centered {
                 // Perform ImageView Configuration
                 self.configureImageView()
             }

@@ -54,7 +54,7 @@ public extension WhatsNewViewController {
         ///   - subtitleColor: The subtitle color. Default value `black`
         ///   - imageSize: The ImageSize. Default value `preferred`
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
-        ///   - layout: The Layout. Default value `default`
+        ///   - layout: The Layout. Default value `left`
         ///   - contentMode: The ContentMode. Default value `top`
         ///   - animation: The Animation. Default value `nil`
         ///   - insets: The UIEdgeInsets. Default value `top: 15, left: 20, bottom: 5, right: 20`
@@ -64,7 +64,7 @@ public extension WhatsNewViewController {
                     subtitleColor: UIColor = .black,
                     imageSize: ImageSize = .preferred,
                     autoTintImage: Bool = true,
-                    layout: Layout = .default,
+                    layout: Layout = .left,
                     contentMode: ContentMode = .top,
                     animation: Animation? = nil,
                     insets: UIEdgeInsets = .init(top: 15, left: 20, bottom: 5, right: 20)) {
@@ -90,11 +90,11 @@ public extension WhatsNewViewController.ItemsView {
     
     /// The Layout
     enum Layout: String, Codable, Equatable, Hashable, CaseIterable {
-        /// Default left image right text
-        case `default`
+        /// Left image and right aligned text
+        case left
         /// Centered image and centered text
         case centered
-        /// Right image and left text
+        /// Right image and left  aligned text
         case right
     }
     
