@@ -44,7 +44,7 @@ extension WhatsNewItemsViewController {
             // Set background color
             self.contentView.backgroundColor = self.configuration.backgroundColor
             // Check if ItemsView Layout is default
-            if self.configuration.itemsView.layout == .default {
+            if self.configuration.itemsView.layout == .default || self.configuration.itemsView.layout == .right {
                 // Perform ImageView Configuration
                 self.configureImageView()
             }
@@ -79,10 +79,13 @@ extension WhatsNewItemsViewController.Cell {
         self.textLabel?.attributedText = self.makeAttributedTextString()
         // Set white background color
         self.backgroundColor = .white
-        // Check if Layout is centered
+        // Check if Layout is centered or right
         if self.configuration.itemsView.layout == .centered {
             // Set centered Text
             self.textLabel?.textAlignment = .center
+        } else if self.configuration.itemsView.layout == .right {
+            // Set Text to right
+            self.textLabel?.textAlignment = .right
         }
     }
     
