@@ -54,6 +54,9 @@ final class WhatsNewItemsViewController: UIViewController {
         tableView.estimatedRowHeight = 44.0
         // Set automtic dimension for row height
         tableView.rowHeight = UITableView.automaticDimension
+        if self.configuration.itemsView.layout == .right {
+            tableView.semanticContentAttribute = .forceRightToLeft
+        }
         // Return TableView
         return tableView
     }()

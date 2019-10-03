@@ -94,6 +94,8 @@ public extension WhatsNewViewController.ItemsView {
         case `default`
         /// Centered image and centered text
         case centered
+        /// Right image and left text
+        case right
     }
     
 }
