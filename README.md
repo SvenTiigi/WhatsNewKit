@@ -199,19 +199,21 @@ For a full overview of the available predefined Themes check out the [Example-Ap
 
 `WhatsNewKit` comes with two predefined [`ItemsView.Layouts`](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift). 
 
-| Default | Centered   |
-| ------------- | ------------- |
-| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutDefault.png" alt="Default Layout" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutCentered.png" alt="Centered Layout" /> |
-| The `default` layout shows an image on the left side and the text on the right side. | The `centered` layout aligns the image as well as the text in center. |
+| Left | Centered   | Right   |
+| ------------- | ------------- | ------------- |
+| <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutDefault.png" alt="Default Layout" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutCentered.png" alt="Centered Layout" /> | <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/LayoutRight.png" alt="Right Layout" /> |
 
 ```swift
-// Default Layout
+// Left Layout
 configuration.itemsView.layout = .default
 
 // Centered Layout
 configuration.itemsView.layout = .centered
+
+// Right Layout
+configuration.itemsView.layout = .right
 ```
-> ☝️ In default the ItemsView layout is set to `default`.
+> ☝️ In default the ItemsView layout is set to `.left`.
 
 ### ContentMode 📏
 
