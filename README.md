@@ -594,6 +594,7 @@ let decoded = try? JSONDecoder().decode(WhatsNew.self, from: data)
 * [Brian Advent](https://youtu.be/zCHEpN1Wgz4)
 * [23 Amazing iOS UI Libraries written in Swift for the Past Year (v.2019)](https://medium.mybridge.co/23-amazing-ios-ui-libraries-written-in-swift-for-the-past-year-v-2019-3e5456318768)
 * [Indie iOS Focus Weekly](https://indieiosfocus.com/issues/234)
+* [5 iOS Libraries That Will Inspire Your Creativity](https://medium.com/better-programming/5-ios-libraries-that-will-inspire-your-creativity-26ee5837f9b7)
 
 ## Contributing
 Contributions are very welcome 🙌 🤓
