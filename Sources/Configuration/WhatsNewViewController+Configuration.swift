@@ -35,6 +35,8 @@ public extension WhatsNewViewController {
         /// The iPad Adjustment Closure
         public var padAdjustment: PadAdjustment
         
+        public var isUsingDarkTheme: Bool?
+        
         /// The tint color based on completionButtonTheme backgroundcolor
         public var tintColor: UIColor {
             return self.completionButton.backgroundColor
@@ -65,7 +67,23 @@ public extension WhatsNewViewController {
             self.detailButton = detailButton
             self.completionButton = completionButton
             self.padAdjustment = padAdjustment
-            self.apply(theme: theme)
+            
+            if #available(iOSApplicationExtension 13.0, *) {
+                let currentSystemTheme = UITraitCollection.current.userInterfaceStyle
+                switch currentSystemTheme {
+                case .light:
+                    let lightTheme: Theme = .default
+                    self.apply(theme: lightTheme)
+                case .dark:
+                    self.isUsingDarkTheme = true
+                    let darkTheme: Theme = .darkDefault
+                    self.apply(theme: darkTheme)
+                default:
+                    self.apply(theme: theme)
+                }
+            } else {
+                self.apply(theme: theme)
+            }
         }
         
         /// Convenience Initializer with Theme
@@ -181,7 +199,12 @@ public extension WhatsNewViewController.Theme {
     /// Default Theme (white background and blue tint color)
     static var `default`: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.backgroundColor = .white
+            if configuration.isUsingDarkTheme ?? false {
+                configuration.apply(textColor: .white)
+                configuration.backgroundColor = .whatsNewKitDark
+            } else {
+                configuration.backgroundColor = .white
+            }
         }
     }
     
