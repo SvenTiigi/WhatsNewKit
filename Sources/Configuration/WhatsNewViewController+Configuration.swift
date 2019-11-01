@@ -69,8 +69,8 @@ public extension WhatsNewViewController {
             self.padAdjustment = padAdjustment
             
             if #available(iOSApplicationExtension 13.0, *) {
-                let test = UITraitCollection.current.userInterfaceStyle
-                switch test {
+                let currentSystemTheme = UITraitCollection.current.userInterfaceStyle
+                switch currentSystemTheme {
                 case .light:
                     let lightTheme: Theme = .default
                     self.apply(theme: lightTheme)
