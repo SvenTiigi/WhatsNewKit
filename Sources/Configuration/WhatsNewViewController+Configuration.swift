@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable file_length
+
 // MARK: - Configuration
 
 public extension WhatsNewViewController {
@@ -34,8 +36,6 @@ public extension WhatsNewViewController {
         
         /// The iPad Adjustment Closure
         public var padAdjustment: PadAdjustment
-        
-        public var isUsingDarkTheme: Bool?
         
         /// The tint color based on completionButtonTheme backgroundcolor
         public var tintColor: UIColor {
@@ -67,23 +67,7 @@ public extension WhatsNewViewController {
             self.detailButton = detailButton
             self.completionButton = completionButton
             self.padAdjustment = padAdjustment
-            
-            if #available(iOSApplicationExtension 13.0, *) {
-                let currentSystemTheme = UITraitCollection.current.userInterfaceStyle
-                switch currentSystemTheme {
-                case .light:
-                    let lightTheme: Theme = .default
-                    self.apply(theme: lightTheme)
-                case .dark:
-                    self.isUsingDarkTheme = true
-                    let darkTheme: Theme = .darkDefault
-                    self.apply(theme: darkTheme)
-                default:
-                    self.apply(theme: theme)
-                }
-            } else {
-                self.apply(theme: theme)
-            }
+            self.apply(theme: theme)
         }
         
         /// Convenience Initializer with Theme
@@ -192,26 +176,36 @@ public extension WhatsNewViewController {
     
 }
 
+// MARK: - Default Template Theme
+
+public extension WhatsNewViewController.Theme {
+    
+    /// The default Theme
+    static var `default`: WhatsNewViewController.Theme {
+        if #available(iOS 13.0, *) {
+            return .blue
+        } else {
+            return .whiteBlue
+        }
+    }
+    
+}
+
 // MARK: - Template Themes
 
 public extension WhatsNewViewController.Theme {
     
-    /// Default Theme (white background and blue tint color)
-    static var `default`: WhatsNewViewController.Theme {
+    /// White Blue Theme (white background and blue tint color)
+    static var whiteBlue: WhatsNewViewController.Theme {
         return .init { configuration in
-            if configuration.isUsingDarkTheme ?? false {
-                configuration.apply(textColor: .white)
-                configuration.backgroundColor = .whatsNewKitDark
-            } else {
-                configuration.backgroundColor = .white
-            }
+            configuration.backgroundColor = .white
         }
     }
     
-    /// Dark Default Theme (dark background and blue tint color)
-    static var darkDefault: WhatsNewViewController.Theme {
+    /// Dark Blue Theme (dark background and blue tint color)
+    static var darkBlue: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.apply(theme: .default)
+            configuration.apply(theme: .whiteBlue)
             configuration.apply(textColor: .white)
             configuration.backgroundColor = .whatsNewKitDark
         }
@@ -222,7 +216,7 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .default,
+                theme: .whiteBlue,
                 tintColor: .whatsNewKitLightBlue
             )
         }
@@ -233,7 +227,7 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .darkDefault,
+                theme: .darkBlue,
                 tintColor: .whatsNewKitLightBlue
             )
         }
@@ -244,7 +238,7 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .default,
+                theme: .whiteBlue,
                 tintColor: .orange
             )
         }
@@ -255,7 +249,7 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .darkDefault,
+                theme: .darkBlue,
                 tintColor: .orange
             )
         }
@@ -266,7 +260,7 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .default,
+                theme: .whiteBlue,
                 tintColor: .whatsNewKitPurple
             )
         }
@@ -277,7 +271,7 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .darkDefault,
+                theme: .darkBlue,
                 tintColor: .whatsNewKitPurple
             )
         }
@@ -288,7 +282,7 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .default,
+                theme: .whiteBlue,
                 tintColor: .whatsNewKitRed
             )
         }
@@ -299,7 +293,7 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .darkDefault,
+                theme: .darkBlue,
                 tintColor: .whatsNewKitRed
             )
         }
@@ -310,18 +304,18 @@ public extension WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .default,
+                theme: .whiteBlue,
                 tintColor: .whatsNewKitGreen
             )
         }
     }
     
-    /// Dard Green Theme (dark background and green tint color)
+    /// Dark Green Theme (dark background and green tint color)
     static var darkGreen: WhatsNewViewController.Theme {
         return .init { configuration in
             self.customize(
                 configuration: &configuration,
-                theme: .darkDefault,
+                theme: .darkBlue,
                 tintColor: .whatsNewKitGreen
             )
         }
@@ -339,6 +333,85 @@ public extension WhatsNewViewController.Theme {
         configuration.apply(theme: theme)
         configuration.detailButton?.titleColor = tintColor
         configuration.completionButton.backgroundColor = tintColor
+    }
+    
+}
+
+// MARK: - Template Theme based on UserInterfaceStyle
+
+@available(iOS 13.0, *)
+public extension WhatsNewViewController.Theme {
+    
+    /// Default Theme
+    static var blue: WhatsNewViewController.Theme {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .light, .unspecified:
+            return .whiteBlue
+        case .dark:
+            return .darkBlue
+        @unknown default:
+            return .whiteBlue
+        }
+    }
+    
+    /// LightBlue Theme
+    static var lightBlue: WhatsNewViewController.Theme {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .light, .unspecified:
+            return .whiteLightBlue
+        case .dark:
+            return .darkLightBlue
+        @unknown default:
+            return .whiteLightBlue
+        }
+    }
+    
+    /// Orange Theme
+    static var orange: WhatsNewViewController.Theme {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .light, .unspecified:
+            return .whiteOrange
+        case .dark:
+            return .darkOrange
+        @unknown default:
+            return .whiteOrange
+        }
+    }
+    
+    /// Purple Theme
+    static var purple: WhatsNewViewController.Theme {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .light, .unspecified:
+            return .whitePurple
+        case .dark:
+            return .darkPurple
+        @unknown default:
+            return .whitePurple
+        }
+    }
+    
+    /// Red Theme
+    static var red: WhatsNewViewController.Theme {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .light, .unspecified:
+            return .whiteRed
+        case .dark:
+            return .darkRed
+        @unknown default:
+            return .whiteRed
+        }
+    }
+    
+    /// Green Theme
+    static var green: WhatsNewViewController.Theme {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .light, .unspecified:
+            return .whiteGreen
+        case .dark:
+            return .darkGreen
+        @unknown default:
+            return .whiteGreen
+        }
     }
     
 }

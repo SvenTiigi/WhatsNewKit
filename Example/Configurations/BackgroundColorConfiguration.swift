@@ -32,9 +32,9 @@ class BackgroundColorConfiguration: Configuration {
     /// - Parameter configuration: The WhatsNewViewController.Configuration
     func configure(configuration: inout WhatsNewViewController.Configuration) {
         if selectedIndex == 0  {
-            configuration.apply(theme: .default)
+            configuration.apply(theme: .whiteBlue)
         } else {
-            configuration.apply(theme: .darkDefault)
+            configuration.apply(theme: .darkBlue)
         }
     }
     
