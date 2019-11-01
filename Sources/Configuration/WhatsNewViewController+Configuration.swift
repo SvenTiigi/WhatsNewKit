@@ -48,14 +48,14 @@ public extension WhatsNewViewController {
         ///
         /// - Parameters:
         ///   - theme: The Theme. Default value `.default`
-        ///   - backgroundColor: The background color. Default value `.white`
+        ///   - backgroundColor: The background color. Default value `.whatsNewKitBackground`
         ///   - titleView: The TitleView. Default value `.init()`
         ///   - itemsView: The ItemsView. Default value `.init()`
         ///   - detailButton: The optional DetailButton. Default value `nil`
         ///   - completionButton: The completion button. Default value `.init()`
         ///   - padAdjustment: The The iPad Adjustment Closure. Default value `defaultPadAdjustment`
         public init(theme: Theme = .default,
-                    backgroundColor: UIColor = .white,
+                    backgroundColor: UIColor = .whatsNewKitBackground,
                     titleView: TitleView = .init(),
                     itemsView: ItemsView = .init(),
                     detailButton: DetailButton? = nil,
@@ -198,7 +198,8 @@ public extension WhatsNewViewController.Theme {
     /// White Blue Theme (white background and blue tint color)
     static var whiteBlue: WhatsNewViewController.Theme {
         return .init { configuration in
-            configuration.backgroundColor = .white
+            configuration.backgroundColor = .whatsNewKitWhite
+            configuration.apply(textColor: .whatsNewKitDark)
         }
     }
     
@@ -206,7 +207,7 @@ public extension WhatsNewViewController.Theme {
     static var darkBlue: WhatsNewViewController.Theme {
         return .init { configuration in
             configuration.apply(theme: .whiteBlue)
-            configuration.apply(textColor: .white)
+            configuration.apply(textColor: .whatsNewKitWhite)
             configuration.backgroundColor = .whatsNewKitDark
         }
     }
