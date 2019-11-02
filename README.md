@@ -188,12 +188,27 @@ let myTheme = WhatsNewViewController.Theme { configuration in
     // ...
 }
 
+// Initialize a Configuration with your Theme
 let configuration = WhatsNewViewController.Configuration(
     theme: myTheme
 )
 ```
 
 For a full overview of the available predefined Themes check out the [Example-Application](https://github.com/SvenTiigi/WhatsNewKit/tree/master/Example).
+
+#### iOS 13 Dark-Mode
+
+Use the `.red` Theme if you wish that a predefined Theme like `.darkRed` and `.whiteRed` automatically adapts to the current [UserInterfaceStyle](https://developer.apple.com/documentation/uikit/uiuserinterfacestyle).
+
+```swift
+// Configuration with predefine `red` Theme which auto adapts to the UserInterfaceStyle
+// in order to support iOS 13 Dark-Mode
+let configuration = WhatsNewViewController.Configuration(
+    theme: .red
+)
+```
+
+Dark-Mode compatible Themes: `.blue`, `.lightBlue`, `.orange`, `.purple`, `.red`, `.green` 
 
 ### Layout 📐
 
