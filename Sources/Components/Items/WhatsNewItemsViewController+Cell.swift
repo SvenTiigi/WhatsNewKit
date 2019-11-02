@@ -140,15 +140,17 @@ extension WhatsNewItemsViewController.Cell {
         } else {
             // Initialize attributed string
             titleSubtitleAttributedString = .init(string: "\(self.item.title)\n\(self.item.subtitle)")
+            // Initialize Range
+            let range = NSRange(location: 0, length: self.item.title.utf16.count)
             // Add title font
             titleSubtitleAttributedString.addAttributes(
                 [.font: self.configuration.itemsView.titleFont],
-                range: NSRange(location: 0, length: self.item.title.utf16.count)
+                range: range
             )
             // Add title color
             titleSubtitleAttributedString.addAttributes(
                 [.foregroundColor: self.configuration.itemsView.titleColor],
-                range: NSRange(location: 0, length: self.item.title.utf16.count)
+                range: range
             )
         }
         // Check if Layout is centered
