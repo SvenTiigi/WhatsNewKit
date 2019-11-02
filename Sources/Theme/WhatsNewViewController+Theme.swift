@@ -38,11 +38,7 @@ public extension WhatsNewViewController.Theme {
     
     /// The default Theme
     static var `default`: WhatsNewViewController.Theme {
-        if #available(iOS 13.0, *) {
-            return .blue
-        } else {
-            return .whiteBlue
-        }
+        return .blue
     }
     
 }
