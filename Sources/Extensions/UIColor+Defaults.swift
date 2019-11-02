@@ -31,15 +31,33 @@ public extension UIColor {
             return UIColor { traitCollection in
                 switch traitCollection.userInterfaceStyle {
                 case .light, .unspecified:
-                    return .white
+                    return .whatsNewKitWhite
                 case .dark:
                     return .whatsNewKitDark
                 @unknown default:
-                    return .white
+                    return .whatsNewKitWhite
                 }
             }
         } else {
-            return .white
+            return .whatsNewKitWhite
+        }
+    }
+    
+    /// The WhatsNewKit background color
+    static var whatsNewKitForeground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor { traitCollection in
+                switch traitCollection.userInterfaceStyle {
+                case .light, .unspecified:
+                    return .whatsNewKitBlack
+                case .dark:
+                    return .whatsNewKitWhite
+                @unknown default:
+                    return .whatsNewKitBlack
+                }
+            }
+        } else {
+            return .whatsNewKitBlack
         }
     }
     

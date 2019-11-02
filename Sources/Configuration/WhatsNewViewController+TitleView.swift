@@ -37,13 +37,13 @@ public extension WhatsNewViewController {
         ///
         /// - Parameters:
         ///   - titleFont: The title font. Default value `size: 35, weight: semibold`
-        ///   - titleColor: The title color. Default value `.black`
+        ///   - titleColor: The title color. Default value `.whatsNewKitForeground`
         ///   - titleAlignment: The title alignment. Default value `center`
         ///   - animation: The Animation. Default value `nil`
         ///   - secondaryColor: The SecondaryColor. Default value `nil`
         ///   - insets: The UIEdgeInsets. Default value `top: 80, left: 20, bottom: 27, right: 20`
         public init(titleFont: UIFont = .systemFont(ofSize: 35, weight: .semibold),
-                    titleColor: UIColor = .black,
+                    titleColor: UIColor = .whatsNewKitForeground,
                     titleAlignment: NSTextAlignment = .center,
                     animation: Animation? = nil,
                     secondaryColor: SecondaryColor? = nil,
