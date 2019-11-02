@@ -134,11 +134,11 @@ public final class WhatsNewViewController: UIViewController {
     
     // MARK: Initializer
     
-    /// Default initializer
+    /// Designated Initializer with WhatsNew and Configuration
     ///
     /// - Parameters:
     ///   - whatsNew: The WhatsNew
-    ///   - configuration: The Configuration
+    ///   - configuration: The Configuration. Default value `.init()`
     public init(whatsNew: WhatsNew,
                 configuration: Configuration = .init()) {
         // Set WhatsNew
@@ -177,6 +177,35 @@ public final class WhatsNewViewController: UIViewController {
         )
         // Set VersionStore
         self.versionStore = versionStore
+    }
+    
+    /// Convenience Initializer with WhatsNew and a Theme
+    ///
+    /// - Parameters:
+    ///   - whatsNew: The WhatsNew
+    ///   - theme: The Theme
+    public convenience init(whatsNew: WhatsNew, theme: Theme) {
+        self.init(
+            whatsNew: whatsNew,
+            configuration: .init(theme)
+        )
+    }
+    
+    /// Convenience Initializer with WhatsNew, Theme and WhatsNewVersionStore
+    /// Initializer checks via WhatsNewVersionStore if Version has already been presented.
+    /// If a Version has been found the initializer will return nil.
+    ///
+    /// - Parameters:
+    ///   - whatsNew: The WhatsNew
+    ///   - theme: The Theme
+    public convenience init?(whatsNew: WhatsNew,
+                             theme: Theme,
+                             versionStore: WhatsNewVersionStore) {
+        self.init(
+            whatsNew: whatsNew,
+            configuration: .init(theme),
+            versionStore: versionStore
+        )
     }
     
     /// Initializer with Coder always returns nil
