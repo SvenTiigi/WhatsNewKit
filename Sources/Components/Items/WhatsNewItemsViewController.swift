@@ -54,13 +54,21 @@ final class WhatsNewItemsViewController: UIViewController {
         tableView.estimatedRowHeight = 44.0
         // Set automtic dimension for row height
         tableView.rowHeight = UITableView.automaticDimension
+        // Check if ItemsView Layout is right
+        if self.configuration.itemsView.layout == .right {
+            // Set semantic content attribute to force right to left
+            tableView.semanticContentAttribute = .forceRightToLeft
+        }
         // Return TableView
         return tableView
     }()
     
     /// The Cells
     lazy var cells: [Cell] = self.items.map { item in
-        Cell(item: item, configuration: self.configuration)
+        .init(
+            item: item,
+            configuration: self.configuration
+        )
     }
     
     // MARK: Initializer
