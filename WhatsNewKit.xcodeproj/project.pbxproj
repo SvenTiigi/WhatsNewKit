@@ -53,6 +53,7 @@
 		3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D92C67020AF883300A10333 /* WhatsNewViewController.swift */; };
 		3DA6679C20B0BB3B00DB18FF /* WhatsNewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; };
 		3DA6679D20B0BB3B00DB18FF /* WhatsNewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* WhatsNewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DBE9416236D7A6E0026B0FB /* WhatsNewViewController+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE9414236D7A480026B0FB /* WhatsNewViewController+Theme.swift */; };
 		3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */; };
 		3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8A6AA20AED02400292C94 /* AppDelegate.swift */; };
 		3DC8A6B220AED02600292C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC8A6B120AED02600292C94 /* Assets.xcassets */; };
@@ -149,6 +150,7 @@
 		3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Item.swift"; sourceTree = "<group>"; };
 		3D92C67020AF883300A10333 /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
 		3DAEF0172328469B00A61D87 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
+		3DBE9414236D7A480026B0FB /* WhatsNewViewController+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Theme.swift"; sourceTree = "<group>"; };
 		3DBFB67520B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3DC8A6A820AED02400292C94 /* WhatsNewKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsNewKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC8A6AA20AED02400292C94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -311,6 +313,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		3DBE9413236D7A380026B0FB /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				3DBE9414236D7A480026B0FB /* WhatsNewViewController+Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		3DBFB67720B6ED9300FF0899 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +416,7 @@
 			children = (
 				3D92C67020AF883300A10333 /* WhatsNewViewController.swift */,
 				3D92C67A20AF88E000A10333 /* Configuration */,
+				3DBE9413236D7A380026B0FB /* Theme */,
 				3DFB6FFE20B34F7E00673FD6 /* Store */,
 				3D92C67920AF88DC00A10333 /* Components */,
 				3D92C66C20AF87EA00A10333 /* Models */,
@@ -517,7 +528,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = WhatsNewKit;
 				TargetAttributes = {
 					3DC8A6A720AED02400292C94 = {
@@ -630,6 +641,7 @@
 			files = (
 				3D2803DB2205AE5C00E1FA31 /* WhatsNewItemsViewController.swift in Sources */,
 				3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */,
+				3DBE9416236D7A6E0026B0FB /* WhatsNewViewController+Theme.swift in Sources */,
 				3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */,
 				3D2803D02205A1F500E1FA31 /* WhatsNewTitleViewController.swift in Sources */,
 				3D2803D72205AA7F00E1FA31 /* WhatsNewButtonViewController+DetailButton.swift in Sources */,
@@ -714,7 +726,7 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = de.tiigi.WhatsNewKit.Example;
@@ -743,7 +755,7 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = de.tiigi.WhatsNewKit.Example;
@@ -870,7 +882,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -898,7 +910,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";

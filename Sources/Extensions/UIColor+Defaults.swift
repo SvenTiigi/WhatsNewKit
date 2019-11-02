@@ -25,6 +25,58 @@ extension UIColor {
 
 public extension UIColor {
     
+    /// The WhatsNewKit background color
+    static var whatsNewKitBackground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor { traitCollection in
+                switch traitCollection.userInterfaceStyle {
+                case .light, .unspecified:
+                    return .whatsNewKitWhite
+                case .dark:
+                    return .whatsNewKitDark
+                @unknown default:
+                    return .whatsNewKitWhite
+                }
+            }
+        } else {
+            return .whatsNewKitWhite
+        }
+    }
+    
+    /// The WhatsNewKit background color
+    static var whatsNewKitForeground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor { traitCollection in
+                switch traitCollection.userInterfaceStyle {
+                case .light, .unspecified:
+                    return .whatsNewKitBlack
+                case .dark:
+                    return .whatsNewKitWhite
+                @unknown default:
+                    return .whatsNewKitBlack
+                }
+            }
+        } else {
+            return .whatsNewKitBlack
+        }
+    }
+    
+    /// The WhatsNewKit white color
+    static let whatsNewKitWhite = UIColor(
+        red: 1,
+        green: 1,
+        blue: 1,
+        alpha: 1
+    )
+    
+    /// The WhatsNewKit black color
+    static let whatsNewKitBlack = UIColor(
+        red: 0,
+        green: 0,
+        blue: 0,
+        alpha: 1
+    )
+    
     /// The WhatsNewKit blue color
     static let whatsNewKitBlue = UIColor(
         red: 0,

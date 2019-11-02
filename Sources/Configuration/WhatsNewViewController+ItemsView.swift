@@ -49,9 +49,9 @@ public extension WhatsNewViewController {
         ///
         /// - Parameters:
         ///   - titleFont: The title font. Default value `size: 17, weight: semibold`
-        ///   - titleColor: The title color. Default value `black`
+        ///   - titleColor: The title color. Default value `.whatsNewKitForeground`
         ///   - subtitleFont: The subtitle font. Default value `size: 17`
-        ///   - subtitleColor: The subtitle color. Default value `black`
+        ///   - subtitleColor: The subtitle color. Default value `.whatsNewKitForeground`
         ///   - imageSize: The ImageSize. Default value `preferred`
         ///   - autoTintImage: The autoTintImage boolean. Default value `true`
         ///   - layout: The Layout. Default value `left`
@@ -59,9 +59,9 @@ public extension WhatsNewViewController {
         ///   - animation: The Animation. Default value `nil`
         ///   - insets: The UIEdgeInsets. Default value `top: 15, left: 20, bottom: 5, right: 20`
         public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
-                    titleColor: UIColor = .black,
+                    titleColor: UIColor = .whatsNewKitForeground,
                     subtitleFont: UIFont = .systemFont(ofSize: 17),
-                    subtitleColor: UIColor = .black,
+                    subtitleColor: UIColor = .whatsNewKitForeground,
                     imageSize: ImageSize = .preferred,
                     autoTintImage: Bool = true,
                     layout: Layout = .left,
