@@ -27,7 +27,7 @@ public extension UIColor {
     
     /// The WhatsNewKit background color
     static var whatsNewKitBackground: UIColor {
-        if #available(iOSApplicationExtension 13.0, *) {
+        if #available(iOS 13.0, *) {
             return UIColor { traitCollection in
                 switch traitCollection.userInterfaceStyle {
                 case .light, .unspecified:
