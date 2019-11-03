@@ -212,7 +212,7 @@ Dark-Mode compatible Themes: `.blue`, `.lightBlue`, `.orange`, `.purple`, `.red`
 
 ### Layout 📐
 
-`WhatsNewKit` comes with two predefined [`ItemsView.Layouts`](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift). 
+`WhatsNewKit` comes with three predefined [`ItemsView.Layouts`](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BItemsView.swift). 
 
 | Left | Centered   | Right   |
 | ------------- | ------------- | ------------- |
@@ -220,7 +220,7 @@ Dark-Mode compatible Themes: `.blue`, `.lightBlue`, `.orange`, `.purple`, `.red`
 
 ```swift
 // Left Layout
-configuration.itemsView.layout = .default
+configuration.itemsView.layout = .left
 
 // Centered Layout
 configuration.itemsView.layout = .centered
