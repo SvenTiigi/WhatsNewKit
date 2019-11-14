@@ -6,8 +6,8 @@
    <a href="https://developer.apple.com/swift/">
       <img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift 5.0">
    </a>
-   <a href="https://travis-ci.com/SvenTiigi/WhatsNewKit">
-      <img src="https://travis-ci.com/SvenTiigi/WhatsNewKit.svg?branch=master" alt="Build Status">
+   <a href="https://github.com/SvenTiigi/WhatsNewKit/actions?query=workflow%3ACI">
+      <img src="https://github.com/SvenTiigi/WhatsNewKit/workflows/CI/badge.svg" alt="CI Status">
    </a>
    <a href="http://cocoapods.org/pods/WhatsNewKit">
       <img src="https://img.shields.io/cocoapods/v/WhatsNewKit.svg?style=flat" alt="Version">
@@ -15,12 +15,9 @@
    <a href="https://github.com/Carthage/Carthage">
       <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible">
    </a>
+   <br/>
    <a href="http://cocoapods.org/pods/WhatsNewKit">
       <img src="https://img.shields.io/cocoapods/p/WhatsNewKit.svg?style=flat" alt="Platform">
-   </a>
-   <br/>
-   <a href="https://codeclimate.com/github/SvenTiigi/WhatsNewKit/maintainability">
-      <img src="https://api.codeclimate.com/v1/badges/e1a0a92affd3c0d0f402/maintainability" />
    </a>
    <a href="https://sventiigi.github.io/WhatsNewKit">
       <img src="https://github.com/SvenTiigi/WhatsNewKit/blob/gh-pages/badge.svg" alt="Documentation">
