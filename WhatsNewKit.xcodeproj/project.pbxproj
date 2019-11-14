@@ -104,7 +104,6 @@
 		3D04214D20C2D6A100DA5126 /* WhatsNewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewTests.swift; sourceTree = "<group>"; };
 		3D04214F20C2D6A100DA5126 /* KeyValueWhatsNewVersionStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStoreTests.swift; sourceTree = "<group>"; };
 		3D04215020C2D6A100DA5126 /* InMemoryWhatsNewVersionStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryWhatsNewVersionStoreTests.swift; sourceTree = "<group>"; };
-		3D04215820C2D7B100DA5126 /* .codeclimate.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codeclimate.yml; sourceTree = SOURCE_ROOT; };
 		3D13455D20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+HapticFeedback.swift"; sourceTree = "<group>"; };
 		3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButton.swift"; sourceTree = "<group>"; };
@@ -397,7 +396,6 @@
 			children = (
 				DD7502721C68FC1B006590AF /* Frameworks */,
 				DD7502731C68FC20006590AF /* Tests */,
-				3D04215820C2D7B100DA5126 /* .codeclimate.yml */,
 				3D2412E920BAEB56005A04D6 /* .gitignore */,
 				3D2412E620BAEB56005A04D6 /* .jazzy.yaml */,
 				3D2412EB20BAEB56005A04D6 /* .swiftlint.yml */,
