@@ -109,7 +109,6 @@
 		3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButton.swift"; sourceTree = "<group>"; };
 		3D2412D020BAE7C6005A04D6 /* WhatsNewViewController+CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+CompletionButton.swift"; sourceTree = "<group>"; };
-		3D2412E520BAEB56005A04D6 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		3D2412E620BAEB56005A04D6 /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = SOURCE_ROOT; };
 		3D2412E720BAEB56005A04D6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		3D2412E920BAEB56005A04D6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -402,7 +401,6 @@
 				3D2412E920BAEB56005A04D6 /* .gitignore */,
 				3D2412E620BAEB56005A04D6 /* .jazzy.yaml */,
 				3D2412EB20BAEB56005A04D6 /* .swiftlint.yml */,
-				3D2412E520BAEB56005A04D6 /* .travis.yml */,
 				3D2412E720BAEB56005A04D6 /* LICENSE */,
 				3D2412EA20BAEB56005A04D6 /* README.md */,
 				3DAEF0172328469B00A61D87 /* Package.swift */,
