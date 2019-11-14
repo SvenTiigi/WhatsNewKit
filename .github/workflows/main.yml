@@ -3,9 +3,17 @@ name: CI
 on: [push]
 
 jobs:
-  test:
+  tests:
+    name: Unit-Tests
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Perform Test
-      run: fastlane test
+    - name: fastlane ios tests
+      run: fastlane ios tests
+  compatibility:
+    name: Compatibility-Tests
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: fastlane ios compatibilityTests
+      run: fastlane ios compatibilityTests
