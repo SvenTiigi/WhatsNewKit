@@ -144,6 +144,7 @@
 		3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+ItemsView.swift"; sourceTree = "<group>"; };
 		3D743F3023150AAC0024F1F9 /* Sequence+WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+WhatsNew.swift"; sourceTree = "<group>"; };
 		3D7E00C320B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Configuration.swift"; sourceTree = "<group>"; };
+		3D914522237DC191006EAF1A /* main.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = main.yml; path = .github/workflows/main.yml; sourceTree = SOURCE_ROOT; };
 		3D92C66920AF87E600A10333 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		3D92C66D20AF87F500A10333 /* WhatsNew+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Item.swift"; sourceTree = "<group>"; };
 		3D92C67020AF883300A10333 /* WhatsNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewController.swift; sourceTree = "<group>"; };
@@ -374,8 +375,8 @@
 			children = (
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
-				52D6D99C1BEFF38C002C0205 /* Configs */,
 				3DC8A6A920AED02400292C94 /* Example */,
+				52D6D99C1BEFF38C002C0205 /* Configs */,
 				52D6D97D1BEFF229002C0205 /* Products */,
 				3DC8A6BA20AED37B00292C94 /* Frameworks */,
 			);
@@ -397,6 +398,7 @@
 				DD7502721C68FC1B006590AF /* Frameworks */,
 				DD7502731C68FC20006590AF /* Tests */,
 				3D2412E920BAEB56005A04D6 /* .gitignore */,
+				3D914522237DC191006EAF1A /* main.yml */,
 				3D2412E620BAEB56005A04D6 /* .jazzy.yaml */,
 				3D2412EB20BAEB56005A04D6 /* .swiftlint.yml */,
 				3D2412E720BAEB56005A04D6 /* LICENSE */,
