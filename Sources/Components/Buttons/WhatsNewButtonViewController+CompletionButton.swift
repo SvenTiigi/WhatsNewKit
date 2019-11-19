@@ -46,7 +46,7 @@ extension WhatsNewButtonViewController {
             self.configure(completionButton: configuration.completionButton)
         }
         
-        // MARK: ViewLifecycle
+        // MARK: View-Lifecycle
         
         /// Layout Subviews
         override func layoutSubviews() {
