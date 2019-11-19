@@ -57,6 +57,16 @@ extension WhatsNewItemsViewController {
             return nil
         }
         
+        // MARK: View-Lifecycle
+        
+        /// TraitCollection did change
+        /// - Parameter previousTraitCollection: The previous TraitCollection
+        override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+            super.traitCollectionDidChange(previousTraitCollection)
+            // Configure ImageView
+            self.configureImageView()
+        }
+        
     }
     
 }
