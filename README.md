@@ -147,7 +147,7 @@ var configuration = WhatsNewViewController.Configuration()
 configuration.backgroundColor = .white
 configuration.titleView.titleColor = .orange
 configuration.itemsView.titleFont = .systemFont(ofSize: 17)
-configuration.detailButton.titleColor = .orange
+configuration.detailButton?.titleColor = .orange
 configuration.completionButton.backgroundColor = .orange
 // And many more configuration properties...
 
@@ -180,7 +180,7 @@ let myTheme = WhatsNewViewController.Theme { configuration in
     configuration.backgroundColor = .white
     configuration.titleView.titleColor = .orange
     configuration.itemsView.titleFont = .systemFont(ofSize: 17)
-    configuration.detailButton.titleColor = .orange
+    configuration.detailButton?.titleColor = .orange
     configuration.completionButton.backgroundColor = .orange
     // ...
 }
@@ -287,7 +287,7 @@ configuration.titleView.animation = .slideUp
 configuration.itemsView.animation = .slideRight
 
 // Set SlideLeft Animation to DetailButton
-configuration.detailButton.animation = .slideLeft
+configuration.detailButton?.animation = .slideLeft
 
 // Set SlideDown Animation to CompletionButton
 configuration.completionButton.animation = .slideDown
@@ -304,7 +304,7 @@ If you wish to define your custom animation, simply set the `custom` enum and pa
 
 ```swift
 // Custom Animation for DetailButton
-configuration.detailButton.animation = .custom(animator: { (view: UIView, settings: AnimatorSettings) in
+configuration.detailButton?.animation = .custom(animator: { (view: UIView, settings: AnimatorSettings) in
     // view: The View to perform animation on
     // settings: Preferred duration and delay
 })
