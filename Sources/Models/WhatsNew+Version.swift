@@ -30,9 +30,11 @@ public extension WhatsNew {
         ///   - major: The major version
         ///   - minor: The minor version
         ///   - patch: The patch version
-        public init(major: Int,
-                    minor: Int,
-                    patch: Int) {
+        public init(
+            major: Int,
+            minor: Int,
+            patch: Int
+        ) {
             self.major = major
             self.minor = minor
             self.patch = patch
@@ -52,7 +54,10 @@ extension WhatsNew.Version: Comparable {
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    public static func < (lhs: WhatsNew.Version, rhs: WhatsNew.Version) -> Bool {
+    public static func < (
+        lhs: WhatsNew.Version,
+        rhs: WhatsNew.Version
+    ) -> Bool {
         let sum: (WhatsNew.Version) -> Int = { $0.major * 100 + $0.minor * 10 + $0.patch }
         return sum(lhs) < sum(rhs)
     }
@@ -94,7 +99,9 @@ public extension WhatsNew.Version {
     ///
     /// - Parameter bundle: The Bundle
     /// - Returns: WhatsNew.Version
-    static func current(inBundle bundle: Bundle = .main) -> WhatsNew.Version {
+    static func current(
+        inBundle bundle: Bundle = .main
+    ) -> WhatsNew.Version {
         // Retrieve Bundle short Version String
         let shortVersionString = bundle.infoDictionary?["CFBundleShortVersionString"] as? String
         // Return initialized Version via String Literal

@@ -90,6 +90,7 @@ class BaseTests: XCTestCase {
         return Data(self.generateRandomString().utf8)
     }
     
+    /// Generate a random WhatsNew
     func generateRandomWhatsNew() -> WhatsNew {
         return WhatsNew(
             version: .init(

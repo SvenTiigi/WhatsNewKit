@@ -79,9 +79,11 @@ final class WhatsNewItemsViewController: UIViewController {
     ///   - items: The WhatsNew Items
     ///   - configuration: The Configuration
     ///   - notificationCenter: The NotificationCenter. Default value `default`
-    init(items: [WhatsNew.Item],
-         configuration: WhatsNewViewController.Configuration,
-         notificationCenter: NotificationCenter = .default) {
+    init(
+        items: [WhatsNew.Item],
+        configuration: WhatsNewViewController.Configuration,
+        notificationCenter: NotificationCenter = .default
+    ) {
         // Set items
         self.items = items
         // Set configuration
@@ -176,7 +178,9 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
     ///
     /// - Parameter tableView: The TableView
     /// - Returns: Amount of section
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(
+        in tableView: UITableView
+    ) -> Int {
         // Return items count
         return self.items.count
     }
@@ -187,8 +191,10 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
     ///   - tableView: The TableView
     ///   - section: The section
     /// - Returns: The amount of rows in section
-    public func tableView(_ tableView: UITableView,
-                          numberOfRowsInSection section: Int) -> Int {
+    public func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         // Return one row
         return 1
     }
@@ -199,8 +205,10 @@ extension WhatsNewItemsViewController: UITableViewDataSource {
     ///   - tableView: The TableView
     ///   - indexPath: The IndexPath
     /// - Returns: The configured Cell
-    public func tableView(_ tableView: UITableView,
-                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         // Initialize index
         let index = indexPath.section
         // Verify index is contained in indices
@@ -227,9 +235,11 @@ extension WhatsNewItemsViewController: UITableViewDelegate {
     ///   - tableView: The TableView
     ///   - cell: The Cell
     ///   - indexPath: The indexPath
-    func tableView(_ tableView: UITableView,
-                   willDisplay cell: UITableViewCell,
-                   forRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
         // Set background color
         cell.backgroundColor = self.configuration.backgroundColor
         // Verify view is not hidden
@@ -262,8 +272,10 @@ extension WhatsNewItemsViewController: UITableViewDelegate {
     ///   - tableView: The TableView
     ///   - section: The Section
     /// - Returns: The Header Height
-    func tableView(_ tableView: UITableView,
-                   heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForHeaderInSection section: Int
+    ) -> CGFloat {
         return self.calculateSpace(
             for: .header,
             in: section,
@@ -277,8 +289,10 @@ extension WhatsNewItemsViewController: UITableViewDelegate {
     ///   - tableView: The TableView
     ///   - section: The Section
     /// - Returns: The Footer Height
-    func tableView(_ tableView: UITableView,
-                   heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForFooterInSection section: Int
+    ) -> CGFloat {
         return self.calculateSpace(
             for: .footer,
             in: section,
@@ -292,8 +306,10 @@ extension WhatsNewItemsViewController: UITableViewDelegate {
     ///   - tableView: The TableView
     ///   - section: The Section
     /// - Returns: The Header View
-    func tableView(_ tableView: UITableView,
-                   viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(
+        _ tableView: UITableView,
+        viewForHeaderInSection section: Int
+    ) -> UIView? {
         return nil
     }
     
@@ -303,8 +319,10 @@ extension WhatsNewItemsViewController: UITableViewDelegate {
     ///   - tableView: The TableView
     ///   - section: The Section
     /// - Returns: The Footer View
-    func tableView(_ tableView: UITableView,
-                   viewForFooterInSection section: Int) -> UIView? {
+    func tableView(
+        _ tableView: UITableView,
+        viewForFooterInSection section: Int
+    ) -> UIView? {
         return nil
     }
     
@@ -329,9 +347,11 @@ extension WhatsNewItemsViewController {
     ///   - section: The Section
     ///   - contentMode: The ContentMode
     /// - Returns: The calculcated Space
-    func calculateSpace(for position: Position,
-                        in section: Int,
-                        contentMode: WhatsNewViewController.ItemsView.ContentMode) -> CGFloat {
+    func calculateSpace(
+        for position: Position,
+        in section: Int,
+        contentMode: WhatsNewViewController.ItemsView.ContentMode
+    ) -> CGFloat {
         // Declare Divider
         var divider: CGFloat
         // Switch on ContentMode

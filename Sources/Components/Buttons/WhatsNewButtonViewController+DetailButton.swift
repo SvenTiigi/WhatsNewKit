@@ -27,8 +27,10 @@ extension WhatsNewButtonViewController {
         /// - Parameters:
         ///   - detailButton: The DetailButton configuration
         ///   - onPress: The on press closure
-        init(detailButton: WhatsNewViewController.DetailButton?,
-             onPress: @escaping () -> Void) {
+        init(
+            detailButton: WhatsNewViewController.DetailButton?,
+            onPress: @escaping () -> Void
+        ) {
             // Set on press
             self.onPress = onPress
             // Super init
@@ -53,7 +55,9 @@ extension WhatsNewButtonViewController.DetailButton {
     /// Configure with DetailButton Configuration
     ///
     /// - Parameter detailButton: The DetailButton Configuration
-    func configure(detailButton: WhatsNewViewController.DetailButton?) {
+    func configure(
+        detailButton: WhatsNewViewController.DetailButton?
+    ) {
         // Set title
         self.setTitle(
             detailButton?.title,

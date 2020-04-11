@@ -132,21 +132,27 @@ class ExampleViewController: UIViewController {
         self.view = self.tableView
     }
     
+    /// View did layout Subviews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.demoImageView.frame = CGRect(
+        self.demoImageView.frame = .init(
             x: 0,
             y: 25,
             width: self.headerView.frame.width,
             height: 300
         )
-        self.textLabel.frame = CGRect(
+        self.textLabel.frame = .init(
             x: 20,
             y: self.demoImageView.frame.maxY + 10,
             width: self.headerView.frame.width - 40,
             height: self.headerView.frame.height - self.demoImageView.frame.maxY - 10 - 1
         )
-        self.dividerLine.frame = CGRect(x: 20, y: self.textLabel.frame.maxY, width: self.headerView.frame.width - 40, height: 1)
+        self.dividerLine.frame = .init(
+            x: 20,
+            y: self.textLabel.frame.maxY,
+            width: self.headerView.frame.width - 40,
+            height: 1
+        )
     }
     
     // MARK: Customization
@@ -219,27 +225,37 @@ class ExampleViewController: UIViewController {
 
 extension ExampleViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(
+        in tableView: UITableView
+    ) -> Int {
         return self.configurations.count
     }
     
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return self.cells[safe: indexPath.section] ?? UITableViewCell(style: .default, reuseIdentifier: "invalidCell")
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        self.cells[safe: indexPath.section] ?? .init(style: .default, reuseIdentifier: "invalidCell")
     }
     
-    func tableView(_ tableView: UITableView,
-                   titleForHeaderInSection section: Int) -> String? {
+    func tableView(
+        _ tableView: UITableView,
+        titleForHeaderInSection section: Int
+    ) -> String? {
         return self.configurations[safe: section]?.title
     }
     
-    func tableView(_ tableView: UITableView,
-                   titleForFooterInSection section: Int) -> String? {
+    func tableView(
+        _ tableView: UITableView,
+        titleForFooterInSection section: Int
+    ) -> String? {
         return self.configurations[safe: section]?.subtitle
     }
     
@@ -249,7 +265,10 @@ extension ExampleViewController: UITableViewDataSource {
 
 extension ExampleViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
         return 110
     }
     

@@ -31,9 +31,11 @@ extension WhatsNewButtonViewController {
         ///   - title: The title
         ///   - configuration: The Configuration
         ///   - onPress: The on press closure
-        convenience init(title: String,
-                         configuration: WhatsNewViewController.Configuration,
-                         onPress: @escaping () -> Void) {
+        convenience init(
+            title: String,
+            configuration: WhatsNewViewController.Configuration,
+            onPress: @escaping () -> Void
+        ) {
             // Init with Custom Type
             self.init(type: .custom)
             // Set onPress closure
@@ -77,7 +79,9 @@ extension WhatsNewButtonViewController.CompletionButton {
     /// Configure with CompletionButton configuraton
     ///
     /// - Parameter completionButton: The CompletionButton Configuration
-    func configure(completionButton: WhatsNewViewController.CompletionButton) {
+    func configure(
+        completionButton: WhatsNewViewController.CompletionButton
+    ) {
         // Set corner radius to rounded button
         self.layer.cornerRadius = completionButton.cornerRadius
         // Set mask to bound
@@ -143,7 +147,10 @@ private extension UIImage {
     ///   - color: The color of the returned UIImage
     ///   - size: The size of the returned UIImage. Default value `width: 1, height: 1`
     /// - Returns: Optional UIImage
-    static func from(_ color: UIColor, size: CGSize = .init(width: 1, height: 1)) -> UIImage? {
+    static func from(
+        _ color: UIColor,
+        size: CGSize = .init(width: 1, height: 1)
+    ) -> UIImage? {
         // Initialize rect
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         // Begin Graphics Context

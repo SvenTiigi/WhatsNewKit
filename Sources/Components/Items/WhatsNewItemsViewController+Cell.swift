@@ -30,8 +30,10 @@ extension WhatsNewItemsViewController {
         /// - Parameters:
         ///   - item: The WhatsNew Item
         ///   - configuration: The Configuration
-        init(item: WhatsNew.Item,
-             configuration: WhatsNewViewController.Configuration) {
+        init(
+            item: WhatsNew.Item,
+            configuration: WhatsNewViewController.Configuration
+        ) {
             // Set item
             self.item = item
             // Set configuration

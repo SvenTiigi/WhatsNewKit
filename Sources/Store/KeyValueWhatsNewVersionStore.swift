@@ -54,8 +54,10 @@ public struct KeyValueWhatsNewVersionStore {
     /// - Parameters:
     ///   - keyValueable: The KeyValueable Object. Default value `UserDefaults.standard`
     ///   - prefixIdentifier: The prefix identifier. Default value `de.tiigi.whatsnewkit.`
-    public init(keyValueable: KeyValueable = UserDefaults.standard,
-                prefixIdentifier: String = "de.tiigi.whatsnewkit") {
+    public init(
+        keyValueable: KeyValueable = UserDefaults.standard,
+        prefixIdentifier: String = "de.tiigi.whatsnewkit"
+    ) {
         self.keyValueable = keyValueable
         self.prefixIdentifier = prefixIdentifier
     }

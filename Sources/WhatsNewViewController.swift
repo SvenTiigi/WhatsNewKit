@@ -144,8 +144,10 @@ public final class WhatsNewViewController: UIViewController {
     /// - Parameters:
     ///   - whatsNew: The WhatsNew
     ///   - configuration: The Configuration. Default value `.init()`
-    public init(whatsNew: WhatsNew,
-                configuration: Configuration = .init()) {
+    public init(
+        whatsNew: WhatsNew,
+        configuration: Configuration = .init()
+    ) {
         // Set WhatsNew
         self.whatsNew = whatsNew
         // Set Configuration
@@ -381,7 +383,9 @@ extension WhatsNewViewController {
     /// Handle Button Press
     ///
     /// - Parameter buttonType: The Button type
-    func handlePress(buttonType: WhatsNewButtonViewController.ButtonType) {
+    func handlePress(
+        buttonType: WhatsNewButtonViewController.ButtonType
+    ) {
         // Switch on button type
         switch buttonType {
         case .completion:
@@ -455,9 +459,11 @@ public extension WhatsNewViewController {
     ///   - viewController: The ViewController to present on
     ///   - animated: If present should be animated. Default value `true`
     ///   - completion: The completion closure. Default value `nil`
-    func present(on viewController: UIViewController?,
-                 animated: Bool = true,
-                 completion: (() -> Void)? = nil) {
+    func present(
+        on viewController: UIViewController?,
+        animated: Bool = true,
+        completion: (() -> Void)? = nil
+    ) {
         // Present WhatsNewViewController
         viewController?.present(self, animated: animated, completion: completion)
     }
@@ -467,8 +473,10 @@ public extension WhatsNewViewController {
     /// - Parameters:
     ///   - navigationController: The NavigationController
     ///   - animated: Should be pushed animated. Default value `true`
-    func push(on navigationController: UINavigationController?,
-              animated: Bool = true) {
+    func push(
+        on navigationController: UINavigationController?,
+        animated: Bool = true
+    ) {
         // Push WhatsNewViewController
         navigationController?.pushViewController(self, animated: animated)
     }

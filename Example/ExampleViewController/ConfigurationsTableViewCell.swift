@@ -94,19 +94,25 @@ class ConfigurationsTableViewCell: UITableViewCell, ReuseIdentifiable {
 
 extension ConfigurationsTableViewCell: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(
+        in collectionView: UICollectionView
+    ) -> Int {
         // There is only one section
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         // Return the options count
         return self.configuration.options.count
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         // Dequeue Cell
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: ConfigurationCollectionViewCell.reuseIdentifier,
@@ -127,8 +133,10 @@ extension ConfigurationsTableViewCell: UICollectionViewDataSource {
 
 extension ConfigurationsTableViewCell: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView,
-                        didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         // Update the selected Index
         self.configuration.selectedIndex = indexPath.item
         // Invoke delegate

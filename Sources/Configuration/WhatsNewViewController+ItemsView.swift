@@ -58,16 +58,18 @@ public extension WhatsNewViewController {
         ///   - contentMode: The ContentMode. Default value `top`
         ///   - animation: The Animation. Default value `nil`
         ///   - insets: The UIEdgeInsets. Default value `top: 15, left: 20, bottom: 5, right: 20`
-        public init(titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
-                    titleColor: UIColor = .whatsNewKitForeground,
-                    subtitleFont: UIFont = .systemFont(ofSize: 17),
-                    subtitleColor: UIColor = .whatsNewKitForeground,
-                    imageSize: ImageSize = .preferred,
-                    autoTintImage: Bool = true,
-                    layout: Layout = .left,
-                    contentMode: ContentMode = .top,
-                    animation: Animation? = nil,
-                    insets: UIEdgeInsets = .init(top: 15, left: 20, bottom: 5, right: 20)) {
+        public init(
+            titleFont: UIFont = .systemFont(ofSize: 17, weight: .semibold),
+            titleColor: UIColor = .whatsNewKitForeground,
+            subtitleFont: UIFont = .systemFont(ofSize: 17),
+            subtitleColor: UIColor = .whatsNewKitForeground,
+            imageSize: ImageSize = .preferred,
+            autoTintImage: Bool = true,
+            layout: Layout = .left,
+            contentMode: ContentMode = .top,
+            animation: Animation? = nil,
+            insets: UIEdgeInsets = .init(top: 15, left: 20, bottom: 5, right: 20)
+        ) {
             self.titleFont = titleFont
             self.titleColor = titleColor
             self.subtitleFont = subtitleFont

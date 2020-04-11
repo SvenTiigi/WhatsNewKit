@@ -36,8 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ///   - application: The Application
     ///   - launchOptions: The LaunchOptions
     /// - Returns: Boolean
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         // Initialize Window
         self.window = UIWindow(frame: UIScreen.main.bounds)
         // Set root viewcontroller

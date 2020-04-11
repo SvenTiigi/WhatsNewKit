@@ -47,8 +47,10 @@ final class WhatsNewButtonViewController: UIViewController {
     /// - Parameters:
     ///   - configuration: The Configuration
     ///   - onPress: The onPress closure with ButtonType
-    init(configuration: WhatsNewViewController.Configuration,
-         onPress: @escaping (ButtonType) -> Void) {
+    init(
+        configuration: WhatsNewViewController.Configuration,
+        onPress: @escaping (ButtonType) -> Void
+    ) {
         self.configuration = configuration
         self.onPress = onPress
         super.init(nibName: nil, bundle: nil)

@@ -39,8 +39,10 @@ extension WhatsNewViewController.Animation: Equatable {
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    public static func == (lhs: WhatsNewViewController.Animation,
-                           rhs: WhatsNewViewController.Animation) -> Bool {
+    public static func == (
+        lhs: WhatsNewViewController.Animation,
+        rhs: WhatsNewViewController.Animation
+    ) -> Bool {
         // Switch on left-hand and right-hand side
         switch (lhs, rhs) {
         case (.fade, .fade):
@@ -83,8 +85,10 @@ public extension WhatsNewViewController.Animation {
         /// - Parameters:
         ///   - preferredDuration: The preferred duration
         ///   - preferredDelay: The preferred delay
-        public init(preferredDuration: TimeInterval,
-                    preferredDelay: TimeInterval) {
+        public init(
+            preferredDuration: TimeInterval,
+            preferredDelay: TimeInterval
+        ) {
             self.preferredDuration = preferredDuration
             self.preferredDelay = preferredDelay
         }
@@ -131,7 +135,10 @@ private extension WhatsNewViewController.Animation {
     /// - Parameters:
     ///   - view: The View
     ///   - index: The Index
-    func animate(view: UIView, animatorSettings: AnimatorSettings) {
+    func animate(
+        view: UIView,
+        animatorSettings: AnimatorSettings
+    ) {
         // Declare Transform
         let transform: CGAffineTransform
         // Switch on self to initialize Transform

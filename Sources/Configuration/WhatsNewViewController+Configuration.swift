@@ -130,7 +130,9 @@ public extension WhatsNewViewController.Configuration {
     /// - Parameter theme: The Theme
     /// - Returns: Discardable Configuration
     @discardableResult
-    mutating func apply(theme: WhatsNewViewController.Theme) -> WhatsNewViewController.Configuration {
+    mutating func apply(
+        theme: WhatsNewViewController.Theme
+    ) -> WhatsNewViewController.Configuration {
         // Perform Customization
         theme.customization(&self)
         // Return self
@@ -142,7 +144,9 @@ public extension WhatsNewViewController.Configuration {
     /// - Parameter animation: The Animation
     /// - Returns: Discardable Configuration
     @discardableResult
-    mutating func apply(animation: WhatsNewViewController.Animation) -> WhatsNewViewController.Configuration {
+    mutating func apply(
+        animation: WhatsNewViewController.Animation
+    ) -> WhatsNewViewController.Configuration {
         self.titleView.animation = animation
         self.itemsView.animation = animation
         self.detailButton?.animation = animation
@@ -155,7 +159,9 @@ public extension WhatsNewViewController.Configuration {
     /// - Parameter textColor: The text color
     /// - Returns: Discardable Configuration
     @discardableResult
-    mutating func apply(textColor: UIColor) -> WhatsNewViewController.Configuration {
+    mutating func apply(
+        textColor: UIColor
+    ) -> WhatsNewViewController.Configuration {
         self.titleView.titleColor = textColor
         self.itemsView.titleColor = textColor
         self.itemsView.subtitleColor = textColor

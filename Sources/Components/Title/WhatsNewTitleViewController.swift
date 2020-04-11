@@ -26,8 +26,8 @@ final class WhatsNewTitleViewController: UIViewController {
         let label = UILabel()
         label.backgroundColor = .clear
         label.numberOfLines = 0
-        label.textAlignment = self.configuration.titleView.titleAlignment
         label.lineBreakMode = .byWordWrapping
+        label.textAlignment = self.configuration.titleView.titleAlignment
         label.font = self.configuration.titleView.titleFont
         label.textColor = self.configuration.titleView.titleColor
         // Check if a secondary color is available
@@ -51,8 +51,10 @@ final class WhatsNewTitleViewController: UIViewController {
     /// - Parameters:
     ///   - title: The Title
     ///   - configuration: The Configuration
-    init(title: String,
-         configuration: WhatsNewViewController.Configuration) {
+    init(
+        title: String,
+        configuration: WhatsNewViewController.Configuration
+    ) {
         // Set title
         self.titleText = title
         // Set configuration
@@ -107,7 +109,10 @@ private extension NSAttributedString {
     /// - Parameters:
     ///   - text: The Text
     ///   - colorConfiguration: The SecondaryColor Configuration
-    convenience init(text: String, colorConfiguration: WhatsNewViewController.TitleView.SecondaryColor) {
+    convenience init(
+        text: String,
+        colorConfiguration: WhatsNewViewController.TitleView.SecondaryColor
+    ) {
         // Initialize NSMutableAttributedString with text
         let attributedString = NSMutableAttributedString(string: text)
         // Check if start index and length matches the string

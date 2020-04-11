@@ -104,9 +104,11 @@ public extension WhatsNewViewController.TitleView {
         ///   - startIndex: The start index
         ///   - length: The length
         ///   - color: The color
-        public init(startIndex: Int,
-                    length: Int,
-                    color: UIColor) {
+        public init(
+            startIndex: Int,
+            length: Int,
+            color: UIColor
+        ) {
             self.startIndex = startIndex
             self.length = length
             self.color = color

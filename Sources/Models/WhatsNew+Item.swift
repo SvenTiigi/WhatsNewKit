@@ -34,9 +34,11 @@ public extension WhatsNew {
         ///   - title: The Title
         ///   - subtitle: The Subtitle
         ///   - image: The Image
-        public init(title: String,
-                    subtitle: String,
-                    image: UIImage?) {
+        public init(
+            title: String,
+            subtitle: String,
+            image: UIImage?
+        ) {
             self.title = title
             self.subtitle = subtitle
             self.image = image
