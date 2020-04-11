@@ -17,6 +17,9 @@ public extension WhatsNewViewController {
         
         // MARK: Properties
         
+        /// The title view display mode
+        public var titleMode: TitleMode
+        
         /// The background color
         public var backgroundColor: UIColor
 
@@ -61,12 +64,14 @@ public extension WhatsNewViewController {
         ///   - padAdjustment: The The iPad Adjustment Closure. Default value `defaultPadAdjustment`
         public init(theme: Theme = .default,
                     backgroundColor: UIColor = .whatsNewKitBackground,
+                    titleMode: TitleMode = .fixed,
                     titleView: TitleView = .init(),
                     itemsView: ItemsView = .init(),
                     detailButton: DetailButton? = nil,
                     completionButton: CompletionButton = .init(),
                     padAdjustment: @escaping PadAdjustment = Configuration.defaultPadAdjustment) {
             self.backgroundColor = backgroundColor
+			self.titleMode = titleMode
             self.titleView = titleView
             self.itemsView = itemsView
             self.detailButton = detailButton
@@ -84,6 +89,21 @@ public extension WhatsNewViewController {
         
     }
     
+}
+
+// MARK: - TitleMode
+
+public extension WhatsNewViewController.Configuration {
+    
+    /// Used to describe how the title view should be styled.
+    enum TitleMode {
+        
+        /// The title view should remain fixed at the top, regardless of scrolling
+        case fixed
+        
+        /// The title view should scroll with the rest of the items (out of view)
+        case scrolls
+    }
 }
 
 // MARK: - PadAdjustment
