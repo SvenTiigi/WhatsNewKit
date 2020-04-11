@@ -272,7 +272,17 @@ configuration.itemsView.imageSize = .preferred
 // Use a custom height for each image
 configuration.itemsView.imageSize = .fixed(height: 25)
 ```
-> ☝️ In default the ItemsView ImageSize  is set to `preferred`.
+> ☝️ In default the ItemsView ImageSize is set to `preferred`.
+
+### Image Tint-Color
+In default WhatsNewKit auto tints the images of each `WhatsNew.Item` in the given tint color of the configuration.
+If you wish to disable this functionality simply set `autoTintImage` to `false`
+
+```swift
+// Disable auto tinting images
+configuration.itemsView.autoTintImage = false
+```
+> ☝️ In default the ItemsView AutoTintImage is set to `true`.
 
 ### Animation 🎬
 <img align="right" width="300" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/Animations.gif" alt="Animations" />
@@ -309,6 +319,19 @@ configuration.detailButton?.animation = .custom(animator: { (view: UIView, setti
     // settings: Preferred duration and delay
 })
 ```
+
+### Title Mode
+In default the TitleView is sticked to the top. 
+If you wish that the TitleView scrolls with the ItemsView you can change the `titleMode` on the TitleView configuration.
+
+```swift
+// TitleView scrolls alongside with the ItemsView
+configuration.titleView.titleMode = .scrolls
+
+// TitleView is fixed to top
+configuration.titleView.titleMode = .fixed
+```
+> ☝️ In default the titleMode is set to `.fixed`.
 
 ### Secondary Title Color
 By setting a [SecondaryColor](https://github.com/SvenTiigi/WhatsNewKit/blob/master/Sources/Configuration/WhatsNewViewController%2BTitleView.swift) on the TitleView you can change the color of certain characters.
