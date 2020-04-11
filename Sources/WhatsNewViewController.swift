@@ -117,19 +117,19 @@ public final class WhatsNewViewController: UIViewController {
     var versionStore: WhatsNewVersionStore?
     
     /// The TitleViewController
-    lazy var titleViewController: UIViewController = WhatsNewTitleViewController(
+    lazy var titleViewController = WhatsNewTitleViewController(
         title: self.whatsNew.title,
         configuration: self.configuration
     )
     
     /// The ItemsViewController
-    lazy var itemsViewController: UIViewController = WhatsNewItemsViewController(
+    lazy var itemsViewController = WhatsNewItemsViewController(
         items: self.whatsNew.items,
         configuration: self.configuration
     )
     
     /// The ButtonViewController
-    lazy var buttonViewController: UIViewController = WhatsNewButtonViewController(
+    lazy var buttonViewController = WhatsNewButtonViewController(
         configuration: self.configuration,
         onPress: { [weak self] buttonType in
             // Handle Button Press
@@ -241,6 +241,8 @@ public final class WhatsNewViewController: UIViewController {
         self.view.backgroundColor = self.configuration.backgroundColor
         // Add Subviews
         self.addSubviews()
+        // Make Constraints
+        self.makeConstraints()
     }
 
 }
@@ -251,23 +253,110 @@ extension WhatsNewViewController {
     
     /// Add Subviews
     func addSubviews() {
-        // Add TitleViewController with Constraints
-        self.add(self.titleViewController, constraints: [
-            self.titleViewController.view.topAnchor.constraint(
-                equalTo: self.anchor.topAnchor,
-                constant: self.configuration.titleView.insets.top
-            ),
-            self.titleViewController.view.leadingAnchor.constraint(
-                equalTo: self.anchor.leadingAnchor,
-                constant: self.configuration.titleView.insets.left
-            ),
-            self.titleViewController.view.trailingAnchor.constraint(
-                equalTo: self.anchor.trailingAnchor,
-                constant: -self.configuration.titleView.insets.right
+        // Switch on TitleMode
+        switch self.configuration.titleView.titleMode {
+        case .fixed:
+            // Add TitleViewController as Child-ViewController
+            self.addChild(self.titleViewController)
+            // Fixed Mode add TitleViewController view to subview
+            self.view.addSubview(self.titleViewController.view)
+        case .scrolls:
+            // Add TitleViewController as Child-ViewController on ItemsViewController
+            self.itemsViewController.addChild(self.titleViewController)
+            // Scroll Mode add TitleViewController view as TableHeaderView
+            self.itemsViewController.tableView.tableHeaderView = {
+                // Retrieve TitleViewController View
+                let titleView = self.titleViewController.view as UIView
+                // Set Height
+                titleView.bounds.size.height = titleView.intrinsicContentSize.height
+                    + self.configuration.titleView.insets.top
+                    + self.configuration.titleView.insets.bottom
+                // Return the TitleView
+                return titleView
+            }()
+        }
+        // Invoke didMove Lifecycle on TitleViewController
+        self.titleViewController.didMove(toParent: self)
+        // Add ItemsViewController as Child-ViewController
+        self.addChild(self.itemsViewController)
+        // Add ItemsViewController View to Subview
+        self.view.addSubview(self.itemsViewController.view)
+        // Invoke didMove Lifecycle on ItemsViewController
+        self.itemsViewController.didMove(toParent: self)
+        // Add ButtonViewController as Child-ViewController
+        self.addChild(self.buttonViewController)
+        // Add ButtonViewController View to Subview
+        self.view.addSubview(self.buttonViewController.view)
+        // Invoke didMove Lifecycle on ButtonViewController
+        self.buttonViewController.didMove(toParent: self)
+    }
+    
+}
+
+// MARK: - Make Constraints
+
+extension WhatsNewViewController {
+    
+    /// Make Constraints
+    func makeConstraints() {
+        // Declare ItemsView TopAnchor
+        let itemsViewTopAnchor: NSLayoutYAxisAnchor
+        // Declare ItemsView TopAnchor Constraints
+        let itemsViewTopAnchorConstant: CGFloat
+        // Switch on TitleMode
+        switch self.configuration.titleView.titleMode {
+        case .fixed:
+            // Make Constraints on TitleViewController
+            self.titleViewController.view.makeConstraints(
+                self.titleViewController.view.topAnchor.constraint(
+                    equalTo: self.anchor.topAnchor,
+                    constant: self.configuration.titleView.insets.top
+                ),
+                self.titleViewController.view.leadingAnchor.constraint(
+                    equalTo: self.anchor.leadingAnchor,
+                    constant: self.configuration.titleView.insets.left
+                ),
+                self.titleViewController.view.trailingAnchor.constraint(
+                    equalTo: self.anchor.trailingAnchor,
+                    constant: -self.configuration.titleView.insets.right
+                )
             )
-        ])
-        // Add ButtonViewController with Constraints
-        self.add(self.buttonViewController, constraints: [
+            // Initialize ItemsView Top Anchor with BottomAnchor of the TitleViewController
+            itemsViewTopAnchor = self.titleViewController.view.bottomAnchor
+            // Initialize ItemsView Top Anchor Constants with ItemsView top insets and TitleView Bottom Insets
+            itemsViewTopAnchorConstant = self.configuration.itemsView.insets.top + self.configuration.titleView.insets.bottom
+        case .scrolls:
+            // In Scrolls Mode the TitleViewController is added as the TableHeaderView of
+            // the ItemsViewController so there is no need to make constraints
+            // Initialize ItemsView Top Anchor with the Views TopAnchor
+            itemsViewTopAnchor = self.anchor.topAnchor
+            // Initialize ItemsView Top Anchor Constants with the ItemsView Top insets
+            itemsViewTopAnchorConstant = self.configuration.itemsView.insets.top
+        }
+        // Make Constraints on ItemsViewController
+        self.itemsViewController.view.makeConstraints(
+            self.itemsViewController.view.topAnchor.constraint(
+                equalTo: itemsViewTopAnchor,
+                constant: itemsViewTopAnchorConstant
+            ),
+            self.itemsViewController.view.leadingAnchor.constraint(
+                equalTo: self.anchor.leadingAnchor,
+                constant: self.configuration.itemsView.insets.left
+            ),
+            self.itemsViewController.view.trailingAnchor.constraint(
+                equalTo: self.anchor.trailingAnchor,
+                constant: -self.configuration.itemsView.insets.right
+            ),
+            self.itemsViewController.view.bottomAnchor.constraint(
+                equalTo: self.buttonViewController.view.topAnchor,
+                constant: -(
+                    self.configuration.itemsView.insets.bottom
+                    + self.configuration.completionButton.insets.top
+                )
+            )
+        )
+        // Make Constraints on ButtonViewController
+        self.buttonViewController.view.makeConstraints(
             self.buttonViewController.view.leadingAnchor.constraint(
                 equalTo: self.anchor.leadingAnchor,
                 constant: self.configuration.completionButton.insets.left
@@ -280,28 +369,7 @@ extension WhatsNewViewController {
                 equalTo: self.anchor.bottomAnchor,
                 constant: -self.configuration.completionButton.insets.bottom
             )
-        ])
-        // Add ItemsViewController with Constraints
-        self.add(self.itemsViewController, constraints: [
-            self.itemsViewController.view.topAnchor.constraint(
-                equalTo: self.titleViewController.view.bottomAnchor,
-                constant: self.configuration
-                    .itemsView.insets.top + self.configuration.titleView.insets.bottom
-            ),
-            self.itemsViewController.view.leadingAnchor.constraint(
-                equalTo: self.anchor.leadingAnchor,
-                constant: self.configuration.itemsView.insets.left
-            ),
-            self.itemsViewController.view.trailingAnchor.constraint(
-                equalTo: self.anchor.trailingAnchor,
-                constant: -self.configuration.itemsView.insets.right
-            ),
-            self.itemsViewController.view.bottomAnchor.constraint(
-                equalTo: self.buttonViewController.view.topAnchor,
-                constant: -(self.configuration
-                    .itemsView.insets.bottom + self.configuration.completionButton.insets.top)
-            )
-        ])
+        )
     }
     
 }

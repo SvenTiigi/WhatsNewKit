@@ -16,7 +16,7 @@ public extension WhatsNewViewController {
     struct Configuration {
         
         // MARK: Properties
-        
+      
         /// Specifies whether the WhatsNewViewController prefers the status bar to be hidden or shown.
         public var prefersStatusBarHidden: Bool
         
