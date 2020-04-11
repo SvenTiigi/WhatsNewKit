@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2264FE192441B2630030A4CE /* TitleModeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264FE182441B2630030A4CE /* TitleModeConfiguration.swift */; };
 		3D04214620C2D68C00DA5126 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214520C2D68C00DA5126 /* BaseTests.swift */; };
 		3D04215120C2D6A100DA5126 /* WhatsNewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214720C2D6A000DA5126 /* WhatsNewViewControllerTests.swift */; };
 		3D04215320C2D6A100DA5126 /* WhatsNewVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214B20C2D6A100DA5126 /* WhatsNewVersionTests.swift */; };
@@ -97,6 +98,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2264FE182441B2630030A4CE /* TitleModeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleModeConfiguration.swift; sourceTree = "<group>"; };
 		3D04214520C2D68C00DA5126 /* BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		3D04214720C2D6A000DA5126 /* WhatsNewViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewViewControllerTests.swift; sourceTree = "<group>"; };
 		3D04214B20C2D6A100DA5126 /* WhatsNewVersionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewVersionTests.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				3DF12C2A2210AE41006473F0 /* ContentModeConfiguration.swift */,
 				3D330EC3217B8E8E002359E7 /* HapticFeedbackConfiguration.swift */,
 				3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */,
+				2264FE182441B2630030A4CE /* TitleModeConfiguration.swift */,
 				3DF12C2C2210AF51006473F0 /* ItemsCountConfiguration.swift */,
 			);
 			path = Configurations;
@@ -617,6 +620,7 @@
 				3D29914A217B691100132C91 /* ExampleViewController+PresentWhatsNew.swift in Sources */,
 				3DC8A6AB20AED02400292C94 /* AppDelegate.swift in Sources */,
 				3D299152217B6E9600132C91 /* TintColorConfiguration.swift in Sources */,
+				2264FE192441B2630030A4CE /* TitleModeConfiguration.swift in Sources */,
 				3D375BA020BC6582005DE31B /* UIColor+Main.swift in Sources */,
 				3D299150217B6E8500132C91 /* BackgroundColorConfiguration.swift in Sources */,
 				3D299146217B5EDD00132C91 /* ConfigurationsTableViewCell.swift in Sources */,

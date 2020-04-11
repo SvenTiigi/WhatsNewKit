@@ -90,6 +90,7 @@ class ExampleViewController: UIViewController {
         ContentModeConfiguration(),
         HapticFeedbackConfiguration(),
         SecondaryTitleColorConfiguration(),
+        TitleModeConfiguration(),
         ItemsCountConfiguration()
     ]
     
