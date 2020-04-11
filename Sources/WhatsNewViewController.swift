@@ -102,6 +102,11 @@ public final class WhatsNewViewController: UIViewController {
         return self.view.backgroundColor?.isLight == true ? .default : .lightContent
     }
     
+    /// Specifies whether the view controller prefers the status bar to be hidden or shown.
+    public override var prefersStatusBarHidden: Bool {
+        return self.configuration.prefersStatusBarHidden
+    }
+    
     /// The WhatsNew
     public let whatsNew: WhatsNew
     
@@ -162,9 +167,11 @@ public final class WhatsNewViewController: UIViewController {
     ///   - whatsNew: The WhatsNew
     ///   - configuration: The Configuration
     ///   - versionStore: The WhatsNewVersionStore
-    public convenience init?(whatsNew: WhatsNew,
-                             configuration: Configuration = .init(),
-                             versionStore: WhatsNewVersionStore) {
+    public convenience init?(
+        whatsNew: WhatsNew,
+        configuration: Configuration = .init(),
+        versionStore: WhatsNewVersionStore
+    ) {
         // Verify VersionStore has not stored the WhatsNew Version
         guard !versionStore.has(version: whatsNew.version) else {
             // Return nil as Version has already been presented
@@ -184,7 +191,10 @@ public final class WhatsNewViewController: UIViewController {
     /// - Parameters:
     ///   - whatsNew: The WhatsNew
     ///   - theme: The Theme
-    public convenience init(whatsNew: WhatsNew, theme: Theme) {
+    public convenience init(
+        whatsNew: WhatsNew,
+        theme: Theme
+    ) {
         self.init(
             whatsNew: whatsNew,
             configuration: .init(theme)
@@ -198,9 +208,11 @@ public final class WhatsNewViewController: UIViewController {
     /// - Parameters:
     ///   - whatsNew: The WhatsNew
     ///   - theme: The Theme
-    public convenience init?(whatsNew: WhatsNew,
-                             theme: Theme,
-                             versionStore: WhatsNewVersionStore) {
+    public convenience init?(
+        whatsNew: WhatsNew,
+        theme: Theme,
+        versionStore: WhatsNewVersionStore
+    ) {
         self.init(
             whatsNew: whatsNew,
             configuration: .init(theme),
@@ -304,7 +316,8 @@ extension WhatsNewViewController {
             ),
             self.itemsViewController.view.bottomAnchor.constraint(
                 equalTo: self.buttonViewController.view.topAnchor,
-                constant: -(self.configuration.itemsView.insets.bottom + self.configuration.completionButton.insets.top)
+                constant: -(self.configuration
+                    .itemsView.insets.bottom + self.configuration.completionButton.insets.top)
             )
         ])
     }

@@ -46,22 +46,24 @@ extension WhatsNewButtonViewController {
             self.configure(completionButton: configuration.completionButton)
         }
         
-        // MARK: ViewLifecycle
+        // MARK: View-Lifecycle
         
         /// Layout Subviews
         override func layoutSubviews() {
             super.layoutSubviews()
             // Check if current background image is nil
             if self.currentBackgroundImage == nil {
-                // Set the backgroundimage
-                self.setBackgroundImage(
-                    .from(
-                        self.highlightedBackgroundColor,
-                        size: self.bounds.size
-                    ),
-                    for: .normal
-                )
+                // Apply background color
+                self.applyBackgroundColor()
             }
+        }
+        
+        /// TraitCollection did change
+        /// - Parameter previousTraitCollection: The previous TraitCollection
+        override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+            super.traitCollectionDidChange(previousTraitCollection)
+            // Apply background color
+            self.applyBackgroundColor()
         }
         
     }
@@ -95,6 +97,24 @@ extension WhatsNewButtonViewController.CompletionButton {
             self,
             action: #selector(self.didTouchUpInside),
             for: .touchUpInside
+        )
+    }
+    
+}
+
+// MARK: - Apply Background Color
+
+extension WhatsNewButtonViewController.CompletionButton {
+    
+    /// Apply background color
+    func applyBackgroundColor() {
+        // Set the backgroundimage
+        self.setBackgroundImage(
+            .from(
+                self.highlightedBackgroundColor,
+                size: self.bounds.size
+            ),
+            for: .normal
         )
     }
     

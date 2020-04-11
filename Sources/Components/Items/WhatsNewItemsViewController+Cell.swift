@@ -43,13 +43,8 @@ extension WhatsNewItemsViewController {
             )
             // Set background color
             self.contentView.backgroundColor = self.configuration.backgroundColor
-            // Check if ItemsView Layout is not eqaul to centered
-            if self.configuration.itemsView.layout != .centered {
-                // Perform ImageView Configuration
-                self.configureImageView()
-            }
-            // Perform TextLabel Configuration
-            self.configureTextLabel()
+            // Configure
+            self.configure()
         }
         
         /// Initializer with Coder always returns nil
@@ -57,6 +52,33 @@ extension WhatsNewItemsViewController {
             return nil
         }
         
+        // MARK: View-Lifecycle
+        
+        /// TraitCollection did change
+        /// - Parameter previousTraitCollection: The previous TraitCollection
+        override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+            super.traitCollectionDidChange(previousTraitCollection)
+            // Re-Configure
+            self.configure()
+        }
+        
+    }
+    
+}
+
+// MARK: - Configure
+
+extension WhatsNewItemsViewController.Cell {
+    
+    /// Perform configuration
+    func configure() {
+        // Check if ItemsView Layout is not eqaul to centered
+        if self.configuration.itemsView.layout != .centered {
+            // Perform ImageView Configuration
+            self.configureImageView()
+        }
+        // Perform TextLabel Configuration
+        self.configureTextLabel()
     }
     
 }

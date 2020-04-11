@@ -19,10 +19,13 @@ public extension WhatsNewViewController {
         
         /// The title view display mode
         public var titleMode: TitleMode
+      
+        /// Specifies whether the WhatsNewViewController prefers the status bar to be hidden or shown.
+        public var prefersStatusBarHidden: Bool
         
         /// The background color
         public var backgroundColor: UIColor
-
+        
         /// The TitleView
         public var titleView: TitleView
         
@@ -47,31 +50,35 @@ public extension WhatsNewViewController {
             get {
                 return self.completionButton.backgroundColor
             }
-            
         }
-
+        
         // MARK: Initializer
         
         /// Default initializer
         ///
         /// - Parameters:
         ///   - theme: The Theme. Default value `.default`
+        ///   - prefersStatusBarHidden: Bool value if  the status bar should be  be hidden or shown. Default value `.false`
         ///   - backgroundColor: The background color. Default value `.whatsNewKitBackground`
         ///   - titleView: The TitleView. Default value `.init()`
         ///   - itemsView: The ItemsView. Default value `.init()`
         ///   - detailButton: The optional DetailButton. Default value `nil`
         ///   - completionButton: The completion button. Default value `.init()`
         ///   - padAdjustment: The The iPad Adjustment Closure. Default value `defaultPadAdjustment`
-        public init(theme: Theme = .default,
-                    backgroundColor: UIColor = .whatsNewKitBackground,
-                    titleMode: TitleMode = .fixed,
-                    titleView: TitleView = .init(),
-                    itemsView: ItemsView = .init(),
-                    detailButton: DetailButton? = nil,
-                    completionButton: CompletionButton = .init(),
-                    padAdjustment: @escaping PadAdjustment = Configuration.defaultPadAdjustment) {
+        public init(
+            theme: Theme = .default,
+            titleMode: TitleMode = .fixed,
+            prefersStatusBarHidden: Bool = false,
+            backgroundColor: UIColor = .whatsNewKitBackground,
+            titleView: TitleView = .init(),
+            itemsView: ItemsView = .init(),
+            detailButton: DetailButton? = nil,
+            completionButton: CompletionButton = .init(),
+            padAdjustment: @escaping PadAdjustment = Configuration.defaultPadAdjustment
+        ) {
+            self.titleMode = titleMode
+            self.prefersStatusBarHidden = prefersStatusBarHidden
             self.backgroundColor = backgroundColor
-			self.titleMode = titleMode
             self.titleView = titleView
             self.itemsView = itemsView
             self.detailButton = detailButton
