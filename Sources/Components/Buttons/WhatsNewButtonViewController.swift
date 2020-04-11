@@ -71,6 +71,8 @@ final class WhatsNewButtonViewController: UIViewController {
         self.view.backgroundColor = self.configuration.backgroundColor
         // Add Subviews
         self.addSubviews()
+        // Make Constraints
+        self.makeConstraints()
     }
     
     /// View did appear
@@ -109,16 +111,33 @@ extension WhatsNewButtonViewController {
     
     /// Add Subviews
     func addSubviews() {
+        // Check if a DetailButton Configuration is available
+        if self.configuration.detailButton != nil {
+            // Add DetailButton to Subview
+            self.view.addSubview(self.detailButton)
+        }
+        // Add CompletionButton to Subview
+        self.view.addSubview(self.completionButton)
+    }
+    
+}
+
+// MARK: - Make Constraints
+
+extension WhatsNewButtonViewController {
+    
+    /// Make Constraints
+    func makeConstraints() {
         // Declare the CompletionButtonTopAnchor
         let completionButtonTopAnchor: NSLayoutConstraint
         // Check if a DetailButton Configuration is available
         if let detailButton = self.configuration.detailButton {
-            // Add DetailButton
-            self.view.addSubview(self.detailButton, constraints: [
+            // Make Constraints on DetailButton
+            self.detailButton.makeConstraints(
                 self.detailButton.topAnchor.constraint(equalTo: self.anchor.topAnchor),
                 self.detailButton.leadingAnchor.constraint(equalTo: self.anchor.leadingAnchor),
                 self.detailButton.trailingAnchor.constraint(equalTo: self.anchor.trailingAnchor)
-            ])
+            )
             // Initialize TopAnchor
             completionButtonTopAnchor = self.completionButton.topAnchor.constraint(
                 equalTo: self.detailButton.bottomAnchor,
@@ -126,15 +145,17 @@ extension WhatsNewButtonViewController {
             )
         } else {
             // Initialize TopAnchor
-            completionButtonTopAnchor = self.completionButton.topAnchor.constraint(equalTo: self.anchor.topAnchor)
+            completionButtonTopAnchor = self.completionButton.topAnchor.constraint(
+                equalTo: self.anchor.topAnchor
+            )
         }
-        // Add CompletionButton
-        self.view.addSubview(self.completionButton, constraints: [
+        // Make Constraints on CompletionButton
+        self.completionButton.makeConstraints(
             completionButtonTopAnchor,
             self.completionButton.leadingAnchor.constraint(equalTo: self.anchor.leadingAnchor),
             self.completionButton.trailingAnchor.constraint(equalTo: self.anchor.trailingAnchor),
             self.completionButton.bottomAnchor.constraint(equalTo: self.anchor.bottomAnchor)
-        ])
+        )
     }
     
 }
