@@ -117,19 +117,19 @@ public final class WhatsNewViewController: UIViewController {
     var versionStore: WhatsNewVersionStore?
     
     /// The TitleViewController
-    lazy var titleViewController: UIViewController = WhatsNewTitleViewController(
+    lazy var titleViewController = WhatsNewTitleViewController(
         title: self.whatsNew.title,
         configuration: self.configuration
     )
     
     /// The ItemsViewController
-    lazy var itemsViewController: UIViewController = WhatsNewItemsViewController(
+    lazy var itemsViewController = WhatsNewItemsViewController(
         items: self.whatsNew.items,
         configuration: self.configuration
     )
     
     /// The ButtonViewController
-    lazy var buttonViewController: UIViewController = WhatsNewButtonViewController(
+    lazy var buttonViewController = WhatsNewButtonViewController(
         configuration: self.configuration,
         onPress: { [weak self] buttonType in
             // Handle Button Press
@@ -282,8 +282,8 @@ extension WhatsNewViewController {
             ])
             itemsTopAnchor = self.titleViewController.view.bottomAnchor
             itemsTopAnchorConstant = self.configuration.itemsView.insets.top + self.configuration.titleView.insets.bottom
-        } else if let itemsViewController = self.itemsViewController as? WhatsNewItemsViewController {
-            itemsViewController.tableView.tableHeaderView = getHeaderView()
+        } else {
+            self.itemsViewController.tableView.tableHeaderView = self.getHeaderView()
         }
         // Add ButtonViewController with Constraints
         self.add(self.buttonViewController, constraints: [
