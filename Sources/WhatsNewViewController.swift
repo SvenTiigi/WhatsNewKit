@@ -253,14 +253,16 @@ extension WhatsNewViewController {
     
     /// Add Subviews
     func addSubviews() {
-        // Add TitleViewController as Child-ViewController
-        self.addChild(self.titleViewController)
         // Switch on TitleMode
         switch self.configuration.titleView.titleMode {
         case .fixed:
+            // Add TitleViewController as Child-ViewController
+            self.addChild(self.titleViewController)
             // Fixed Mode add TitleViewController view to subview
             self.view.addSubview(self.titleViewController.view)
         case .scrolls:
+            // Add TitleViewController as Child-ViewController on ItemsViewController
+            self.itemsViewController.addChild(self.titleViewController)
             // Scroll Mode add TitleViewController view as TableHeaderView
             self.itemsViewController.tableView.tableHeaderView = {
                 // Retrieve TitleViewController View
