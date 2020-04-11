@@ -16,9 +16,6 @@ public extension WhatsNewViewController {
     struct Configuration {
         
         // MARK: Properties
-        
-        /// The title view display mode
-        public var titleMode: TitleMode
       
         /// Specifies whether the WhatsNewViewController prefers the status bar to be hidden or shown.
         public var prefersStatusBarHidden: Bool
@@ -67,7 +64,6 @@ public extension WhatsNewViewController {
         ///   - padAdjustment: The The iPad Adjustment Closure. Default value `defaultPadAdjustment`
         public init(
             theme: Theme = .default,
-            titleMode: TitleMode = .fixed,
             prefersStatusBarHidden: Bool = false,
             backgroundColor: UIColor = .whatsNewKitBackground,
             titleView: TitleView = .init(),
@@ -76,7 +72,6 @@ public extension WhatsNewViewController {
             completionButton: CompletionButton = .init(),
             padAdjustment: @escaping PadAdjustment = Configuration.defaultPadAdjustment
         ) {
-            self.titleMode = titleMode
             self.prefersStatusBarHidden = prefersStatusBarHidden
             self.backgroundColor = backgroundColor
             self.titleView = titleView
@@ -96,21 +91,6 @@ public extension WhatsNewViewController {
         
     }
     
-}
-
-// MARK: - TitleMode
-
-public extension WhatsNewViewController.Configuration {
-    
-    /// Used to describe how the title view should be styled.
-    enum TitleMode {
-        
-        /// The title view should remain fixed at the top, regardless of scrolling
-        case fixed
-        
-        /// The title view should scroll with the rest of the items (out of view)
-        case scrolls
-    }
 }
 
 // MARK: - PadAdjustment

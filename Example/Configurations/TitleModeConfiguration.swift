@@ -32,9 +32,9 @@ class TitleModeConfiguration: Configuration {
     /// - Parameter configuration: The WhatsNewViewController.Configuration
     func configure(configuration: inout WhatsNewViewController.Configuration) {
         if self.selectedIndex == 0 {
-            configuration.titleMode = .fixed
+            configuration.titleView.titleMode = .fixed
         } else if self.selectedIndex == 1 {
-            configuration.titleMode = .scrolls
+            configuration.titleView.titleMode = .scrolls
         }
     }
     

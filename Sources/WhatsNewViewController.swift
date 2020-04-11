@@ -264,7 +264,7 @@ extension WhatsNewViewController {
     func addSubviews() {
         var itemsTopAnchor = self.anchor.topAnchor
         var itemsTopAnchorConstant = self.configuration.itemsView.insets.top
-        if self.configuration.titleMode == .fixed {
+        if self.configuration.titleView.titleMode == .fixed {
             // Add TitleViewController with Constraints
             self.add(self.titleViewController, constraints: [
                 self.titleViewController.view.topAnchor.constraint(
