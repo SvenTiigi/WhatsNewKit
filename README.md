@@ -129,6 +129,30 @@ let whatsNewViewController = WhatsNewViewController(
 self.present(whatsNewViewController, animated: true)
 ```
 
+Additionally, you can make use of the `WhatsNewVersionStore` to show the `WhatsNewViewController` only once for each version of your app.
+
+```swift
+// Initialize WhatsNewVersionStore
+let versionStore: WhatsNewVersionStore = KeyValueWhatsNewVersionStore()
+
+// Passing a WhatsNewVersionStore to the initializer
+// will give you an optional WhatsNewViewController
+let whatsNewViewController: WhatsNewViewController? = WhatsNewViewController(
+    whatsNew: whatsNew, 
+    versionStore: versionStore
+)
+
+// Verify WhatsNewViewController is available
+guard let viewController = whatsNewViewController else {
+    // The user has already seen the WhatsNew-Screen for the current Version of your app
+    return
+}
+
+// Present WhatsNewViewController
+self.present(viewController, animated: true)
+```
+> 👨‍💻 Head over to the [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit#whatsnewversionstore-) to learn more.
+
 ## Advanced
 As mentioned before `WhatsNewKit` can be fully customized to your needs. The Advanced section will explain all configuration possibilities and features of `WhatsNewKit` in detail. First off it's important to understand the components of the `WhatsNewViewController` in order to customize the behaviour and `UI`-Design.
 
