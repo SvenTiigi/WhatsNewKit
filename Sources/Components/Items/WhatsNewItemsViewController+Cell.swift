@@ -211,6 +211,11 @@ private extension UIImage {
     /// - Parameter height: The height to resize to
     /// - Returns: The resized Image
     func resize(height: CGFloat) -> UIImage? {
+        // Verify the height is greater zero
+        guard height > 0 else {
+            // Otherwise return nil
+            return nil
+        }
         // Initialize target Size
         let targetSize = CGSize(width: height, height: height)
         // Check if iOS 10 or greater is available
@@ -239,6 +244,11 @@ private extension UIImage {
     /// - Parameter color: The Color
     /// - Returns: The tinted UIImage
     func tint(color: UIColor) -> UIImage? {
+        // Verify that the size is not equal to zero
+        guard self.size != .zero else {
+            // Otherwise return untinted image
+            return self
+        }
         // Retrieve image as template image
         let image = self.withRenderingMode(.alwaysTemplate)
         // Begin Image Context
