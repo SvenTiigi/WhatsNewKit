@@ -151,9 +151,10 @@ private extension UIImage {
         _ color: UIColor,
         size: CGSize = .init(width: 1, height: 1)
     ) -> UIImage? {
-        // Early return if size is (0, 0) to prevent context creation falure
-        if size.width == 0 && size.height == 0 {
-          return nil
+        // Verify that the size is not equal to zero
+        guard size != .zero else {
+            // Otherwise return nil
+            return nil
         }
         // Initialize rect
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
