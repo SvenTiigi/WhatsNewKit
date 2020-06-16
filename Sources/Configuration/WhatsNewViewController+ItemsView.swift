@@ -126,7 +126,7 @@ public extension WhatsNewViewController.ItemsView {
     enum ImageSize: Equatable, Hashable {
         /// The original Image Size
         case original
-        /// A fixed height by keeping the aspect ratio
+        /// A fixed size square which contains the image, with a preserved aspect ratio
         case fixed(height: Double)
     }
     

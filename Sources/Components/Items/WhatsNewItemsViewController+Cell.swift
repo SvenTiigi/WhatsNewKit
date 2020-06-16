@@ -134,7 +134,7 @@ extension WhatsNewItemsViewController.Cell {
             image = self.item.image
         case .fixed(let height):
             // Initialize Image with resized Item Image
-            image = self.item.image?.resize(height: .init(height))
+            image = self.item.image?.resizeToSquare(ofSize: .init(height))
         }
         // Check if autoTintImage is activated
         if self.configuration.itemsView.autoTintImage {
@@ -206,30 +206,48 @@ extension WhatsNewItemsViewController.Cell {
 
 private extension UIImage {
     
-    /// Resize UIImage to a give height by keeping the aspect ratio
+    /// Resize UIImage to a square of the specified dimensions, preserving the aspect ratio.
     ///
-    /// - Parameter height: The height to resize to
+    /// - Parameter ofSize: The size of the height and width of the destination square.
     /// - Returns: The resized Image
-    func resize(height: CGFloat) -> UIImage? {
-        // Verify the height is greater zero
-        guard height > 0 else {
+    func resizeToSquare(ofSize newSize: CGFloat) -> UIImage? {
+        // Verify the size is greater zero
+        guard newSize > 0 else {
             // Otherwise return nil
             return nil
         }
-        // Initialize target Size
-        let targetSize = CGSize(width: height, height: height)
+        
+        // The returned image will be a square of the specified size
+        let containerSize = CGSize(width: newSize, height: newSize)
+
+        // The target size is the size of the image portion within the container. We preserve the aspect ratio, and ensure
+        // that it touches the container edges either on the left & right sides, or top & bottom (or both).
+        let targetSize: CGSize
+        if size.width > size.height {
+            targetSize = CGSize(width: newSize, height: (newSize / size.width) * size.height)
+        } else {
+            targetSize = CGSize(width: (newSize / size.height) * size.width, height: newSize)
+        }
+
+        // The origin for our redrawing, within the container, can be obtained by getting the difference between the container's
+        // dimensions and the target size dimensions. Divided by 2, since we want the redrawn image to be centered in the container.
+        let redrawOrigin = CGPoint(
+            x: (containerSize.width - targetSize.width) / 2,
+            y: (containerSize.height - targetSize.height) / 2
+        )
+
         // Check if iOS 10 or greater is available
         if #available(iOS 10.0, *) {
             // Return rendererd Image with target size
-            return UIGraphicsImageRenderer(size: targetSize).image { [weak self] _ in
+            return UIGraphicsImageRenderer(size: containerSize).image { [weak self] _ in
                 // Draw with target size
-                self?.draw(in: .init(origin: .zero, size: targetSize))
+                self?.draw(in: .init(origin: redrawOrigin, size: targetSize))
             }
         } else {
             // Begin Image Context with target size
-            UIGraphicsBeginImageContextWithOptions(targetSize, false, 0.0)
+            UIGraphicsBeginImageContextWithOptions(containerSize, false, 0.0)
             // Draw Image with target size
-            self.draw(in: .init(origin: .zero, size: targetSize))
+            self.draw(in: .init(origin: redrawOrigin, size: targetSize))
             // Retrive Image from context
             let image = UIGraphicsGetImageFromCurrentImageContext()
             // End context
