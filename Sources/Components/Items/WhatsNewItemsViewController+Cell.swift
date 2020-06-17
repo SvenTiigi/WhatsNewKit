@@ -216,26 +216,29 @@ private extension UIImage {
             // Otherwise return nil
             return nil
         }
-        
         // The returned image will be a square of the specified size
         let containerSize = CGSize(width: newSize, height: newSize)
-
         // The target size is the size of the image portion within the container. We preserve the aspect ratio, and ensure
         // that it touches the container edges either on the left & right sides, or top & bottom (or both).
         let targetSize: CGSize
-        if size.width > size.height {
-            targetSize = CGSize(width: newSize, height: (newSize / size.width) * size.height)
+        if self.size.width > self.size.height {
+            targetSize = .init(
+                width: newSize,
+                height: (newSize / self.size.width) * self.size.height
+            )
         } else {
-            targetSize = CGSize(width: (newSize / size.height) * size.width, height: newSize)
+            targetSize = .init(
+                width: (newSize / self.size.height) * self.size.width,
+                height: newSize
+            )
         }
-
         // The origin for our redrawing, within the container, can be obtained by getting the difference between the container's
-        // dimensions and the target size dimensions. Divided by 2, since we want the redrawn image to be centered in the container.
+        // dimensions and the target size dimensions. Divided by 2,
+        // since we want the redrawn image to be centered in the container.
         let redrawOrigin = CGPoint(
             x: (containerSize.width - targetSize.width) / 2,
             y: (containerSize.height - targetSize.height) / 2
         )
-
         // Check if iOS 10 or greater is available
         if #available(iOS 10.0, *) {
             // Return rendererd Image with target size
