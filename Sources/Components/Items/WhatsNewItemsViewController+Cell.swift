@@ -202,7 +202,7 @@ extension WhatsNewItemsViewController.Cell {
     
 }
 
-// MARK: - UIImage+Resize/Tint
+// MARK: - UIImage+resizeToSquare
 
 private extension UIImage {
     
@@ -259,6 +259,12 @@ private extension UIImage {
             return image
         }
     }
+    
+}
+
+// MARK: - UIImage+tint
+
+private extension UIImage {
     
     /// Tint Image with Color
     ///
