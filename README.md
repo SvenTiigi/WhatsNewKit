@@ -153,6 +153,35 @@ self.present(viewController, animated: true)
 ```
 > 👨‍💻 Head over to the [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit#whatsnewversionstore-) to learn more.
 
+## SwiftUI
+
+If you are using SwiftUI simply use the `WhatsNewView`.
+
+```swift
+import SwiftUI
+import WhatsNewKit
+
+struct ContentView: View {
+    
+    let whatsNew: WhatsNew
+    
+    @State
+    var isShowingWhatsNew = false
+    
+    var body: some View {
+        Button(
+            action: { self.isShowingWhatsNew.toggle() },
+            label: { Text("Show WhatsNewView") }
+        ).sheet(isPresented: self.$isShowingWhatsNew) {
+            WhatsNewView(
+                whatsNew: self.whatsNew
+            )
+        }
+    }
+    
+}
+```
+
 ## Advanced
 As mentioned before `WhatsNewKit` can be fully customized to your needs. The Advanced section will explain all configuration possibilities and features of `WhatsNewKit` in detail. First off it's important to understand the components of the `WhatsNewViewController` in order to customize the behaviour and `UI`-Design.
 
