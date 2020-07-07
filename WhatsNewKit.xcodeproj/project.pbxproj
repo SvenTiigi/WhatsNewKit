@@ -15,7 +15,6 @@
 		3D04215520C2D6A100DA5126 /* WhatsNewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214D20C2D6A100DA5126 /* WhatsNewTests.swift */; };
 		3D04215620C2D6A100DA5126 /* KeyValueWhatsNewVersionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04214F20C2D6A100DA5126 /* KeyValueWhatsNewVersionStoreTests.swift */; };
 		3D04215720C2D6A100DA5126 /* InMemoryWhatsNewVersionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04215020C2D6A100DA5126 /* InMemoryWhatsNewVersionStoreTests.swift */; };
-		3D07075024AB71460040C461 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D07074E24AB713C0040C461 /* WhatsNewView.swift */; };
 		3D13455E20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13455D20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift */; };
 		3D2412C720BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */; };
 		3D2412CF20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */; };
@@ -106,7 +105,6 @@
 		3D04214D20C2D6A100DA5126 /* WhatsNewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatsNewTests.swift; sourceTree = "<group>"; };
 		3D04214F20C2D6A100DA5126 /* KeyValueWhatsNewVersionStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStoreTests.swift; sourceTree = "<group>"; };
 		3D04215020C2D6A100DA5126 /* InMemoryWhatsNewVersionStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryWhatsNewVersionStoreTests.swift; sourceTree = "<group>"; };
-		3D07074E24AB713C0040C461 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		3D13455D20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+HapticFeedback.swift"; sourceTree = "<group>"; };
 		3D2412C620BADBDC005A04D6 /* KeyValueWhatsNewVersionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueWhatsNewVersionStore.swift; sourceTree = "<group>"; };
 		3D2412CE20BAE75E005A04D6 /* WhatsNewViewController+DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+DetailButton.swift"; sourceTree = "<group>"; };
@@ -415,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				3D92C67020AF883300A10333 /* WhatsNewViewController.swift */,
-				3D07074E24AB713C0040C461 /* WhatsNewView.swift */,
 				3D92C67A20AF88E000A10333 /* Configuration */,
 				3DBE9413236D7A380026B0FB /* Theme */,
 				3DFB6FFE20B34F7E00673FD6 /* Store */,
@@ -652,7 +649,6 @@
 				3D2803DD2205B4E200E1FA31 /* WhatsNewItemsViewController+Cell.swift in Sources */,
 				3D92C66A20AF87E600A10333 /* WhatsNew.swift in Sources */,
 				3DFB700020B34F8800673FD6 /* WhatsNewVersionStore.swift in Sources */,
-				3D07075024AB71460040C461 /* WhatsNewView.swift in Sources */,
 				3DBFB67620B6EBC100FF0899 /* InMemoryWhatsNewVersionStore.swift in Sources */,
 				3D13455E20BC8AFA00BE0FF8 /* WhatsNewViewController+HapticFeedback.swift in Sources */,
 				3D92C67120AF883300A10333 /* WhatsNewViewController.swift in Sources */,
