@@ -71,4 +71,20 @@ class WhatsNewVersionTests: BaseTests {
         XCTAssert(version1 > version0)
     }
     
+    func testLargeMinorVersionComparable() {
+        let version0 = WhatsNew.Version(major: 3, minor: 17, patch: 7)
+        let version1 = WhatsNew.Version(major: 4, minor: 7, patch: 7)
+        XCTAssertTrue(version0 < version1)
+        XCTAssertTrue(version1 > version0)
+        XCTAssertFalse(version1 == version0)
+    }
+    
+    func testEquality() {
+        let version0 = WhatsNew.Version(major: 1, minor: 0, patch: 0)
+        let version1 = WhatsNew.Version(major: 1, minor: 0, patch: 0)
+        XCTAssertFalse(version0 < version1)
+        XCTAssertFalse(version1 > version0)
+        XCTAssertTrue(version1 == version0)
+    }
+    
 }
