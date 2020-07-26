@@ -58,8 +58,7 @@ extension WhatsNew.Version: Comparable {
         lhs: WhatsNew.Version,
         rhs: WhatsNew.Version
     ) -> Bool {
-        let sum: (WhatsNew.Version) -> Int = { $0.major * 100 + $0.minor * 10 + $0.patch }
-        return sum(lhs) < sum(rhs)
+        return lhs.description.compare(rhs.description, options: .numeric) == .orderedAscending
     }
     
 }
