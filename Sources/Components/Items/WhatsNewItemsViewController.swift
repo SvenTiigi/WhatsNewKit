@@ -36,8 +36,6 @@ final class WhatsNewItemsViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         // Set clear background color
         tableView.backgroundColor = .clear
-        // Only bounce vertical if space is needed
-        tableView.alwaysBounceVertical = false
         // Set data source
         tableView.dataSource = self
         // Set delegate
