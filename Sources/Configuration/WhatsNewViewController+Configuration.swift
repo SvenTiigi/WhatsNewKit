@@ -40,12 +40,12 @@ public extension WhatsNewViewController {
         
         /// The tint color based on completionButtonTheme backgroundcolor
         public var tintColor: UIColor {
+            get {
+                return self.completionButton.backgroundColor
+            }
             set {
                 self.detailButton?.titleColor = newValue
                 self.completionButton.backgroundColor = newValue
-            }
-            get {
-                return self.completionButton.backgroundColor
             }
         }
         
