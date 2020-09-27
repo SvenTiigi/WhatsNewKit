@@ -14,11 +14,19 @@ extension UIView {
     
     /// Make Constraints
     /// - Parameter constraints: The NSLayoutConstraints that should be added to the View
-    func makeConstraints(_ constraints: NSLayoutConstraint...) {
+    @discardableResult
+    func makeConstraints(_ constraints: NSLayoutConstraint...) -> Disposable {
         // Disable translates Autoresizing Mask Into Constraints
         self.translatesAutoresizingMaskIntoConstraints = false
         // Activate the given Constraints
         NSLayoutConstraint.activate(constraints)
+        // Return ClosureDisposable
+        return ClosureDisposable { [weak self] in
+            // Deactivate all Constraints
+            constraints.forEach { $0.isActive = false }
+            // Remove all Constraints
+            constraints.forEach { self?.removeConstraint($0) }
+        }
     }
     
 }
