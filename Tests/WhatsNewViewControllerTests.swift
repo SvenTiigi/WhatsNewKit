@@ -65,7 +65,8 @@ class WhatsNewViewControllerTests: BaseTests {
             configuration.padAdjustment = { _ in
                 expectation.fulfill()
             }
-            _ = WhatsNewViewController(whatsNew: self.randomWhatsNew, configuration: configuration)
+            let controller = WhatsNewViewController(whatsNew: self.randomWhatsNew, configuration: configuration)
+            controller.traitCollectionDidChange(nil)
         }, completionHandler: { _ in
             WhatsNewViewController.userInterfaceIdiom = UIDevice.current.userInterfaceIdiom
         })
