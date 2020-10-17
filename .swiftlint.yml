@@ -21,6 +21,6 @@ disabled_rules: # rule identifiers to exclude from running
   - identifier_name
 
 line_length: 130
-file_length: 500
+file_length: 550
 function_body_length: 50
 cyclomatic_complexity: 13
