@@ -116,6 +116,9 @@ public final class WhatsNewViewController: UIViewController {
     /// The VersionStore
     var versionStore: WhatsNewVersionStore?
     
+    /// The Constraint DisposeBag
+    lazy var constraintDisposeBag = DisposeBag()
+    
     /// The TitleViewController
     lazy var titleViewController = WhatsNewTitleViewController(
         title: self.whatsNew.title,
@@ -154,11 +157,6 @@ public final class WhatsNewViewController: UIViewController {
         self.configuration = configuration
         // Super init
         super.init(nibName: nil, bundle: nil)
-        // Check if Device is iPad
-        if WhatsNewViewController.userInterfaceIdiom == .pad {
-            // Invoke iPad Adjustment closure
-            self.configuration.padAdjustment(&self.configuration)
-        }
     }
     
     /// Convenience optional initializer with WhatsNewVersionStore.
@@ -244,7 +242,36 @@ public final class WhatsNewViewController: UIViewController {
         // Add Subviews
         self.addSubviews()
         // Make Constraints
-        self.makeConstraints()
+        self.makeConstraints(configuration: self.configuration)
+    }
+    
+    /// TraitCollection did change
+    /// - Parameter previousTraitCollection: The previous TraitCollection
+    public override func traitCollectionDidChange(
+        _ previousTraitCollection: UITraitCollection?
+    ) {
+        // Invoke the super implementation
+        super.traitCollectionDidChange(previousTraitCollection)
+        // Verify InterfaceIdiom is Pad
+        guard WhatsNewViewController.userInterfaceIdiom == .pad else {
+            // Otherwise return out of function
+            return
+        }
+        // Switch on horizontal size class
+        switch self.traitCollection.horizontalSizeClass {
+        case .compact:
+            // Remake Constraints with default Configuration
+            self.remakeConstraints(configuration: self.configuration)
+        default:
+            // Initialize mutable Configuration
+            var configuration = self.configuration
+            // Perform PadAdjustement on mutable Configuration
+            configuration.padAdjustment(&configuration)
+            // Remake Constraints with mutated Configuration
+            self.remakeConstraints(
+                configuration: configuration
+            )
+        }
     }
 
 }
@@ -299,41 +326,51 @@ extension WhatsNewViewController {
 
 extension WhatsNewViewController {
     
+    /// Remake Constraints
+    /// - Parameter configuration: The Configuration that should be used
+    func remakeConstraints(configuration: Configuration) {
+        // Dispose the Constraint DisposeBag in order to remove any previous constraints
+        self.constraintDisposeBag.dispose()
+        // Re-Make Constraints with Configuration
+        self.makeConstraints(configuration: configuration)
+    }
+    
     /// Make Constraints
-    func makeConstraints() {
+    /// - Parameter configuration: The Configuration that should be used
+    func makeConstraints(configuration: Configuration) {
         // Declare ItemsView TopAnchor
         let itemsViewTopAnchor: NSLayoutYAxisAnchor
         // Declare ItemsView TopAnchor Constraints
         let itemsViewTopAnchorConstant: CGFloat
         // Switch on TitleMode
-        switch self.configuration.titleView.titleMode {
+        switch configuration.titleView.titleMode {
         case .fixed:
             // Make Constraints on TitleViewController
             self.titleViewController.view.makeConstraints(
                 self.titleViewController.view.topAnchor.constraint(
                     equalTo: self.anchor.topAnchor,
-                    constant: self.configuration.titleView.insets.top
+                    constant: configuration.titleView.insets.top
                 ),
                 self.titleViewController.view.leadingAnchor.constraint(
                     equalTo: self.anchor.leadingAnchor,
-                    constant: self.configuration.titleView.insets.left
+                    constant: configuration.titleView.insets.left
                 ),
                 self.titleViewController.view.trailingAnchor.constraint(
                     equalTo: self.anchor.trailingAnchor,
-                    constant: -self.configuration.titleView.insets.right
+                    constant: -configuration.titleView.insets.right
                 )
-            )
+            ).store(in: self.constraintDisposeBag)
             // Initialize ItemsView Top Anchor with BottomAnchor of the TitleViewController
             itemsViewTopAnchor = self.titleViewController.view.bottomAnchor
             // Initialize ItemsView Top Anchor Constants with ItemsView top insets and TitleView Bottom Insets
-            itemsViewTopAnchorConstant = self.configuration.itemsView.insets.top + self.configuration.titleView.insets.bottom
+            itemsViewTopAnchorConstant = configuration.itemsView.insets.top + configuration.titleView.insets.bottom
         case .scrolls:
             // In Scrolls Mode the TitleViewController is added as the TableHeaderView of
             // the ItemsViewController so there is no need to make constraints
             // Initialize ItemsView Top Anchor with the Views TopAnchor
             itemsViewTopAnchor = self.anchor.topAnchor
             // Initialize ItemsView Top Anchor Constants with the ItemsView Top insets
-            itemsViewTopAnchorConstant = self.configuration.itemsView.insets.top
+            itemsViewTopAnchorConstant = configuration.itemsView.insets.top
         }
         // Make Constraints on ItemsViewController
         self.itemsViewController.view.makeConstraints(
@@ -343,35 +380,35 @@ extension WhatsNewViewController {
             ),
             self.itemsViewController.view.leadingAnchor.constraint(
                 equalTo: self.anchor.leadingAnchor,
-                constant: self.configuration.itemsView.insets.left
+                constant: configuration.itemsView.insets.left
             ),
             self.itemsViewController.view.trailingAnchor.constraint(
                 equalTo: self.anchor.trailingAnchor,
-                constant: -self.configuration.itemsView.insets.right
+                constant: -configuration.itemsView.insets.right
             ),
             self.itemsViewController.view.bottomAnchor.constraint(
                 equalTo: self.buttonViewController.view.topAnchor,
                 constant: -(
-                    self.configuration.itemsView.insets.bottom
-                    + self.configuration.completionButton.insets.top
+                    configuration.itemsView.insets.bottom
+                    + configuration.completionButton.insets.top
                 )
             )
-        )
+        ).store(in: self.constraintDisposeBag)
         // Make Constraints on ButtonViewController
         self.buttonViewController.view.makeConstraints(
             self.buttonViewController.view.leadingAnchor.constraint(
                 equalTo: self.anchor.leadingAnchor,
-                constant: self.configuration.completionButton.insets.left
+                constant: configuration.completionButton.insets.left
             ),
             self.buttonViewController.view.trailingAnchor.constraint(
                 equalTo: self.anchor.trailingAnchor,
-                constant: -self.configuration.completionButton.insets.right
+                constant: -configuration.completionButton.insets.right
             ),
             self.buttonViewController.view.bottomAnchor.constraint(
                 equalTo: self.anchor.bottomAnchor,
-                constant: -self.configuration.completionButton.insets.bottom
+                constant: -configuration.completionButton.insets.bottom
             )
-        )
+        ).store(in: self.constraintDisposeBag)
     }
     
 }

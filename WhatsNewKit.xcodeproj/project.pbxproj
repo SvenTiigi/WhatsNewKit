@@ -43,6 +43,8 @@
 		3D33221D21C416E900B2949F /* SecondaryTitleColorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */; };
 		3D375BA020BC6582005DE31B /* UIColor+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D375B9F20BC6582005DE31B /* UIColor+Main.swift */; };
 		3D562CB920B3FD3200603182 /* WhatsNew+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */; };
+		3D5AA3BD252078C8002F6467 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AA3BC252078C8002F6467 /* Disposable.swift */; };
+		3D5AA3C0252078E6002F6467 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AA3BF252078E6002F6467 /* DisposeBag.swift */; };
 		3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */; };
 		3D5D06BF20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */; };
 		3D5D06C120C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */; };
@@ -139,6 +141,8 @@
 		3D33221C21C416E900B2949F /* SecondaryTitleColorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleColorConfiguration.swift; sourceTree = "<group>"; };
 		3D375B9F20BC6582005DE31B /* UIColor+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Main.swift"; sourceTree = "<group>"; };
 		3D562CB820B3FD3200603182 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNew+Version.swift"; sourceTree = "<group>"; };
+		3D5AA3BC252078C8002F6467 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
+		3D5AA3BF252078E6002F6467 /* DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
 		3D5D06BC20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+TitleView.swift"; sourceTree = "<group>"; };
 		3D5D06BE20C7CA2700EC7C46 /* WhatsNewViewController+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+Animation.swift"; sourceTree = "<group>"; };
 		3D5D06C020C7CAEC00EC7C46 /* WhatsNewViewController+ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WhatsNewViewController+ItemsView.swift"; sourceTree = "<group>"; };
@@ -250,6 +254,23 @@
 				3D29915E217B720400132C91 /* ReuseIdentifiable.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		3D5AA3BB252078BE002F6467 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				3D5AA3BE252078DB002F6467 /* Disposable */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		3D5AA3BE252078DB002F6467 /* Disposable */ = {
+			isa = PBXGroup;
+			children = (
+				3D5AA3BC252078C8002F6467 /* Disposable.swift */,
+				3D5AA3BF252078E6002F6467 /* DisposeBag.swift */,
+			);
+			path = Disposable;
 			sourceTree = "<group>";
 		};
 		3D92C66C20AF87EA00A10333 /* Models */ = {
@@ -418,6 +439,7 @@
 				3DFB6FFE20B34F7E00673FD6 /* Store */,
 				3D92C67920AF88DC00A10333 /* Components */,
 				3D92C66C20AF87EA00A10333 /* Models */,
+				3D5AA3BB252078BE002F6467 /* DataStructures */,
 				3DDDB59520B83296001D59C5 /* Extensions */,
 			);
 			path = Sources;
@@ -640,10 +662,12 @@
 			files = (
 				3D2803DB2205AE5C00E1FA31 /* WhatsNewItemsViewController.swift in Sources */,
 				3D7E00C420B6A5F10036BDB1 /* WhatsNewViewController+Configuration.swift in Sources */,
+				3D5AA3C0252078E6002F6467 /* DisposeBag.swift in Sources */,
 				3DBE9416236D7A6E0026B0FB /* WhatsNewViewController+Theme.swift in Sources */,
 				3D5D06BD20C7C9C700EC7C46 /* WhatsNewViewController+TitleView.swift in Sources */,
 				3D2803D02205A1F500E1FA31 /* WhatsNewTitleViewController.swift in Sources */,
 				3D2803D72205AA7F00E1FA31 /* WhatsNewButtonViewController+DetailButton.swift in Sources */,
+				3D5AA3BD252078C8002F6467 /* Disposable.swift in Sources */,
 				3D2803CD22059B2200E1FA31 /* Anchor.swift in Sources */,
 				3DDDB59720B832AB001D59C5 /* UIColor+Defaults.swift in Sources */,
 				3D2803DD2205B4E200E1FA31 /* WhatsNewItemsViewController+Cell.swift in Sources */,
