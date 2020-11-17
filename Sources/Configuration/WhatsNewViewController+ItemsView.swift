@@ -44,6 +44,8 @@ public extension WhatsNewViewController {
         
         /// The Insets
         public var insets: UIEdgeInsets
+
+        public var bounces: Bounces
         
         /// Default initializer
         ///
@@ -68,7 +70,8 @@ public extension WhatsNewViewController {
             layout: Layout = .left,
             contentMode: ContentMode = .top,
             animation: Animation? = nil,
-            insets: UIEdgeInsets = .init(top: 15, left: 20, bottom: 5, right: 20)
+            insets: UIEdgeInsets = .init(top: 15, left: 20, bottom: 5, right: 20),
+            bounces: Bounces  = [.vertical]
         ) {
             self.titleFont = titleFont
             self.titleColor = titleColor
@@ -80,6 +83,7 @@ public extension WhatsNewViewController {
             self.contentMode = contentMode
             self.animation = animation
             self.insets = insets
+            self.bounces = bounces
         }
         
     }
@@ -140,3 +144,32 @@ public extension WhatsNewViewController.ItemsView.ImageSize {
     static let preferred: WhatsNewViewController.ItemsView.ImageSize = .fixed(height: 50)
     
 }
+
+// MARK: - ItemsView.Bounces
+
+public extension WhatsNewViewController.ItemsView {
+
+  /// Bounces, options sets to allow vertical or horizontal bounces
+  struct Bounces: OptionSet {
+
+    // MARK: - Properties
+
+    public let rawValue: Int
+
+    // MARK: - Definitions
+
+    public static let vertical = Bounces(rawValue: 1 << 0)
+    public static let horizontal = Bounces(rawValue: 1 << 1)
+
+    public static let all: Bounces = [.vertical, .horizontal]
+
+    // MARK: - Initializer
+
+    public init(rawValue: Int) {
+      self.rawValue = rawValue
+    }
+
+  }
+
+}
+
