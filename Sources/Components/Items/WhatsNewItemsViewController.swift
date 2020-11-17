@@ -57,6 +57,12 @@ final class WhatsNewItemsViewController: UIViewController {
             // Set semantic content attribute to force right to left
             tableView.semanticContentAttribute = .forceRightToLeft
         }
+
+        /// Set tableView bounces configuration based on itemViewConfiguration
+        tableView.bounces = (configuration.itemsView.bounces.isEmpty == false)
+        tableView.alwaysBounceVertical = configuration.itemsView.bounces.contains(.vertical)
+        tableView.alwaysBounceHorizontal = configuration.itemsView.bounces.contains(.horizontal)
+
         // Return TableView
         return tableView
     }()
