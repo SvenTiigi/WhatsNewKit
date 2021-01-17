@@ -449,15 +449,17 @@ let completionButton = WhatsNewViewController.CompletionButton(
 
 ### iPad Adjustments
 
-If you wish to modify the `WhatsNewViewController.Configuration` when presenting it on an iPad you can set the `padAdjustment` closure.
+If you wish to modify the layout of the `WhatsNewViewController` when presenting it on an iPad you can set the `padAdjustment` closure. 
+
+Currently the `padAdjustment` closure will only look for changed `insets` property of the `WhatsNewViewController.Configuration` in order to update the layout. Therefore, changes to any other configuration property will have no effect.
 
 ```swift
 // Set PadAdjustment closure
 configuration.padAdjustment = { configuration in
-     // Adjust TitleView FontSize
-     configuration.titleView.titleFont = .systemFont(ofSize: 45, weight: .bold)
      // Invoke default PadAdjustments (Adjusts Insets for iPad)
      WhatsNewViewController.Configuration.defaultPadAdjustment(&configuration)
+     // Adjust TitleView top insets
+     configuration.titleView.insets.top = 20
 }
 ```
 > ☝️ In default the `WhatsNewViewController.Configuration.defaultPadAdjustment` will be invoked.
