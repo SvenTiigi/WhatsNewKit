@@ -79,12 +79,6 @@ platform :ios do
 
   desc "Run Dependency-Manager compatibility tests"
   lane :compatibilityTests do
-    # Carthage build to ensure Carthage compatibility
-    carthage(
-      command: "build", 
-      no_skip_current: true, 
-      cache_builds: true
-    )
     # Pod lib lint to ensure CocoaPods compatibility
     pod_lib_lint(allow_warnings: true)
   end
