@@ -18,10 +18,10 @@ public struct WhatsNewState: DynamicProperty {
     /// The wrapped WhatsNew value
     public var wrappedValue: WhatsNew? {
         get {
-            // Verify WhatsNew is available and the version
-            // is not available in the WhatsNewVersionStore
+            // Verify WhatsNew is available and
+            // the WhatsNew Version has not already been presented
             guard let whatsNew = self.whatsNew,
-                  !self.whatsNewVersionStore.has(version: whatsNew.version) else {
+                  !self.whatsNewVersionStore.hasPresented(version: whatsNew.version) else {
                 // Otherwise return nil
                 return nil
             }

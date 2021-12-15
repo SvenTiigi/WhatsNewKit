@@ -35,9 +35,10 @@ open class WhatsNewViewController: UIHostingController<WhatsNewView> {
         versionStore: WhatsNewVersionStore,
         layout: WhatsNewView.Layout = .default
     ) {
-        // Verify WhatsNew Version is not contained in the provided WhatsNewVersionStore
-        guard !versionStore.has(version: whatsNew.version) else {
-            // Otherwise return nil
+        // Verify WhatsNew Version has not already been presented
+        guard !versionStore.hasPresented(version: whatsNew.version) else {
+            // Otherwise return nil as WhatsNew Version
+            // has already been presented to the user
             return nil
         }
         super.init(

@@ -1,4 +1,4 @@
-import SwiftUI
+import UIKit
 
 // MARK: - WhatsNew+Item+Image
 

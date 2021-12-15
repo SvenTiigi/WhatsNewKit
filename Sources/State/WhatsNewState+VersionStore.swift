@@ -11,12 +11,12 @@ public extension WhatsNewState {
         /// UserDefaults
         case userDefaults(
             userDefaults: UserDefaults = .standard,
-            prefixIdentifier: String = KeyValueWhatsNewVersionStore.defaultPrefixIdentifier
+            keyPrefix: String? = Bundle.main.bundleIdentifier
         )
         /// iCloud
         case iCloud(
             ubiquitousKeyValueStore: NSUbiquitousKeyValueStore = .default,
-            prefixIdentifier: String = KeyValueWhatsNewVersionStore.defaultPrefixIdentifier
+            keyPrefix: String? = Bundle.main.bundleIdentifier
         )
         /// Custom
         case custom(WhatsNewVersionStore)
@@ -48,15 +48,15 @@ public extension WhatsNewState.VersionStore {
         switch self {
         case .inMemory:
             return InMemoryWhatsNewVersionStore()
-        case .userDefaults(let userDefaults, let prefixIdentifier):
-            return KeyValueWhatsNewVersionStore(
-                keyValueable: userDefaults,
-                prefixIdentifier: prefixIdentifier
+        case .userDefaults(let userDefaults, let keyPrefix):
+            return UserDefaultsWhatsNewVersionStore(
+                userDefaults: userDefaults,
+                keyPrefix: keyPrefix
             )
-        case .iCloud(let ubiquitousKeyValueStore, let prefixIdentifier):
-            return KeyValueWhatsNewVersionStore(
-                keyValueable: ubiquitousKeyValueStore,
-                prefixIdentifier: prefixIdentifier
+        case .iCloud(let ubiquitousKeyValueStore, let keyPrefix):
+            return NSUbiquitousKeyValueWhatsNewVersionStore(
+                ubiquitousKeyValueStore: ubiquitousKeyValueStore,
+                keyPrefix: keyPrefix
             )
         case .custom(let versionStore):
             return versionStore

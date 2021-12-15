@@ -19,25 +19,14 @@ public final class InMemoryWhatsNewVersionStore {
     
 }
 
-// MARK: - Clear
-
-public extension InMemoryWhatsNewVersionStore {
-    
-    /// Clear all stored Versions
-    func clear() {
-        self.versions.removeAll()
-    }
-    
-}
-
 // MARK: - WriteableWhatsNewVersionStore
 
 extension InMemoryWhatsNewVersionStore: WriteableWhatsNewVersionStore {
     
-    /// Set Version
-    /// - Parameter version: The Version
-    public func set(
-        version: WhatsNew.Version
+    /// Save presented WhatsNew Version
+    /// - Parameter version: The presented WhatsNew Version that should be saved
+    public func save(
+        presentedVersion version: WhatsNew.Version
     ) {
         self.versions.append(version)
     }
@@ -48,13 +37,24 @@ extension InMemoryWhatsNewVersionStore: WriteableWhatsNewVersionStore {
 
 extension InMemoryWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
-    /// Has Version
-    /// - Parameter version: The Version
-    /// - Returns: Bool if Version has been presented
-    public func has(
+    /// Retrieve a bool value if a given WhatsNew Version has been presented
+    /// - Parameter version: The WhatsNew Version to check
+    /// - Returns: Bool if WhatsNew Version has been presented
+    public func hasPresented(
         version: WhatsNew.Version
     ) -> Bool {
         self.versions.contains(version)
+    }
+    
+}
+
+// MARK: - Remove all
+
+public extension InMemoryWhatsNewVersionStore {
+    
+    /// Remove all presented WhatsNew Versions
+    func removeAll() {
+        self.versions.removeAll()
     }
     
 }

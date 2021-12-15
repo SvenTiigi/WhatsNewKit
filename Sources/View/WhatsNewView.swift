@@ -96,9 +96,9 @@ extension WhatsNewView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
         .onDisappear {
-            // Set Version in WhatsNewVersionStore, if available
-            self.whatsNewVersionStore?.set(
-                version: self.whatsNew.version
+            // Save presented WhatsNew Version, if available
+            self.whatsNewVersionStore?.save(
+                presentedVersion: self.whatsNew.version
             )
         }
     }

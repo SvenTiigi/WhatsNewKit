@@ -2,31 +2,31 @@ import Foundation
 
 // MARK: - WhatsNewVersionStore
 
-/// The WhatsNewVersionStore typealias
+/// A WhatsNewVersionStore
 public typealias WhatsNewVersionStore = WriteableWhatsNewVersionStore & ReadableWhatsNewVersionStore
 
 // MARK: - WriteableWhatsNewVersionStore
 
-/// The WriteableWhatsNewVersionStore
+/// A Writeable WhatsNewVersionStore
 public protocol WriteableWhatsNewVersionStore {
     
-    /// Set Version
-    /// - Parameter version: The Version
-    func set(
-        version: WhatsNew.Version
+    /// Save presented WhatsNew Version
+    /// - Parameter version: The presented WhatsNew Version that should be saved
+    func save(
+        presentedVersion version: WhatsNew.Version
     )
     
 }
 
 // MARK: - ReadableWhatsNewVersionStore
 
-/// The ReadableWhatsNewVersionStore
+/// A Readable WhatsNewVersionStore
 public protocol ReadableWhatsNewVersionStore {
     
-    /// Has Version
-    /// - Parameter version: The Version
-    /// - Returns: Bool if Version has been presented
-    func has(
+    /// Retrieve a bool value if a given WhatsNew Version has been presented
+    /// - Parameter version: The WhatsNew Version to check
+    /// - Returns: Bool if WhatsNew Version has been presented
+    func hasPresented(
         version: WhatsNew.Version
     ) -> Bool
     
