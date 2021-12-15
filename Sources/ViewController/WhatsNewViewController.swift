@@ -50,7 +50,8 @@ open class WhatsNewViewController: UIHostingController<WhatsNewView> {
         )
     }
     
-    /// Initializer with NSCoder is unavailable, please use `init(whatsNew:)`
+    /// Initializer with NSCoder is unavailable.
+    /// Please use `init(whatsNew:)` or `init(whatsNew:versionStore:)`
     @available(*, unavailable)
     public required init?(
         coder aDecoder: NSCoder
