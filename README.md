@@ -9,7 +9,7 @@
 </h1>
 
 <p align="center">
-    A Swift Package to easily showcase your awesome new app features.
+    A Swift Package to easily showcase new app features.
 </p>
 
 <p align="center">
@@ -37,10 +37,14 @@ struct ContentView: View {
         title: "What's New",
         features: [
             .init(
-                image: .init(systemName: "star.fill"),
-                title: "New Design",
-                subtitle: "An awesome new design"
-            )
+                image: .init(
+                    systemName: "star.fill", 
+                    tintColor: .systemOrange
+                ),
+                title: "Showcase your new App Features",
+                subtitle: "Easily present your new features."
+            ),
+            // ...
         ]
     )
     
