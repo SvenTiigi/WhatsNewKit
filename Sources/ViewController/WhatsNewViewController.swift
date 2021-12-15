@@ -2,29 +2,21 @@ import SwiftUI
 
 // MARK: - WhatsNewViewController
 
-/// The WhatsNewViewController
-public final class WhatsNewViewController: UIHostingController<WhatsNewView> {
-    
-    // MARK: Properties
-    
-    /// The WhatsNew object
-    private let whatsNew: WhatsNew
-    
-    /// The optional WhatsNewVersionStore
-    private let whatsNewVersionStore: WhatsNewVersionStore?
-    
-    // MARK: Initializer
+/// A WhatsNew UIViewController
+open class WhatsNewViewController: UIHostingController<WhatsNewView> {
     
     /// Creates a new instance of `WhatsNewViewController`
-    /// - Parameter whatsNew: The WhatsNew object
+    /// - Parameters:
+    ///   - whatsNew: The WhatsNew object
+    ///   - layout: The WhatsNewView Layout. Default value `.default`
     public init(
-        whatsNew: WhatsNew
+        whatsNew: WhatsNew,
+        layout: WhatsNewView.Layout = .default
     ) {
-        self.whatsNew = whatsNew
-        self.whatsNewVersionStore = nil
         super.init(
             rootView: .init(
-                whatsNew: whatsNew
+                whatsNew: whatsNew,
+                layout: layout
             )
         )
     }
@@ -37,20 +29,22 @@ public final class WhatsNewViewController: UIHostingController<WhatsNewView> {
     /// - Parameters:
     ///   - whatsNew: The WhatsNew object
     ///   - versionStore: The WhatsNewVersionStore
+    ///   - layout: The WhatsNewView Layout. Default value `.default`
     public init?(
         whatsNew: WhatsNew,
-        versionStore: WhatsNewVersionStore
+        versionStore: WhatsNewVersionStore,
+        layout: WhatsNewView.Layout = .default
     ) {
         // Verify WhatsNew Version is not contained in the provided WhatsNewVersionStore
         guard !versionStore.has(version: whatsNew.version) else {
             // Otherwise return nil
             return nil
         }
-        self.whatsNew = whatsNew
-        self.whatsNewVersionStore = versionStore
         super.init(
             rootView: .init(
-                whatsNew: whatsNew
+                whatsNew: whatsNew,
+                versionStore: versionStore,
+                layout: layout
             )
         )
     }
@@ -60,11 +54,5 @@ public final class WhatsNewViewController: UIHostingController<WhatsNewView> {
     public required init?(
         coder aDecoder: NSCoder
     ) { nil }
-    
-    /// Deinit
-    deinit {
-        // Set WhatsNew Version on WhatsNewVersionStore, if available
-        self.whatsNewVersionStore?.set(version: self.whatsNew.version)
-    }
     
 }
