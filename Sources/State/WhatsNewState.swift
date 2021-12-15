@@ -56,13 +56,27 @@ public struct WhatsNewState: DynamicProperty {
     /// Creates a new instance of `WhatsNewState`
     /// - Parameters:
     ///   - wrappedValue: The wrapped WhatsNew value
+    ///   - versionStore: The WhatsNewVersionStore
+    public init(
+        wrappedValue: WhatsNew?,
+        versionStore: WhatsNewVersionStore
+    ) {
+        self._whatsNew = .init(initialValue: wrappedValue)
+        self.whatsNewVersionStore = versionStore
+    }
+    
+    /// Creates a new instance of `WhatsNewState`
+    /// - Parameters:
+    ///   - wrappedValue: The wrapped WhatsNew value
     ///   - versionStore: The VersionStore. Default value `.userDefaults()`
     public init(
         wrappedValue: WhatsNew?,
         versionStore: VersionStore = .userDefaults()
     ) {
-        self._whatsNew = .init(initialValue: wrappedValue)
-        self.whatsNewVersionStore = versionStore()
+        self.init(
+            wrappedValue: wrappedValue,
+            versionStore: versionStore()
+        )
     }
     
 }
