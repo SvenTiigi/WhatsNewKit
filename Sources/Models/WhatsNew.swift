@@ -1,117 +1,76 @@
-//
-//  WhatsNew.swift
-//  WhatsNewKit
-//
-//  Created by Sven Tiigi on 19.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
-//
-
-import UIKit
+import Foundation
 
 // MARK: - WhatsNew
 
-/**
- The `WhatsNew` struct to declare your new app features.
- Read more on: [https://github.com/SvenTiigi/WhatsNewKit](https://github.com/SvenTiigi/WhatsNewKit)
-
- In default the `version` property will be initialized by reading out the current app version from the main bundle.
-
- # Example:
- ```
- import WhatsNewKit
- 
- // WhatsNew for your current app version
- let whatsNew = WhatsNew(
-     // The Title
-     title: "WhatsNewKit",
-     // The features you want to showcase
-     items: [
-         WhatsNew.Item(
-             title: "Installation",
-             subtitle: "You can install WhatsNewKit via CocoaPods or Carthage",
-             image: UIImage(named: "installation")
-         ),
-         WhatsNew.Item(
-             title: "Open Source",
-             subtitle: "Contributions are very welcome 👨‍💻",
-             image: UIImage(named: "openSource")
-         )
-     ]
- )
- 
- // WhatsNew for a specific app version
- let whatsNew = WhatsNew(
-     // The Title
-     title: "WhatsNewKit",
-     // The Version
-     version: "1.0.1",
-     // The features you want to showcase
-     items: [...]
- )
- ```
- 
- # Note:
- See  the `WhatsNewViewController` to present your new app features.
- */
-public struct WhatsNew: Codable, Equatable, Hashable {
+/// A WhatsNew object
+public struct WhatsNew {
     
     // MARK: Properties
     
     /// The Version
     public let version: Version
     
-    /// The title
-    public let title: String
+    /// The Title
+    public let title: Title
     
-    /// The items
-    public let items: [Item]
+    /// The Features
+    public let features: [Feature]
+    
+    /// The PrimaryAction
+    public let primaryAction: PrimaryAction
+    
+    /// The optional SecondaryAction
+    public let secondaryAction: SecondaryAction?
     
     // MARK: Initializer
     
-    /// Default initializer
-    ///
+    /// Creates a new instance of `WhatsNew`
     /// - Parameters:
-    ///   - version: The Version. Default value `current`
+    ///   - version: The Version. Default value `.current()`
     ///   - title: The Title
-    ///   - items: The Items
+    ///   - items: The Features
+    ///   - primaryAction: The PrimaryAction. Default value `.init()`
+    ///   - secondaryAction: The optional SecondaryAction. Default value `nil`
     public init(
-        version: Version = .current(inBundle: .main),
-        title: String,
-        items: [Item]
+        version: Version = .current(),
+        title: Title,
+        features: [Feature],
+        primaryAction: PrimaryAction = .init(),
+        secondaryAction: SecondaryAction? = nil
     ) {
         self.version = version
         self.title = title
-        self.items = items
+        self.features = features
+        self.primaryAction = primaryAction
+        self.secondaryAction = secondaryAction
     }
     
 }
 
-// MARK: - Sequence<WhatsNew>+get
+// MARK: - Identifiable
+
+extension WhatsNew: Identifiable {
+    
+    /// The stable identity of the entity associated with this instance.
+    public var id: Version {
+        self.version
+    }
+    
+}
+
+// MARK: - Sequence<WhatsNew>+current()
 
 public extension Sequence where Element == WhatsNew {
     
-    /// Retrieve WhatsNew element based on given Version
-    ///
-    /// - Parameter version: The Version
-    /// - Returns: The first matching WhatsNew element
-    func get(byVersion version: WhatsNew.Version) -> WhatsNew? {
-        // First where Version is matching
-        return self.first(where: {
-            $0.version == version
-        })
-    }
-    
-    /// Retrieve WhatsNew element based on current Version of Bundle
-    ///
-    /// - Parameter bundle: The Bundle
-    /// - Returns: The first matching WhatsNew element
-    func get(byBundle bundle: Bundle = .main) -> WhatsNew? {
-        // Initialize current Version based on bundle
-        let currentVersion = WhatsNew.Version.current(inBundle: bundle)
-        // Return WhatsView by version
-        return self.get(
-            byVersion: currentVersion
-        )
+    /// Retrieve WhatsNew where the version matches the current version in Bundle
+    /// - Parameter bundle: The Bundle. Default value `.main`
+    func current(
+        in bundle: Bundle = .main
+    ) -> WhatsNew? {
+        // Initialize current WhatsNew Version
+        let currentVersion = WhatsNew.Version.current(in: bundle)
+        // Return first WhatsNew where the version matches
+        return self.first { $0.version == currentVersion }
     }
     
 }

@@ -1,11 +1,3 @@
-//
-//  InMemoryWhatsNewVersionStore.swift
-//  WhatsNewKit-iOS
-//
-//  Created by Sven Tiigi on 24.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
-//
-
 import Foundation
 
 // MARK: - InMemoryWhatsNewVersionStore
@@ -13,17 +5,26 @@ import Foundation
 /// The InMemoryWhatsNewVersionStore
 public final class InMemoryWhatsNewVersionStore {
     
+    // MARK: Properties
+    
     /// The Versions
     public var versions: [WhatsNew.Version]
     
-    /// Default initializer
+    // MARK: Initializer
+    
+    /// Creates a new instance of `InMemoryWhatsNewVersionStore`
     public init() {
-        // Initialize Version Array
         self.versions = .init()
     }
     
+}
+
+// MARK: - Clear
+
+public extension InMemoryWhatsNewVersionStore {
+    
     /// Clear all stored Versions
-    public func clearVersions() {
+    func clear() {
         self.versions.removeAll()
     }
     
@@ -34,10 +35,10 @@ public final class InMemoryWhatsNewVersionStore {
 extension InMemoryWhatsNewVersionStore: WriteableWhatsNewVersionStore {
     
     /// Set Version
-    ///
     /// - Parameter version: The Version
-    public func set(version: WhatsNew.Version) {
-        // Append Version
+    public func set(
+        version: WhatsNew.Version
+    ) {
         self.versions.append(version)
     }
     
@@ -48,12 +49,12 @@ extension InMemoryWhatsNewVersionStore: WriteableWhatsNewVersionStore {
 extension InMemoryWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
     /// Has Version
-    ///
     /// - Parameter version: The Version
     /// - Returns: Bool if Version has been presented
-    public func has(version: WhatsNew.Version) -> Bool {
-        // Return if versions is contained in versions
-        return self.versions.contains(version)
+    public func has(
+        version: WhatsNew.Version
+    ) -> Bool {
+        self.versions.contains(version)
     }
     
 }

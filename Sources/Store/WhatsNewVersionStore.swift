@@ -1,11 +1,3 @@
-//
-//  WhatsNewVersionStore.swift
-//  WhatsNewKit-iOS
-//
-//  Created by Sven Tiigi on 21.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
-//
-
 import Foundation
 
 // MARK: - WhatsNewVersionStore
@@ -19,9 +11,10 @@ public typealias WhatsNewVersionStore = WriteableWhatsNewVersionStore & Readable
 public protocol WriteableWhatsNewVersionStore {
     
     /// Set Version
-    ///
     /// - Parameter version: The Version
-    func set(version: WhatsNew.Version)
+    func set(
+        version: WhatsNew.Version
+    )
     
 }
 
@@ -31,9 +24,10 @@ public protocol WriteableWhatsNewVersionStore {
 public protocol ReadableWhatsNewVersionStore {
     
     /// Has Version
-    ///
     /// - Parameter version: The Version
     /// - Returns: Bool if Version has been presented
-    func has(version: WhatsNew.Version) -> Bool
+    func has(
+        version: WhatsNew.Version
+    ) -> Bool
     
 }

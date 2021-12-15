@@ -1,0 +1,158 @@
+//
+//  ExampleListView.swift
+//  Example
+//
+//  Created by Sven Tiigi on 15.12.21.
+//
+
+import SwiftUI
+import WhatsNewKit
+
+// MARK: - ExampleListView
+
+/// The ExampleListView
+struct ExampleListView {
+    
+    /// The Examples
+    private let examples = WhatsNew.Example.allCases
+    
+    /// The currently presented WhatsNew object
+    @State
+    private var whatsNew: WhatsNew?
+    
+}
+
+// MARK: - View
+
+extension ExampleListView: View {
+    
+    /// The content and behavior of the view
+    var body: some View {
+        List {
+            Section(
+                header: Text(
+                    verbatim: "Examples"
+                )
+            ) {
+                ForEach(
+                    self.examples,
+                    id: \.rawValue
+                ) { example in
+                    Button(
+                        action: {
+                            self.whatsNew = example.whatsNew
+                        }
+                    ) {
+                        Text(
+                            verbatim: example.displayName
+                        )
+                    }
+                }
+            }
+        }
+        .sheet(
+            whatsNew: self.$whatsNew
+        )
+    }
+    
+}
+
+// MARK: - WhatsNew+Example
+
+private extension WhatsNew {
+    
+    /// A WhatsNew Example
+    enum Example: String, Codable, Hashable, CaseIterable {
+        case calendar
+        case maps
+    }
+    
+}
+
+private extension WhatsNew.Example {
+    
+    var displayName: String {
+        self.rawValue.prefix(1).capitalized + self.rawValue.dropFirst()
+    }
+    
+}
+
+private extension WhatsNew.Example {
+    
+    var whatsNew: WhatsNew {
+        switch self {
+        case .calendar:
+            return .init(
+                title: "What's New in Calendar",
+                features: [
+                    .init(
+                        image: .init(
+                            systemName: "envelope",
+                            tintColor: .systemRed
+                        ),
+                        title: "Found Events",
+                        subtitle: "Siri suggests events found in Mail, Messages, and Safari, so you can add them easily, such as flight reservations and hotel bookings."
+                    ),
+                    .init(
+                        image: .init(
+                            systemName: "clock",
+                            tintColor: .systemRed
+                        ),
+                        title: "Time to Leave",
+                        subtitle: "Calendar uses Apple Maps to look up locations, traffic conditions, and transit options to tell you when it's time to leave."
+                    ),
+                    .init(
+                        image: .init(
+                            systemName: "location",
+                            tintColor: .systemRed
+                        ),
+                        title: "Location Suggestions",
+                        subtitle: "Calendar suggests locations based on your past events and significant locations."
+                    )
+                ],
+                primaryAction: .init(
+                    backgroundColor: .red
+                )
+            )
+        case .maps:
+            return .init(
+                title: "What's New in Maps",
+                features: [
+                    .init(
+                        image: .init(
+                            systemName: "map.fill",
+                            tintColor: .systemGreen
+                        ),
+                        title: "Updated Map Style",
+                        subtitle: "An improved design makes it easier to navigate and explore the map."
+                    ),
+                    .init(
+                        image: .init(
+                            systemName: "mappin.and.ellipse",
+                            tintColor: .systemPink
+                        ),
+                        title: "All-New Place Cards",
+                        subtitle: "Completely redesigned place cards make it easier to learn about and interact with places."
+                    ),
+                    .init(
+                        image: .init(
+                            systemName: "magnifyingglass",
+                            tintColor: .systemBlue
+                        ),
+                        title: "Improved Search",
+                        subtitle: "Finding places is now easier with filters and automatic updates when you're browsing results on the map."
+                    )
+                ],
+                primaryAction: .init(backgroundColor: .blue),
+                secondaryAction: .init(
+                    title: "About Apple Maps & Privacy",
+                    foregroundColor: .blue,
+                    action: .open(
+                        url: .init(string: "https://apple.com/privacy")
+                    )
+                )
+            )
+        }
+    }
+    
+}

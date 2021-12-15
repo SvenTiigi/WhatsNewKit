@@ -1,11 +1,3 @@
-//
-//  KeyValueWhatsNewVersionStore.swift
-//  WhatsNewKit-iOS
-//
-//  Created by Sven Tiigi on 27.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
-//
-
 import Foundation
 
 // MARK: - KeyValueable
@@ -14,25 +6,23 @@ import Foundation
 public protocol KeyValueable {
     
     /// Set value for key
-    ///
     /// - Parameters:
     ///   - value: The value
     ///   - key: The key
     func set(_ value: Any?, forKey key: String)
     
     /// Retrieve object for key
-    ///
     /// - Parameter forKey: The key
     /// - Returns: The corresponding object
     func object(forKey: String) -> Any?
     
 }
 
-// MARK: - KeyValueable UserDefaults
+// MARK: - UserDefaults+KeyValueable
 
 extension UserDefaults: KeyValueable {}
 
-// MARK: - NSUbiquitousKeyValueStore UserDefaults
+// MARK: - NSUbiquitousKeyValueStore+KeyValueable
 
 extension NSUbiquitousKeyValueStore: KeyValueable {}
 
@@ -40,6 +30,13 @@ extension NSUbiquitousKeyValueStore: KeyValueable {}
 
 /// The KeyValueWhatsNewVersionStore
 public struct KeyValueWhatsNewVersionStore {
+    
+    // MARK: Static-Properties
+    
+    /// The default prefix identifier
+    public static let defaultPrefixIdentifier = "de.tiigi.whatsnewkit"
+    
+    // MARK: Properties
     
     /// The KeyValueable
     private let keyValueable: KeyValueable
@@ -49,27 +46,36 @@ public struct KeyValueWhatsNewVersionStore {
     
     // MARK: Initializer
     
-    /// Default initializer
-    ///
+    /// Creates a new instance of `KeyValueWhatsNewVersionStore`
     /// - Parameters:
     ///   - keyValueable: The KeyValueable Object. Default value `UserDefaults.standard`
-    ///   - prefixIdentifier: The prefix identifier. Default value `de.tiigi.whatsnewkit.`
+    ///   - prefixIdentifier: The prefix identifier. Default value `Self.defaultPrefixIdentifier`
     public init(
         keyValueable: KeyValueable = UserDefaults.standard,
-        prefixIdentifier: String = "de.tiigi.whatsnewkit"
+        prefixIdentifier: String = Self.defaultPrefixIdentifier
     ) {
         self.keyValueable = keyValueable
         self.prefixIdentifier = prefixIdentifier
     }
     
-    // MARK: Private API
+}
+
+// MARK: - Key for Version
+
+private extension KeyValueWhatsNewVersionStore {
     
     /// Retrieve Key for Version
-    ///
     /// - Parameter version: The Version
     /// - Returns: String key concatenated with prefix identifier
-    private func key(forVersion version: WhatsNew.Version) -> String {
-        return "\(self.prefixIdentifier)\(!self.prefixIdentifier.isEmpty ? "." : "")\(version)"
+    func key(
+        forVersion version: WhatsNew.Version
+    ) -> String {
+        [
+            self.prefixIdentifier.isEmpty ? nil : self.prefixIdentifier,
+            version.description
+        ]
+        .compactMap { $0 }
+        .joined(separator: ".")
     }
     
 }
@@ -79,10 +85,10 @@ public struct KeyValueWhatsNewVersionStore {
 extension KeyValueWhatsNewVersionStore: WriteableWhatsNewVersionStore {
     
     /// Set Version
-    ///
     /// - Parameter version: The Version
-    public func set(version: WhatsNew.Version) {
-        // Set Version String representation
+    public func set(
+        version: WhatsNew.Version
+    ) {
         self.keyValueable.set(
             version.description,
             forKey: self.key(forVersion: version)
@@ -96,10 +102,11 @@ extension KeyValueWhatsNewVersionStore: WriteableWhatsNewVersionStore {
 extension KeyValueWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
     /// Has Version
-    ///
     /// - Parameter version: The Version
     /// - Returns: Bool if Version has been presented
-    public func has(version: WhatsNew.Version) -> Bool {
+    public func has(
+        version: WhatsNew.Version
+    ) -> Bool {
         // Retrieve object for key as String
         let versionObjectString = self.keyValueable.object(forKey: self.key(forVersion: version)) as? String
         // Return string comparison result
