@@ -9,8 +9,8 @@ public extension WhatsNew {
         
         // MARK: Properties
         
-        /// The title text
-        public let text: NSAttributedString
+        /// The title Text
+        public let text: Text
         
         /// The foreground color
         public let foregroundColor: Color
@@ -19,54 +19,16 @@ public extension WhatsNew {
         
         /// Creates a new instance of `WhatsNew.Title`
         /// - Parameters:
-        ///   - text: The title text NSAttributedString
+        ///   - text: The title Text
         ///   - foregroundColor: The foreground color. Default value `.primary`
-        @available(iOS 15, *)
         public init(
-            text: NSAttributedString,
+            text: Text,
             foregroundColor: Color = .primary
         ) {
             self.text = text
             self.foregroundColor = foregroundColor
         }
         
-    }
-    
-}
-
-// MARK: - Initializer with AttributedString
-
-@available(iOS 15, *)
-public extension WhatsNew.Title {
-    
-    /// Creates a new instance of `WhatsNew.Title`
-    /// - Parameters:
-    ///   - text: The title text AttributedString
-    ///   - foregroundColor: The foreground color. Default value `.primary`
-    init(
-        text: AttributedString,
-        foregroundColor: Color = .primary
-    ) {
-        self.text = .init(text)
-        self.foregroundColor = foregroundColor
-    }
-    
-}
-
-// MARK: - Initializer with String
-
-public extension WhatsNew.Title {
-    
-    /// Creates a new instance of `WhatsNew.Title`
-    /// - Parameters:
-    ///   - text: The title text String
-    ///   - foregroundColor: The foreground color. Default value `.primary`
-    init(
-        text: String,
-        foregroundColor: Color = .primary
-    ) {
-        self.text = .init(string: text)
-        self.foregroundColor = foregroundColor
     }
     
 }
@@ -81,7 +43,7 @@ extension WhatsNew.Title: ExpressibleByStringLiteral {
         stringLiteral value: String
     ) {
         self.init(
-            text: value
+            text: .init(value)
         )
     }
     

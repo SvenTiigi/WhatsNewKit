@@ -1,4 +1,4 @@
-import UIKit
+import SwiftUI
 
 // MARK: - WhatsNew+Item
 
@@ -12,23 +12,23 @@ public extension WhatsNew {
         /// The image
         public let image: Image
         
-        /// The title
-        public let title: String
+        /// The title Text
+        public let title: Text
         
-        /// The subtitle
-        public let subtitle: String
+        /// The subtitle Text
+        public let subtitle: Text
         
         // MARK: Initializer
         
         /// Creates a new instance of `WhatsNew.Feature`
         /// - Parameters:
         ///   - image: The image
-        ///   - title: The title
-        ///   - subtitle: The subtitle
+        ///   - title: The title Text
+        ///   - subtitle: The subtitle Text
         public init(
             image: Image,
-            title: String,
-            subtitle: String
+            title: Text,
+            subtitle: Text
         ) {
             self.image = image
             self.title = title

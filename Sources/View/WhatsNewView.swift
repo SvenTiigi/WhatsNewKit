@@ -111,17 +111,9 @@ private extension WhatsNewView {
     
     /// The Title View
     var title: some View {
-        Group {
-            if #available(iOS 15, *) {
-                Text(
-                    AttributedString(self.whatsNew.title.text)
-                )
-            } else {
-                Text(
-                    verbatim: self.whatsNew.title.text.string
-                )
-            }
-        }
+        Text(
+            whatsNewText: self.whatsNew.title.text
+        )
         .font(.largeTitle.bold())
         .multilineTextAlignment(.center)
     }
@@ -150,12 +142,12 @@ private extension WhatsNewView {
                 spacing: self.layout.featureVerticalSpacing
             ) {
                 Text(
-                    verbatim: feature.title
+                    whatsNewText: feature.title
                 )
                 .font(.subheadline.weight(.semibold))
                 .foregroundColor(.primary)
                 Text(
-                    verbatim: feature.subtitle
+                    whatsNewText: feature.subtitle
                 )
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -191,7 +183,7 @@ private extension WhatsNewView {
                     }
                 ) {
                     Text(
-                        verbatim: secondaryAction.title
+                        whatsNewText: secondaryAction.title
                     )
                 }
                 .foregroundColor(secondaryAction.foregroundColor)
@@ -212,7 +204,7 @@ private extension WhatsNewView {
                 HStack {
                     Spacer()
                     Text(
-                        verbatim: self.whatsNew.primaryAction.title
+                        whatsNewText: self.whatsNew.primaryAction.title
                     )
                     .font(.headline.weight(.semibold))
                     .padding(.vertical)
