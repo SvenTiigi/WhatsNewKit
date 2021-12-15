@@ -49,7 +49,7 @@ extension WhatsNewView: View {
             // Content ScrollView
             ScrollView(
                 .vertical,
-                showsIndicators: false
+                showsIndicators: self.layout.showsScrollViewIndicators
             ) {
                 // Content Stack
                 VStack(
