@@ -1,19 +1,21 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
 
 jobs:
-  tests:
-    name: Unit-Tests
-    runs-on: macOS-latest
+  build:
+    runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: fastlane ios tests
-      run: fastlane ios tests
-  compatibility:
-    name: Compatibility-Tests
-    runs-on: macOS-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: fastlane ios compatibilityTests
-      run: fastlane ios compatibilityTests
+    - uses: actions/checkout@v2
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v

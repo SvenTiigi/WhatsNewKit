@@ -1,19 +1,13 @@
-//
-//  WhatsNew+Version.swift
-//  WhatsNewKit-iOS
-//
-//  Created by Sven Tiigi on 22.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
-//
-
 import Foundation
 
-// MARK: - Version
+// MARK: - WhatsNew+Version
 
 public extension WhatsNew {
     
-    /// The Version
-    struct Version: Codable, Equatable, Hashable {
+    /// A WhatsNew Version
+    struct Version: Hashable {
+        
+        // MARK: Properties
         
         /// The major version
         public let major: Int
@@ -24,8 +18,9 @@ public extension WhatsNew {
         /// The patch version
         public let patch: Int
         
-        /// Default initializer
-        ///
+        // MARK: Initializer
+        
+        /// Creates a new instance of `WhatsNew.Version`
         /// - Parameters:
         ///   - major: The major version
         ///   - minor: The minor version
@@ -50,15 +45,14 @@ extension WhatsNew.Version: Comparable {
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is less than that of the second argument.
-    ///
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
     public static func < (
-        lhs: WhatsNew.Version,
-        rhs: WhatsNew.Version
+        lhs: Self,
+        rhs: Self
     ) -> Bool {
-        return lhs.description.compare(rhs.description, options: .numeric) == .orderedAscending
+        lhs.description.compare(rhs.description, options: .numeric) == .orderedAscending
     }
     
 }
@@ -69,7 +63,13 @@ extension WhatsNew.Version: CustomStringConvertible {
     
     /// A textual representation of this instance.
     public var description: String {
-        return "\(self.major).\(self.minor).\(self.patch)"
+        [
+            self.major,
+            self.minor,
+            self.patch
+        ]
+        .map(String.init)
+        .joined(separator: ".")
     }
     
 }
@@ -79,13 +79,14 @@ extension WhatsNew.Version: CustomStringConvertible {
 extension WhatsNew.Version: ExpressibleByStringLiteral {
     
     /// Creates an instance initialized to the given string value.
-    ///
     /// - Parameter value: The value of the new instance.
-    public init(stringLiteral value: String) {
-        let values = value.components(separatedBy: ".").compactMap(Int.init)
-        self.major = values.indices.contains(0) ? values[0] : 0
-        self.minor = values.indices.contains(1) ? values[1] : 0
-        self.patch = values.indices.contains(2) ? values[2] : 0
+    public init(
+        stringLiteral value: String
+    ) {
+        let components = value.components(separatedBy: ".").compactMap(Int.init)
+        self.major = components.indices.contains(0) ? components[0] : 0
+        self.minor = components.indices.contains(1) ? components[1] : 0
+        self.patch = components.indices.contains(2) ? components[2] : 0
     }
     
 }
@@ -94,19 +95,19 @@ extension WhatsNew.Version: ExpressibleByStringLiteral {
 
 public extension WhatsNew.Version {
     
-    /// Retrieve WhatsNew.Version based on current Version String in Bundle
-    ///
-    /// - Parameter bundle: The Bundle
+    /// Retrieve current WhatsNew Version based on the current Version String in the Bundle
+    /// - Parameter bundle: The Bundle. Default value `.main`
     /// - Returns: WhatsNew.Version
     static func current(
-        inBundle bundle: Bundle = .main
+        in bundle: Bundle = .main
     ) -> WhatsNew.Version {
         // Retrieve Bundle short Version String
         let shortVersionString = bundle.infoDictionary?["CFBundleShortVersionString"] as? String
         // Return initialized Version via String Literal
-        return .init(stringLiteral:
-            shortVersionString ?? ""
+        return .init(
+            stringLiteral: shortVersionString ?? ""
         )
     }
     
 }
+

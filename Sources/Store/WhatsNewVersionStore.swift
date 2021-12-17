@@ -1,39 +1,53 @@
-//
-//  WhatsNewVersionStore.swift
-//  WhatsNewKit-iOS
-//
-//  Created by Sven Tiigi on 21.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
-//
-
 import Foundation
 
 // MARK: - WhatsNewVersionStore
 
-/// The WhatsNewVersionStore typealias
+/// A WhatsNewVersionStore
 public typealias WhatsNewVersionStore = WriteableWhatsNewVersionStore & ReadableWhatsNewVersionStore
 
 // MARK: - WriteableWhatsNewVersionStore
 
-/// The WriteableWhatsNewVersionStore
+/// A Writeable WhatsNewVersionStore
 public protocol WriteableWhatsNewVersionStore {
     
-    /// Set Version
-    ///
-    /// - Parameter version: The Version
-    func set(version: WhatsNew.Version)
+    /// Save presented WhatsNew Version
+    /// - Parameter version: The presented WhatsNew Version that should be saved
+    func save(
+        presentedVersion version: WhatsNew.Version
+    )
     
 }
 
 // MARK: - ReadableWhatsNewVersionStore
 
-/// The ReadableWhatsNewVersionStore
+/// A Readable WhatsNewVersionStore
 public protocol ReadableWhatsNewVersionStore {
     
-    /// Has Version
-    ///
-    /// - Parameter version: The Version
-    /// - Returns: Bool if Version has been presented
-    func has(version: WhatsNew.Version) -> Bool
+    /// The WhatsNew Versions that have been already been presented
+    var presentedVersions: [WhatsNew.Version] { get }
+    
+}
+
+// MARK: - ReadableWhatsNewVersionStore+hasPresented
+
+public extension ReadableWhatsNewVersionStore {
+    
+    /// Retrieve a bool value if a given WhatsNew Version has already been presented
+    /// - Parameter whatsNew: The WhatsNew Version to verify
+    /// - Returns: A Bool value if the given WhatsNew Version has already been preseted
+    func hasPresented(
+        _ version: WhatsNew.Version
+    ) -> Bool {
+        self.presentedVersions.contains(version)
+    }
+    
+    /// Retrieve a bool value if a given WhatsNew has already been presented
+    /// - Parameter whatsNew: The WhatsNew to verify
+    /// - Returns: A Bool value if the given WhatsNew has already been preseted
+    func hasPresented(
+        _ whatsNew: WhatsNew
+    ) -> Bool {
+        self.hasPresented(whatsNew.version)
+    }
     
 }
