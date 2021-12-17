@@ -5,7 +5,7 @@ import SwiftUI
 extension UIImageView {
     
     /// A SwiftUI Representable UIImageView
-    struct Representable: UIViewRepresentable {
+    struct Representable: Hashable, UIViewRepresentable {
         
         // MARK: Properties
         

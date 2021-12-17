@@ -10,21 +10,15 @@ public struct UserDefaultsWhatsNewVersionStore {
     /// The UserDefaults
     private let userDefaults: UserDefaults
     
-    /// The optional Key prefix
-    private let keyPrefix: String?
-    
     // MARK: Initializer
     
     /// Creates a new instance of `UserDefaultsWhatsNewVersionStore`
     /// - Parameters:
     ///   - userDefaults: The UserDefaults. Default value `.standard`
-    ///   - keyPrefix: The optional Key prefix. Default value `Bundle.main.bundleIdentifier`
     public init(
-        userDefaults: UserDefaults = .standard,
-        keyPrefix: String? = Bundle.main.bundleIdentifier
+        userDefaults: UserDefaults = .standard
     ) {
         self.userDefaults = userDefaults
-        self.keyPrefix = keyPrefix
     }
     
 }
@@ -40,7 +34,7 @@ extension UserDefaultsWhatsNewVersionStore: WriteableWhatsNewVersionStore {
     ) {
         self.userDefaults.set(
             version.description,
-            forKey: version.key(prefix: self.keyPrefix)
+            forKey: version.key
         )
     }
     
@@ -50,13 +44,13 @@ extension UserDefaultsWhatsNewVersionStore: WriteableWhatsNewVersionStore {
 
 extension UserDefaultsWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
-    /// Retrieve a bool value if a given WhatsNew Version has been presented
-    /// - Parameter version: The WhatsNew Version to check
-    /// - Returns: Bool if WhatsNew Version has been presented
-    public func hasPresented(
-        version: WhatsNew.Version
-    ) -> Bool {
-        self.userDefaults.string(forKey: version.key(prefix: self.keyPrefix)) == version.description
+    /// The WhatsNew Versions that have been already been presented
+    public var presentedVersions: [WhatsNew.Version] {
+        self.userDefaults
+            .dictionaryRepresentation()
+            .filter { $0.key.starts(with: WhatsNew.Version.keyPrefix) }
+            .compactMap { $0.value as? String }
+            .map(WhatsNew.Version.init)
     }
     
 }

@@ -16,6 +16,10 @@ public struct WhatsNewView {
     /// The Layout
     private let layout: Layout
     
+    /// The View that is presented by the SecondaryAction
+    @State
+    private var secondaryActionPresentedView: WhatsNew.SecondaryAction.Action.PresentedView?
+    
     /// The PresentationMode
     @Environment(\.presentationMode)
     private var presentationMode
@@ -95,6 +99,10 @@ extension WhatsNewView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+        .sheet(
+            item: self.$secondaryActionPresentedView,
+            content: { $0.view }
+        )
         .onDisappear {
             // Save presented WhatsNew Version, if available
             self.whatsNewVersionStore?.save(
@@ -172,14 +180,17 @@ private extension WhatsNewView {
                 // Secondary Action Button
                 Button(
                     action: {
-                        // Invoke HapticFeedback
+                        // Invoke HapticFeedback, if available
                         secondaryAction.hapticFeedback?()
-                        // Invoke SecondaryAction
-                        secondaryAction.action(
-                            dismissAction: .init {
-                                self.presentationMode.wrappedValue.dismiss()
-                            }
-                        )
+                        // Switch on Action
+                        switch secondaryAction.action {
+                        case .present(let view):
+                            // Set secondary action presented view
+                            self.secondaryActionPresentedView = .init(view: view)
+                        case .custom(let action):
+                            // Invoke action with PresentationMode
+                            action(self.presentationMode)
+                        }
                     }
                 ) {
                     Text(
@@ -191,14 +202,12 @@ private extension WhatsNewView {
             // Primary Action Button
             Button(
                 action: {
-                    // Invoke HapticFeedback
+                    // Invoke HapticFeedback, if available
                     self.whatsNew.primaryAction.hapticFeedback?()
-                    // Invoke PrimaryAction
-                    self.whatsNew.primaryAction.action(
-                        dismissAction: .init {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                    )
+                    // Dismiss
+                    self.presentationMode.wrappedValue.dismiss()
+                    // Invoke on dismiss, if available
+                    self.whatsNew.primaryAction.onDismiss?()
                 }
             ) {
                 HStack {
@@ -213,7 +222,7 @@ private extension WhatsNewView {
             }
             .background(self.whatsNew.primaryAction.backgroundColor)
             .foregroundColor(self.whatsNew.primaryAction.foregroundColor)
-            .cornerRadius(14)
+            .cornerRadius(self.layout.footerPrimaryActionButtonCornerRadius)
         }
     }
     

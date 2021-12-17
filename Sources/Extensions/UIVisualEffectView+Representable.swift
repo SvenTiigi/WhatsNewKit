@@ -5,7 +5,7 @@ import SwiftUI
 extension UIVisualEffectView {
     
     /// The UIVisualEffectView SwiftUI Representable
-    struct Representable: UIViewRepresentable {
+    struct Representable: Hashable, UIViewRepresentable {
         
         // MARK: Properties
         

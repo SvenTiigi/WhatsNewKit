@@ -33,7 +33,7 @@ public extension WhatsNew {
             title: Text,
             foregroundColor: Color = .accentColor,
             hapticFeedback: HapticFeedback? = nil,
-            action: WhatsNew.Action
+            action: Action
         ) {
             self.title = title
             self.foregroundColor = foregroundColor

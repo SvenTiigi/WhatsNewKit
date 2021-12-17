@@ -1,4 +1,5 @@
 import SwiftUI
+import WhatsNewKit
 
 // MARK: - App
 
@@ -14,6 +15,13 @@ extension App: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(
+                    \.whatsNew,
+                     .init(
+                        versionStore: InMemoryWhatsNewVersionStore(),
+                        whatsNew: self
+                     )
+                )
         }
     }
     

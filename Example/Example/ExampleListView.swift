@@ -1,10 +1,3 @@
-//
-//  ExampleListView.swift
-//  Example
-//
-//  Created by Sven Tiigi on 15.12.21.
-//
-
 import SwiftUI
 import WhatsNewKit
 
@@ -32,6 +25,9 @@ extension ExampleListView: View {
             Section(
                 header: Text(
                     verbatim: "Examples"
+                ),
+                footer: Text(
+                    verbatim: "Tap on an example to manually present a WhatsNewView"
                 )
             ) {
                 ForEach(
@@ -50,6 +46,7 @@ extension ExampleListView: View {
                 }
             }
         }
+        .navigationTitle("WhatsNewKit")
         .sheet(
             whatsNew: self.$whatsNew
         )
@@ -63,22 +60,30 @@ private extension WhatsNew {
     
     /// A WhatsNew Example
     enum Example: String, Codable, Hashable, CaseIterable {
+        /// Calendar
         case calendar
+        /// Maps
         case maps
     }
     
 }
 
+// MARK: - WhatsNew+Example+displayName
+
 private extension WhatsNew.Example {
     
+    /// The user friendly display name
     var displayName: String {
         self.rawValue.prefix(1).capitalized + self.rawValue.dropFirst()
     }
     
 }
 
+// MARK: - WhatsNew+Example+whatsNew
+
 private extension WhatsNew.Example {
     
+    /// The WhatsNew
     var whatsNew: WhatsNew {
         switch self {
         case .calendar:
@@ -147,9 +152,7 @@ private extension WhatsNew.Example {
                 secondaryAction: .init(
                     title: "About Apple Maps & Privacy",
                     foregroundColor: .blue,
-                    action: .open(
-                        url: .init(string: "https://apple.com/privacy")
-                    )
+                    action: .openURL(.init(string: "maps://"))
                 )
             )
         }

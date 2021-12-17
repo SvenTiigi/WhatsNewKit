@@ -21,8 +21,8 @@ public extension WhatsNew {
         /// The optional HapticFeedback
         public let hapticFeedback: HapticFeedback?
         
-        /// The Action
-        public let action: Action
+        /// The optional on dismiss closure
+        public let onDismiss: (() -> Void)?
         
         // MARK: Initializer
         
@@ -32,19 +32,19 @@ public extension WhatsNew {
         ///   - backgroundColor: The background color. Default value `.accentColor`
         ///   - foregroundColor: The foreground color. Default value `.white`
         ///   - hapticFeedback: The optional HapticFeedback. Default value `nil`
-        ///   - action: The Action. Default value `.dismiss`
+        ///   - onDismiss: The optional on dismiss closure. Default value `nil`
         public init(
             title: Text = "Continue",
             backgroundColor: Color = .accentColor,
             foregroundColor: Color = .white,
             hapticFeedback: HapticFeedback? = nil,
-            action: Action = .dismiss
+            onDismiss: (() -> Void)? = nil
         ) {
             self.title = title
             self.backgroundColor = backgroundColor
             self.foregroundColor = foregroundColor
             self.hapticFeedback = hapticFeedback
-            self.action = action
+            self.onDismiss = onDismiss
         }
         
     }

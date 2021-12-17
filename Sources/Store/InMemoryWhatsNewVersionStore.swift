@@ -37,13 +37,9 @@ extension InMemoryWhatsNewVersionStore: WriteableWhatsNewVersionStore {
 
 extension InMemoryWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
-    /// Retrieve a bool value if a given WhatsNew Version has been presented
-    /// - Parameter version: The WhatsNew Version to check
-    /// - Returns: Bool if WhatsNew Version has been presented
-    public func hasPresented(
-        version: WhatsNew.Version
-    ) -> Bool {
-        self.versions.contains(version)
+    /// The WhatsNew Versions that have been already been presented
+    public var presentedVersions: [WhatsNew.Version] {
+        self.versions
     }
     
 }

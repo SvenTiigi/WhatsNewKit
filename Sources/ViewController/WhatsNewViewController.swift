@@ -36,7 +36,7 @@ open class WhatsNewViewController: UIHostingController<WhatsNewView> {
         layout: WhatsNewView.Layout = .default
     ) {
         // Verify WhatsNew Version has not already been presented
-        guard !versionStore.hasPresented(version: whatsNew.version) else {
+        guard !versionStore.hasPresented(whatsNew) else {
             // Otherwise return nil as WhatsNew Version
             // has already been presented to the user
             return nil
@@ -51,7 +51,7 @@ open class WhatsNewViewController: UIHostingController<WhatsNewView> {
     }
     
     /// Initializer with NSCoder is unavailable.
-    /// Please use `init(whatsNew:)` or `init(whatsNew:versionStore:)`
+    /// Please use `init(whatsNew:)` or `init?(whatsNew:versionStore:)`
     @available(*, unavailable)
     public required init?(
         coder aDecoder: NSCoder

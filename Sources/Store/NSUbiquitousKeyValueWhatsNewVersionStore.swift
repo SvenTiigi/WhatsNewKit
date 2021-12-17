@@ -13,21 +13,15 @@ public struct NSUbiquitousKeyValueWhatsNewVersionStore {
     /// The NSUbiquitousKeyValueStore
     private let ubiquitousKeyValueStore: NSUbiquitousKeyValueStore
     
-    /// The optional Key prefix
-    private let keyPrefix: String?
-    
     // MARK: Initializer
     
     /// Creates a new instance of `NSUbiquitousKeyValueWhatsNewVersionStore`
     /// - Parameters:
     ///   - ubiquitousKeyValueStore: The NSUbiquitousKeyValueWhatsNewVersionStore. Default value `.default`
-    ///   - keyPrefix: The optional Key prefix. Default value `Bundle.main.bundleIdentifier`
     public init(
-        ubiquitousKeyValueStore: NSUbiquitousKeyValueStore = .default,
-        keyPrefix: String? = Bundle.main.bundleIdentifier
+        ubiquitousKeyValueStore: NSUbiquitousKeyValueStore = .default
     ) {
         self.ubiquitousKeyValueStore = ubiquitousKeyValueStore
-        self.keyPrefix = keyPrefix
     }
     
 }
@@ -43,7 +37,7 @@ extension NSUbiquitousKeyValueWhatsNewVersionStore: WriteableWhatsNewVersionStor
     ) {
         self.ubiquitousKeyValueStore.set(
             version.description,
-            forKey: version.key(prefix: self.keyPrefix)
+            forKey: version.key
         )
     }
     
@@ -53,13 +47,13 @@ extension NSUbiquitousKeyValueWhatsNewVersionStore: WriteableWhatsNewVersionStor
 
 extension NSUbiquitousKeyValueWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
-    /// Retrieve a bool value if a given WhatsNew Version has been presented
-    /// - Parameter version: The WhatsNew Version to check
-    /// - Returns: Bool if WhatsNew Version has been presented
-    public func hasPresented(
-        version: WhatsNew.Version
-    ) -> Bool {
-        self.ubiquitousKeyValueStore.string(forKey: version.key(prefix: self.keyPrefix)) == version.description
+    /// The WhatsNew Versions that have been already been presented
+    public var presentedVersions: [WhatsNew.Version] {
+        self.ubiquitousKeyValueStore
+            .dictionaryRepresentation
+            .filter { $0.key.starts(with: WhatsNew.Version.keyPrefix) }
+            .compactMap { $0.value as? String }
+            .map(WhatsNew.Version.init)
     }
     
 }

@@ -39,20 +39,57 @@ public extension WhatsNew.Feature.Image {
     
     /// Creates a new instance of `WhatsNew.Feature.Image`
     /// - Parameters:
-    ///   - systemName: The system name
+    ///   - systemName: The system image name
+    ///   - symbolConfiguration: The system image SymbolConfiguration
+    ///   - tintColor: The optional tint color. Default value `nil`
+    init(
+        systemName: String,
+        symbolConfiguration: UIImage.SymbolConfiguration,
+        tintColor: UIColor? = nil
+    ) {
+        self.init(
+            uiImage: UIImage(
+                systemName: systemName,
+                withConfiguration: symbolConfiguration
+            ),
+            tintColor: tintColor
+        )
+    }
+    
+    /// Creates a new instance of `WhatsNew.Feature.Image`
+    /// - Parameters:
+    ///   - systemName: The system image name
     ///   - tintColor: The optional tint color. Default value `nil`
     init(
         systemName: String,
         tintColor: UIColor? = nil
     ) {
         self.init(
-            uiImage: UIImage(
-                systemName: systemName,
-                withConfiguration: UIImage.SymbolConfiguration(
-                    textStyle: .title1,
-                    scale: .large
-                )
+            systemName: systemName,
+            symbolConfiguration: .init(
+                textStyle: .title1,
+                scale: .large
             ),
+            tintColor: tintColor
+        )
+    }
+    
+}
+
+// MARK: - Image+init(named:)
+
+public extension WhatsNew.Feature.Image {
+    
+    /// Creates a new instance of `WhatsNew.Feature.Image`
+    /// - Parameters:
+    ///   - name: The name of the image asset or file
+    ///   - tintColor: The optional tint color. Default value `nil`
+    init(
+        named name: String,
+        tintColor: UIColor? = nil
+    ) {
+        self.init(
+            uiImage: .init(named: name),
             tintColor: tintColor
         )
     }

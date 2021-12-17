@@ -9,7 +9,7 @@
 </h1>
 
 <p align="center">
-    A Swift Package to easily showcase new app features.
+    A Swift Package to easily showcase your new app features.
 </p>
 
 <p align="center">
@@ -25,15 +25,17 @@
    </a>
 </p>
 
+
+<img align="right" width="307" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example.png" alt="Example">
+
 ```swift
 import SwiftUI
 import WhatsNewKit
 
 struct ContentView: View {
 
-    @WhatsNewState
+    @State
     var whatsNew = WhatsNew(
-        version: "1.0.0",
         title: "What's New",
         features: [
             .init(
@@ -49,7 +51,7 @@ struct ContentView: View {
     )
     
     var body: some View {
-        List {
+        NavigationView {
             // ...
         }
         .sheet(
@@ -85,11 +87,93 @@ Or navigate to your Xcode project then select `Swift Packages`, click the â€œ+â€
 
 ## Usage
 
-`t.b.d`
+In general there are two ways to present a `WhatsNewView` automatically or manually.
 
-## Advanced
+### Manual Presentation
 
-`t.b.d`
+To manually present a `WhatsNewView` simply initialize a `WhatsNew` instance attributed with a `@State` property wrapper and add a `sheet(whatsNew:)` modifier to your view.
+
+```swift
+struct ContentView: View {
+
+    @State
+    var whatsNew: WhatsNew = // ...
+    
+    var body: some View {
+        NavigationView {
+            // ...
+        }
+        .sheet(
+            whatsNew: self.$whatsNew
+        )
+    }
+    
+}
+```
+
+### Automatic Presentation
+
+The automatic way of presenting a `WhatsNewView` allows you to simply specify the available `WhatsNew` components per versions and WhatsNewKit will take care to present the corresponding `WhatsNew` for the current version of your app.
+
+First you need to configure the `WhatsNewEnvironment` via the `environment` modifier of your root view.
+The `WhatsNewEnvironment` allows you to specify the `WhatsNewVersionStore` instance which should be used to store the presented versions and the available `WhatsNew` instances for each version.
+
+```swift
+struct App: SwiftUI.App {
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+            .environment(
+                \.whatsNew,
+                WhatsNewEnvironment(
+                    versionStore: UserDefaultsWhatsNewVersionStore()
+                    whatsNewProvider: self
+                )
+            )
+        }
+    }
+
+}
+```
+
+Next add the conformance to the `WhatsNewCollectionProvider` and specify the various `WhatsNew` elements for each version.
+
+```swift
+extension App: WhatsNewCollectionProvider {
+
+    var whatsNewCollection: WhatsNewCollection {
+        WhatsNew(
+            version: "1.0.0",
+            // ...
+        )
+        WhatsNew(
+            version: "1.1.0",
+            // ...
+        )
+        WhatsNew(
+            version: "1.2.0",
+            // ...
+        )
+    }
+
+}
+```
+
+Lastly add a `whatsNewSheet` modifier to a view where the `WhatsNewView` should be presented.
+
+```swift
+struct ContentView: View {
+
+    var body: some View {
+        NavigationView {
+            // ...
+        }
+        .whatsNewSheet()
+    }
+
+}
+```
 
 ## License
 

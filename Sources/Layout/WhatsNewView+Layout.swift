@@ -39,6 +39,9 @@ public extension WhatsNewView {
         /// The footer action spacing
         public var footerActionSpacing: CGFloat
         
+        /// The corner radius of the primary action button
+        public var footerPrimaryActionButtonCornerRadius: CGFloat
+        
         /// The footer visual effect view padding
         public var footerVisualEffectViewPadding: EdgeInsets
         
@@ -56,6 +59,7 @@ public extension WhatsNewView {
         ///   - featureHorizontalSpacing: The feature horizontal spacing. Default value `15`
         ///   - featureVerticalSpacing: The feature vertical spacing. Default value `2`
         ///   - footerActionSpacing: The footer action spacing. Default value `15`
+        ///   - footerPrimaryActionButtonCornerRadius: The corner radius of the primary action button. Default value `14`
         ///   - footerVisualEffectViewPadding: The footer visual effect view padding. Default value `top: -10`
         public init(
             showsScrollViewIndicators: Bool = false,
@@ -68,6 +72,7 @@ public extension WhatsNewView {
             featureHorizontalSpacing: CGFloat = 15,
             featureVerticalSpacing: CGFloat = 2,
             footerActionSpacing: CGFloat = 15,
+            footerPrimaryActionButtonCornerRadius: CGFloat = 14,
             footerVisualEffectViewPadding: EdgeInsets = .init(top: -10, leading: 0, bottom: 0, trailing: 0)
         ) {
             self.showsScrollViewIndicators = showsScrollViewIndicators
@@ -80,6 +85,7 @@ public extension WhatsNewView {
             self.featureHorizontalSpacing = featureHorizontalSpacing
             self.featureVerticalSpacing = featureVerticalSpacing
             self.footerActionSpacing = footerActionSpacing
+            self.footerPrimaryActionButtonCornerRadius = footerPrimaryActionButtonCornerRadius
             self.footerVisualEffectViewPadding = footerVisualEffectViewPadding
         }
         

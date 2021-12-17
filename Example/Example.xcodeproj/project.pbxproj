@@ -12,6 +12,7 @@
 		3D5FCF7C2767888000D3211F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D5FCF7B2767888000D3211F /* Assets.xcassets */; };
 		3D5FCF88276788FE00D3211F /* WhatsNewKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3D5FCF87276788FE00D3211F /* WhatsNewKit */; };
 		3DA482062769E7F900F526B0 /* ExampleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA482052769E7F900F526B0 /* ExampleListView.swift */; };
+		3DF592C1276B74D00059886C /* App+WhatsNewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF592C0276B74D00059886C /* App+WhatsNewProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3D5FCF7B2767888000D3211F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D5FCF85276788F900D3211F /* WhatsNewKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = WhatsNewKit; path = ..; sourceTree = "<group>"; };
 		3DA482052769E7F900F526B0 /* ExampleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListView.swift; sourceTree = "<group>"; };
+		3DF592C0276B74D00059886C /* App+WhatsNewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+WhatsNewProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				3D5FCF772767887F00D3211F /* App.swift */,
+				3DF592C0276B74D00059886C /* App+WhatsNewProvider.swift */,
 				3D5FCF792767887F00D3211F /* ContentView.swift */,
 				3DA482052769E7F900F526B0 /* ExampleListView.swift */,
 				3D5FCF7B2767888000D3211F /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D5FCF7A2767887F00D3211F /* ContentView.swift in Sources */,
+				3DF592C1276B74D00059886C /* App+WhatsNewProvider.swift in Sources */,
 				3DA482062769E7F900F526B0 /* ExampleListView.swift in Sources */,
 				3D5FCF782767887F00D3211F /* App.swift in Sources */,
 			);

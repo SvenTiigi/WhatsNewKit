@@ -23,11 +23,31 @@ public protocol WriteableWhatsNewVersionStore {
 /// A Readable WhatsNewVersionStore
 public protocol ReadableWhatsNewVersionStore {
     
-    /// Retrieve a bool value if a given WhatsNew Version has been presented
-    /// - Parameter version: The WhatsNew Version to check
-    /// - Returns: Bool if WhatsNew Version has been presented
+    /// The WhatsNew Versions that have been already been presented
+    var presentedVersions: [WhatsNew.Version] { get }
+    
+}
+
+// MARK: - ReadableWhatsNewVersionStore+hasPresented
+
+public extension ReadableWhatsNewVersionStore {
+    
+    /// Retrieve a bool value if a given WhatsNew Version has already been presented
+    /// - Parameter whatsNew: The WhatsNew Version to verify
+    /// - Returns: A Bool value if the given WhatsNew Version has already been preseted
     func hasPresented(
-        version: WhatsNew.Version
-    ) -> Bool
+        _ version: WhatsNew.Version
+    ) -> Bool {
+        self.presentedVersions.contains(version)
+    }
+    
+    /// Retrieve a bool value if a given WhatsNew has already been presented
+    /// - Parameter whatsNew: The WhatsNew to verify
+    /// - Returns: A Bool value if the given WhatsNew has already been preseted
+    func hasPresented(
+        _ whatsNew: WhatsNew
+    ) -> Bool {
+        self.hasPresented(whatsNew.version)
+    }
     
 }

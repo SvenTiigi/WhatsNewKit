@@ -1,23 +1,19 @@
 import Foundation
 
-// MARK: - WhatsNew.Version+key(prefix:)
+// MARK: - WhatsNew.Version+key
 
 extension WhatsNew.Version {
     
-    /// Make a WhatsNew Version Key the can be used to save
-    /// a WhatsNew Version in the `UserDefaults` or `NSUbiquitousKeyValueStore`
-    /// - Parameter prefix: The optional prefix
-    /// - Returns: The key
-    func key(
-        prefix: String?
-    ) -> String {
+    /// The WhatsNew Version Key prefix
+    static let keyPrefix = "WhatsNewKit"
+    
+    /// A WhatsNew Version Key the can be used to save
+    /// a WhatsNew Version to the `UserDefaults` or `NSUbiquitousKeyValueStore`
+    var key: String {
         [
-            prefix,
-            "WhatsNewKit",
+            Self.keyPrefix,
             self.description
         ]
-        .compactMap { $0 }
-        .filter { !$0.isEmpty }
         .joined(separator: ".")
     }
     

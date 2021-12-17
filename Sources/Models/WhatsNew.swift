@@ -57,20 +57,3 @@ extension WhatsNew: Identifiable {
     }
     
 }
-
-// MARK: - Sequence<WhatsNew>+current()
-
-public extension Sequence where Element == WhatsNew {
-    
-    /// Retrieve WhatsNew where the version matches the current version in Bundle
-    /// - Parameter bundle: The Bundle. Default value `.main`
-    func current(
-        in bundle: Bundle = .main
-    ) -> WhatsNew? {
-        // Initialize current WhatsNew Version
-        let currentVersion = WhatsNew.Version.current(in: bundle)
-        // Return first WhatsNew where the version matches
-        return self.first { $0.version == currentVersion }
-    }
-    
-}
