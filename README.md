@@ -9,7 +9,9 @@
 </h1>
 
 <p align="center">
-    A Swift Package to easily showcase your new app features.
+    WhatsNewKit enables you to easily showcase your awesome new app features.
+    <br/>
+    It's designed from the ground up to be fully customized to your needs.
 </p>
 
 <p align="center">
@@ -63,8 +65,10 @@ struct ContentView: View {
 
 ## Features
 
-- [x] Easily present your new App features
-- [x] Design and layout like a native App from Apple
+- [x] Easily present your new app features 🤩
+- [x] Automatic/Manual presentation mode ✅
+- [x] Support for SwiftUI and UIKit 🧑‍🎨
+- [x] Adjustable layout 🔧
 
 ## Example
 
@@ -87,7 +91,7 @@ Or navigate to your Xcode project then select `Swift Packages`, click the “+�
 ## Usage
 
 <p align="center">
-    <img width="90%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Application">
+    <img width="90%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Applications">
 </p>
 
 ### Manual Presentation
