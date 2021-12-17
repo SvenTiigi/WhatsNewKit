@@ -25,7 +25,7 @@
    </a>
 </p>
 
-<img align="right" width="307" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example.png" alt="Example">
+<img align="right" width="320" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example.png" alt="Example">
 
 ```swift
 import SwiftUI
@@ -71,7 +71,7 @@ struct ContentView: View {
 Check out the example application to see WhatsNewKit in action. Simply open the `Example/Example.xcodeproj` and run the "Example" scheme.
 
 <p align="center">
-    <img width="70%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Application">
+    <img width="85%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Application">
 </p>
 
 ## Installation
