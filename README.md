@@ -25,7 +25,7 @@
    </a>
 </p>
 
-<img align="right" width="320" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example.png" alt="Example">
+<img align="right" width="325" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example.png" alt="Example">
 
 ```swift
 import SwiftUI
@@ -35,7 +35,7 @@ struct ContentView: View {
 
   @State
   var whatsNew = WhatsNew(
-    title: "What's New",
+    title: "WhatsNewKit",
     features: [
       .init(
         image: .init(
@@ -70,10 +70,6 @@ struct ContentView: View {
 
 Check out the example application to see WhatsNewKit in action. Simply open the `Example/Example.xcodeproj` and run the "Example" scheme.
 
-<p align="center">
-    <img width="85%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Application">
-</p>
-
 ## Installation
 
 ### Swift Package Manager
@@ -90,11 +86,13 @@ Or navigate to your Xcode project then select `Swift Packages`, click the â€œ+â€
 
 ## Usage
 
-In general there are two ways to present a `WhatsNewView` automatically or manually.
+<p align="center">
+    <img width="90%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Application">
+</p>
 
 ### Manual Presentation
 
-To manually present a `WhatsNewView` simply initialize a `WhatsNew` instance attributed with a `@State` property wrapper and add a `sheet(whatsNew:)` modifier to your view.
+If you wish to manually present a `WhatsNewView` you can make use of the `sheet(whatsNew:)` modifier.
 
 ```swift
 struct ContentView: View {
@@ -116,35 +114,38 @@ struct ContentView: View {
 
 ### Automatic Presentation
 
-The automatic way of presenting a `WhatsNewView` allows you to simply specify the available `WhatsNew` components per versions and WhatsNewKit will take care to present the corresponding `WhatsNew` for the current version of your app.
+Beside manually presenting a `WhatsNewView` you can make use of the automatic presentation which allows you to simply declare your new features for each version and WhatsNewKit will take care to present the matching `WhatsNewView` to the user once per version.
 
-First you need to configure the `WhatsNewEnvironment` via the `environment` modifier of your root view.
-The `WhatsNewEnvironment` allows you to specify the `WhatsNewVersionStore` instance which should be used to store the presented versions and the available `WhatsNew` instances for each version.
+To enable the automatic presentation simply configure the `WhatsNewEnvironment` via the `environment` modifier.
+
+A `WhatsNewEnvironment` takes in the following two parameters:
+
+- `versionStore`: A `WhatsNewVersionStore` which is used to save the versions that have been presented to the user.
+- `whatsNew`: A `WhatsNewCollectionProvider` which provides a `WhatsNew` instance for a specific version.
 
 ```swift
 struct App: SwiftUI.App {
 
+    // A WhatsNewEnvironment
+    // Saves presented versions in the UserDefaults
+    // WhatsNew instances are provided by a `WhatsNewCollectionProvider`
+    let whatsNewEnvironment = WhatsNewEnvironment(
+        versionStore: UserDefaultsWhatsNewVersionStore()
+        whatsNew: self
+    )
+
     var body: some Scene {
         WindowGroup {
             ContentView()
-            .environment(
-                \.whatsNew,
-                WhatsNewEnvironment(
-                    versionStore: UserDefaultsWhatsNewVersionStore()
-                    whatsNewProvider: self
-                )
-            )
+                .environment(\.whatsNew, self.whatsNewEnvironment)
         }
     }
 
 }
-```
 
-Next add the conformance to the `WhatsNewCollectionProvider` and specify the various `WhatsNew` elements for each version.
-
-```swift
 extension App: WhatsNewCollectionProvider {
 
+    /// A WhatsNewCollection
     var whatsNewCollection: WhatsNewCollection {
         WhatsNew(
             version: "1.0.0",
@@ -163,7 +164,7 @@ extension App: WhatsNewCollectionProvider {
 }
 ```
 
-Lastly add a `whatsNewSheet` modifier to a view where the `WhatsNewView` should be presented.
+After configuring the `WhatsNewEnvironment` simply add a `whatsNewSheet()` modifier to a view where the `WhatsNewView` should be presented.
 
 ```swift
 struct ContentView: View {
@@ -176,6 +177,236 @@ struct ContentView: View {
     }
 
 }
+```
+
+## WhatsNewVersionStore
+
+A `WhatsNewVersionStore` is a protocol type which is responsible for saving versions that have been presented to the user as well as returning the already presented versions.
+
+WhatsNewKit comes along with three predefined implementations:
+
+- `UserDefaultsWhatsNewVersionStore`: Persists versions in the UserDefaults
+- `NSUbiquitousKeyValueWhatsNewVersionStore`: Persists versions in iCloud
+- `InMemoryWhatsNewVersionStore`: Stores versions in memory (Perfect for testing purposes)
+
+If you already have a specific implementation to store user related settings like Realm or Core Data you can easily adopt your existing implementation to the `WhatsNewVersionStore`.
+
+## WhatsNew
+
+The following sections explains how a `WhatsNew` struct can be initialized in order to describe the new features for a given version of your app.
+
+```swift
+let whatsnew = WhatsNew(
+    version: "1.0.0",
+    title: "What's New",
+    features: [
+        WhatsNew.Feature(
+            image: .init(systemName: "star.fill"),
+            title: "Title",
+            subtitle: "Subtitle"
+        )
+    ],
+    primaryAction: WhatsNew.PrimaryAction(
+        title: "Continue",
+        backgroundColor: .accentColor,
+        foregroundColor: .white,
+        hapticFeedback: .notification(.success),
+        onDimiss: {
+            print("Primary Action was tapped")
+        }
+    ),
+    secondaryAction: WhatsNew.SecondaryAction(
+        title: "Learn more",
+        foregroundColor: .accentColor,
+        hapticFeedback: .selection,
+        action: .openURL(
+            .init(string: "https://github.com/SvenTiigi/WhatsNewKit")
+        )
+    )
+)
+```
+
+### WhatsNew.Version
+
+The `WhatsNew.Version` specifies the version that has introduced certain features to your app.
+
+```swift
+// Initialize with major, minor, and patch
+let version = WhatsNew.Version(
+    major: 1, 
+    minor: 0, 
+    patch: 0
+)
+
+// Initialize by string literal
+let version: WhatsNew.Version = "1.0.0"
+
+// Initialize WhatsNew Version by using the current version of your bundle
+let version: WhatsNew.Version = .current()
+```
+
+### WhatsNew.Title
+
+A `WhatsNew.Title` represents the title text that is rendered above the features.
+
+```swift
+// Initialize by string literla
+let title: WhatsNew.Title = "Continue"
+
+// Initialize with text and foreground color
+let title = WhatsNew.Title(
+    text: "Continue",
+    foregroundColor: .primary
+)
+
+// On >= iOS 15 initialize with AttributedString using Markdown
+let title = WhatsNew.Title(
+    text: try AttributedString(
+        markdown: "What's **New**"
+    )
+)
+```
+
+### WhatsNew.Feature
+
+A `WhatsNew.Feature` describe a specific feature of your app and generally consist of an image, title, and subtitle.
+
+```swift
+let feature = WhatsNew.Feature(
+    image: .init(
+        uiImage: UIImage(named: "DesignIcon")
+    ),
+    title: "New Design",
+    subtitle: .init(
+        try AttributedString(
+            markdown: "An awesome new _Design_"
+        )
+    )
+)
+```
+
+### WhatsNew.PrimaryAction
+
+The `WhatsNew.PrimaryAction` allows you to configure the behaviour of the primary button which is used to dismiss the presented `WhatsNewView`
+
+```swift
+let primaryAction = WhatsNew.PrimaryAction(
+    title: "Continue",
+    backgroundColor: .blue,
+    foregroundColor: .white,
+    hapticFeedback: .notification(.success),
+    onDismiss: {
+        print("WhatsNew dismissed")
+    }   
+)
+```
+
+### WhatsNew.SecondaryAction
+
+A `WhatsNew.SecondaryAction` which is displayed above the `WhatsNew.PrimaryAction` can be optionally supplied when initializing a `WhatsNew` instance and allows you to either present an additional View or open a URL.
+
+```swift
+let secondaryActionPresentAboutView = WhatsNew.SecondaryAction(
+    title: "Learn more",
+    foregroundColor: .blue,
+    hapticFeedback: .selection,
+    action: .present {
+        AboutView()
+    }  
+)
+
+let secondaryActionOpenURL = WhatsNew.SecondaryAction(
+    title: "Read more",
+    foregroundColor: .blue,
+    hapticFeedback: .selection,
+    action: .open(
+        url: .init(string: "https://github.com/SvenTiigi/WhatsNewKit")
+    )  
+)
+```
+
+## Layout
+
+WhatsNewKit allows you to adjust the layout of a presented `WhatsNewView` in various ways.
+
+The most simple way is by mutating the `default` WhatsNewView Layout instance.
+
+```swift
+WhatsNewView.Layout.default.featureListSpacing = 35
+```
+
+When using the automatic presentation style you can supply a default WhatsNewView Layout when initializing the WhatsNewEnvironment.
+
+```swift
+.environment(
+    \.whatsNew,
+    .init(
+        defaultLayout: .init(
+            showsScrollViewIndicators: true,
+            featureListSpacing: 35
+        ),
+        whatsNew: self
+    )
+)
+```
+
+Alternatively you can pass a `WhatsNewView.Layout` when presenting the WhatsNewView
+
+```swift
+.sheet(
+    whatsNew: self.$whatsNew,
+    layout: .init(
+        footerActionSpacing: 20
+    )
+)
+
+.whatsNewSheet(
+    layout: .init(
+        contentPadding: .init(
+            top: 80, 
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+    )
+)
+```
+
+## WhatsNewViewController
+
+When using `UIKit` you can make use of the `WhatsNewViewController`.
+
+```swift
+let whatsNewViewController = WhatsNewViewController(
+    whatsNew: WhatsNew(
+        version: "1.0.0",
+        // ...
+    ),
+    layout: WhatsNewView.Layout(
+        contentSpacing: 80
+    )
+)
+```
+
+If you wish to present a `WhatsNewViewController` only if the version of the WhatsNew instance has not been presented you can make use of the convenience failable initializer.
+
+```swift
+// Verify WhatsNewViewController is available for presentation
+guard let whatsNewViewController = WhatsNewViewController(
+    whatsNew: WhatsNew(
+        version: "1.0.0",
+        // ...
+    ),
+    versionStore: UserDefaultsWhatsNewVersionStore()
+) else {
+    // Version of WhatsNew has already been presented
+    return
+}
+
+// Present WhatsNewViewController
+// Version will be automatically saved in the provided
+// WhatsNewVersionStore when the WhatsNewViewController gets dismissed
+self.present(whatsNewViewController, animated: true)
 ```
 
 ## License
