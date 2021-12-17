@@ -118,14 +118,14 @@ struct ContentView: View {
 
 ### Automatic Presentation
 
-Beside manually presenting a `WhatsNewView` you can make use of the automatic presentation which allows you to simply declare your new features for each version and WhatsNewKit will take care to present the matching `WhatsNewView` to the user once per version.
+Beside manually presenting a WhatsNewView you can make use of the automatic presentation which allows you to simply declare your new features for each version.
 
 To enable the automatic presentation simply configure the `WhatsNewEnvironment` via the `environment` modifier.
 
 A `WhatsNewEnvironment` takes in the following two parameters:
 
-- `versionStore`: A `WhatsNewVersionStore` which is used to save the versions that have been presented to the user.
-- `whatsNew`: A `WhatsNewCollectionProvider` which provides a `WhatsNew` instance for a specific version.
+- `versionStore`: A WhatsNewVersionStore which is used to save the versions that have been presented to the user.
+- `whatsNew`: A WhatsNewCollectionProvider which provides a WhatsNew instance for a specific version.
 
 ```swift
 struct App: SwiftUI.App {
