@@ -64,6 +64,8 @@ private extension WhatsNew {
         case calendar
         /// Maps
         case maps
+        /// Translate
+        case translate
     }
     
 }
@@ -155,7 +157,71 @@ private extension WhatsNew.Example {
                     action: .openURL(.init(string: "maps://"))
                 )
             )
+        case .translate:
+            return .init(
+                title: .init(
+                    text: .init(
+                        "What's New in "
+                        + AttributedString(
+                            "Translate",
+                            attributes: .foregroundColor(.cyan)
+                        )
+                    )
+                ),
+                features: [
+                    .init(
+                        image: .init(
+                            systemName: "rectangle.portrait.bottomthird.inset.filled",
+                            tintColor: .systemCyan
+                        ),
+                        title: "Conversation Views",
+                        subtitle: "Choose a side-by-side or face-to-face conversation view."
+                    ),
+                    .init(
+                        image: .init(
+                            systemName: "mic",
+                            tintColor: .systemCyan
+                        ),
+                        title: "Auto Translate",
+                        subtitle: "Respond in conversations without tapping the microphone button."
+                    ),
+                    .init(
+                        image: .init(
+                            systemName: "iphone",
+                            tintColor: .systemCyan
+                        ),
+                        title: "System-Wide Translation",
+                        subtitle: "Translate selected text anywhere on your iPhone."
+                    )
+                ],
+                primaryAction: .init(
+                    backgroundColor: .cyan
+                ),
+                secondaryAction: .init(
+                    title: "About Translation & Privacy",
+                    foregroundColor: .cyan,
+                    action: .openURL(
+                        .init(string: "https://apple.com/privacy")
+                    )
+                )
+            )
         }
+    }
+    
+}
+
+// MARK: - AttributeContainer+foregroundColor
+
+private extension AttributeContainer {
+    
+    /// A AttributeContainer with a given foreground color
+    /// - Parameter color: The foreground color
+    static func foregroundColor(
+        _ color: Color
+    ) -> Self {
+        var container = Self()
+        container.foregroundColor = color
+        return container
     }
     
 }
