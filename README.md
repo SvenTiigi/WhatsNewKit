@@ -70,10 +70,6 @@ struct ContentView: View {
 - [x] Support for SwiftUI and UIKit 🧑‍🎨
 - [x] Adjustable layout 🔧
 
-## Example
-
-Check out the example application to see WhatsNewKit in action. Simply open the `Example/Example.xcodeproj` and run the "Example" scheme.
-
 ## Installation
 
 ### Swift Package Manager
@@ -88,11 +84,15 @@ dependencies: [
 
 Or navigate to your Xcode project then select `Swift Packages`, click the “+” icon and search for `WhatsNewKit`.
 
-## Usage
+## Example
+
+Check out the example application to see WhatsNewKit in action. Simply open the `Example/Example.xcodeproj` and run the "Example" scheme.
 
 <p align="center">
     <img width="90%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Applications">
 </p>
+
+## Usage
 
 ### Manual Presentation
 
