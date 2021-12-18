@@ -6,6 +6,7 @@ let package = Package(
     name: "WhatsNewKit",
     platforms: [
         .iOS(.v13),
+        .tvOS(.v13),
         .macOS(.v11)
     ],
     products: [

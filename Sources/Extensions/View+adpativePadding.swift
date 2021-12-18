@@ -57,6 +57,8 @@ private struct AdapativePaddingViewModifier: ViewModifier {
     ) -> some View {
         #if os(macOS)
         content
+        #elseif os(tvOS)
+        content
         #else
         // Check if horizontal size class is regular (iPad)
         if self.horizontalSizeClass == .regular {
