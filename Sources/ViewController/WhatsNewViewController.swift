@@ -1,9 +1,19 @@
 import SwiftUI
 
+// MARK: - WhatsNewBaseViewController
+
+#if os(macOS)
+/// A WhatsNewBaseViewController
+public typealias WhatsNewBaseViewController = NSHostingController<WhatsNewView>
+#else
+/// A WhatsNewBaseViewController
+public typealias WhatsNewBaseViewController = UIHostingController<WhatsNewView>
+#endif
+
 // MARK: - WhatsNewViewController
 
 /// A WhatsNew UIViewController
-open class WhatsNewViewController: UIHostingController<WhatsNewView> {
+open class WhatsNewViewController: WhatsNewBaseViewController {
     
     /// Creates a new instance of `WhatsNewViewController`
     /// - Parameters:

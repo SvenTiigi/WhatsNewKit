@@ -38,6 +38,7 @@ private struct AdapativePaddingViewModifier: ViewModifier {
     /// The AdaptivePaddingTarget
     let target: AdaptivePaddingTarget
     
+    #if os(iOS)
     /// The Horizontal SizeClass
     @Environment(\.horizontalSizeClass)
     private var horizontalSizeClass
@@ -45,6 +46,7 @@ private struct AdapativePaddingViewModifier: ViewModifier {
     /// The Vertical SizeClass
     @Environment(\.verticalSizeClass)
     private var verticalSizeClass
+    #endif
     
     // MARK: ViewModifier
     
@@ -53,6 +55,9 @@ private struct AdapativePaddingViewModifier: ViewModifier {
     func body(
         content: Content
     ) -> some View {
+        #if os(macOS)
+        content
+        #else
         // Check if horizontal size class is regular (iPad)
         if self.horizontalSizeClass == .regular {
             // Switch on AdaptivePaddingTarget
@@ -105,6 +110,7 @@ private struct AdapativePaddingViewModifier: ViewModifier {
                 }
             }
         }
+        #endif
     }
     
 }

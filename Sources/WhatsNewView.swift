@@ -91,8 +91,7 @@ extension WhatsNewView: View {
                 self.footer
                     .adapativePadding(.footer)
                     .background(
-                        UIVisualEffectView
-                            .Representable()
+                        VisualEffectView()
                             .edgesIgnoringSafeArea(.horizontal)
                             .padding(self.layout.footerVisualEffectViewPadding)
                     )
@@ -140,11 +139,10 @@ private extension WhatsNewView {
         HStack(
             spacing: self.layout.featureHorizontalSpacing
         ) {
-            UIImageView.Representable(
-                image: feature.image.uiImage,
-                tintColor: feature.image.tintColor
-            )
-            .frame(width: self.layout.featureImageWidth)
+            feature
+                .image
+                .view
+                .frame(width: self.layout.featureImageWidth)
             VStack(
                 alignment: .leading,
                 spacing: self.layout.featureVerticalSpacing

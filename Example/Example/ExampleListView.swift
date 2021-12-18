@@ -95,7 +95,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "envelope",
-                            tintColor: .systemRed
+                            foregroundColor: .red
                         ),
                         title: "Found Events",
                         subtitle: "Siri suggests events found in Mail, Messages, and Safari, so you can add them easily, such as flight reservations and hotel bookings."
@@ -103,7 +103,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "clock",
-                            tintColor: .systemRed
+                            foregroundColor: .red
                         ),
                         title: "Time to Leave",
                         subtitle: "Calendar uses Apple Maps to look up locations, traffic conditions, and transit options to tell you when it's time to leave."
@@ -111,7 +111,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "location",
-                            tintColor: .systemRed
+                            foregroundColor: .red
                         ),
                         title: "Location Suggestions",
                         subtitle: "Calendar suggests locations based on your past events and significant locations."
@@ -128,7 +128,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "map.fill",
-                            tintColor: .systemGreen
+                            foregroundColor: .green
                         ),
                         title: "Updated Map Style",
                         subtitle: "An improved design makes it easier to navigate and explore the map."
@@ -136,7 +136,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "mappin.and.ellipse",
-                            tintColor: .systemPink
+                            foregroundColor: .pink
                         ),
                         title: "All-New Place Cards",
                         subtitle: "Completely redesigned place cards make it easier to learn about and interact with places."
@@ -144,7 +144,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "magnifyingglass",
-                            tintColor: .systemBlue
+                            foregroundColor: .blue
                         ),
                         title: "Improved Search",
                         subtitle: "Finding places is now easier with filters and automatic updates when you're browsing results on the map."
@@ -172,7 +172,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "rectangle.portrait.bottomthird.inset.filled",
-                            tintColor: .systemCyan
+                            foregroundColor: .cyan
                         ),
                         title: "Conversation Views",
                         subtitle: "Choose a side-by-side or face-to-face conversation view."
@@ -180,7 +180,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "mic",
-                            tintColor: .systemCyan
+                            foregroundColor: .cyan
                         ),
                         title: "Auto Translate",
                         subtitle: "Respond in conversations without tapping the microphone button."
@@ -188,7 +188,7 @@ private extension WhatsNew.Example {
                     .init(
                         image: .init(
                             systemName: "iphone",
-                            tintColor: .systemCyan
+                            foregroundColor: .cyan
                         ),
                         title: "System-Wide Translation",
                         subtitle: "Translate selected text anywhere on your iPhone."

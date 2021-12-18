@@ -1,4 +1,7 @@
+import Foundation
+#if os(iOS)
 import UIKit
+#endif
 
 // MARK: - WhatsNew+HapticFeedback
 
@@ -6,6 +9,7 @@ public extension WhatsNew {
     
     /// The WhatsNew HapticFeedback
     enum HapticFeedback: Hashable {
+        #if os(iOS)
         /// Impact HapticFeedback
         case impact(
             style: UIImpactFeedbackGenerator.FeedbackStyle? = nil,
@@ -17,6 +21,7 @@ public extension WhatsNew {
         case notification(
             UINotificationFeedbackGenerator.FeedbackType = .success
         )
+        #endif
     }
     
 }
@@ -27,6 +32,7 @@ public extension WhatsNew.HapticFeedback {
     
     /// Call HapticFeedback as function to execute the HapticFeedback
     func callAsFunction() {
+        #if os(iOS)
         switch self {
         case .impact(let style, let intensity):
             let feedbackGenerator = style.flatMap(UIImpactFeedbackGenerator.init) ?? .init()
@@ -40,6 +46,7 @@ public extension WhatsNew.HapticFeedback {
         case .notification(let type):
             UINotificationFeedbackGenerator().notificationOccurred(type)
         }
+        #endif
     }
     
 }

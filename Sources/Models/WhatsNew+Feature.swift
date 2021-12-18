@@ -1,11 +1,11 @@
 import SwiftUI
 
-// MARK: - WhatsNew+Item
+// MARK: - WhatsNew+Feature
 
 public extension WhatsNew {
     
     /// A WhatsNew Feature
-    struct Feature: Hashable {
+    struct Feature {
         
         // MARK: Properties
         
@@ -35,6 +35,39 @@ public extension WhatsNew {
             self.subtitle = subtitle
         }
         
+    }
+    
+}
+
+// MARK: - Feature+Equatable
+
+extension WhatsNew.Feature: Equatable {
+    
+    /// Returns a Boolean value indicating whether two values are equal.
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
+    public static func == (
+        lhs: Self,
+        rhs: Self
+    ) -> Bool {
+        lhs.title == rhs.title
+            && lhs.subtitle == rhs.subtitle
+    }
+    
+}
+
+// MARK: - Feature+Hashable
+
+extension WhatsNew.Feature: Hashable {
+    
+    /// Hashes the essential components of this value by feeding them into the given hasher.
+    /// - Parameter hasher: The hasher to use when combining the components of this instance.
+    public func hash(
+        into hasher: inout Hasher
+    ) {
+        hasher.combine(self.title)
+        hasher.combine(self.subtitle)
     }
     
 }

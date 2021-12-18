@@ -1,36 +1,75 @@
-import UIKit
+import SwiftUI
 
 // MARK: - WhatsNew+Item+Image
 
 public extension WhatsNew.Feature {
     
     /// A WhatsNew Feature Image
-    struct Image: Hashable {
+    struct Image {
         
         // MARK: Properties
         
-        /// The UIImage
-        public let uiImage: UIImage?
-        
-        /// The optional tint color
-        public let tintColor: UIColor?
+        /// The Image View
+        public let view: AnyView
         
         // MARK: Initializer
         
         /// Creates a new instance of `WhatsNew.Feature.Image`
         /// - Parameters:
-        ///   - uiImage: The UIImage
-        ///   - tintColor: The optional tint color. Default value `nil`
-        public init(
-            uiImage: UIImage?,
-            tintColor: UIColor? = nil
+        ///   - image: A ViewBuilder closure that produces an Image View
+        public init<Image: View>(
+            @ViewBuilder
+            image: () -> Image
         ) {
-            self.uiImage = uiImage
-            self.tintColor = tintColor
+            self.view = .init(image())
         }
         
     }
 
+}
+
+// MARK: - Image+init(image:)
+
+public extension WhatsNew.Feature.Image {
+    
+    /// Creates a new instance of `WhatsNew.Feature.Image`
+    /// - Parameter image: The Image
+    init(
+        image: Image
+    ) {
+        self.init { image }
+    }
+    
+}
+
+// MARK: - Image+init(name:)
+
+public extension WhatsNew.Feature.Image {
+    
+    /// Creates a new instance of `WhatsNew.Feature.Image`
+    /// - Parameters:
+    ///   - name: The name of the image resource to lookup
+    ///   - bundle: The bundle to search for the image resource. Default value `.main`
+    ///   - renderingMode: The mode SwiftUI uses to render images. Default value `.template`
+    ///   - foregroundColor: The foreground color to use when displaying this view. Default value `.accentColor`
+    init(
+        name: String,
+        bundle: Bundle = .main,
+        renderingMode: Image.TemplateRenderingMode? = .template,
+        foregroundColor: Color? = .accentColor
+    ) {
+        self.init {
+            Image(
+                name,
+                bundle: bundle
+            )
+            .renderingMode(renderingMode)
+            .font(.title)
+            .imageScale(.large)
+            .foregroundColor(foregroundColor)
+        }
+    }
+    
 }
 
 // MARK: - Image+init(systemName:)
@@ -39,59 +78,48 @@ public extension WhatsNew.Feature.Image {
     
     /// Creates a new instance of `WhatsNew.Feature.Image`
     /// - Parameters:
-    ///   - systemName: The system image name
-    ///   - symbolConfiguration: The system image SymbolConfiguration
-    ///   - tintColor: The optional tint color. Default value `nil`
+    ///   - systemName: The name of the system symbol image
+    ///   - renderingMode: The mode SwiftUI uses to render images. Default value `.template`
+    ///   - foregroundColor: The foreground color to use when displaying this view. Default value `.accentColor`
     init(
         systemName: String,
-        symbolConfiguration: UIImage.SymbolConfiguration,
-        tintColor: UIColor? = nil
+        renderingMode: Image.TemplateRenderingMode? = .template,
+        foregroundColor: Color? = .accentColor
     ) {
-        self.init(
-            uiImage: UIImage(
-                systemName: systemName,
-                withConfiguration: symbolConfiguration
-            ),
-            tintColor: tintColor
-        )
+        self.init {
+            Image(
+                systemName: systemName
+            )
+            .renderingMode(renderingMode)
+            .font(.title)
+            .imageScale(.large)
+            .foregroundColor(foregroundColor)
+        }
     }
     
     /// Creates a new instance of `WhatsNew.Feature.Image`
     /// - Parameters:
-    ///   - systemName: The system image name
-    ///   - tintColor: The optional tint color. Default value `nil`
+    ///   - systemName: The name of the system symbol image
+    ///   - renderingMode: The mode SwiftUI uses to render images. Default value `.template`
+    ///   - symboldRenderingMode: The symbol rendering mode to use
+    ///   - foregroundColor: The foreground color to use when displaying this view. Default value `.accentColor`
+    @available(iOS 15.0, macOS 12.0, *)
     init(
         systemName: String,
-        tintColor: UIColor? = nil
+        renderingMode: Image.TemplateRenderingMode? = .template,
+        symboldRenderingMode: SymbolRenderingMode?,
+        foregroundColor: Color? = .accentColor
     ) {
-        self.init(
-            systemName: systemName,
-            symbolConfiguration: .init(
-                textStyle: .title1,
-                scale: .large
-            ),
-            tintColor: tintColor
-        )
-    }
-    
-}
-
-// MARK: - Image+init(named:)
-
-public extension WhatsNew.Feature.Image {
-    
-    /// Creates a new instance of `WhatsNew.Feature.Image`
-    /// - Parameters:
-    ///   - name: The name of the image asset or file
-    ///   - tintColor: The optional tint color. Default value `nil`
-    init(
-        named name: String,
-        tintColor: UIColor? = nil
-    ) {
-        self.init(
-            uiImage: .init(named: name),
-            tintColor: tintColor
-        )
+        self.init {
+            Image(
+                systemName: systemName
+            )
+            .renderingMode(renderingMode)
+            .symbolRenderingMode(symboldRenderingMode)
+            .font(.title)
+            .imageScale(.large)
+            .foregroundColor(foregroundColor)
+        }
     }
     
 }

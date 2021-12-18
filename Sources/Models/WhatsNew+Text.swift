@@ -28,7 +28,7 @@ public extension WhatsNew {
 
 // MARK: - AttributedString Initializer
 
-@available(iOS 15, *)
+@available(iOS 15.0, macOS 12.0, *)
 public extension WhatsNew.Text {
     
     /// Creates a new instance of `WhatsNew.Text` from a given NSAttributedString

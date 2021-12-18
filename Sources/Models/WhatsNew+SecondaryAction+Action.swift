@@ -50,11 +50,25 @@ public extension WhatsNew.SecondaryAction.Action {
     ///   - url: The URL that should be opened
     ///   - application: The UIApplication used to open the URL. Default value `.shared`
     static func openURL(
-        _ url: URL?,
-        application: UIApplication = .shared
+        _ url: URL?
     ) -> Self {
         .custom { _ in
-            url.flatMap { application.open($0) }
+            // Verify URL is available
+            guard let url = url else {
+                // Otherwise return out of function
+                return
+            }
+            // Open URL
+            #if os(macOS)
+            NSWorkspace.shared.open(
+                url
+            )
+            #else
+            UIApplication.shared.open(
+                url,
+                options: .init()
+            )
+            #endif
         }
     }
     

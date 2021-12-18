@@ -14,7 +14,7 @@ extension App: WhatsNewCollectionProvider {
                 .init(
                     image: .init(
                         systemName: "star.fill",
-                        tintColor: .systemOrange
+                        foregroundColor: .orange
                     ),
                     title: "Showcase your new App Features",
                     subtitle: "Present your new app features just like a native app from Apple."
@@ -22,7 +22,7 @@ extension App: WhatsNewCollectionProvider {
                 .init(
                     image: .init(
                         systemName: "wand.and.stars",
-                        tintColor: .systemCyan
+                        foregroundColor: .cyan
                     ),
                     title: "Automatic Presentation",
                     subtitle: .init(
@@ -34,7 +34,7 @@ extension App: WhatsNewCollectionProvider {
                 .init(
                     image: .init(
                         systemName: "gear.circle.fill",
-                        tintColor: .systemGray
+                        foregroundColor: .gray
                     ),
                     title: "Configuration",
                     subtitle: "Easily adjust colors, strings, haptic feedback, behaviours and the layout of the presented WhatsNewView to your needs."
@@ -42,7 +42,7 @@ extension App: WhatsNewCollectionProvider {
                 .init(
                     image: .init(
                         systemName: "swift",
-                        tintColor: .init(red: 240.0 / 255, green: 81.0 / 255, blue: 56.0 / 255, alpha: 1)
+                        foregroundColor: .init(.init(red: 240.0 / 255, green: 81.0 / 255, blue: 56.0 / 255, alpha: 1))
                     ),
                     title: "Swift Package Manager",
                     subtitle: "WhatsNewKit can be easily integrated via the Swift Package Manager."
