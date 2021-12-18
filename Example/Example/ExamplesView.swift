@@ -1,10 +1,10 @@
 import SwiftUI
 import WhatsNewKit
 
-// MARK: - ExampleListView
+// MARK: - ExamplesView
 
-/// The ExampleListView
-struct ExampleListView {
+/// The ExamplesView
+struct ExamplesView {
     
     /// The Examples
     private let examples = WhatsNew.Example.allCases
@@ -17,7 +17,7 @@ struct ExampleListView {
 
 // MARK: - View
 
-extension ExampleListView: View {
+extension ExamplesView: View {
     
     /// The content and behavior of the view
     var body: some View {
