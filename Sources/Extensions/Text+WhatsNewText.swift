@@ -10,7 +10,7 @@ extension Text {
         whatsNewText: WhatsNew.Text
     ) {
         // Check if iOS 15 or greater is available
-        if #available(iOS 15.0, tvOS 15.0, macOS 12.0, *) {
+        if #available(iOS 15.0, macOS 12.0, *) {
             // Initialize with AttributedString
             self.init(
                 AttributedString(

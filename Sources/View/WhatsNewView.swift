@@ -73,7 +73,7 @@ extension WhatsNewView: View {
                             content: self.feature
                         )
                     }
-                    .adapativePadding(.features)
+                    .modifier(FeaturesPadding())
                     .padding(self.layout.featureListPadding)
                 }
                 .padding(.horizontal)
@@ -89,11 +89,15 @@ extension WhatsNewView: View {
             VStack {
                 Spacer()
                 self.footer
-                    .adapativePadding(.footer)
+                    .modifier(FooterPadding())
                     .background(
-                        VisualEffectView()
-                            .edgesIgnoringSafeArea(.horizontal)
-                            .padding(self.layout.footerVisualEffectViewPadding)
+                        Group {
+                            #if os(iOS)
+                            VisualEffectView()
+                                .edgesIgnoringSafeArea(.horizontal)
+                                .padding(self.layout.footerVisualEffectViewPadding)
+                            #endif
+                        }
                     )
             }
             .edgesIgnoringSafeArea(.bottom)
@@ -208,6 +212,7 @@ private extension WhatsNewView {
                     self.whatsNew.primaryAction.onDismiss?()
                 }
             ) {
+                #if os(iOS)
                 HStack {
                     Spacer()
                     Text(
@@ -217,10 +222,17 @@ private extension WhatsNewView {
                     .padding(.vertical)
                     Spacer()
                 }
+                #else
+                Text(
+                    whatsNewText: self.whatsNew.primaryAction.title
+                )
+                #endif
             }
-            .background(self.whatsNew.primaryAction.backgroundColor)
             .foregroundColor(self.whatsNew.primaryAction.foregroundColor)
+            #if os(iOS)
+            .background(self.whatsNew.primaryAction.backgroundColor)
             .cornerRadius(self.layout.footerPrimaryActionButtonCornerRadius)
+            #endif
         }
     }
     
