@@ -233,6 +233,9 @@ private extension WhatsNewView {
             .background(self.whatsNew.primaryAction.backgroundColor)
             .cornerRadius(self.layout.footerPrimaryActionButtonCornerRadius)
             #endif
+            #if os(macOS)
+            .keyboardShortcut(.defaultAction)
+            #endif
         }
     }
     
