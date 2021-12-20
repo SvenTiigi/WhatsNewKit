@@ -5,7 +5,7 @@ import SwiftUI
 public extension WhatsNewEnvironment {
     
     /// The WhatsNewEnvironment Key
-    struct Key: EnvironmentKey {
+    enum Key: EnvironmentKey {
         
         /// The default value for the environment key
         public static var defaultValue = WhatsNewEnvironment()
