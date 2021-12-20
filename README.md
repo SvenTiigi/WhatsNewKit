@@ -21,7 +21,7 @@
    <a href="https://sventiigi.github.io/WhatsNewKit">
       <img src="https://github.com/SvenTiigi/WhatsNewKit/blob/gh-pages/badge.svg" alt="Documentation">
    </a>
-   <img src="https://img.shields.io/badge/platform-iOS-F05138" alt="Platform">
+   <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS-F05138" alt="Platform">
    <a href="https://twitter.com/SvenTiigi/">
       <img src="https://img.shields.io/badge/Twitter-@SvenTiigi-blue.svg?style=flat" alt="Twitter">
    </a>
@@ -68,6 +68,7 @@ struct ContentView: View {
 - [x] Easily present your new app features 🤩
 - [x] Automatic/Manual presentation mode ✅
 - [x] Support for SwiftUI and UIKit 🧑‍🎨
+- [x] Runs on iOS and macOS 📱 🖥
 - [x] Adjustable layout 🔧
 
 ## Installation
@@ -118,9 +119,24 @@ struct ContentView: View {
 
 ### Automatic Presentation
 
-Beside manually presenting a WhatsNewView you can make use of the automatic presentation which allows you to simply declare your new features for each version.
+The automatic presentation mode allows you to simply declare your new features and WhatsNewKit will take care to present the corresponding `WhatsNewView`.
 
-To enable the automatic presentation simply configure the `WhatsNewEnvironment` via the `environment` modifier.
+First add a `.whatsNewSheet()` modifier to the view where the `WhatsNewView` should be presented on.
+
+```swift
+struct ContentView: View {
+
+    var body: some View {
+        NavigationView {
+            // ...
+        }
+        .whatsNewSheet()
+    }
+
+}
+```
+
+Next up configure the `WhatsNewEnvironment` via the `environment` modifier.
 
 A `WhatsNewEnvironment` takes in the following two parameters:
 
@@ -128,16 +144,24 @@ A `WhatsNewEnvironment` takes in the following two parameters:
 - `whatsNew`: A WhatsNewCollectionProvider which provides a WhatsNew instance for a specific version.
 
 ```swift
-struct App: SwiftUI.App {
+struct App {
 
     // A WhatsNewEnvironment
-    // Saves presented versions in the UserDefaults
-    // WhatsNew instances are provided by a `WhatsNewCollectionProvider`
-    let whatsNewEnvironment = WhatsNewEnvironment(
-        versionStore: UserDefaultsWhatsNewVersionStore()
-        whatsNew: self
-    )
+    // - Saves presented versions in the UserDefaults
+    // - WhatsNew instances are provided by a `WhatsNewCollectionProvider`
+    var whatsNewEnvironment: WhatsNewEnvironment {
+        .init(
+            versionStore: UserDefaultsWhatsNewVersionStore()
+            whatsNew: self
+        )
+    }
 
+}
+
+// MARK: - SwiftUI.App
+
+extension App: SwiftUI.App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -147,9 +171,11 @@ struct App: SwiftUI.App {
 
 }
 
+// MARK: - App+WhatsNewCollectionProvider
+
 extension App: WhatsNewCollectionProvider {
 
-    /// A WhatsNewCollection
+    /// Declare your WhatsNew instances per version
     var whatsNewCollection: WhatsNewCollection {
         WhatsNew(
             version: "1.0.0",
@@ -163,21 +189,6 @@ extension App: WhatsNewCollectionProvider {
             version: "1.2.0",
             // ...
         )
-    }
-
-}
-```
-
-After configuring the `WhatsNewEnvironment` simply add a `whatsNewSheet()` modifier to a view where the `WhatsNewView` should be presented.
-
-```swift
-struct ContentView: View {
-
-    var body: some View {
-        NavigationView {
-            // ...
-        }
-        .whatsNewSheet()
     }
 
 }
