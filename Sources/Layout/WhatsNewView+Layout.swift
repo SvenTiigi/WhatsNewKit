@@ -106,7 +106,7 @@ public extension WhatsNewView.Layout {
 
 public extension WhatsNewView.Layout {
     
-    /// Reset default WhatsNewView Layout
+    /// Reset the default WhatsNewView Layout
     static func reset() {
         self.default = .init()
     }
