@@ -40,7 +40,7 @@ extension WhatsNewView.PrimaryButtonStyle: ButtonStyle {
             configuration
                 .label
                 .padding(.horizontal, 60)
-                .padding(.vertical, 9)
+                .padding(.vertical, 8)
             #endif
         }
         .foregroundColor(self.primaryAction.foregroundColor)
