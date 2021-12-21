@@ -9,8 +9,8 @@ public extension WhatsNew.Feature {
         
         // MARK: Properties
         
-        /// The Image View
-        public let view: AnyView
+        /// A closure that produces the Image View
+        public let view: () -> AnyView
         
         // MARK: Initializer
         
@@ -19,9 +19,9 @@ public extension WhatsNew.Feature {
         ///   - image: A ViewBuilder closure that produces an Image View
         public init<Image: View>(
             @ViewBuilder
-            image: () -> Image
+            image: @escaping () -> Image
         ) {
-            self.view = .init(image())
+            self.view = { .init(image()) }
         }
         
     }

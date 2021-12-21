@@ -145,7 +145,7 @@ private extension WhatsNewView {
         ) {
             feature
                 .image
-                .view
+                .view()
                 .frame(width: self.layout.featureImageWidth)
             VStack(
                 alignment: .leading,
