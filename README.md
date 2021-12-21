@@ -384,7 +384,7 @@ Alternatively you can pass a `WhatsNewView.Layout` when presenting the WhatsNewV
 
 ## WhatsNewViewController
 
-When using `UIKit` you can make use of the `WhatsNewViewController`.
+When using `UIKit` or `AppKit` you can make use of the `WhatsNewViewController`.
 
 ```swift
 let whatsNewViewController = WhatsNewViewController(
