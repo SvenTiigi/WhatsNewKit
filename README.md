@@ -9,7 +9,7 @@
 </h1>
 
 <p align="center">
-    A Swift Package to easily showcase your awesome new app features.
+    A Swift Package to easily showcase your new app features.
     <br/>
     It's designed from the ground up to be fully customized to your needs.
 </p>
