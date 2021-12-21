@@ -94,13 +94,13 @@ If you wish to manually present a `WhatsNewView` you can make use of the `sheet(
 struct ContentView: View {
 
     @State
-    var whatsNew = WhatsNew(
+    var whatsNew: WhatsNew? = WhatsNew(
         title: "WhatsNewKit",
         features: [
             .init(
                 image: .init(
                     systemName: "star.fill",
-                    tintColor: .systemOrange
+                    foregroundColor: .orange
                 ),
                 title: "Showcase your new App Features",
                 subtitle: "Present your new app features..."
@@ -300,7 +300,7 @@ A `WhatsNew.Feature` describe a specific feature of your app and generally consi
 ```swift
 let feature = WhatsNew.Feature(
     image: .init(
-        uiImage: UIImage(named: "DesignIcon")
+        systemName: "wand.and.stars"
     ),
     title: "New Design",
     subtitle: .init(
