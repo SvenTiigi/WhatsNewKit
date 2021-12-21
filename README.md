@@ -27,7 +27,7 @@
    </a>
 </p>
 
-<img align="right" width="325" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example.png" alt="Example">
+<img align="right" width="315" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example.png" alt="Example">
 
 ```swift
 import SwiftUI
