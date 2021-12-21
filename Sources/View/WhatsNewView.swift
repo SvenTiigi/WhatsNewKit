@@ -90,15 +90,13 @@ extension WhatsNewView: View {
                 Spacer()
                 self.footer
                     .modifier(FooterPadding())
+                    #if os(iOS)
                     .background(
-                        Group {
-                            #if os(iOS)
-                            VisualEffectView()
-                                .edgesIgnoringSafeArea(.horizontal)
-                                .padding(self.layout.footerVisualEffectViewPadding)
-                            #endif
-                        }
+                        VisualEffectView()
+                            .edgesIgnoringSafeArea(.horizontal)
+                            .padding(self.layout.footerVisualEffectViewPadding)
                     )
+                    #endif
             }
             .edgesIgnoringSafeArea(.bottom)
         }
@@ -199,6 +197,11 @@ private extension WhatsNewView {
                         whatsNewText: secondaryAction.title
                     )
                 }
+                #if os(macOS)
+                .buttonStyle(
+                    PlainButtonStyle()
+                )
+                #endif
                 .foregroundColor(secondaryAction.foregroundColor)
             }
             // Primary Action Button
@@ -212,27 +215,16 @@ private extension WhatsNewView {
                     self.whatsNew.primaryAction.onDismiss?()
                 }
             ) {
-                #if os(iOS)
-                HStack {
-                    Spacer()
-                    Text(
-                        whatsNewText: self.whatsNew.primaryAction.title
-                    )
-                    .font(.headline.weight(.semibold))
-                    .padding(.vertical)
-                    Spacer()
-                }
-                #else
                 Text(
                     whatsNewText: self.whatsNew.primaryAction.title
                 )
-                #endif
             }
-            .foregroundColor(self.whatsNew.primaryAction.foregroundColor)
-            #if os(iOS)
-            .background(self.whatsNew.primaryAction.backgroundColor)
-            .cornerRadius(self.layout.footerPrimaryActionButtonCornerRadius)
-            #endif
+            .buttonStyle(
+                PrimaryButtonStyle(
+                    primaryAction: self.whatsNew.primaryAction,
+                    layout: self.layout
+                )
+            )
             #if os(macOS)
             .keyboardShortcut(.defaultAction)
             #endif
