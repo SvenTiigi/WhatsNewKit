@@ -71,7 +71,7 @@ private struct WhatsNewSheetViewModifier: ViewModifier {
     
     /// The WhatsNewEnvironment
     @Environment(\.whatsNew)
-    private var whatsNew
+    private var whatsNewEnvironment
     
     // MARK: ViewModifier
     
@@ -83,14 +83,16 @@ private struct WhatsNewSheetViewModifier: ViewModifier {
         content.sheet(
             whatsNew: .init(
                 get: {
-                    self.isDismissed == true ? nil : self.whatsNew.getPresentableWhatsNew()
+                    self.isDismissed == true
+                        ? nil
+                        : self.whatsNewEnvironment.getPresentableWhatsNew()
                 },
                 set: {
                     self.isDismissed = $0 == nil
                 }
             ),
-            versionStore: self.whatsNew.whatsNewVersionStore,
-            layout: self.layout ?? self.whatsNew.defaultLayout,
+            versionStore: self.whatsNewEnvironment.whatsNewVersionStore,
+            layout: self.layout ?? self.whatsNewEnvironment.defaultLayout,
             onDimiss: self.onDismiss
         )
     }
