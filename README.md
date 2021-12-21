@@ -77,6 +77,15 @@ Check out the example application to see WhatsNewKit in action. Simply open the 
 
 ## Usage
 
+### Table of contents
+
+- [Manual Presentation](https://github.com/SvenTiigi/WhatsNewKit/tree/master#manual-presentation)
+- [Automatic Presentation](https://github.com/SvenTiigi/WhatsNewKit/tree/master#automatic-presentation)
+- [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnewversionstore)
+- [WhatsNew](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnew)
+- [Layout](https://github.com/SvenTiigi/WhatsNewKit/tree/master#layout)
+- [WhatsNewViewController](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnewviewcontroller)
+
 ### Manual Presentation
 
 If you wish to manually present a `WhatsNewView` you can make use of the `sheet(whatsNew:)` modifier.
