@@ -200,13 +200,20 @@ extension App: WhatsNewCollectionProvider {
 
 ## WhatsNewVersionStore
 
-A `WhatsNewVersionStore` is a protocol type which is responsible for saving versions that have been presented to the user as well as returning the already presented versions.
+A `WhatsNewVersionStore` is a protocol type which is responsible for saving versions that have been presented to the user.
 
 WhatsNewKit comes along with three predefined implementations:
 
-- `UserDefaultsWhatsNewVersionStore`: Persists versions in the UserDefaults
-- `NSUbiquitousKeyValueWhatsNewVersionStore`: Persists versions in iCloud
-- `InMemoryWhatsNewVersionStore`: Stores versions in memory (Perfect for testing purposes)
+```swift
+// Persists presented versions in the UserDefaults
+let userDefaultsWhatsNewVersionStore = UserDefaultsWhatsNewVersionStore()
+
+// Persists presented versions in iCloud using the NSUbiquitousKeyValueStore
+let ubiquitousKeyValueWhatsNewVersionStore = NSUbiquitousKeyValueWhatsNewVersionStore()
+
+// Stores presented versions in memory. Perfect for testing purposes
+let inMemoryWhatsNewVersionStore = InMemoryWhatsNewVersionStore()
+```
 
 If you already have a specific implementation to store user related settings like Realm or Core Data you can easily adopt your existing implementation to the `WhatsNewVersionStore`.
 
