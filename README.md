@@ -34,31 +34,13 @@ import SwiftUI
 import WhatsNewKit
 
 struct ContentView: View {
-
-  @State
-  var whatsNew = WhatsNew(
-    title: "WhatsNewKit",
-    features: [
-      .init(
-        image: .init(
-          systemName: "star.fill", 
-          tintColor: .systemOrange
-        ),
-        title: "Showcase your new App Features",
-        subtitle: "Present your new app features..."
-      ),
-      // ...
-    ]
-  )
     
-  var body: some View {
-    NavigationView {
-      // ...
+    var body: some View {
+        NavigationView {
+            // ...
+        }
+        .whatsNewSheet()
     }
-    .sheet(
-      whatsNew: self.$whatsNew
-    )
-  }
     
 }
 ```
@@ -103,7 +85,20 @@ If you wish to manually present a `WhatsNewView` you can make use of the `sheet(
 struct ContentView: View {
 
     @State
-    var whatsNew: WhatsNew = // ...
+    var whatsNew = WhatsNew(
+        title: "WhatsNewKit",
+        features: [
+            .init(
+                image: .init(
+                    systemName: "star.fill",
+                    tintColor: .systemOrange
+                ),
+                title: "Showcase your new App Features",
+                subtitle: "Present your new app features..."
+            ),
+            // ...
+        ]
+    )
     
     var body: some View {
         NavigationView {
