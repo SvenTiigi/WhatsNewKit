@@ -82,9 +82,8 @@ open class WhatsNewEnvironment {
     
     // MARK: Get presentable WhatsNew
     
-    /// Call WhatsNewEnvironment as function to retrieve a WhatsNew object
-    /// that should be presented to the user, if available
-    /// - Returns: An optional WhatsNew object
+    /// Retrieve a WhatsNew that should be presented to the user, if available.
+    /// - Returns: An optional WhatsNew
     open func getPresentableWhatsNew() -> WhatsNew? {
         // Retrieve presented WhatsNew Versions from WhatsNewVersionStore
         let presentedWhatsNewVersions = self.whatsNewVersionStore.presentedVersions
