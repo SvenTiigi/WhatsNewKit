@@ -355,19 +355,19 @@ let secondaryActionOpenURL = WhatsNew.SecondaryAction(
 
 WhatsNewKit allows you to adjust the layout of a presented `WhatsNewView` in various ways.
 
-The most simple way is by mutating the `default` WhatsNewView Layout instance.
+The most simple way is by mutating the `WhatsNew.Layout.default` instance.
 
 ```swift
-WhatsNewView.Layout.default.featureListSpacing = 35
+WhatsNew.Layout.default.featureListSpacing = 35
 ```
 
-When using the automatic presentation style you can supply a default WhatsNewView Layout when initializing the WhatsNewEnvironment.
+When using the automatic presentation style you can supply a default layout when initializing the WhatsNewEnvironment.
 
 ```swift
 .environment(
     \.whatsNew,
     .init(
-        defaultLayout: .init(
+        defaultLayout: WhatsNew.Layout(
             showsScrollViewIndicators: true,
             featureListSpacing: 35
         ),
@@ -376,18 +376,18 @@ When using the automatic presentation style you can supply a default WhatsNewVie
 )
 ```
 
-Alternatively you can pass a `WhatsNewView.Layout` when presenting the WhatsNewView
+Alternatively you can pass a `WhatsNew.Layout` when presenting the WhatsNewView
 
 ```swift
 .sheet(
     whatsNew: self.$whatsNew,
-    layout: .init(
+    layout: WhatsNew.Layout(
         footerActionSpacing: 20
     )
 )
 
 .whatsNewSheet(
-    layout: .init(
+    layout: WhatsNew.Layout(
         contentPadding: .init(
             top: 80, 
             leading: 0,
@@ -408,7 +408,7 @@ let whatsNewViewController = WhatsNewViewController(
         version: "1.0.0",
         // ...
     ),
-    layout: WhatsNewView.Layout(
+    layout: WhatsNew.Layout(
         contentSpacing: 80
     )
 )

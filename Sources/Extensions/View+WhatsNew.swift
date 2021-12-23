@@ -8,12 +8,12 @@ public extension View {
     /// - Parameters:
     ///   - whatsNew: The WhatsNew object
     ///   - versionStore: The optional WhatsNewVersionStore. Default value `nil`
-    ///   - layout: The WhatsNewView Layout. Default value `.default`
+    ///   - layout: The WhatsNew Layout. Default value `.default`
     ///   - onDimiss: The closure to execute when dismissing the sheet. Default value `nil`
     func sheet(
         whatsNew: Binding<WhatsNew?>,
         versionStore: WhatsNewVersionStore? = nil,
-        layout: WhatsNewView.Layout = .default,
+        layout: WhatsNew.Layout = .default,
         onDimiss: (() -> Void)? = nil
     ) -> some View {
         self.sheet(
@@ -36,10 +36,10 @@ public extension View {
     
     /// Auto-Presents a WhatsNewView to the user if needed based on the `WhatsNewEnvironment`
     /// - Parameters:
-    ///   - layout: The optional custom WhatsNewView Layout. Default value `nil`
+    ///   - layout: The optional custom WhatsNew Layout. Default value `nil`
     ///   - onDimiss: The closure to execute when dismissing the sheet. Default value `nil`
     func whatsNewSheet(
-        layout: WhatsNewView.Layout? = nil,
+        layout: WhatsNew.Layout? = nil,
         onDismiss: (() -> Void)? = nil
     ) -> some View {
         self.modifier(
@@ -59,8 +59,8 @@ private struct WhatsNewSheetViewModifier: ViewModifier {
     
     // MARK: Properties
     
-    /// The optional WhatsNewView Layout
-    let layout: WhatsNewView.Layout?
+    /// The optional WhatsNew Layout
+    let layout: WhatsNew.Layout?
     
     /// The optional closure to execute when dismissing the sheet
     let onDismiss: (() -> Void)?

@@ -18,10 +18,10 @@ open class WhatsNewViewController: WhatsNewBaseViewController {
     /// Creates a new instance of `WhatsNewViewController`
     /// - Parameters:
     ///   - whatsNew: The WhatsNew object
-    ///   - layout: The WhatsNewView Layout. Default value `.default`
+    ///   - layout: The WhatsNew Layout. Default value `.default`
     public init(
         whatsNew: WhatsNew,
-        layout: WhatsNewView.Layout = .default
+        layout: WhatsNew.Layout = .default
     ) {
         super.init(
             rootView: .init(
@@ -39,11 +39,11 @@ open class WhatsNewViewController: WhatsNewBaseViewController {
     /// - Parameters:
     ///   - whatsNew: The WhatsNew object
     ///   - versionStore: The WhatsNewVersionStore
-    ///   - layout: The WhatsNewView Layout. Default value `.default`
+    ///   - layout: The WhatsNew Layout. Default value `.default`
     public init?(
         whatsNew: WhatsNew,
         versionStore: WhatsNewVersionStore,
-        layout: WhatsNewView.Layout = .default
+        layout: WhatsNew.Layout = .default
     ) {
         // Verify WhatsNew Version has not already been presented
         guard !versionStore.hasPresented(whatsNew) else {

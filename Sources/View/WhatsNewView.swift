@@ -13,8 +13,8 @@ public struct WhatsNewView {
     /// The WhatsNewVersionStore
     private let whatsNewVersionStore: WhatsNewVersionStore?
     
-    /// The Layout
-    private let layout: Layout
+    /// The WhatsNew Layout
+    private let layout: WhatsNew.Layout
     
     /// The View that is presented by the SecondaryAction
     @State
@@ -30,11 +30,11 @@ public struct WhatsNewView {
     /// - Parameters:
     ///   - whatsNew: The WhatsNew object
     ///   - versionStore: The optional WhatsNewVersionStore. Default value `nil`
-    ///   - layout: The WhatsNewView Layout. Default value `.default`
+    ///   - layout: The WhatsNew Layout. Default value `.default`
     public init(
         whatsNew: WhatsNew,
         versionStore: WhatsNewVersionStore? = nil,
-        layout: Layout = .default
+        layout: WhatsNew.Layout = .default
     ) {
         self.whatsNew = whatsNew
         self.whatsNewVersionStore = versionStore

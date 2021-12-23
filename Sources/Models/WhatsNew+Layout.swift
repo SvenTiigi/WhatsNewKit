@@ -1,10 +1,10 @@
 import SwiftUI
 
-// MARK: - WhatsNewView+Layout
+// MARK: - WhatsNew+Layout
 
-public extension WhatsNewView {
+public extension WhatsNew {
     
-    /// The WhatsNew Layout configuration
+    /// The WhatsNew Layout
     struct Layout {
         
         // MARK: Properties
@@ -47,7 +47,7 @@ public extension WhatsNewView {
         
         // MARK: Initializer
         
-        /// Creates a new instance of `WhatsNewView.Layout`
+        /// Creates a new instance of `WhatsNew.Layout`
         /// - Parameters:
         ///   - showsScrollViewIndicators: A Boolean value if the scroll view indicator should be visible. Default value `false`
         ///   - scrollViewBottomContentInset: The scroll view bottom content inset. Default value `150`
@@ -95,7 +95,7 @@ public extension WhatsNewView {
 
 // MARK: - Layout+default
 
-public extension WhatsNewView.Layout {
+public extension WhatsNew.Layout {
     
     /// The mutable default Layout
     static var `default` = Self()
@@ -104,11 +104,11 @@ public extension WhatsNewView.Layout {
 
 // MARK: - Layout+reset
 
-public extension WhatsNewView.Layout {
+public extension WhatsNew.Layout {
     
-    /// Reset the default WhatsNewView Layout
-    static func reset() {
-        self.default = .init()
+    /// Reset the Layout to default values
+    mutating func reset() {
+        self = .init()
     }
     
 }

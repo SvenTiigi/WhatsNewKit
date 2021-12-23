@@ -10,8 +10,8 @@ extension WhatsNewView {
         /// The WhatsNew PrimaryAction
         let primaryAction: WhatsNew.PrimaryAction
         
-        /// The WhatsNewView Layout
-        let layout: Layout
+        /// The WhatsNew Layout
+        let layout: WhatsNew.Layout
         
     }
     
