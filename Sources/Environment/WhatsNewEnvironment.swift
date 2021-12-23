@@ -91,7 +91,7 @@ open class WhatsNewEnvironment {
         // Check if the current Version has not been presented
         // and a WhatsNew is available for the current Version
         if !presentedWhatsNewVersions.contains(self.currentVersion),
-            let whatsNew = self.whatsNewCollection[self.currentVersion] {
+           let whatsNew = self.whatsNewCollection.first(where: { $0.version == self.currentVersion }) {
             // Return WhatsNew for the current Version
             return whatsNew
         }
@@ -104,27 +104,12 @@ open class WhatsNewEnvironment {
         // Check if current minor release Version has not been presented
         // and a WhatsNew is available for the current minor release Version
         if !presentedWhatsNewVersions.contains(currentMinorVersion),
-            let whatsNew = self.whatsNewCollection[currentMinorVersion] {
+           let whatsNew = self.whatsNewCollection.first(where: { $0.version == currentMinorVersion }) {
             // Return WhatsNew for current minor release Version
             return whatsNew
         }
         // Otherwise return nil
         return nil
-    }
-    
-}
-
-// MARK: - Array<WhatsNew>+subscribt
-
-private extension Array where Element == WhatsNew {
-    
-    /// Returns the first WhatsNew element of the sequence where the given WhatsNew Version matches
-    /// - Parameters:
-    ///   - version: The WhatsNew Version that must match
-    subscript(
-        _ version: WhatsNew.Version
-    ) -> WhatsNew? {
-        self.first { $0.version == version }
     }
     
 }
