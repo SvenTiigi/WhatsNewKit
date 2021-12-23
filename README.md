@@ -134,42 +134,31 @@ struct ContentView: View {
         NavigationView {
             // ...
         }
+        // Automatically present a WhatsNewView, if needed 
         .whatsNewSheet()
     }
 
 }
 ```
 
-Next up configure the `WhatsNewEnvironment` via the `environment` modifier.
-
-A `WhatsNewEnvironment` takes in the following two parameters:
-
-- `versionStore`: A WhatsNewVersionStore which is used to save the versions that have been presented to the user.
-- `whatsNew`: A WhatsNewCollectionProvider which provides a WhatsNew instance for a specific version.
+The `.whatsNewSheet()` modifier is making use of the `WhatsNewEnvironment` to retrieve an optional WhatsNew object that should be presented to the user for the current version. Therefore you can easily configure the `WhatsNewEnvironment` via the `environment` modifier.
 
 ```swift
-struct App {
-
-    // A WhatsNewEnvironment
-    // - Saves presented versions in the UserDefaults
-    // - WhatsNew instances are provided by a `WhatsNewCollectionProvider`
-    var whatsNewEnvironment: WhatsNewEnvironment {
-        .init(
-            versionStore: UserDefaultsWhatsNewVersionStore()
-            whatsNew: self
-        )
-    }
-
-}
-
-// MARK: - SwiftUI.App
-
 extension App: SwiftUI.App {
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.whatsNew, self.whatsNewEnvironment)
+                .environment(
+                    \.whatsNew, 
+                    WhatsNewEnvironment(
+                        // Specify in which way the presented WhatsNew.Versions are stored
+                        versionStore: UserDefaultsWhatsNewVersionStore(),
+                        // Pass a `WhatsNewCollectionProvider`
+                        // or an array of WhatsNew objects.
+                        whatsNew: self
+                    )
+                )
         }
     }
 
@@ -198,9 +187,47 @@ extension App: WhatsNewCollectionProvider {
 }
 ```
 
+The `WhatsNewEnvironment` will take care to determine the matching WhatsNew object that should be presented to the user for the current version. 
+
+Additionally, the `WhatsNewEnvironment` includes a fallback for patch versions. For example when a user installs version `1.0.1` and you only have declared a `WhatsNew` for version `1.0.0` the environment will automatically fallback to version `1.0.0` and present the `WhatsNewView` to the user if needed.
+
+If you wish to further customize the behaviour of the `WhatsNewEnvironment` you can easily subclass it and override the `getPresentableWhatsNew()` function.
+
+```swift
+class MyCustomWhatsNewEnvironment: WhatsNewEnvironment {
+    
+    /// Retrieve a WhatsNew that should be presented to the user, if available.
+    /// - Returns: An optional WhatsNew
+    override func getPresentableWhatsNew() -> WhatsNew? {
+        // The current version
+        let currentVersion = self.currentVersion
+        // Your declared WhatsNew objects
+        let whatsNewCollection = self.whatsNewCollection
+        // The WhatsNewVersionStore used to determine the already presented versions
+        let versionStore = self.whatsNewVersionStore
+
+        // TODO: Determine WhatsNew that should be presented to the user...
+    }
+    
+}
+```
+
 ## WhatsNewVersionStore
 
-A `WhatsNewVersionStore` is a protocol type which is responsible for saving versions that have been presented to the user.
+A `WhatsNewVersionStore` is a protocol type which is responsible for saving and retrieving versions that have been presented to the user.
+
+```swift
+let whatsNewVersionStore: WhatsNewVersionStore
+
+// Save presented versions
+whatsNewVersionStore.save(presentedVersion: "1.0.0")
+
+// Retrieve presented versions
+let presentedVersions = whatsNewVersionStore.presentedVersions
+
+// Retrieve bool value if a given version has already been presented
+let hasPresented = whatsNewVersionStore.hasPresented("1.0.0")
+```
 
 WhatsNewKit comes along with three predefined implementations:
 
@@ -376,7 +403,7 @@ When using the automatic presentation style you can supply a default layout when
 )
 ```
 
-Alternatively you can pass a `WhatsNew.Layout` when presenting the WhatsNewView
+Alternatively you can pass a `WhatsNew.Layout` when automatically or manually presenting the WhatsNewView
 
 ```swift
 .sheet(
@@ -385,7 +412,9 @@ Alternatively you can pass a `WhatsNew.Layout` when presenting the WhatsNewView
         footerActionSpacing: 20
     )
 )
+```
 
+```swift
 .whatsNewSheet(
     layout: WhatsNew.Layout(
         contentPadding: .init(
