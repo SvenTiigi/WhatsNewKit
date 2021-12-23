@@ -13,6 +13,13 @@ final class WhatsNewVersionStoreTests: WhatsNewKitTestCase {
             [version],
             inMemoryWhatsNewVersionStore.versions
         )
+        inMemoryWhatsNewVersionStore.removeAll()
+        XCTAssert(
+            inMemoryWhatsNewVersionStore.presentedVersions.isEmpty
+        )
+        XCTAssert(
+            inMemoryWhatsNewVersionStore.versions.isEmpty
+        )
     }
     
     func testUserDefaultsWhatsNewVersionStore() {
@@ -28,11 +35,10 @@ final class WhatsNewVersionStoreTests: WhatsNewKitTestCase {
             }
         }
         let fakeUserDefaults = FakeUserDefaults()
-        let version = self.executeVersionStoreTest(
-            UserDefaultsWhatsNewVersionStore(
-                userDefaults: fakeUserDefaults
-            )
+        let userDefaultsWhatsNewVersionStore = UserDefaultsWhatsNewVersionStore(
+            userDefaults: fakeUserDefaults
         )
+        let version = self.executeVersionStoreTest(userDefaultsWhatsNewVersionStore)
         XCTAssertEqual(
             fakeUserDefaults.store.count,
             1
@@ -40,6 +46,13 @@ final class WhatsNewVersionStoreTests: WhatsNewKitTestCase {
         XCTAssertEqual(
             version,
             (fakeUserDefaults.store[version.key] as? String).flatMap(WhatsNew.Version.init)
+        )
+        userDefaultsWhatsNewVersionStore.removeAll()
+        XCTAssert(
+            userDefaultsWhatsNewVersionStore.presentedVersions.isEmpty
+        )
+        XCTAssert(
+            fakeUserDefaults.store.isEmpty
         )
     }
     
@@ -56,11 +69,10 @@ final class WhatsNewVersionStoreTests: WhatsNewKitTestCase {
             }
         }
         let fakeNSUbiquitousKeyValueStore = FakeNSUbiquitousKeyValueStore()
-        let version = self.executeVersionStoreTest(
-            NSUbiquitousKeyValueWhatsNewVersionStore(
-                ubiquitousKeyValueStore: fakeNSUbiquitousKeyValueStore
-            )
+        let ubiquitousKeyValueWhatsNewVersionStore = NSUbiquitousKeyValueWhatsNewVersionStore(
+            ubiquitousKeyValueStore: fakeNSUbiquitousKeyValueStore
         )
+        let version = self.executeVersionStoreTest(ubiquitousKeyValueWhatsNewVersionStore)
         XCTAssertEqual(
             fakeNSUbiquitousKeyValueStore.store.count,
             1
@@ -68,6 +80,13 @@ final class WhatsNewVersionStoreTests: WhatsNewKitTestCase {
         XCTAssertEqual(
             version,
             (fakeNSUbiquitousKeyValueStore.store[version.key] as? String).flatMap(WhatsNew.Version.init)
+        )
+        ubiquitousKeyValueWhatsNewVersionStore.removeAll()
+        XCTAssert(
+            ubiquitousKeyValueWhatsNewVersionStore.presentedVersions.isEmpty
+        )
+        XCTAssert(
+            fakeNSUbiquitousKeyValueStore.store.isEmpty
         )
     }
     
