@@ -205,7 +205,6 @@ class MyCustomWhatsNewEnvironment: WhatsNewEnvironment {
         let whatsNewCollection = self.whatsNewCollection
         // The WhatsNewVersionStore used to determine the already presented versions
         let versionStore = self.whatsNewVersionStore
-
         // TODO: Determine WhatsNew that should be presented to the user...
     }
     
