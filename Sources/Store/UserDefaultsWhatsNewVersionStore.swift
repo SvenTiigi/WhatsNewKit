@@ -54,3 +54,16 @@ extension UserDefaultsWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     }
     
 }
+
+// MARK: - Remove all
+
+public extension UserDefaultsWhatsNewVersionStore {
+    
+    /// Remove all presented Versions
+    func removeAll() {
+        self.presentedVersions
+            .map(\.key)
+            .forEach(self.userDefaults.removeObject)
+    }
+    
+}

@@ -57,3 +57,16 @@ extension NSUbiquitousKeyValueWhatsNewVersionStore: ReadableWhatsNewVersionStore
     }
     
 }
+
+// MARK: - Remove all
+
+public extension NSUbiquitousKeyValueWhatsNewVersionStore {
+    
+    /// Remove all presented Versions
+    func removeAll() {
+        self.presentedVersions
+            .map(\.key)
+            .forEach(self.ubiquitousKeyValueStore.removeObject)
+    }
+    
+}
