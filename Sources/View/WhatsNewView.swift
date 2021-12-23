@@ -92,7 +92,8 @@ extension WhatsNewView: View {
                     .modifier(FooterPadding())
                     #if os(iOS)
                     .background(
-                        VisualEffectView()
+                        UIVisualEffectView
+                            .Representable()
                             .edgesIgnoringSafeArea(.horizontal)
                             .padding(self.layout.footerVisualEffectViewPadding)
                     )
