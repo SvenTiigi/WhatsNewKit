@@ -462,15 +462,6 @@ When using the automatic presentation style you can supply a default layout when
 Alternatively you can pass a `WhatsNew.Layout` when automatically or manually presenting the WhatsNewView
 
 ```swift
-.sheet(
-    whatsNew: self.$whatsNew,
-    layout: WhatsNew.Layout(
-        footerActionSpacing: 20
-    )
-)
-```
-
-```swift
 .whatsNewSheet(
     layout: WhatsNew.Layout(
         contentPadding: .init(
@@ -479,6 +470,15 @@ Alternatively you can pass a `WhatsNew.Layout` when automatically or manually pr
             bottom: 0,
             trailing: 0
         )
+    )
+)
+```
+
+```swift
+.sheet(
+    whatsNew: self.$whatsNew,
+    layout: WhatsNew.Layout(
+        footerActionSpacing: 20
     )
 )
 ```
