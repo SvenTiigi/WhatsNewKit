@@ -348,14 +348,15 @@ let primaryAction = WhatsNew.PrimaryAction(
     foregroundColor: .white,
     hapticFeedback: .notification(.success),
     onDismiss: {
-        print("WhatsNew dismissed")
+        print("WhatsNewView has been dismissed")
     }   
 )
 ```
+> Note: HapticFeedback will only be executed on iOS
 
 ### WhatsNew.SecondaryAction
 
-A `WhatsNew.SecondaryAction` which is displayed above the `WhatsNew.PrimaryAction` can be optionally supplied when initializing a `WhatsNew` instance and allows you to either present an additional View or open a URL.
+A `WhatsNew.SecondaryAction` which is displayed above the `WhatsNew.PrimaryAction` can be optionally supplied when initializing a `WhatsNew` instance and allows you to present an additional View, perform a custom action or open an URL.
 
 ```swift
 let secondaryActionPresentAboutView = WhatsNew.SecondaryAction(
@@ -375,7 +376,15 @@ let secondaryActionOpenURL = WhatsNew.SecondaryAction(
         url: .init(string: "https://github.com/SvenTiigi/WhatsNewKit")
     )  
 )
+
+let secondaryActionCustom = WhatsNew.SecondaryAction(
+    title: "Custom",
+    action: .custom { presentationMode in
+        // ...
+    }
+)
 ```
+> Note: HapticFeedback will only be executed on iOS
 
 ## Layout
 
