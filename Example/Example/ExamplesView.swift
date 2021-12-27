@@ -47,6 +47,17 @@ extension ExamplesView: View {
             }
         }
         .navigationTitle("WhatsNewKit")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Link(
+                    destination: .init(
+                        string: "https://github.com/SvenTiigi/WhatsNewKit"
+                    )!
+                ) {
+                    Image(systemName: "text.book.closed.fill")
+                }
+            }
+        }
         .sheet(
             whatsNew: self.$whatsNew
         )
