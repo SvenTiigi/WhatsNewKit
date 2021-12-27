@@ -17,7 +17,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
         )
         XCTAssertEqual(
             version_1_0_0,
-            environment.getPresentableWhatsNew()?.version
+            environment.whatsNew()?.version
         )
     }
     
@@ -32,7 +32,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
             whatsNew: [whatsNew_1_0_0]
         )
         XCTAssertNil(
-            environment.getPresentableWhatsNew()
+            environment.whatsNew()
         )
     }
     
@@ -54,7 +54,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
         )
         XCTAssertEqual(
             version_1_0_1,
-            environment.getPresentableWhatsNew()?.version
+            environment.whatsNew()?.version
         )
     }
     
@@ -75,7 +75,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
         )
         XCTAssertEqual(
             version_1_1_0,
-            environment.getPresentableWhatsNew()?.version
+            environment.whatsNew()?.version
         )
     }
     
@@ -96,7 +96,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
             .shuffled()
         )
         XCTAssertNil(
-            environment.getPresentableWhatsNew()
+            environment.whatsNew()
         )
     }
     

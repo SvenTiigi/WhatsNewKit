@@ -80,11 +80,10 @@ open class WhatsNewEnvironment {
         )
     }
     
-    // MARK: Get presentable WhatsNew
+    // MARK: WhatsNew
     
     /// Retrieve a WhatsNew that should be presented to the user, if available.
-    /// - Returns: An optional WhatsNew
-    open func getPresentableWhatsNew() -> WhatsNew? {
+    open func whatsNew() -> WhatsNew? {
         // Retrieve presented WhatsNew Versions from WhatsNewVersionStore
         let presentedWhatsNewVersions = self.whatsNewVersionStore.presentedVersions
         // Verify the current Version has not been presented

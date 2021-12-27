@@ -191,14 +191,13 @@ The `WhatsNewEnvironment` will take care to determine the matching WhatsNew obje
 
 Additionally, the `WhatsNewEnvironment` includes a fallback for patch versions. For example when a user installs version `1.0.1` and you only have declared a `WhatsNew` for version `1.0.0` the environment will automatically fallback to version `1.0.0` and present the `WhatsNewView` to the user if needed.
 
-If you wish to further customize the behaviour of the `WhatsNewEnvironment` you can easily subclass it and override the `getPresentableWhatsNew()` function.
+If you wish to further customize the behaviour of the `WhatsNewEnvironment` you can easily subclass it and override the `whatsNew()` function.
 
 ```swift
 class MyCustomWhatsNewEnvironment: WhatsNewEnvironment {
     
     /// Retrieve a WhatsNew that should be presented to the user, if available.
-    /// - Returns: An optional WhatsNew
-    override func getPresentableWhatsNew() -> WhatsNew? {
+    override func whatsNew() -> WhatsNew? {
         // The current version
         let currentVersion = self.currentVersion
         // Your declared WhatsNew objects

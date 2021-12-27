@@ -85,7 +85,7 @@ private struct WhatsNewSheetViewModifier: ViewModifier {
                 get: {
                     self.isDismissed == true
                         ? nil
-                        : self.whatsNewEnvironment.getPresentableWhatsNew()
+                        : self.whatsNewEnvironment.whatsNew()
                 },
                 set: {
                     self.isDismissed = $0 == nil
