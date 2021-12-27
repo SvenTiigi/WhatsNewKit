@@ -48,8 +48,8 @@ struct ContentView: View {
 ## Features
 
 - [x] Easily present your new app features 🤩
-- [x] Automatic/Manual presentation mode ✅
-- [x] Support for SwiftUI and UIKit 🧑‍🎨
+- [x] Automatic & Manual presentation mode ✅
+- [x] Support for SwiftUI, UIKit and AppKit 🧑‍🎨
 - [x] Runs on iOS and macOS 📱 🖥
 - [x] Adjustable layout 🔧
 
