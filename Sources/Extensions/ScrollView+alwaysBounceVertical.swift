@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 
 // MARK: - ScrollView+alwaysBounceVertical
@@ -109,3 +110,4 @@ private extension ViewControllerResolver {
     }
     
 }
+#endif

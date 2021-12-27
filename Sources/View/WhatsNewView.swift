@@ -85,7 +85,9 @@ extension WhatsNewView: View {
                         self.layout.scrollViewBottomContentInset
                     )
             }
+            #if os(iOS)
             .alwaysBounceVertical(false)
+            #endif
             // Footer
             VStack {
                 Spacer()
