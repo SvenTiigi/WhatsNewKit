@@ -87,10 +87,13 @@ open class WhatsNewEnvironment {
     open func getPresentableWhatsNew() -> WhatsNew? {
         // Retrieve presented WhatsNew Versions from WhatsNewVersionStore
         let presentedWhatsNewVersions = self.whatsNewVersionStore.presentedVersions
-        // Check if the current Version has not been presented
-        // and a WhatsNew is available for the current Version
-        if !presentedWhatsNewVersions.contains(self.currentVersion),
-           let whatsNew = self.whatsNewCollection.first(where: { $0.version == self.currentVersion }) {
+        // Verify the current Version has not been presented
+        guard !presentedWhatsNewVersions.contains(self.currentVersion) else {
+            // Otherwise WhatsNew has already been presented for the current version
+            return nil
+        }
+        // Check if a WhatsNew is available for the current Version
+        if let whatsNew = self.whatsNewCollection.first(where: { $0.version == self.currentVersion }) {
             // Return WhatsNew for the current Version
             return whatsNew
         }
@@ -100,15 +103,13 @@ open class WhatsNewEnvironment {
             minor: self.currentVersion.minor,
             patch: 0
         )
-        // Check if current minor release Version has not been presented
-        // and a WhatsNew is available for the current minor release Version
-        if !presentedWhatsNewVersions.contains(currentMinorVersion),
-           let whatsNew = self.whatsNewCollection.first(where: { $0.version == currentMinorVersion }) {
-            // Return WhatsNew for current minor release Version
-            return whatsNew
+        // Verify the current minor release Version has not been presented
+        guard !presentedWhatsNewVersions.contains(currentMinorVersion) else {
+            // Otherwise WhatsNew for current minor release Version has already been preseted
+            return nil
         }
-        // Otherwise return nil
-        return nil
+        // Return WhatsNew for current minor release Version, if available
+        return self.whatsNewCollection.first { $0.version == currentMinorVersion }
     }
     
 }
