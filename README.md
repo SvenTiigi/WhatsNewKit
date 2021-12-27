@@ -72,7 +72,7 @@ Or navigate to your Xcode project then select `Swift Packages`, click the â€œ+â€
 Check out the example application to see WhatsNewKit in action. Simply open the `Example/Example.xcodeproj` and run the "Example" scheme.
 
 <p align="center">
-    <img width="90%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Applications">
+    <img width="95%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Applications">
 </p>
 
 ## Usage
