@@ -81,6 +81,7 @@ Check out the example application to see WhatsNewKit in action. Simply open the 
 
 - [Manual Presentation](https://github.com/SvenTiigi/WhatsNewKit/tree/master#manual-presentation)
 - [Automatic Presentation](https://github.com/SvenTiigi/WhatsNewKit/tree/master#automatic-presentation)
+- [WhatsNewEnvironment](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnewenvironment)
 - [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnewversionstore)
 - [WhatsNew](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnew)
 - [Layout](https://github.com/SvenTiigi/WhatsNewKit/tree/master#layout)
@@ -157,9 +158,8 @@ extension App: SwiftUI.App {
                         // Specify in which way the presented WhatsNew Versions are stored.
                         // In default the `UserDefaultsWhatsNewVersionStore` is used.
                         versionStore: UserDefaultsWhatsNewVersionStore(),
-                        // Pass a `WhatsNewCollectionProvider`
-                        // Alternatively you can pass an array of WhatsNew instances.
-                        whatsNew: self
+                        // Pass a `WhatsNewCollectionProvider` or an array of WhatsNew instances
+                        whatsNewCollection: self
                     )
                 )
         }
@@ -190,7 +190,37 @@ extension App: WhatsNewCollectionProvider {
 }
 ```
 
-The `WhatsNewEnvironment` will take care to determine the matching WhatsNew object that should be presented to the user for the current version. 
+## WhatsNewEnvironment
+
+The `WhatsNewEnvironment` will take care to determine the matching WhatsNew object that should be presented to the user for the current version.
+
+As seen in the previous example you can initialize a `WhatsNewEnvironment` by specifying the `WhatsNewVersionStore` and providing a `WhatsNewCollection`.
+
+```swift
+// Initialize WhatsNewEnvironment by passing an array of WhatsNew Instances.
+// UserDefaultsWhatsNewVersionStore is used as default WhatsNewVersionStore
+let whatsNewEnvironment = WhatsNewEnvironment(
+    whatsNewCollection: [
+        WhatsNew(
+            version: "1.0.0",
+            // ...
+        )
+    ]
+)
+
+// Initialize WhatsNewEnvironment with NSUbiquitousKeyValueWhatsNewVersionStore
+// which stores the presented versions in iCloud.
+// WhatsNewCollection is provided by a `WhatsNewBuilder` closure
+let whatsNewEnvironment = WhatsNewEnvironment(
+    versionStore: NSUbiquitousKeyValueWhatsNewVersionStore(),
+    whatsNewCollection: {
+        WhatsNew(
+            version: "1.0.0",
+            // ...
+        )
+    }
+)
+```
 
 Additionally, the `WhatsNewEnvironment` includes a fallback for patch versions. For example when a user installs version `1.0.1` and you only have declared a `WhatsNew` for version `1.0.0` the environment will automatically fallback to version `1.0.0` and present the `WhatsNewView` to the user if needed.
 
@@ -244,6 +274,14 @@ let inMemoryWhatsNewVersionStore = InMemoryWhatsNewVersionStore()
 ```
 
 If you already have a specific implementation to store user related settings like Realm or Core Data you can easily adopt your existing implementation to the `WhatsNewVersionStore` protocol.
+
+### NSUbiquitousKeyValueWhatsNewVersionStore
+
+If you are making use of the `NSUbiquitousKeyValueWhatsNewVersionStore` please ensure to enable the [iCloud Key-value storage](https://developer.apple.com/library/archive/documentation/General/Conceptual/iCloudDesignGuide/Chapters/DesigningForKey-ValueDataIniCloud.html) capability in the "Signing & Capabilities" section of your Xcode project.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/icloud-key-value-storage.png" alt="iCloud Key-value storage">
+</p>
 
 ## WhatsNew
 
