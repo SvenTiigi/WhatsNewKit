@@ -26,17 +26,17 @@ open class WhatsNewEnvironment {
     ///   - currentVersion: The current WhatsNew Version. Default value `.current()`
     ///   - versionStore: The WhatsNewVersionStore. Default value `UserDefaultsWhatsNewVersionStore()`
     ///   - defaultLayout: The default WhatsNew Layout. Default value `.default`
-    ///   - whatsNew: The WhatsNewCollection
+    ///   - whatsNewCollection: The WhatsNewCollection
     public init(
         currentVersion: WhatsNew.Version = .current(),
         versionStore: WhatsNewVersionStore = UserDefaultsWhatsNewVersionStore(),
         defaultLayout: WhatsNew.Layout = .default,
-        whatsNew: WhatsNewCollection = .init()
+        whatsNewCollection: WhatsNewCollection = .init()
     ) {
         self.currentVersion = currentVersion
         self.whatsNewVersionStore = versionStore
         self.defaultLayout = defaultLayout
-        self.whatsNewCollection = whatsNew
+        self.whatsNewCollection = whatsNewCollection
     }
     
     /// Creates a new instance of `WhatsNewEnvironment`
@@ -44,18 +44,18 @@ open class WhatsNewEnvironment {
     ///   - currentVersion: The current WhatsNew Version. Default value `.current()`
     ///   - versionStore: The WhatsNewVersionStore. Default value `UserDefaultsWhatsNewVersionStore()`
     ///   - defaultLayout: The default WhatsNew Layout. Default value `.default`
-    ///   - whatsNew: The WhatsNewCollectionProvider
+    ///   - whatsNewCollection: The WhatsNewCollectionProvider
     public convenience init(
         currentVersion: WhatsNew.Version = .current(),
         versionStore: WhatsNewVersionStore = UserDefaultsWhatsNewVersionStore(),
         defaultLayout: WhatsNew.Layout = .default,
-        whatsNew: WhatsNewCollectionProvider
+        whatsNewCollection whatsNewCollectionProvider: WhatsNewCollectionProvider
     ) {
         self.init(
             currentVersion: currentVersion,
             versionStore: versionStore,
             defaultLayout: defaultLayout,
-            whatsNew: whatsNew.whatsNewCollection
+            whatsNewCollection: whatsNewCollectionProvider.whatsNewCollection
         )
     }
     
@@ -64,19 +64,19 @@ open class WhatsNewEnvironment {
     ///   - currentVersion: The current WhatsNew Version. Default value `.current()`
     ///   - versionStore: The WhatsNewVersionStore. Default value `UserDefaultsWhatsNewVersionStore()`
     ///   - defaultLayout: The default WhatsNew Layout. Default value `.default`
-    ///   - whatsNew: A result builder closure that produces a WhatsNewCollection
+    ///   - whatsNewCollection: A result builder closure that produces a WhatsNewCollection
     public convenience init(
         currentVersion: WhatsNew.Version = .current(),
         versionStore: WhatsNewVersionStore = UserDefaultsWhatsNewVersionStore(),
         defaultLayout: WhatsNew.Layout = .default,
         @WhatsNewCollectionBuilder
-        whatsNew: () -> WhatsNewCollection
+        whatsNewCollection: () -> WhatsNewCollection
     ) {
         self.init(
             currentVersion: currentVersion,
             versionStore: versionStore,
             defaultLayout: defaultLayout,
-            whatsNew: whatsNew()
+            whatsNewCollection: whatsNewCollection()
         )
     }
     

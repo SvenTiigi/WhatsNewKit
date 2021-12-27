@@ -13,7 +13,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
         let environment = WhatsNewEnvironment(
             currentVersion: version_1_0_0,
             versionStore: versionStore,
-            whatsNew: [whatsNew_1_0_0]
+            whatsNewCollection: [whatsNew_1_0_0]
         )
         XCTAssertEqual(
             version_1_0_0,
@@ -29,7 +29,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
         let environment = WhatsNewEnvironment(
             currentVersion: version_1_0_0,
             versionStore: versionStore,
-            whatsNew: [whatsNew_1_0_0]
+            whatsNewCollection: [whatsNew_1_0_0]
         )
         XCTAssertNil(
             environment.whatsNew()
@@ -46,7 +46,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
         let environment = WhatsNewEnvironment(
             currentVersion: version_1_0_1,
             versionStore: versionStore,
-            whatsNew: [
+            whatsNewCollection: [
                 whatsNew_1_0_0,
                 whatsNew_1_0_1
             ]
@@ -67,7 +67,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
         let environment = WhatsNewEnvironment(
             currentVersion: "1.1.1",
             versionStore: versionStore,
-            whatsNew: [
+            whatsNewCollection: [
                 whatsNew_1_0_0,
                 whatsNew_1_1_0
             ]
@@ -89,7 +89,7 @@ final class WhatsNewEnvironmentTests: WhatsNewKitTestCase {
         let environment = WhatsNewEnvironment(
             currentVersion: "1.1.1",
             versionStore: versionStore,
-            whatsNew: [
+            whatsNewCollection: [
                 whatsNew_1_0_0,
                 whatsNew_1_1_0
             ]

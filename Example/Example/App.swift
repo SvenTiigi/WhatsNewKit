@@ -19,7 +19,7 @@ extension App: SwiftUI.App {
                     \.whatsNew,
                      .init(
                         versionStore: InMemoryWhatsNewVersionStore(),
-                        whatsNew: self
+                        whatsNewCollection: self
                      )
                 )
         }
