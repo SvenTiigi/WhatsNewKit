@@ -134,7 +134,9 @@ struct ContentView: View {
         NavigationView {
             // ...
         }
-        // Automatically present a WhatsNewView, if needed 
+        // Automatically present a WhatsNewView, if needed.
+        // The WhatsNew that should be presented to the user
+        // is automatically retrieved from the `WhatsNewEnvironment`
         .whatsNewSheet()
     }
 
@@ -152,10 +154,11 @@ extension App: SwiftUI.App {
                 .environment(
                     \.whatsNew, 
                     WhatsNewEnvironment(
-                        // Specify in which way the presented WhatsNew.Versions are stored
+                        // Specify in which way the presented WhatsNew Versions are stored.
+                        // In default the `UserDefaultsWhatsNewVersionStore` is used.
                         versionStore: UserDefaultsWhatsNewVersionStore(),
                         // Pass a `WhatsNewCollectionProvider`
-                        // or an array of WhatsNew objects.
+                        // Alternatively you can pass an array of WhatsNew instances.
                         whatsNew: self
                     )
                 )
@@ -240,7 +243,7 @@ let ubiquitousKeyValueWhatsNewVersionStore = NSUbiquitousKeyValueWhatsNewVersion
 let inMemoryWhatsNewVersionStore = InMemoryWhatsNewVersionStore()
 ```
 
-If you already have a specific implementation to store user related settings like Realm or Core Data you can easily adopt your existing implementation to the `WhatsNewVersionStore`.
+If you already have a specific implementation to store user related settings like Realm or Core Data you can easily adopt your existing implementation to the `WhatsNewVersionStore` protocol.
 
 ## WhatsNew
 
@@ -248,8 +251,11 @@ The following sections explains how a `WhatsNew` struct can be initialized in or
 
 ```swift
 let whatsnew = WhatsNew(
+    // The Version that relates to the features you want to showcase
     version: "1.0.0",
+    // The title that is shown at the top
     title: "What's New",
+    // The features you want to showcase
     features: [
         WhatsNew.Feature(
             image: .init(systemName: "star.fill"),
@@ -257,15 +263,17 @@ let whatsnew = WhatsNew(
             subtitle: "Subtitle"
         )
     ],
+    // The primary action that is used to dismiss the WhatsNewView
     primaryAction: WhatsNew.PrimaryAction(
         title: "Continue",
         backgroundColor: .accentColor,
         foregroundColor: .white,
         hapticFeedback: .notification(.success),
         onDimiss: {
-            print("Primary Action was tapped")
+            print("WhatsNewView has been dismissed")
         }
     ),
+    // The optional secondary action that is displayed above the primary action
     secondaryAction: WhatsNew.SecondaryAction(
         title: "Learn more",
         foregroundColor: .accentColor,
@@ -358,6 +366,7 @@ let primaryAction = WhatsNew.PrimaryAction(
 A `WhatsNew.SecondaryAction` which is displayed above the `WhatsNew.PrimaryAction` can be optionally supplied when initializing a `WhatsNew` instance and allows you to present an additional View, perform a custom action or open an URL.
 
 ```swift
+// SecondaryAction that presents a View
 let secondaryActionPresentAboutView = WhatsNew.SecondaryAction(
     title: "Learn more",
     foregroundColor: .blue,
@@ -367,6 +376,7 @@ let secondaryActionPresentAboutView = WhatsNew.SecondaryAction(
     }  
 )
 
+// SecondaryAction that opens a URL
 let secondaryActionOpenURL = WhatsNew.SecondaryAction(
     title: "Read more",
     foregroundColor: .blue,
@@ -376,6 +386,7 @@ let secondaryActionOpenURL = WhatsNew.SecondaryAction(
     )  
 )
 
+// SecondaryAction with custom execution
 let secondaryActionCustom = WhatsNew.SecondaryAction(
     title: "Custom",
     action: .custom { presentationMode in
