@@ -5,6 +5,11 @@ import Foundation
 /// The InMemoryWhatsNewVersionStore
 public final class InMemoryWhatsNewVersionStore {
     
+    // MARK: Static-Properties
+    
+    /// The shared `InMemoryWhatsNewVersionStore` instance
+    public static let shared = InMemoryWhatsNewVersionStore()
+    
     // MARK: Properties
     
     /// The Versions
