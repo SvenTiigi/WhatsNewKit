@@ -124,7 +124,7 @@ struct ContentView: View {
 
 ### Automatic Presentation
 
-The automatic presentation mode allows you to simply declare your new features and WhatsNewKit will take care to present the corresponding `WhatsNewView`.
+The automatic presentation mode allows you to simply declare your new features via the SwiftUI Environment and WhatsNewKit will take care to present the corresponding `WhatsNewView`.
 
 First add a `.whatsNewSheet()` modifier to the view where the `WhatsNewView` should be presented on.
 
