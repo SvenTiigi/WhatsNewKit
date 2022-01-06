@@ -6,7 +6,7 @@ public extension View {
     
     /// Presents a WhatsNewView using the given WhatsNew object as a data source for the sheet’s content.
     /// - Parameters:
-    ///   - whatsNew: The WhatsNew object
+    ///   - whatsNew: A Binding to an optional WhatsNew object
     ///   - versionStore: The optional WhatsNewVersionStore. Default value `nil`
     ///   - layout: The WhatsNew Layout. Default value `.default`
     ///   - onDimiss: The closure to execute when dismissing the sheet. Default value `nil`
@@ -16,15 +16,66 @@ public extension View {
         layout: WhatsNew.Layout = .default,
         onDimiss: (() -> Void)? = nil
     ) -> some View {
-        self.sheet(
-            item: whatsNew,
-            onDismiss: onDimiss
-        ) { whatsNew in
-            WhatsNewView(
+        self.modifier(
+            ManualWhatsNewSheetViewModifier(
                 whatsNew: whatsNew,
                 versionStore: versionStore,
-                layout: layout
+                layout: layout,
+                onDismiss: onDimiss
             )
+        )
+    }
+    
+}
+
+// MARK: - ManualWhatsNewSheetViewModifier
+
+/// A Manual WhatsNew Sheet ViewModifier
+private struct ManualWhatsNewSheetViewModifier: ViewModifier {
+    
+    // MARK: Properties
+    
+    /// A Binding to an optional WhatsNew object
+    let whatsNew: Binding<WhatsNew?>
+    
+    /// The optional WhatsNewVersionStore
+    let versionStore: WhatsNewVersionStore?
+    
+    /// The WhatsNew Layout
+    let layout: WhatsNew.Layout
+    
+    /// The closure to execute when dismissing the sheet
+    let onDismiss: (() -> Void)?
+    
+    // MARK: ViewModifier
+    
+    /// Gets the current body of the caller.
+    /// - Parameter content: The Content
+    func body(
+        content: Content
+    ) -> some View {
+        // Check if a WhatsNew object is available
+        if let whatsNew = self.whatsNew.wrappedValue {
+            // Check if the WhatsNew Version has already been presented
+            if self.versionStore?.hasPresented(whatsNew.version) == true {
+                // Show content
+                content
+            } else {
+                // Show WhatsNew Sheet
+                content.sheet(
+                    item: self.whatsNew,
+                    onDismiss: self.onDismiss
+                ) { whatsNew in
+                    WhatsNewView(
+                        whatsNew: whatsNew,
+                        versionStore: self.versionStore,
+                        layout: self.layout
+                    )
+                }
+            }
+        } else {
+            // Otherwise show content
+            content
         }
     }
     
@@ -43,7 +94,7 @@ public extension View {
         onDismiss: (() -> Void)? = nil
     ) -> some View {
         self.modifier(
-            WhatsNewSheetViewModifier(
+            AutomaticWhatsNewSheetViewModifier(
                 layout: layout,
                 onDismiss: onDismiss
             )
@@ -54,8 +105,8 @@ public extension View {
 
 // MARK: - WhatsNewSheetViewModifier
 
-/// A WhatsNew Sheet ViewModifier
-private struct WhatsNewSheetViewModifier: ViewModifier {
+/// A Automatic WhatsNew Sheet ViewModifier
+private struct AutomaticWhatsNewSheetViewModifier: ViewModifier {
     
     // MARK: Properties
     
@@ -81,7 +132,7 @@ private struct WhatsNewSheetViewModifier: ViewModifier {
         content: Content
     ) -> some View {
         content.sheet(
-            whatsNew: .init(
+            item: .init(
                 get: {
                     self.isDismissed == true
                         ? nil
@@ -91,10 +142,14 @@ private struct WhatsNewSheetViewModifier: ViewModifier {
                     self.isDismissed = $0 == nil
                 }
             ),
-            versionStore: self.whatsNewEnvironment.whatsNewVersionStore,
-            layout: self.layout ?? self.whatsNewEnvironment.defaultLayout,
-            onDimiss: self.onDismiss
-        )
+            onDismiss: self.onDismiss
+        ) { whatsNew in
+            WhatsNewView(
+                whatsNew: whatsNew,
+                versionStore: self.whatsNewEnvironment.whatsNewVersionStore,
+                layout: self.layout ?? self.whatsNewEnvironment.defaultLayout
+            )
+        }
     }
     
 }
