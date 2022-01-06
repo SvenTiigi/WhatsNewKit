@@ -4,7 +4,7 @@
 - Xcode version:
 - Swift version:
 - macOS version running Xcode:
-- Dependency manager (SPM, Carthage, CocoaPods, Manually):
+- Dependency manager (SPM, Manually):
 
 ## What did you do?
 

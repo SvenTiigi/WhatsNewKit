@@ -1,11 +1,3 @@
-//
-//  InMemoryWhatsNewVersionStore.swift
-//  WhatsNewKit-iOS
-//
-//  Created by Sven Tiigi on 24.05.18.
-//  Copyright © 2018 WhatsNewKit. All rights reserved.
-//
-
 import Foundation
 
 // MARK: - InMemoryWhatsNewVersionStore
@@ -13,18 +5,21 @@ import Foundation
 /// The InMemoryWhatsNewVersionStore
 public final class InMemoryWhatsNewVersionStore {
     
+    // MARK: Static-Properties
+    
+    /// The shared `InMemoryWhatsNewVersionStore` instance
+    public static let shared = InMemoryWhatsNewVersionStore()
+    
+    // MARK: Properties
+    
     /// The Versions
     public var versions: [WhatsNew.Version]
     
-    /// Default initializer
-    public init() {
-        // Initialize Version Array
-        self.versions = .init()
-    }
+    // MARK: Initializer
     
-    /// Clear all stored Versions
-    public func clearVersions() {
-        self.versions.removeAll()
+    /// Creates a new instance of `InMemoryWhatsNewVersionStore`
+    public init() {
+        self.versions = .init()
     }
     
 }
@@ -33,11 +28,11 @@ public final class InMemoryWhatsNewVersionStore {
 
 extension InMemoryWhatsNewVersionStore: WriteableWhatsNewVersionStore {
     
-    /// Set Version
-    ///
-    /// - Parameter version: The Version
-    public func set(version: WhatsNew.Version) {
-        // Append Version
+    /// Save presented WhatsNew Version
+    /// - Parameter version: The presented WhatsNew Version that should be saved
+    public func save(
+        presentedVersion version: WhatsNew.Version
+    ) {
         self.versions.append(version)
     }
     
@@ -47,13 +42,20 @@ extension InMemoryWhatsNewVersionStore: WriteableWhatsNewVersionStore {
 
 extension InMemoryWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
-    /// Has Version
-    ///
-    /// - Parameter version: The Version
-    /// - Returns: Bool if Version has been presented
-    public func has(version: WhatsNew.Version) -> Bool {
-        // Return if versions is contained in versions
-        return self.versions.contains(version)
+    /// The WhatsNew Versions that have been already been presented
+    public var presentedVersions: [WhatsNew.Version] {
+        self.versions
+    }
+    
+}
+
+// MARK: - Remove all
+
+public extension InMemoryWhatsNewVersionStore {
+    
+    /// Remove all presented WhatsNew Versions
+    func removeAll() {
+        self.versions.removeAll()
     }
     
 }
