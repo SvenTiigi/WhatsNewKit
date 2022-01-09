@@ -129,7 +129,7 @@ private extension WhatsNewView {
         )
         .font(.largeTitle.bold())
         .multilineTextAlignment(.center)
-        .fixedSize()
+        .fixedSize(horizontal: false, vertical: true)
     }
     
 }
@@ -159,13 +159,13 @@ private extension WhatsNewView {
                 )
                 .font(.subheadline.weight(.semibold))
                 .foregroundColor(.primary)
-                .fixedSize()
+                .fixedSize(horizontal: false, vertical: true)
                 Text(
                     whatsNewText: feature.subtitle
                 )
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-                .fixedSize()
+                .fixedSize(horizontal: false, vertical: true)
             }
             .multilineTextAlignment(.leading)
         }
