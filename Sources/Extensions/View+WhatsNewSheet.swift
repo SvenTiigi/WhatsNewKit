@@ -4,7 +4,7 @@ import SwiftUI
 
 public extension View {
     
-    /// Presents a WhatsNewView using the given WhatsNew object as a data source for the sheet’s content.
+    /// [Deprecated] Presents a WhatsNewView using the given WhatsNew object as a data source for the sheet’s content.
     /// - Parameters:
     ///   - whatsNew: A Binding to an optional WhatsNew object
     ///   - versionStore: The optional WhatsNewVersionStore. Default value `nil`
@@ -17,7 +17,12 @@ public extension View {
         layout: WhatsNew.Layout = .default,
         onDimiss: (() -> Void)?
     ) -> some View {
-        self.sheet(whatsNew: whatsNew, versionStore: versionStore, layout: layout, onDismiss: onDimiss)
+        self.sheet(
+            whatsNew: whatsNew,
+            versionStore: versionStore,
+            layout: layout,
+            onDismiss: onDimiss
+        )
     }
 
     /// Presents a WhatsNewView using the given WhatsNew object as a data source for the sheet’s content.
