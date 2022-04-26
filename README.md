@@ -307,7 +307,7 @@ let whatsnew = WhatsNew(
         backgroundColor: .accentColor,
         foregroundColor: .white,
         hapticFeedback: .notification(.success),
-        onDimiss: {
+        onDismiss: {
             print("WhatsNewView has been dismissed")
         }
     ),
@@ -347,7 +347,7 @@ let version: WhatsNew.Version = .current()
 A `WhatsNew.Title` represents the title text that is rendered above the features.
 
 ```swift
-// Initialize by string literla
+// Initialize by string literal
 let title: WhatsNew.Title = "Continue"
 
 // Initialize with text and foreground color

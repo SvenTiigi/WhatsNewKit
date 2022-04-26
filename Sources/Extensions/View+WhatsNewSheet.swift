@@ -10,18 +10,34 @@ public extension View {
     ///   - versionStore: The optional WhatsNewVersionStore. Default value `nil`
     ///   - layout: The WhatsNew Layout. Default value `.default`
     ///   - onDimiss: The closure to execute when dismissing the sheet. Default value `nil`
+    @available(*, deprecated, renamed: "sheet(whatsNew:versionStore:layout:onDismiss:)")
     func sheet(
         whatsNew: Binding<WhatsNew?>,
         versionStore: WhatsNewVersionStore? = nil,
         layout: WhatsNew.Layout = .default,
-        onDimiss: (() -> Void)? = nil
+        onDimiss: (() -> Void)?
+    ) -> some View {
+        self.sheet(whatsNew: whatsNew, versionStore: versionStore, layout: layout, onDismiss: onDimiss)
+    }
+
+    /// Presents a WhatsNewView using the given WhatsNew object as a data source for the sheet’s content.
+    /// - Parameters:
+    ///   - whatsNew: A Binding to an optional WhatsNew object
+    ///   - versionStore: The optional WhatsNewVersionStore. Default value `nil`
+    ///   - layout: The WhatsNew Layout. Default value `.default`
+    ///   - onDismiss: The closure to execute when dismissing the sheet. Default value `nil`
+    func sheet(
+        whatsNew: Binding<WhatsNew?>,
+        versionStore: WhatsNewVersionStore? = nil,
+        layout: WhatsNew.Layout = .default,
+        onDismiss: (() -> Void)? = nil
     ) -> some View {
         self.modifier(
             ManualWhatsNewSheetViewModifier(
                 whatsNew: whatsNew,
                 versionStore: versionStore,
                 layout: layout,
-                onDismiss: onDimiss
+                onDismiss: onDismiss
             )
         )
     }
@@ -88,7 +104,7 @@ public extension View {
     /// Auto-Presents a WhatsNewView to the user if needed based on the `WhatsNewEnvironment`
     /// - Parameters:
     ///   - layout: The optional custom WhatsNew Layout. Default value `nil`
-    ///   - onDimiss: The closure to execute when dismissing the sheet. Default value `nil`
+    ///   - onDismiss: The closure to execute when dismissing the sheet. Default value `nil`
     func whatsNewSheet(
         layout: WhatsNew.Layout? = nil,
         onDismiss: (() -> Void)? = nil
