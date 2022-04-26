@@ -104,7 +104,7 @@ public extension View {
     /// Auto-Presents a WhatsNewView to the user if needed based on the `WhatsNewEnvironment`
     /// - Parameters:
     ///   - layout: The optional custom WhatsNew Layout. Default value `nil`
-    ///   - onDimiss: The closure to execute when dismissing the sheet. Default value `nil`
+    ///   - onDismiss: The closure to execute when dismissing the sheet. Default value `nil`
     func whatsNewSheet(
         layout: WhatsNew.Layout? = nil,
         onDismiss: (() -> Void)? = nil
