@@ -144,6 +144,7 @@ private extension WhatsNewView {
         _ feature: WhatsNew.Feature
     ) -> some View {
         HStack(
+            alignment: self.layout.featureHorizontalAlignment,
             spacing: self.layout.featureHorizontalSpacing
         ) {
             feature
