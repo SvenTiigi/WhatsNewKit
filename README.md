@@ -434,6 +434,52 @@ let secondaryActionCustom = WhatsNew.SecondaryAction(
 ```
 > Note: HapticFeedback will only be executed on iOS
 
+## Decoding WhatsNew
+
+WhatsNew can also be decoded from JSON or other decodable file types. 
+
+Images, PrimaryActions and SecondaryActions are provided to the decoder via `userInfo` and are referenced by string keys:
+
+```
+let decoder = JSONDecoder()
+decoder.userInfo["star.fill"] = WhatsNew.Feature.Image(systemName: "star.fill")
+decoder.userInfo["continue"] = WhatsNew.PrimaryAction(
+    title: "Continue",
+    backgroundColor: .accentColor,
+    foregroundColor: .white,
+    hapticFeedback: .notification(.success),
+    onDismiss: {
+        print("WhatsNewView has been dismissed")
+    }
+)
+decoder.userInfo["learnMore"] = WhatsNew.SecondaryAction(
+    title: "Learn more",
+    foregroundColor: .accentColor,
+    hapticFeedback: .selection,
+    action: .openURL(
+        .init(string: "https://github.com/SvenTiigi/WhatsNewKit")
+    )
+) 
+```
+
+A JSON file ist structured like this:
+
+```
+{
+    "version": "1.0.0",
+    "title": "What's New",
+    "features": [
+        {
+            "image": "star.fill",
+            "title": "Title",
+            "subtitle": "Subtitle"
+        }
+    ],
+    "primaryAction": "continue",
+    "secondaryAction": "learnMore"
+}
+```
+
 ## Layout
 
 WhatsNewKit allows you to adjust the layout of a presented `WhatsNewView` in various ways.
