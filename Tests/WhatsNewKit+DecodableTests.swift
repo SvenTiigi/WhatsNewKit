@@ -26,7 +26,13 @@ final class WhatsNewKitDecodableTests: XCTestCase {
             title: "Continue",
             backgroundColor: .accentColor,
             foregroundColor: .white,
-            hapticFeedback: .notification(.success),
+            hapticFeedback: {
+#if !os(macOS)
+                return .notification(.success)
+#else
+                return nil
+#endif
+            }(),
             onDismiss: {
                 print("WhatsNewView has been dismissed")
             }
@@ -34,7 +40,13 @@ final class WhatsNewKitDecodableTests: XCTestCase {
         decoder.userInfo["learnMore"] = WhatsNew.SecondaryAction(
             title: "Learn more",
             foregroundColor: .accentColor,
-            hapticFeedback: .selection,
+            hapticFeedback: {
+#if !os(macOS)
+                return .selection
+#else
+                return nil
+#endif
+            }(),
             action: .openURL(
                 .init(string: "https://github.com/SvenTiigi/WhatsNewKit")
             )
@@ -50,9 +62,14 @@ final class WhatsNewKitDecodableTests: XCTestCase {
         XCTAssertEqual(whatsNew.primaryAction.title, "Continue")
         XCTAssertEqual(whatsNew.primaryAction.backgroundColor, .accentColor)
         XCTAssertEqual(whatsNew.primaryAction.foregroundColor, .white)
+            
+#if !os(macOS)
         XCTAssertEqual(whatsNew.primaryAction.hapticFeedback, .notification(.success))
+#endif
         XCTAssertEqual(whatsNew.secondaryAction!.title, "Learn more")
         XCTAssertEqual(whatsNew.secondaryAction!.foregroundColor, .accentColor)
+#if !os(macOS)
         XCTAssertEqual(whatsNew.secondaryAction!.hapticFeedback, .selection)
+#endif
     }
 }
