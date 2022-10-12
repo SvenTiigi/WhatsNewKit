@@ -169,7 +169,7 @@ private extension WhatsNewView {
                 .fixedSize(horizontal: false, vertical: true)
             }
             .multilineTextAlignment(.leading)
-        }
+        }.accessibilityElement(children: .combine)
     }
     
 }
