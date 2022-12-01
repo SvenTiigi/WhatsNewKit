@@ -1,7 +1,7 @@
 <br/>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/logo.png" width="30%" alt="logo">
+    <img src="Assets/logo.png" width="30%" alt="logo">
 </p>
 
 <h1 align="center">
@@ -33,7 +33,7 @@
    </a>
 </p>
 
-<img align="right" width="315" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example.png" alt="Example">
+<img align="right" width="315" src="Assets/example.png" alt="Example">
 
 ```swift
 import SwiftUI
@@ -78,7 +78,7 @@ Or navigate to your Xcode project then select `Swift Packages`, click the â€œ+â€
 Check out the example application to see WhatsNewKit in action. Simply open the `Example/Example.xcodeproj` and run the "Example" scheme.
 
 <p align="center">
-    <img width="95%" src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/example-app.png" alt="Example Applications">
+    <img width="95%" src="Assets/example-app.png" alt="Example Applications">
 </p>
 
 ## Usage
@@ -286,7 +286,7 @@ If you already have a specific implementation to store user related settings lik
 If you are making use of the `NSUbiquitousKeyValueWhatsNewVersionStore` please ensure to enable the [iCloud Key-value storage](https://developer.apple.com/library/archive/documentation/General/Conceptual/iCloudDesignGuide/Chapters/DesigningForKey-ValueDataIniCloud.html) capability in the "Signing & Capabilities" section of your Xcode project.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/SvenTiigi/WhatsNewKit/gh-pages/readMeAssets/icloud-key-value-storage.png" alt="iCloud Key-value storage">
+    <img src="Assets/icloud-key-value-storage.png" alt="iCloud Key-value storage">
 </p>
 
 ## WhatsNew
