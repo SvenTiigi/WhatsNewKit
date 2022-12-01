@@ -1,0 +1,22 @@
+name: Build Example Project
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Example/**'
+      - 'Sources/**'
+  pull_request:
+    paths:
+      - 'Example/**'
+      - 'Sources/**'
+
+jobs:
+  build:
+    name: Build example project
+    runs-on: macOS-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: xcodebuild build -project Example/Example.xcodeproj -scheme Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
