@@ -15,13 +15,19 @@
 </p>
 
 <p align="center">
-   <a href="https://github.com/SvenTiigi/WhatsNewKit/actions?query=workflow%3ACI">
-      <img src="https://github.com/SvenTiigi/WhatsNewKit/workflows/CI/badge.svg" alt="CI Status">
+   <a href="https://swiftpackageindex.com/SvenTiigi/WhatsNewKit">
+    <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSvenTiigi%2FWhatsNewKit%2Fbadge%3Ftype%3Dswift-versions" alt="Swift Version">
    </a>
-   <a href="https://sventiigi.github.io/WhatsNewKit">
-      <img src="https://github.com/SvenTiigi/WhatsNewKit/blob/gh-pages/badge.svg" alt="Documentation">
+   <a href="https://swiftpackageindex.com/SvenTiigi/WhatsNewKit">
+    <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSvenTiigi%2FWhatsNewKit%2Fbadge%3Ftype%3Dplatforms" alt="Platforms">
    </a>
-   <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS-F05138" alt="Platform">
+   <br/>
+   <a href="https://github.com/SvenTiigi/WhatsNewKit/actions/workflows/build_and_test.yml">
+       <img src="https://github.com/SvenTiigi/WhatsNewKit/actions/workflows/build_and_test.yml/badge.svg" alt="Build and Test Status">
+   </a>
+   <a href="https://sventiigi.github.io/WhatsNewKit/documentation/whatsnewkit/">
+       <img src="https://img.shields.io/badge/Documentation-DocC-blue" alt="Documentation">
+   </a>
    <a href="https://twitter.com/SvenTiigi/">
       <img src="https://img.shields.io/badge/Twitter-@SvenTiigi-blue.svg?style=flat" alt="Twitter">
    </a>
@@ -34,14 +40,14 @@ import SwiftUI
 import WhatsNewKit
 
 struct ContentView: View {
-    
+
     var body: some View {
         NavigationView {
             // ...
         }
         .whatsNewSheet()
     }
-    
+
 }
 ```
 
@@ -109,7 +115,7 @@ struct ContentView: View {
             // ...
         ]
     )
-    
+
     var body: some View {
         NavigationView {
             // ...
@@ -118,7 +124,7 @@ struct ContentView: View {
             whatsNew: self.$whatsNew
         )
     }
-    
+
 }
 ```
 
@@ -148,12 +154,12 @@ The `.whatsNewSheet()` modifier is making use of the `WhatsNewEnvironment` to re
 
 ```swift
 extension App: SwiftUI.App {
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(
-                    \.whatsNew, 
+                    \.whatsNew,
                     WhatsNewEnvironment(
                         // Specify in which way the presented WhatsNew Versions are stored.
                         // In default the `UserDefaultsWhatsNewVersionStore` is used.
@@ -228,7 +234,7 @@ If you wish to further customize the behaviour of the `WhatsNewEnvironment` you 
 
 ```swift
 class MyCustomWhatsNewEnvironment: WhatsNewEnvironment {
-    
+
     /// Retrieve a WhatsNew that should be presented to the user, if available.
     override func whatsNew() -> WhatsNew? {
         // The current version
@@ -239,7 +245,7 @@ class MyCustomWhatsNewEnvironment: WhatsNewEnvironment {
         let versionStore = self.whatsNewVersionStore
         // TODO: Determine WhatsNew that should be presented to the user...
     }
-    
+
 }
 ```
 
@@ -330,8 +336,8 @@ The `WhatsNew.Version` specifies the version that has introduced certain feature
 ```swift
 // Initialize with major, minor, and patch
 let version = WhatsNew.Version(
-    major: 1, 
-    minor: 0, 
+    major: 1,
+    minor: 0,
     patch: 0
 )
 
@@ -394,9 +400,10 @@ let primaryAction = WhatsNew.PrimaryAction(
     hapticFeedback: .notification(.success),
     onDismiss: {
         print("WhatsNewView has been dismissed")
-    }   
+    }
 )
 ```
+
 > Note: HapticFeedback will only be executed on iOS
 
 ### WhatsNew.SecondaryAction
@@ -411,7 +418,7 @@ let secondaryActionPresentAboutView = WhatsNew.SecondaryAction(
     hapticFeedback: .selection,
     action: .present {
         AboutView()
-    }  
+    }
 )
 
 // SecondaryAction that opens a URL
@@ -421,7 +428,7 @@ let secondaryActionOpenURL = WhatsNew.SecondaryAction(
     hapticFeedback: .selection,
     action: .open(
         url: .init(string: "https://github.com/SvenTiigi/WhatsNewKit")
-    )  
+    )
 )
 
 // SecondaryAction with custom execution
@@ -432,6 +439,7 @@ let secondaryActionCustom = WhatsNew.SecondaryAction(
     }
 )
 ```
+
 > Note: HapticFeedback will only be executed on iOS
 
 ## Layout
@@ -465,7 +473,7 @@ Alternatively you can pass a `WhatsNew.Layout` when automatically or manually pr
 .whatsNewSheet(
     layout: WhatsNew.Layout(
         contentPadding: .init(
-            top: 80, 
+            top: 80,
             leading: 0,
             bottom: 0,
             trailing: 0
