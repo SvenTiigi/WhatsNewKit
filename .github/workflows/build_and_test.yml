@@ -1,0 +1,34 @@
+name: Build and Test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Sources/**'
+      - 'Tests/**'
+      - '!Sources/Documentation.docc/**'
+  pull_request:
+    paths:
+      - 'Sources/**'
+      - 'Tests/**'
+      - '!Sources/Documentation.docc/**'
+
+jobs:
+  iOS:
+    name: Build and test on iOS
+    runs-on: macOS-12
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: xcodebuild build-for-testing -scheme WhatsNewKit -destination 'platform=iOS Simulator,name=iPhone 14'
+      - name: Test
+        run: xcodebuild test-without-building -scheme WhatsNewKit -destination 'platform=iOS Simulator,name=iPhone 14'
+  macOS:
+    name: Build and test on macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: swift build -v
+      - name: Test
+        run: swift test -v
