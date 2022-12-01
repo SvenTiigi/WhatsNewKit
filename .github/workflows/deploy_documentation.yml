@@ -1,0 +1,65 @@
+name: Deploy Documentation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+ 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Build Documentation
+        run: |
+          xcodebuild docbuild\
+            -scheme WhatsNewKit\
+            -destination 'generic/platform=iOS'\
+            -derivedDataPath ../DerivedData
+      - name: Process Archive
+        run: |
+          mkdir _site
+          $(xcrun --find docc) process-archive \
+            transform-for-static-hosting ../DerivedData/Build/Products/Debug-iphoneos/WhatsNewKit.doccarchive \
+            --output-path _site \
+            --hosting-base-path WhatsNewKit
+      - name: Create Custom index.html
+        run: |
+          rm _site/index.html
+          cat > _site/index.html <<- EOM
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta http-equiv="refresh" content="0; url='https://sventiigi.github.io/WhatsNewKit/documentation/whatsnewkit/'" />
+            </head>
+           <body>
+              <p>Please follow <a href="https://sventiigi.github.io/WhatsNewKit/documentation/whatsnewkit/">this link</a>.</p>
+            </body>
+          </html>
+          EOM
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v1
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
