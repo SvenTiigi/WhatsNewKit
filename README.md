@@ -85,13 +85,13 @@ Check out the example application to see WhatsNewKit in action. Simply open the 
 
 ### Table of contents
 
-- [Manual Presentation](https://github.com/SvenTiigi/WhatsNewKit/tree/master#manual-presentation)
-- [Automatic Presentation](https://github.com/SvenTiigi/WhatsNewKit/tree/master#automatic-presentation)
-- [WhatsNewEnvironment](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnewenvironment)
-- [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnewversionstore)
-- [WhatsNew](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnew)
-- [Layout](https://github.com/SvenTiigi/WhatsNewKit/tree/master#layout)
-- [WhatsNewViewController](https://github.com/SvenTiigi/WhatsNewKit/tree/master#whatsnewviewcontroller)
+- [Manual Presentation](https://github.com/SvenTiigi/WhatsNewKit/tree/main#manual-presentation)
+- [Automatic Presentation](https://github.com/SvenTiigi/WhatsNewKit/tree/main#automatic-presentation)
+- [WhatsNewEnvironment](https://github.com/SvenTiigi/WhatsNewKit/tree/main#whatsnewenvironment)
+- [WhatsNewVersionStore](https://github.com/SvenTiigi/WhatsNewKit/tree/main#whatsnewversionstore)
+- [WhatsNew](https://github.com/SvenTiigi/WhatsNewKit/tree/main#whatsnew)
+- [Layout](https://github.com/SvenTiigi/WhatsNewKit/tree/main#layout)
+- [WhatsNewViewController](https://github.com/SvenTiigi/WhatsNewKit/tree/main#whatsnewviewcontroller)
 
 ### Manual Presentation
 
