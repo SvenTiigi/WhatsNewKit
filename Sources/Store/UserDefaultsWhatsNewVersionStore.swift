@@ -55,6 +55,21 @@ extension UserDefaultsWhatsNewVersionStore: ReadableWhatsNewVersionStore {
     
 }
 
+// MARK: - Remove
+
+public extension UserDefaultsWhatsNewVersionStore {
+    
+    /// Remove presented WhatsNew Version
+    /// - Parameter version: The presented WhatsNew Version that should be removed
+    func remove(
+        presentedVersion version: WhatsNew.Version
+    ) {
+        self.userDefaults
+            .removeObject(forKey: version.key)
+    }
+    
+}
+
 // MARK: - Remove all
 
 public extension UserDefaultsWhatsNewVersionStore {
