@@ -3,27 +3,6 @@ import SwiftUI
 // MARK: - View+sheet(whatsNew:)
 
 public extension View {
-    
-    /// [Deprecated] Presents a WhatsNewView using the given WhatsNew object as a data source for the sheet’s content.
-    /// - Parameters:
-    ///   - whatsNew: A Binding to an optional WhatsNew object
-    ///   - versionStore: The optional WhatsNewVersionStore. Default value `nil`
-    ///   - layout: The WhatsNew Layout. Default value `.default`
-    ///   - onDimiss: The closure to execute when dismissing the sheet. Default value `nil`
-    @available(*, deprecated, renamed: "sheet(whatsNew:versionStore:layout:onDismiss:)")
-    func sheet(
-        whatsNew: Binding<WhatsNew?>,
-        versionStore: WhatsNewVersionStore? = nil,
-        layout: WhatsNew.Layout = .default,
-        onDimiss: (() -> Void)?
-    ) -> some View {
-        self.sheet(
-            whatsNew: whatsNew,
-            versionStore: versionStore,
-            layout: layout,
-            onDismiss: onDimiss
-        )
-    }
 
     /// Presents a WhatsNewView using the given WhatsNew object as a data source for the sheet’s content.
     /// - Parameters:
