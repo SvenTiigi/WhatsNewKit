@@ -31,6 +31,9 @@
    <a href="https://twitter.com/SvenTiigi/">
       <img src="https://img.shields.io/badge/Twitter-@SvenTiigi-blue.svg?style=flat" alt="Twitter">
    </a>
+   <a href="https://mastodon.world/@SvenTiigi">
+      <img src="https://img.shields.io/badge/Mastodon-@SvenTiigi-8c8dff.svg?style=flat" alt="Mastodon">
+   </a>
 </p>
 
 <img align="right" width="315" src="Assets/example.png" alt="Example">
