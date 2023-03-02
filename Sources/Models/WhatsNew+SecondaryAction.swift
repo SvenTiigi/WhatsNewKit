@@ -10,16 +10,16 @@ public extension WhatsNew {
         // MARK: Properties
         
         /// The title Text
-        public let title: Text
+        public var title: Text
         
         /// The foreground color
-        public let foregroundColor: Color
+        public var foregroundColor: Color
         
         /// The optional HapticFeedback
-        public let hapticFeedback: HapticFeedback?
+        public var hapticFeedback: HapticFeedback?
         
         /// The Action
-        public let action: Action
+        public var action: Action
         
         // MARK: Initializer
         

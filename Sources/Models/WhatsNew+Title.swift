@@ -10,10 +10,10 @@ public extension WhatsNew {
         // MARK: Properties
         
         /// The title Text
-        public let text: Text
+        public var text: Text
         
         /// The foreground color
-        public let foregroundColor: Color
+        public var foregroundColor: Color
         
         // MARK: Initializer
         

@@ -10,19 +10,19 @@ public extension WhatsNew {
         // MARK: Properties
         
         /// The title Text
-        public let title: Text
+        public var title: Text
         
         /// The background color
-        public let backgroundColor: Color
+        public var backgroundColor: Color
         
         /// The foreground color
-        public let foregroundColor: Color
+        public var foregroundColor: Color
         
         /// The optional HapticFeedback
-        public let hapticFeedback: HapticFeedback?
+        public var hapticFeedback: HapticFeedback?
         
         /// The optional on dismiss closure
-        public let onDismiss: (() -> Void)?
+        public var onDismiss: (() -> Void)?
         
         // MARK: Initializer
         

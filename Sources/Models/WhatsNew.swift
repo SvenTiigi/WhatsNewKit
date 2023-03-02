@@ -8,19 +8,19 @@ public struct WhatsNew {
     // MARK: Properties
     
     /// The Version
-    public let version: Version
+    public var version: Version
     
     /// The Title
-    public let title: Title
+    public var title: Title
     
     /// The Features
-    public let features: [Feature]
+    public var features: [Feature]
     
     /// The PrimaryAction
-    public let primaryAction: PrimaryAction
+    public var primaryAction: PrimaryAction
     
     /// The optional SecondaryAction
-    public let secondaryAction: SecondaryAction?
+    public var secondaryAction: SecondaryAction?
     
     // MARK: Initializer
     

@@ -10,13 +10,13 @@ public extension WhatsNew {
         // MARK: Properties
         
         /// The image
-        public let image: Image
+        public var image: Image
         
         /// The title Text
-        public let title: Text
+        public var title: Text
         
         /// The subtitle Text
-        public let subtitle: Text
+        public var subtitle: Text
         
         // MARK: Initializer
         

@@ -10,13 +10,13 @@ public extension WhatsNew {
         // MARK: Properties
         
         /// The major version
-        public let major: Int
+        public var major: Int
         
         /// The minor version
-        public let minor: Int
+        public var minor: Int
         
         /// The patch version
-        public let patch: Int
+        public var patch: Int
         
         // MARK: Initializer
         

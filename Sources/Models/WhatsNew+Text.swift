@@ -10,7 +10,7 @@ public extension WhatsNew {
         // MARK: Properties
         
         /// The NSAttributedString
-        public let attributedString: NSAttributedString
+        public var attributedString: NSAttributedString
 
         // MARK: Initializer
         
