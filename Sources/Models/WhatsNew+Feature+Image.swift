@@ -107,7 +107,7 @@ public extension WhatsNew.Feature.Image {
     init(
         systemName: String,
         renderingMode: Image.TemplateRenderingMode? = .template,
-        symboldRenderingMode: SymbolRenderingMode?,
+        symbolRenderingMode: SymbolRenderingMode?,
         foregroundColor: Color? = .accentColor
     ) {
         self.init {
@@ -115,7 +115,7 @@ public extension WhatsNew.Feature.Image {
                 systemName: systemName
             )
             .renderingMode(renderingMode)
-            .symbolRenderingMode(symboldRenderingMode)
+            .symbolRenderingMode(symbolRenderingMode)
             .font(.title)
             .imageScale(.large)
             .foregroundColor(foregroundColor)
