@@ -101,7 +101,7 @@ public extension WhatsNew.Feature.Image {
     /// - Parameters:
     ///   - systemName: The name of the system symbol image
     ///   - renderingMode: The mode SwiftUI uses to render images. Default value `.template`
-    ///   - symboldRenderingMode: The symbol rendering mode to use
+    ///   - symbolRenderingMode: The symbol rendering mode to use
     ///   - foregroundColor: The foreground color to use when displaying this view. Default value `.accentColor`
     @available(iOS 15.0, macOS 12.0, *)
     init(
