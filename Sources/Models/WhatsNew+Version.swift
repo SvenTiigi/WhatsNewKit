@@ -18,6 +18,9 @@ public extension WhatsNew {
         /// The patch version
         public var patch: Int
         
+        /// The build number
+        public var build: Int
+        
         // MARK: Initializer
         
         /// Creates a new instance of `WhatsNew.Version`
@@ -25,18 +28,20 @@ public extension WhatsNew {
         ///   - major: The major version
         ///   - minor: The minor version
         ///   - patch: The patch version
+        ///
+        /// By default, if not provided, 0 will be used for the build number.
         public init(
             major: Int,
             minor: Int,
-            patch: Int
+            patch: Int,
+            build: Int = 0
         ) {
             self.major = major
             self.minor = minor
             self.patch = patch
+            self.build = build
         }
-        
     }
-    
 }
 
 // MARK: - Comparable
@@ -64,6 +69,14 @@ extension WhatsNew.Version: CustomStringConvertible {
     /// A textual representation of this instance.
     public var description: String {
         [
+            self.shortVersionRepr,
+            String(self.build)
+        ]
+        .joined(separator: "-")
+    }
+    
+    public var shortVersionRepr: String {
+        [
             self.major,
             self.minor,
             self.patch
@@ -71,7 +84,6 @@ extension WhatsNew.Version: CustomStringConvertible {
         .map(String.init)
         .joined(separator: ".")
     }
-    
 }
 
 // MARK: - ExpressibleByStringLiteral
@@ -83,12 +95,12 @@ extension WhatsNew.Version: ExpressibleByStringLiteral {
     public init(
         stringLiteral value: String
     ) {
-        let components = value.components(separatedBy: ".").compactMap(Int.init)
+        let components = value.components(separatedBy: .init(charactersIn: ".-")).compactMap(Int.init)
         self.major = components.indices.contains(0) ? components[0] : 0
         self.minor = components.indices.contains(1) ? components[1] : 0
         self.patch = components.indices.contains(2) ? components[2] : 0
+        self.build = components.indices.contains(3) ? components[3] : 0
     }
-    
 }
 
 // MARK: - Current
@@ -102,12 +114,20 @@ public extension WhatsNew.Version {
         in bundle: Bundle = .main
     ) -> WhatsNew.Version {
         // Retrieve Bundle short Version String
-        let shortVersionString = bundle.infoDictionary?["CFBundleShortVersionString"] as? String
+        let shortVersionString = (bundle.infoDictionary?["CFBundleShortVersionString"] as? String) ?? ""
+        let buildNumberString = bundle.infoDictionary?["CFBundleVersion"] as? String
+
+        let versionString = {
+            if let buildNumberString {
+                return [shortVersionString, buildNumberString].joined(separator: "-")
+            }
+            return shortVersionString
+        }()
+        
         // Return initialized Version via String Literal
         return .init(
-            stringLiteral: shortVersionString ?? ""
+            stringLiteral: versionString
         )
     }
-    
 }
 
