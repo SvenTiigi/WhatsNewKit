@@ -104,6 +104,9 @@ extension WhatsNewView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+        #if os(macOS)
+        .frame(minWidth: 400, maxWidth: 600)
+        #endif
         .sheet(
             item: self.$secondaryActionPresentedView,
             content: { $0.view }
@@ -226,15 +229,20 @@ private extension WhatsNewView {
                 Text(
                     whatsNewText: self.whatsNew.primaryAction.title
                 )
+                #if os(macOS)
+                .frame(minWidth: 150)
+                #endif
             }
+            #if os(iOS)
             .buttonStyle(
                 PrimaryButtonStyle(
                     primaryAction: self.whatsNew.primaryAction,
                     layout: self.layout
                 )
             )
-            #if os(macOS)
+            #elseif os(macOS)
             .keyboardShortcut(.defaultAction)
+            .controlSize(.large)
             #endif
         }
     }
