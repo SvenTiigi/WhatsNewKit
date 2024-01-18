@@ -30,7 +30,7 @@ extension WhatsNewView.FeaturesPadding: ViewModifier {
     func body(
         content: Content
     ) -> some View {
-        #if os(macOS)
+        #if os(macOS) || os(visionOS)
         content.padding(.horizontal)
         #else
         if self.horizontalSizeClass == .regular {
