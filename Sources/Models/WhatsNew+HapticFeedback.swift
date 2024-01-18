@@ -9,7 +9,7 @@ public extension WhatsNew {
     
     /// The WhatsNew HapticFeedback
     enum HapticFeedback: Hashable {
-        #if os(iOS) && !os(xrOS)
+        #if os(iOS) && !os(visionOS)
         /// Impact HapticFeedback
         case impact(
             style: UIImpactFeedbackGenerator.FeedbackStyle? = nil,
@@ -32,7 +32,7 @@ public extension WhatsNew.HapticFeedback {
     
     /// Call HapticFeedback as function to execute the HapticFeedback
     func callAsFunction() {
-        #if os(iOS) && !os(xrOS)
+        #if os(iOS) && !os(visionOS)
         switch self {
         case .impact(let style, let intensity):
             let feedbackGenerator = style.flatMap(UIImpactFeedbackGenerator.init) ?? .init()
