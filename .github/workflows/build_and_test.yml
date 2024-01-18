@@ -4,19 +4,19 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'Sources/**'
-      - 'Tests/**'
-      - '!Sources/Documentation.docc/**'
+      - "Sources/**"
+      - "Tests/**"
+      - "!Sources/Documentation.docc/**"
   pull_request:
     paths:
-      - 'Sources/**'
-      - 'Tests/**'
-      - '!Sources/Documentation.docc/**'
+      - "Sources/**"
+      - "Tests/**"
+      - "!Sources/Documentation.docc/**"
 
 jobs:
   iOS:
     name: Build and test on iOS
-    runs-on: macOS-12
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
       - name: Build

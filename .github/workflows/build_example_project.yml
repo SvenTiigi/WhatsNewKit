@@ -4,17 +4,17 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'Example/**'
-      - 'Sources/**'
+      - "Example/**"
+      - "Sources/**"
   pull_request:
     paths:
-      - 'Example/**'
-      - 'Sources/**'
+      - "Example/**"
+      - "Sources/**"
 
 jobs:
   build:
     name: Build iOS example project
-    runs-on: macOS-12
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
