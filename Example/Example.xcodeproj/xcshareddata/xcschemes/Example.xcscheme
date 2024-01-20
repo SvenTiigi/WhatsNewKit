@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D9996B7276E10CE00438FB6"
-               BuildableName = "Example-macOS.app"
-               BlueprintName = "Example-macOS"
+               BlueprintIdentifier = "3D5FCF732767887E00D3211F"
+               BuildableName = "WhatsNewKit-Example.app"
+               BlueprintName = "Example"
                ReferencedContainer = "container:Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D9996B7276E10CE00438FB6"
-            BuildableName = "Example-macOS.app"
-            BlueprintName = "Example-macOS"
+            BlueprintIdentifier = "3D5FCF732767887E00D3211F"
+            BuildableName = "WhatsNewKit-Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D9996B7276E10CE00438FB6"
-            BuildableName = "Example-macOS.app"
-            BlueprintName = "Example-macOS"
+            BlueprintIdentifier = "3D5FCF732767887E00D3211F"
+            BuildableName = "WhatsNewKit-Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

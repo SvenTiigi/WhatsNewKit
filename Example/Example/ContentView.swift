@@ -12,15 +12,8 @@ extension ContentView: View {
     
     /// The content and behavior of the view
     var body: some View {
-        Group {
-            #if os(macOS)
+        NavigationStack {
             ExamplesView()
-            #else
-            NavigationView {
-                ExamplesView()
-            }
-            .navigationViewStyle(.stack)
-            #endif
         }
         .whatsNewSheet()
     }
