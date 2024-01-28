@@ -7,7 +7,7 @@ extension WhatsNewView {
     /// The WhatsNewView FeaturesPadding ViewModifier
     struct FeaturesPadding {
         
-        #if os(iOS)
+        #if os(iOS) || os(visionOS)
         /// The Horizontal SizeClass
         @Environment(\.horizontalSizeClass)
         private var horizontalSizeClass
@@ -30,7 +30,7 @@ extension WhatsNewView.FeaturesPadding: ViewModifier {
     func body(
         content: Content
     ) -> some View {
-        #if os(macOS) || os(visionOS)
+        #if os(macOS)
         content.padding(.horizontal)
         #else
         if self.horizontalSizeClass == .regular {

@@ -7,7 +7,7 @@ extension WhatsNewView {
     /// The WhatsNewView FooterPadding ViewModifier
     struct FooterPadding {
         
-        #if os(iOS)
+        #if os(iOS) || os(visionOS)
         /// The Horizontal SizeClass
         @Environment(\.horizontalSizeClass)
         private var horizontalSizeClass
@@ -30,7 +30,7 @@ extension WhatsNewView.FooterPadding: ViewModifier {
     func body(
         content: Content
     ) -> some View {
-        #if os(macOS) || os(visionOS)
+        #if os(macOS)
         content.padding(.bottom, 30)
         #else
         if self.horizontalSizeClass == .regular {
