@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version: 5.9
 
 import PackageDescription
 
@@ -6,12 +6,15 @@ let package = Package(
     name: "WhatsNewKit",
     platforms: [
         .iOS(.v13),
-        .macOS(.v11)
+        .macOS(.v11),
+        .visionOS(.v1)
     ],
     products: [
         .library(
             name: "WhatsNewKit",
-            targets: ["WhatsNewKit"]
+            targets: [
+                "WhatsNewKit"
+            ]
         )
     ],
     targets: [
@@ -21,7 +24,9 @@ let package = Package(
         ),
         .testTarget(
             name: "WhatsNewKitTests",
-            dependencies: ["WhatsNewKit"],
+            dependencies: [
+                "WhatsNewKit"
+            ],
             path: "Tests"
         )
     ]

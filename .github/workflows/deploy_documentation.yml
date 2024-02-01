@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
- 
+
 permissions:
   contents: read
   pages: write
@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-12
+    runs-on: macos-14
     steps:
       - name: Checkout
         uses: actions/checkout@v3

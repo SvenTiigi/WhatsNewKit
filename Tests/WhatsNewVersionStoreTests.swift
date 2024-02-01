@@ -67,6 +67,10 @@ final class WhatsNewVersionStoreTests: WhatsNewKitTestCase {
             override func set(_ value: Any?, forKey defaultName: String) {
                 self.store[defaultName] = value
             }
+            
+            override func removeObject(forKey aKey: String) {
+                self.store.removeValue(forKey: aKey)
+            }
         }
         let fakeNSUbiquitousKeyValueStore = FakeNSUbiquitousKeyValueStore()
         let ubiquitousKeyValueWhatsNewVersionStore = NSUbiquitousKeyValueWhatsNewVersionStore(

@@ -31,7 +31,13 @@ public extension WhatsNew {
         ///   - action: The Action
         public init(
             title: Text,
-            foregroundColor: Color = .accentColor,
+            foregroundColor: Color = {
+                #if os(visionOS)
+                .primary
+                #else
+                .accentColor
+                #endif
+            }(),
             hapticFeedback: HapticFeedback? = nil,
             action: Action
         ) {
