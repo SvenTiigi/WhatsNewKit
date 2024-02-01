@@ -26,22 +26,13 @@ extension WhatsNewView.PrimaryButtonStyle: ButtonStyle {
     func makeBody(
         configuration: Configuration
     ) -> some View {
-        Group {
-            #if os(iOS)
-            HStack {
-                Spacer()
-                configuration
-                    .label
-                    .font(.headline.weight(.semibold))
-                    .padding(.vertical)
-                Spacer()
-            }
-            #else
+        HStack {
+            Spacer()
             configuration
                 .label
-                .padding(.horizontal, 60)
-                .padding(.vertical, 8)
-            #endif
+                .font(.headline.weight(.semibold))
+                .padding(.vertical)
+            Spacer()
         }
         .foregroundColor(self.primaryAction.foregroundColor)
         .background(self.primaryAction.backgroundColor)
