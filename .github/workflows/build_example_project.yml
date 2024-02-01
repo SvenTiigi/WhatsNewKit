@@ -19,4 +19,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
-        run: xcodebuild build -project Example/Example.xcodeproj -scheme Example-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
+        run: xcodebuild build -project Example/Example.xcodeproj -scheme Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
