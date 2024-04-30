@@ -20,7 +20,10 @@ let package = Package(
     targets: [
         .target(
             name: "WhatsNewKit",
-            path: "Sources"
+            path: "Sources",
+            resources: [
+                .process("Resources/PrivacyInfo.xcprivacy")
+            ]
         ),
         .testTarget(
             name: "WhatsNewKitTests",
