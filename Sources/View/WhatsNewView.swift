@@ -128,6 +128,7 @@ private extension WhatsNewView {
             whatsNewText: self.whatsNew.title.text
         )
         .font(.largeTitle.bold())
+        .foregroundColor(self.whatsNew.title.foregroundColor)
         .multilineTextAlignment(.center)
         .fixedSize(horizontal: false, vertical: true)
     }
