@@ -103,6 +103,16 @@ extension WhatsNewView: View {
                     #endif
             }
             .edgesIgnoringSafeArea(.bottom)
+
+            // Version number
+            if let versionTextConfiguration = whatsNew.versionTextConfiguration {
+                VStack {
+                    Spacer()
+                    Text("v.\(whatsNew.version.description)")
+                        .font(versionTextConfiguration.font)
+                        .foregroundColor(versionTextConfiguration.foregroundColor)
+                }
+            }
         }
         .sheet(
             item: self.$secondaryActionPresentedView,
