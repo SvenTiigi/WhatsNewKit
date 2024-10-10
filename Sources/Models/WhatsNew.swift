@@ -21,7 +21,9 @@ public struct WhatsNew {
     
     /// The optional SecondaryAction
     public var secondaryAction: SecondaryAction?
-    
+
+    public var versionTextConfiguration: WhatsNew.VersionTextConfiguration?
+
     // MARK: Initializer
     
     /// Creates a new instance of `WhatsNew`
@@ -31,18 +33,21 @@ public struct WhatsNew {
     ///   - items: The Features
     ///   - primaryAction: The PrimaryAction. Default value `.init()`
     ///   - secondaryAction: The optional SecondaryAction. Default value `nil`
+    ///   - versionTextConfiguration: The optional version text configuration. Default value `nil`
     public init(
         version: Version = .current(),
         title: Title,
         features: [Feature],
         primaryAction: PrimaryAction = .init(),
-        secondaryAction: SecondaryAction? = nil
+        secondaryAction: SecondaryAction? = nil,
+        versionTextConfiguration: WhatsNew.VersionTextConfiguration? = nil
     ) {
         self.version = version
         self.title = title
         self.features = features
         self.primaryAction = primaryAction
         self.secondaryAction = secondaryAction
+        self.versionTextConfiguration = versionTextConfiguration
     }
     
 }
